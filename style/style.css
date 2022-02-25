@@ -89,3 +89,122 @@
 
 
 /*-------------------------------Events End-------------------------------*/
+/*------------------------------Footer Start------------------------------*/
+.content-wrap {
+  padding-bottom: 15em;
+}
+
+.footer-top {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333333;
+  height: 11em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.footer-top img {
+  margin-left: -1%;
+}
+
+.text-address {
+  color: white;
+  margin-left: 4%;
+}
+
+.text-address .uni-name {
+  color: white;
+  width: 100%;
+}
+
+.text-address div {
+  color: white;
+  line-height: 150%;
+}
+
+.text-address a {
+  color: white;
+}
+
+.icons {
+  width: 5.5%;
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  align-items: center;
+  list-style: none;
+}
+
+.icons ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.social-icons li {
+  display: list-item;
+  margin-bottom: 4px;
+  justify-content: space-around;
+}
+
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+  color: #fff;
+}
+
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+
+.social-icons a.instagram:hover {
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+  linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+/*-------------------------------Footer End-------------------------------*/
