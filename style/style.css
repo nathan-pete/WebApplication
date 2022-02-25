@@ -2,6 +2,7 @@
 
 @import url('http://fonts.cdnfonts.com/css/boycott');
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
   margin: 0;
@@ -9,9 +10,22 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(to bottom, rgb(62, 62, 62), rgb(0, 0, 0));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.body {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  height: auto;
+}
+
 /*------------------------------General End------------------------------*/
 /*------------------------------Header Start-----------------------------*/
-
 .header-style, .nav, .menu {
   display: flex;
   justify-content: center;
@@ -90,20 +104,49 @@
 
 /*-------------------------------Header End-------------------------------*/
 /*------------------------------Events Start------------------------------*/
+.event-h, .event-p {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+}
 
+.events-title {
+  margin: 0;
+}
+
+.events-title h2 {
+  margin: 1%;
+}
+
+.event-items {
+  padding-top: 1%;
+  padding-bottom: 2.5%;
+  margin-bottom: 1%;
+  background-color: #797979;
+  border-radius: 20px;
+}
+
+.event-img img {
+  float: left;
+  margin-right: 2%;
+  margin-left: 1%;
+}
+
+.event-text {
+  padding-top: 2%;
+  display: block;
+  align-items: center;
+}
 
 /*-------------------------------Events End-------------------------------*/
 /*------------------------------Footer Start------------------------------*/
-.content-wrap {
-  padding-bottom: 15em;
-}
-
 .footer-top {
   position: absolute;
   bottom: 0;
   width: 100%;
   background-color: #333333;
-  height: 11em;
+  border-top: 1px solid;
+  border-top-color: #797979;
+  height: 9em;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -114,19 +157,28 @@
   margin-left: -1%;
 }
 
+.text-contact {
+  color: white;
+  margin-right: 8.4%;
+  margin-left: -2.5%;
+  line-height: 150%;
+
+}
+
+.text-contact a {
+  color: white;
+}
+
 .text-address {
   color: white;
   margin-left: 4%;
+  line-height: 150%;
+
 }
 
 .text-address .uni-name {
   color: white;
   width: 100%;
-}
-
-.text-address div {
-  color: white;
-  line-height: 150%;
 }
 
 .text-address a {
@@ -184,23 +236,16 @@
   color: #fff;
 }
 
-.social-icons.size-sm a {
-  line-height: 34px;
-  height: 34px;
-  width: 34px;
-  font-size: 14px;
-}
-
-.social-icons a.facebook:hover {
-  background-color: #3b5998;
+.social-icons a.snapchat:hover {
+  background-color: #FC0;
 }
 
 .social-icons a.twitter:hover {
   background-color: #00aced;
 }
 
-.social-icons a.linkedin:hover {
-  background-color: #007bb6;
+.social-icons a.reddit:hover {
+  background-color: #FF4501;
 }
 
 .social-icons a.instagram:hover {
