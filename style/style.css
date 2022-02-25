@@ -47,6 +47,10 @@
   color: #ffffff;
 }
 
+.menu li.line {
+  pointer-events: none;
+}
+
 .menu li a {
   text-decoration: none;
   color: #fff;
