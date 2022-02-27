@@ -1,7 +1,6 @@
 /*-----------------------------General Start-----------------------------*/
-
 @import url('http://fonts.cdnfonts.com/css/boycott');
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
@@ -11,9 +10,13 @@
 }
 
 body {
-  background-color: rgb(0, 0, 0);
-  background-image: linear-gradient(to bottom, rgb(62, 62, 62), rgb(0, 0, 0));
+  background-color: black;
   background-repeat: no-repeat;
+  background-image: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent),
+  linear-gradient(#7959ca, #1a626f 30%, #a73fe3 50%, #b738f7 70%, #fec66d 100%);
   background-size: cover;
 }
 
@@ -21,7 +24,7 @@ body {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-  height: auto;
+  height: 100%
 }
 
 /*------------------------------General End------------------------------*/
@@ -86,7 +89,7 @@ body {
 
 .nav span {
   position: absolute;
-  left: 17px;
+  left: 16px;
   top: 18px;
   width: 20px;
   height: 4px;
@@ -100,39 +103,64 @@ body {
 .nav input:checked ~ span {
   background-color: #ff0000;
   transform: rotate(180deg);
+  left: 18px;
 }
 
 /*-------------------------------Header End-------------------------------*/
 /*------------------------------Events Start------------------------------*/
-.event-h, .event-p {
+.events-content {
   color: white;
   font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.event-h {
+  font-weight: 600;
+}
+
+.event-p {
+  font-weight: 500;
 }
 
 .events-title {
-  margin: 0;
-}
-
-.events-title h2 {
-  margin: 1%;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  margin: 1% 0 0 1%;
 }
 
 .event-items {
-  padding-top: 1%;
-  padding-bottom: 2.5%;
-  margin-bottom: 1%;
-  background-color: #797979;
+  padding: 1% 0 1% 0;
+  margin: 2% 0 2% 0;
+  background-color: rgba(255, 255, 255, 0.55);
   border-radius: 20px;
+  color: black;
+  width: 40%;
+  transition: 1s;
+  transform: translate3D(0, -1px, 0);
 }
 
-.event-img img {
-  float: left;
-  margin-right: 2%;
-  margin-left: 1%;
+.event-img {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0 0 3%;
+}
+
+.event-items:hover {
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  transition: 1s;
+  background-color: rgba(222, 222, 222, 0.35);
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+  transform: translate3D(0, -1px, 0) scale(1.03);
 }
 
 .event-text {
-  padding-top: 2%;
+  margin-left: 3%;
   display: block;
   align-items: center;
 }
@@ -140,52 +168,56 @@ body {
 /*-------------------------------Events End-------------------------------*/
 /*------------------------------Footer Start------------------------------*/
 .footer-top {
-  position: absolute;
+  color: black;
+  position: relative;
   bottom: 0;
   width: 100%;
-  background-color: #333333;
-  border-top: 1px solid;
-  border-top-color: #797979;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.65));
+  border-radius: 20px 20px 0 0;
   height: 9em;
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 -8px 15px rgba(255, 0, 0, 0.5);
 }
 
 .footer-top img {
-  margin-left: -1%;
+  margin-left: 40%;
+
 }
 
 .text-contact {
-  color: white;
-  margin-right: 8.4%;
-  margin-left: -2.5%;
+  color: black;
+  margin-left: -4.5%;
+  margin-right: 5%;
   line-height: 150%;
 
 }
 
 .text-contact a {
-  color: white;
+  color: black;
 }
 
 .text-address {
-  color: white;
-  margin-left: 4%;
+  color: black;
+  margin-left: 5%;
+  margin-right: 3%;
   line-height: 150%;
 
 }
 
 .text-address .uni-name {
-  color: white;
+  color: black;
   width: 100%;
 }
 
 .text-address a {
-  color: white;
+  color: black;
 }
 
 .icons {
+  margin-left: 6%;
   width: 5.5%;
 }
 
@@ -217,8 +249,8 @@ body {
 }
 
 .social-icons a {
-  background-color: #eceeef;
-  color: #818a91;
+  background: radial-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
+  color: rgb(0, 0, 0);
   font-size: 16px;
   display: inline-block;
   line-height: 44px;
@@ -226,7 +258,7 @@ body {
   height: 44px;
   text-align: center;
   margin-right: 8px;
-  border-radius: 100%;
+  border-radius: 30px 30px 60px 30px;
   -webkit-transition: all .2s linear;
   -o-transition: all .2s linear;
   transition: all .2s linear;
@@ -236,12 +268,12 @@ body {
   color: #fff;
 }
 
-.social-icons a.snapchat:hover {
-  background-color: #FC0;
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
 }
 
-.social-icons a.twitter:hover {
-  background-color: #00aced;
+.social-icons a.snapchat:hover {
+  background-color: #ffff00;
 }
 
 .social-icons a.reddit:hover {
@@ -249,11 +281,15 @@ body {
 }
 
 .social-icons a.instagram:hover {
-  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-  linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+  background: radial-gradient(circle farthest-corner at 35% 90%, #977839, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #3d419a, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #5e2a84, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #821e49, transparent),
+  linear-gradient(#393372, #801e49 30%, #661c2a 50%, #6d351b 70%, #fec66d 100%);
 }
 
 /*-------------------------------Footer End-------------------------------*/
+
+
+
+
