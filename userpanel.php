@@ -33,26 +33,29 @@
       <div class="user-text">
         <div class="user-pfp">
           <br>
-          <img src="./assets/defaultpfp.png" class="usrtweak" alt="Profile Picture">
-          <h3>Points: 42069</h3>
+          <img src="./assets/defaultpfp.png" class="usrtweak" alt="Profile Picture"><br>
+          <h3>Points: </h3>
           <br>
         </div>
         <div class="usr-details">
-          <p class="user-p">Username:</p>
-          <p class="user-p">First Name:</p>
-          <p class="user-p">Last Name:</p>
-          <p class="user-p">E-mail:</p>
-          <p class="user-p">Date of Birth:</p>
+          <p class="user-p"><b>Username:</b>&nbsp;</p>
+          <p class="user-p"><b>Name:</b>&nbsp;</p>
+          <p class="user-p"><b>E-mail:</b>&nbsp;</p>
+          <p class="user-p"><b>Date of Birth:</b>&nbsp;</p>
         </div>
         <br>
         <div class="usr-buttons">
           <div class="edit-info">
             <p>Edit My Info</p>
           </div>
+          <div class="chnge-pass">
+            <p>Change Password</p>
+          </div>
           <div class="delete-profile">
             <p>Delete My Profile</p>
           </div>
         </div>
+        <div class="space"></div>
       </div>
     </div>
     <div class="space"></div>
