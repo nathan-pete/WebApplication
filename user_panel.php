@@ -29,7 +29,6 @@
     <h1 style="font-weight: 700; pointer-events: none;">Welcome User!</h1>
   </div>
   <div class="user-content">
-
     <div class="user-items">
       <div class="user-text">
         <div class="user-pfp">
@@ -56,7 +55,7 @@
         </div>
       </div>
     </div>
-
+    <div class="space"></div>
   </div>
 </div>
 <br>
