@@ -290,6 +290,37 @@ body {
 
 /*-------------------------------Footer End-------------------------------*/
 
+/*------------------------------Index Start------------------------------*/
+#indexContainer {
+  width: 98vw;
+  margin: 0 auto;
+  height: 97vh;
+  display: grid;
+  grid-template-rows: 30vh 3vh 6vh 20vh 6vh 21vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
+  grid-template-columns: 39vw 20vw 39vw;
+}
+
+#indexCenterGallery {
+  grid-column: 1/4;
+  grid-row: 1/2;
+  height: 100%; width: 100%;
+  display: grid;
+  grid-template-rows: 10% 80% 10%; /*Padding Content Padding*/
+  grid-template-columns: 5% 30% 5% 55% 5%; /*Padding Text FreeSpace Image Padding*/
+}
+
+#indexCenterTitle {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: whitesmoke;
+  font-family: 'boycott', sans-serif;
+}
+
+/*------------------------------Index End------------------------------*/
+
 
 
 
