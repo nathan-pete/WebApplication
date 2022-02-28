@@ -33,10 +33,27 @@
     <div class="user-items">
       <div class="user-text">
         <div class="user-pfp">
-          <h3 class="user-h" style="padding-bottom:0.5%;">Sumo</h3>
+          <br>
+          <img src="./assets/defaultpfp.png" class="usrtweak" alt="Profile Picture">
+          <h3>Points: 42069</h3>
+          <br>
         </div>
-        <p class="user-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
+        <div class="usr-details">
+          <p class="user-p">Username:</p>
+          <p class="user-p">First Name:</p>
+          <p class="user-p">Last Name:</p>
+          <p class="user-p">E-mail:</p>
+          <p class="user-p">Date of Birth:</p>
+        </div>
+        <br>
+        <div class="usr-buttons">
+          <div class="edit-info">
+            <p>Edit My Info</p>
+          </div>
+          <div class="delete-profile">
+            <p>Delete My Profile</p>
+          </div>
+        </div>
       </div>
     </div>
 
