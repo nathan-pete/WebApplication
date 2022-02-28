@@ -166,6 +166,69 @@ body {
 }
 
 /*-------------------------------Events End-------------------------------*/
+/*-------------------------------User Start-------------------------------*/
+
+.user-content {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.user-h {
+  font-weight: 600;
+}
+
+.user-p {
+  font-weight: 500;
+}
+
+.user-title {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  margin: 1% 0 0 1%;
+}
+
+.user-items {
+  padding: 1% 0 1% 0;
+  margin: 2% 0 2% 0;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  color: black;
+  width: 100%;
+  transition: 1s;
+  transform: translate3D(0, -1px, 0);
+}
+
+
+.user-items:hover {
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+  transition: 1s;
+  background-color: rgba(222, 222, 222, 0.35);
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+  transform: translate3D(0, -1px, 0) scale(1.03);
+}
+
+.user-text {
+  margin-left: 3%;
+  display: block;
+  align-items: center;
+}
+
+.user-pfp {
+  background-color: red;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  border-radius: 50px;
+}
+
+/*-------------------------------Event End--------------------------------*/
 /*------------------------------Footer Start------------------------------*/
 .footer-top {
   color: black;
@@ -179,7 +242,7 @@ body {
   align-items: center;
   justify-content: space-around;
   font-family: 'Orbitron', sans-serif;
-  box-shadow: 0 -8px 30px rgba(255, 0, 0, 0.5);
+  box-shadow: 0 -8px 15px rgba(255, 0, 0, 0.5);
 }
 
 .footer-top img {
@@ -303,7 +366,8 @@ body {
 #indexCenterGallery {
   grid-column: 1/4;
   grid-row: 1/2;
-  height: 100%; width: 100%;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 10% 80% 10%; /*Padding Content Padding*/
   grid-template-columns: 5% 30% 5% 55% 5%; /*Padding Text FreeSpace Image Padding*/
@@ -320,6 +384,7 @@ body {
 }
 
 /*------------------------------Index End------------------------------*/
+
 
 
 

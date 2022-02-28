@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<body lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,18 +20,21 @@
       </style>";
   ?>
 </head>
+<body>
 <div class="body">
   <?php
     include_once "header.html";
   ?>
-  <div class="events-title">
-    <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
+  <div class="user-title">
+    <h1 style="font-weight: 700; pointer-events: none;">Welcome User!</h1>
   </div>
-  <div class="events-content">
+  <div class="user-content">
 
     <div class="user-items">
       <div class="user-text">
-        <h3 class="user-h" style="padding-bottom:0.5%;">Sumo</h3>
+        <div class="user-pfp">
+          <h3 class="user-h" style="padding-bottom:0.5%;">Sumo</h3>
+        </div>
         <p class="user-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
       </div>
