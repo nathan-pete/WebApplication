@@ -58,6 +58,10 @@ body {
   width: 351px;
 }
 
+.nav input:hover ~ span {
+  background-color: #0386FF;
+}
+
 .menu li {
   list-style: none;
   margin: 0 5px;
@@ -258,6 +262,7 @@ body {
 .usr-buttons {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   font-weight: 550;
 }
 
@@ -314,7 +319,7 @@ body {
 }
 
 .space {
-  margin: 1.5%;
+  margin: 1.9%;
 }
 
 /*-------------------------------Event End--------------------------------*/
