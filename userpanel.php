@@ -45,10 +45,10 @@
         </div>
         <br>
         <div class="usr-buttons">
-          <div class="edit-info">
+          <div class="info">
             <p>Edit My Info</p>
           </div>
-          <div class="chnge-pass">
+          <div class="info">
             <p>Change Password</p>
           </div>
           <div class="delete-profile">

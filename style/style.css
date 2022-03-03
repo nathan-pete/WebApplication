@@ -58,6 +58,20 @@ body {
   width: 351px;
 }
 
+.h-sign {
+  opacity: 0.4;
+  color: white;
+  position: absolute;
+  width: 200px;
+  left: 115%;
+  transition: 1s;
+}
+
+.nav input:checked ~ .h-sign {
+  opacity: 0;
+
+}
+
 .nav input:hover ~ span {
   background-color: #0386FF;
 }
@@ -266,7 +280,7 @@ body {
   font-weight: 550;
 }
 
-.usr-buttons .edit-info {
+.usr-buttons .info {
   background-color: rgb(154, 154, 154);
   padding: 1% 1% 1% 2%;
   margin: 0 3% 1% 0;
@@ -277,24 +291,7 @@ body {
   transition: 0.5s;
 }
 
-.usr-buttons .edit-info:hover {
-  background-color: rgb(179, 178, 178);
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.usr-buttons .chnge-pass {
-  background-color: rgb(154, 154, 154);
-  padding: 1% 1% 1% 2%;
-  margin: 0 3% 1% 0;
-  color: white;
-  border-radius: 20px;
-  width: 25%;
-  text-align: center;
-  transition: 0.5s;
-}
-
-.usr-buttons .chnge-pass:hover {
+.usr-buttons .info:hover {
   background-color: rgb(179, 178, 178);
   transition: 0.5s;
   cursor: pointer;
@@ -475,7 +472,11 @@ body {
   color: whitesmoke;
   font-family: 'boycott', sans-serif;
 }
-#indexCenterSubtitle {font-family: 'Orbitron', 'sans-serif'; font-size: 1.3vmax;}
+
+#indexCenterSubtitle {
+  font-family: 'Orbitron', 'sans-serif';
+  font-size: 1.3vmax;
+}
 
 #indexCenterImage {
   grid-row: 2/3;
@@ -515,10 +516,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .indexScrollItem img {
   height: 90%;
   width: auto;
 }
+
 .indexScrollSpacer {
   height: 100%;
   width: 5vw;
