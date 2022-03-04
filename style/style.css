@@ -65,6 +65,7 @@ body {
   width: 200px;
   left: 115%;
   transition: 1s;
+  pointer-events: none;
 }
 
 .nav input:checked ~ .h-sign {
