@@ -40,7 +40,7 @@ body {
   position: relative;
   background-color: #2A2A2A;
   padding-left: 1%;
-  margin: 1%;
+  margin: 1.5% 0 0 0;
   transition: 0.5s;
   border-radius: 50px;
   box-shadow: 0 8px 15px rgba(255, 0, 0, 0.5);
@@ -145,16 +145,16 @@ body {
 .events-title {
   color: white;
   font-family: "Orbitron", sans-serif;
-  margin: 1% 0 0 1%;
+  margin: 1% 0 1% 1%;
 }
 
 .event-items {
   padding: 1% 0 1% 0;
-  margin: 2% 0 2% 0;
+  margin: 1% auto;
   background-color: rgba(255, 255, 255, 0.55);
   border-radius: 20px;
   color: black;
-  width: 100%;
+  width: 80%;
   transition: 1s;
   transform: translate3D(0, -1px, 0);
 }
@@ -169,7 +169,8 @@ body {
 .event-items:hover {
   border-radius: 20px;
   color: white;
-  width: 100%;
+  width: 80%;
+  margin: 1% auto;
   transition: 1s;
   background-color: rgba(222, 222, 222, 0.35);
   cursor: pointer;
