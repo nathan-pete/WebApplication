@@ -419,6 +419,11 @@ body {
   transition: all .2s linear;
 }
 
+.PBBlogo {
+  height: 120px;
+  width: 200px;
+}
+
 .social-icons a:active, .social-icons a:focus, .social-icons a:hover {
   color: #fff;
 }
