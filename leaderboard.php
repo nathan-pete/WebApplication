@@ -25,6 +25,9 @@
   <?php
     include_once "header.html";
   ?>
+  <div class="events-title">
+    <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
+  </div>
   <table class="leaderboard">
     <tr>
       <th class="ldh">Position</th>
