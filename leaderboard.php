@@ -26,53 +26,55 @@
     include_once "header.html";
   ?>
   <div class="events-title">
-    <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
+    <h1 style="font-weight: 700; pointer-events: none;">Leaderboard</h1>
   </div>
-  <table class="leaderboard">
-    <tr>
-      <th class="ldh">Position</th>
-      <th class="ldh">Robot Name</th>
-      <th class="ldh">Team Name</th>
-      <th class="ldh">Points</th>
-    </tr>
-    <tr>
-      <td class="ldt">1</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
-    <tr>
-      <td class="ldt">2</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
-    <tr>
-      <td class="ldt">3</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
-    <tr>
-      <td class="ldt">4</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
-    <tr>
-      <td class="ldt">5</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
+  <div class="center">
+    <table class="leaderboard">
+      <tr>
+        <th class="ldh">Position</th>
+        <th class="ldh">Robot Name</th>
+        <th class="ldh">Team Name</th>
+        <th class="ldh">Points</th>
+      </tr>
+      <tr>
+        <td class="ldt">1</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
+      <tr>
+        <td class="ldt">2</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
+      <tr>
+        <td class="ldt">3</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
+      <tr>
+        <td class="ldt">4</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
+      <tr>
+        <td class="ldt">5</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
 
-    <tr>
-      <td class="ldt">6</td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-      <td class="ldt"></td>
-    </tr>
-  </table>
+      <tr>
+        <td class="ldt">6</td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+        <td class="ldt"></td>
+      </tr>
+    </table>
+  </div>
 </div>
 <br>
 <?php

@@ -61,7 +61,7 @@
     <div class="space"></div>
   </div>
 </div>
-<br>
+<div class="space"></div>
 <?php
   include_once "footer.html";
 ?>

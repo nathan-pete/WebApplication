@@ -285,7 +285,7 @@ body {
 
 .usr-buttons .info {
   background-color: rgb(154, 154, 154);
-  padding: 1% 1% 1% 2%;
+  padding: 1% 0 1% 0;
   margin: 0 3% 1% 0;
   color: white;
   border-radius: 20px;
@@ -537,22 +537,28 @@ body {
 
 /*------------------------------Index End------------------------------*/
 /*--------------------------Leaderboard Start--------------------------*/
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .leaderboard {
   font-family: "Orbitron", sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
   margin: 3% 0 3% 0;
   text-transform: uppercase;
   border-radius: 6px;
   overflow: hidden;
   background-color: #96a2b2;
+
 }
 
 .ldt, .ldh {
   border: 4px solid;
-  padding: 8px;
+  padding: 1%;
   text-align: center;
-  height: 72px;
+  height: 71px;
   font-weight: 600;
   font-size: 18px;
 }
