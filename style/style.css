@@ -455,10 +455,11 @@ body {
 #indexContainer {
   width: 98vw;
   margin: 0 auto;
-  height: 97vh;
+  height: 90vh;
   display: grid;
-  grid-template-rows: 30vh 3vh 6vh 20vh 6vh 21vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
+  grid-template-rows: 30vh 3vh 6vh 20vh 12vh 15vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
   grid-template-columns: 39vw 20vw 39vw;
+  overflow: hidden;
 }
 
 #indexCenterGallery {
@@ -475,8 +476,9 @@ body {
   grid-column: 2/3;
   grid-row: 2/3;
   display: flex;
-  align-items: center;
-  justify-content: left;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
   color: whitesmoke;
   font-family: 'boycott', sans-serif;
 }
@@ -508,11 +510,11 @@ body {
 
 #indexScrollGroup {
   grid-row: 4/5;
-  grid-column: 1/4;
+  grid-column: 1/5;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
-  align-items: space-around;
+  align-items: left;
 }
 
 .indexScrollItem {
@@ -533,6 +535,35 @@ body {
 .indexScrollSpacer {
   height: 100%;
   width: 5vw;
+}
+
+#indexMoreButton {
+  margin: auto auto;
+  grid-column: 2/3;
+  grid-row: 5/6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  width: 60%;
+  height: 60%;
+  border-radius: 30px;
+  color: blue;
+  font-family: 'Orbitron', 'sans-serif';
+  font-size: 1.5vmax;
+  transition: 0.5s;
+}
+
+#indexMoreButton:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: #F1F2F1;
+  transition: 0.5s;
+}
+
+#indexFooter {
+  grid-column: 1/4;
+  grid-row: 6/7 ;
 }
 
 /*------------------------------Index End------------------------------*/

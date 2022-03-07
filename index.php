@@ -60,6 +60,15 @@
                 ?>
             </div>
 
+            <div id="indexMoreButton" onClick="location.href=''">
+                <p><b>More!</b></p>
+            </div>
+
+            <div id="indexFooter">
+                <!--Footer of the page with code from a sepearate page-->
+                <?php include_once "footer.html"; ?>
+            </div>
+
         </div>
     </body>
 </html>
