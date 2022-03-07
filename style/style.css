@@ -55,7 +55,7 @@ body {
 }
 
 .nav input:checked ~ .menu {
-  width: 500px;
+  width: 700px;
 }
 
 .h-sign {
@@ -133,7 +133,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 1%;
 }
 
 .event-h {
@@ -285,7 +284,7 @@ body {
 
 .usr-buttons .info {
   background-color: rgb(154, 154, 154);
-  padding: 1% 0 1% 0;
+  padding: 1% 1% 1% 2%;
   margin: 0 3% 1% 0;
   color: white;
   border-radius: 20px;
@@ -455,11 +454,10 @@ body {
 #indexContainer {
   width: 98vw;
   margin: 0 auto;
-  height: 90vh;
+  height: 97vh;
   display: grid;
-  grid-template-rows: 30vh 3vh 6vh 20vh 12vh 15vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
+  grid-template-rows: 30vh 3vh 6vh 20vh 6vh 21vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
   grid-template-columns: 39vw 20vw 39vw;
-  overflow: hidden;
 }
 
 #indexCenterGallery {
@@ -476,9 +474,8 @@ body {
   grid-column: 2/3;
   grid-row: 2/3;
   display: flex;
-  align-items: left;
-  justify-content: center;
-  flex-direction: column;
+  align-items: center;
+  justify-content: left;
   color: whitesmoke;
   font-family: 'boycott', sans-serif;
 }
@@ -510,11 +507,11 @@ body {
 
 #indexScrollGroup {
   grid-row: 4/5;
-  grid-column: 1/5;
+  grid-column: 1/4;
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
-  align-items: left;
+  align-items: space-around;
 }
 
 .indexScrollItem {
@@ -537,46 +534,12 @@ body {
   width: 5vw;
 }
 
-#indexMoreButton {
-  margin: auto auto;
-  grid-column: 2/3;
-  grid-row: 5/6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: lightgray;
-  width: 60%;
-  height: 60%;
-  border-radius: 30px;
-  color: blue;
-  font-family: 'Orbitron', 'sans-serif';
-  font-size: 1.5vmax;
-  transition: 0.5s;
-}
-
-#indexMoreButton:hover {
-  cursor: pointer;
-  background-color: blue;
-  color: #F1F2F1;
-  transition: 0.5s;
-}
-
-#indexFooter {
-  grid-column: 1/4;
-  grid-row: 6/7 ;
-}
-
 /*------------------------------Index End------------------------------*/
 /*--------------------------Leaderboard Start--------------------------*/
-.center {
-  display: flex;
-  justify-content: center;
-}
-
 .leaderboard {
   font-family: "Orbitron", sans-serif;
   border-collapse: collapse;
-  width: 80%;
+  width: 100%;
   margin: 3% 0 3% 0;
   text-transform: uppercase;
   border-radius: 6px;
@@ -586,9 +549,9 @@ body {
 
 .ldt, .ldh {
   border: 4px solid;
-  padding: 1%;
+  padding: 8px;
   text-align: center;
-  height: 71px;
+  height: 80px;
   font-weight: 600;
   font-size: 18px;
 }
@@ -599,7 +562,36 @@ body {
 }
 
 /*---------------------------Leaderboard End---------------------------*/
-
+/*------------------------------Control Robot Start------------------------------*/
+.controlRobotContainer{
+  width: 90vw;
+  margin: 5vh auto;
+  height: 140vh;
+  display: grid;
+  grid-template-columns: 44vw 44vw;
+  grid-template-rows: 15vh 70vh 60vh;
+  background: rgba(255, 255, 255, 0.55); 
+}
+.controlRobottitle{
+  align-self: center;
+  padding: 8.2vh;
+}
+.title_color{
+  color: white;
+  font-family: "Orbitron", sans-serif;
+}
+.controlRobotvideo{
+  grid-area: 2 / 1 / 3 / 3;
+  justify-self: center;
+  align-self: start;
+}
+iframe{
+  border: 5px solid rgb(13, 126, 231);
+  border-radius: 10px;
+  width: 80vw;
+  height: 60vh;
+}
+/*---------------------------Control Robot End---------------------------*/
 
 
 
