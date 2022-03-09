@@ -30,12 +30,12 @@
             <!--Center gallery with bot picture and title-->
             <div id="indexCenterGallery">
                 <div id="indexCenterTitle">
-                    <h1>Project <br> Battle Bots</h1>
+                    <h1 class="indexyellow">Project <br> Battle Bots</h1>
                     <p id="indexCenterSubtitle">By NHL Stenden</p>
                 </div>
 
                 <div id="indexCenterImage">
-                    <img src="assets/pasted-image.png" alt="Battle bot">
+                    <img src="./assets/PBBblack.png" alt="Battle bot">
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
                     for ($a=0; $a<6; $a++) {
                         echo '
                         <div class="indexScrollItem">
-                            <img src="/assets/pasted-image.png" alt="Battle bot small">
+                            <img src="./assets/PBBblack.png" alt="Battle bot small">  
                         </div>
     
                         <!--An empty div to space items apart-->
@@ -59,16 +59,18 @@
                     }
                 ?>
             </div>
-
-            <div id="indexMoreButton" onClick="location.href=''">
-                <p><b>More!</b></p>
+            
+        </div>
+        <div id="indexMoreButton">
+                <p><a class="indexa" href="#"><b>More!</b></a></p>
             </div>
-
+            
+        
             <div id="indexFooter">
                 <!--Footer of the page with code from a sepearate page-->
                 <?php include_once "footer.html"; ?>
             </div>
 
-        </div>
+        
     </body>
 </html>

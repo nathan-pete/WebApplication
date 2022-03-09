@@ -8,3 +8,8 @@
 *.idea
 *.vscode
 *Icon?
+*credentials.php
+*/vendor
+*/Test
+*credentials.php
+*composer.phar
