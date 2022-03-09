@@ -47,17 +47,15 @@
             <!--Scroll group-->
             <div id="indexScrollGroup">
                 <!--PHP is used to allow easier connection to DB, which stores pictures os robots-->
-                <?php
-                    for ($a=0; $a<6; $a++) {
-                        echo '
+                
                         <div class="indexScrollItem">
-                            <img src="./assets/pasted-image.png" alt="Battle bot small">
+                            <img src="/assets/pasted-image.png" alt="Battle bot small">
                         </div>
     
                         <!--An empty div to space items apart-->
                         <div class="indexScrollSpacer"></div>';
-                    }
-                ?>
+                    
+                
             </div>
 
             <div id="indexMoreButton" onClick="location.href=''">
