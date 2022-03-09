@@ -34,14 +34,14 @@
         <div class="user-pfp">
           <br>
           <img src="./assets/defaultpfp.png" class="usrtweak" alt="Profile Picture"><br>
-          <h3>Points: </h3>
+          <h3>Username: </h3>
           <br>
         </div>
         <div class="usr-details">
-          <p class="user-p"><b>Username:</b>&nbsp;</p>
           <p class="user-p"><b>Name:</b>&nbsp;</p>
           <p class="user-p"><b>E-mail:</b>&nbsp;</p>
           <p class="user-p"><b>Date of Birth:</b>&nbsp;</p>
+          <p class="user-p"><b>Points:</b>&nbsp;</p>
         </div>
         <br>
         <div class="usr-buttons">
@@ -61,7 +61,7 @@
     <div class="space"></div>
   </div>
 </div>
-<br>
+<div class="space"></div>
 <?php
   include_once "footer.html";
 ?>
