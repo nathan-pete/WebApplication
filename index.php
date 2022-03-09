@@ -51,7 +51,7 @@
                     for ($a=0; $a<6; $a++) {
                         echo '
                         <div class="indexScrollItem">
-                            <img src="/assets/pasted-image.png" alt="Battle bot small">
+                            <img src="./assets/pasted-image.png" alt="Battle bot small">
                         </div>
     
                         <!--An empty div to space items apart-->
