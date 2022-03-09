@@ -21,13 +21,9 @@
         ?>
     </head>
     <body>
-        <!--Header of the page with code from a sepearate page-->
         <?php include_once "header.html"; ?>
 
-        <!--Container for the whole page-->
         <div id="indexContainer">
-
-            <!--Center gallery with bot picture and title-->
             <div id="indexCenterGallery">
                 <div id="indexCenterTitle">
                     <h1 class="indexyellow">Project <br> Battle Bots</h1>
@@ -43,7 +39,6 @@
             <div id="indexScrollTitle">
                 <h3>Welcome to Project Battle Bots!</h3>
             </div>
-
             <!--Scroll group-->
             <div id="indexScrollGroup">
                 <!--PHP is used to allow easier connection to DB, which stores pictures os robots-->
