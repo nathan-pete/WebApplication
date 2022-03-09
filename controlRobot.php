@@ -22,7 +22,7 @@
 </head>
 <body>
 <?php include_once "header.html"; ?>
-
+<!-- Control Robot page -->
 <div class="controlRobotContainer">
     <div class ="controlRobottitle"> 
         <h1 class="title_color">Control A Robot</h1>
