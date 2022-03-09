@@ -32,7 +32,7 @@
 <div class="main"></div>
 
 <?php
-	$ipAddress = "192.168.137.225";
+	$ipAddress = "192.168.10.6";
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		foreach ($_POST as $postRequest) {
 			if (isset($postRequest)) {
