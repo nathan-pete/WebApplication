@@ -456,18 +456,20 @@ body {
   margin: 0 auto;
   height: 97vh;
   display: grid;
-  grid-template-rows: 30vh 3vh 6vh 20vh 6vh 21vh; /*Title+Bot_picture FreeSpace Text ScrollGroup MoreButton Footer*/
+  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh; 
   grid-template-columns: 39vw 20vw 39vw;
 }
-
-#indexCenterGallery {
+ #indexCenterGallery {
   grid-column: 1/4;
   grid-row: 1/2;
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 10% 80% 10%; /*Padding Content Padding*/
-  grid-template-columns: 5% 30% 5% 55% 5%; /*Padding Text FreeSpace Image Padding*/
+  grid-template-rows: 10% 80% 10%; 
+  grid-template-columns: 5% 30% 5% 55% 5%; 
+}
+.indexyellow{
+  color: yellow;
 }
 
 #indexCenterTitle {
@@ -483,6 +485,9 @@ body {
 #indexCenterSubtitle {
   font-family: 'Orbitron', 'sans-serif';
   font-size: 1.3vmax;
+  margin-top: 7vw;
+  margin-left: -18.5vh;
+  
 }
 
 #indexCenterImage {
@@ -512,13 +517,14 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: space-around;
+  grid-column-gap: 2vh;
 }
 
 .indexScrollItem {
   background-color: lightgray;
   border-radius: 30px;
   height: 100%;
-  width: 30vw;
+  width: 40vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -532,6 +538,23 @@ body {
 .indexScrollSpacer {
   height: 100%;
   width: 5vw;
+}
+#indexMoreButton{
+  text-align: center;
+  margin-bottom: 8vh;
+  margin-top: -10vw;
+  font-size: 1.7vmax;
+}
+.indexa{
+  color: white;
+  text-decoration: none;
+  border: 2px solid grey;
+  border-radius: 3vh;
+  padding: 1vh;
+  background: grey;
+}
+.indexa:hover{
+  color: yellow;
 }
 
 /*------------------------------Index End------------------------------*/
