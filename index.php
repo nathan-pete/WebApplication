@@ -35,7 +35,7 @@
                 </div>
 
                 <div id="indexCenterImage">
-                    <img src="assets/pasted-image.png" alt="Battle bot">
+                    <img src="./assets/pasted-image.png" alt="Battle bot">
                 </div>
             </div>
 
