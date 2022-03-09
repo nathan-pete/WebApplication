@@ -46,7 +46,22 @@
         <textarea class="robot_message" name = "enter message" placeholder="enter message"></textarea>
         <input class="robot_submit" type="submit" name="submit" value = "Send it"/>
       </form>  
-    </div>    
+    </div> 
+       <h1 class="title_remote">Remote</h1>
+      <div id ="remote_box">
+            <div class = "button_up">
+               <input type="image" src="./assets/up.png" name="up" width="50" height="48" alt="up"/>
+            </div> 
+            <div class = "button_down">  
+               <input type="image" src="./assets/down.png" name="down" width="50" height="48" alt="up"/>
+            </div> 
+            <div class = "button_left">
+               <input class="button_left" type="image" src="./assets/left.png" name="left" width="50" height="48" alt="up"/>
+            </div>
+            <div class = "button_right">
+               <input class="button_right" type="image" src="./assets/right.png" name="right" width="50" height="48" alt="up"/>
+            </div>
+      </div>
 </div>
 
 <?php include_once "footer.html"; ?>

@@ -637,7 +637,8 @@ iframe {
   margin: 0 auto;
   padding: 20px;
   border-radius: 5vh;
-  background:rgb(58, 61, 61)
+  background:rgb(58, 61, 61);
+  height: 600px;
 }
 .chat_text{
   color: green;
@@ -688,6 +689,50 @@ iframe {
   resize: none;
   padding: 10px;
   font-family: "Orbitron", sans-serif;
+}
+.title_remote{
+  grid-area: 2 / 2 / 3 / 3;
+  align-self: end;
+  justify-self: center;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+}
+#remote_box{
+  background: rgb(58, 61, 61);
+  margin: 0 auto;
+  width:80%;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 250px 250px 250px;
+  align-items: center;
+  justify-content: center;
+  grid-area: 3 / 2 / 4 / 3;
+  border-radius: 5vh;
+  height: 600px;
+  
+}
+.button_up{
+  grid-area: 1 / 1 / 2 / 3;
+  align-self: end;
+  justify-self: center;
+}
+.button_right{
+  grid-area: 2 / 2 / 3 / 3;
+  align-self: start;
+  margin-left: 15px;
+}
+.button_left{
+  grid-area: 2 / 1 / 3 / 2;
+  align-self: start;
+  justify-self: end;
+  margin-right: 15px;
+}
+.button_down{
+  grid-area: 2 / 1 / 3 / 3;
+  align-self: center;
+  justify-self: center;
+  margin-top: -90px;
+  
 }
 
 
