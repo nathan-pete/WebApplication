@@ -619,7 +619,7 @@ body {
 
 iframe {
   border: 5px solid rgb(13, 126, 231);
-  border-radius: 10px;
+  border-radius: 10vh;
   width: 80vw;
   height: 60vh;
 }
