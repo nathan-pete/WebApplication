@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style/style.css">
   <link rel="icon" href="./assets/PBBwhite.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link href="http://designify.me/code-snippets/animated-buttons/css/btns.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
   <title>Battle Bot Events</title>
   <?php
     echo "
@@ -38,8 +42,18 @@
           <p class=" event-p"></p>
         </div>
       </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a> </div>
+  </div>
+</div>
+<!-- /container --> 
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </div>
-
     <div class="event-items">
       <div class="event-img">
         <img src="./assets/line.png" class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
@@ -48,8 +62,18 @@
           <p class=" event-p"></p>
         </div>
       </div>
-    </div>
-
+      <div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a> </div>
+  </div>
+</div>
+<!-- /container --> 
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</div>
     <div class="event-items">
       <div class="event-img">
         <img src="./assets/pen.png" class="tweak" alt="Battle Bot - Figure Drawing" height="110" width="135">
@@ -58,8 +82,18 @@
           <p class=" event-p"></p>
         </div>
       </div>
-    </div>
-
+      <div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a> </div>
+  </div>
+</div>
+<!-- /container --> 
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</div>
     <div class="event-items">
       <div class="event-img">
         <img src="./assets/maze.png" class="tweak" alt="Battle Bot - Maze Race" height="110" width="135">
@@ -68,8 +102,19 @@
           <p class=" event-p"></p>
         </div>
       </div>
+      <div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a> </div>
+  </div>
+</div>
+<!-- /container --> 
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </div>
-
+    </div>
   </div>
 </div>
 <br>
