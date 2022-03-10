@@ -635,7 +635,7 @@ iframe {
   width: 80%;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 5vh;
+  border-radius: 5vh;оп
   background:rgb(167, 168, 168);
   height: 600px;
 }
@@ -645,7 +645,6 @@ iframe {
   font-weight: bold;
 }
 .chat_text_message{
-  color: rgb(192, 93, 93);
   font-family: "Orbitron", sans-serif;
   font-weight: bold;
 }
@@ -733,9 +732,8 @@ iframe {
   margin-top: -90px;
   
 }
-
-
 /*---------------------------Control Robot End---------------------------*/
+
 /*--------------------------- Profile ---------------------------------*/
 #profileCenterTitle {
   grid-column: 2/3;
@@ -748,13 +746,14 @@ iframe {
 }
 .squarecolor {
   background-color: lightslategray;
-  width: 1080px;
+  width: 1000px;
   height: 600px;
-  border-radius: 60px; 
+  border-radius: 60px;
+  margin: 50px; 
 }
 .squarecolorsmall {
   background-color: lightgray;
-  width: 600px;
+  width: 500px;
   height: 30px;
   border-radius: 60px; 
   min-height: 10em;
@@ -766,23 +765,25 @@ iframe {
 .squarecolorbig {
   background-color: lightgray;
   width: 400px;
-  height: 300px;
   border-radius: 60px;
 }
 .overall {
-  width: 650px;
+  width: 500px;
   height: 500px;
 }
 .overall2 {
-  width: 430px;
+  width: 500px;
   height: 500px;
   float: right;
   display: flex;
   align-items: stretch;
   margin: -10px;
+  transform: translate(50px, -500px);
 }
-
-
+.space {
+  width: 1080px;
+  height: 10px;
+}
 
 
 

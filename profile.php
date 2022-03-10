@@ -28,32 +28,106 @@
   <div id="profileCenterTitle">
         <h1>Robot <br> Profile</h1>
     </div>
-    <pre>
+    <div class = "space">
+      </div>
   <div class = "squarecolor">
         <br>
         <div class = "overall">
             <div class = "squarecolorsmall">
-                </div>
+            <?php
+                /*$conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robot`";
+        
+                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
+        
+                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
+            
+                mysqli_stmt_bind_result($stmt, $robotName);
+                mysqli_stmt_store_result($stmt);
+            
+      
+              if (mysqli_stmt_num_rows($stmt) > 0) {
+              while(mysqli_stmt_fetch($stmt)){ 
+              
+              echo $robotName;
+              }
+              }*/
+            ?>
+            </div>
         <br>
             <div class = "squarecolorsmall">
-                </div>
+            <?php
+                /*$conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robot`";
+        
+                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
+        
+                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
+            
+                mysqli_stmt_bind_result($stmt, $serialNum);
+                mysqli_stmt_store_result($stmt);
+            
+      
+              if (mysqli_stmt_num_rows($stmt) > 0) {
+              while(mysqli_stmt_fetch($stmt)){ 
+              
+              echo $serialNum;
+              }
+              }*/
+            ?>
+            </div>
         <br>
             <div class = "squarecolorsmall">
-                </div>
-            </div>     
+            <?php
+                /*$conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robot`";
+        
+                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
+        
+                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
+            
+                mysqli_stmt_bind_result($stmt, $sound);
+                mysqli_stmt_store_result($stmt);
+            
+      
+              if (mysqli_stmt_num_rows($stmt) > 0) {
+              while(mysqli_stmt_fetch($stmt)){ 
+              
+              echo $sound;
+              }
+              }*/
+            ?>
+            </div>
+        </div>     
         <div class = "overall2"> 
             <div class = "squarecolorbig">
-                </div>
+            <?php
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robot`";
+        
+                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
+        
+                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
+            
+                mysqli_stmt_bind_result($stmt, $robotPicture);
+                mysqli_stmt_store_result($stmt);
+            
+      
+              if (mysqli_stmt_num_rows($stmt) > 0) {
+              while(mysqli_stmt_fetch($stmt)){ 
+              
+              echo $robotPicture;
+              }
+              }
+            ?>
             </div>
+        </div>
     </div>
   <br>
   <br>
   <br>
-  <br>
-  <br>
-
 <?php
-  include "footer.html";
+  include_once "footer.html";
 ?>
 </body>
 </html>
