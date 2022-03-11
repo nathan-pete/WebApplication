@@ -35,91 +35,63 @@
         <div class = "overall">
             <div class = "squarecolorsmall">
             <?php
-                /*$conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robot`";
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
         
-                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
-        
-                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
-            
-                mysqli_stmt_bind_result($stmt, $robotName);
-                mysqli_stmt_store_result($stmt);
-            
-      
-              if (mysqli_stmt_num_rows($stmt) > 0) {
-              while(mysqli_stmt_fetch($stmt)){ 
-              
-              echo $robotName;
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $robotName = $row['robotName'];
+                echo $robotName;
               }
-              }*/
-            ?>
+                ?>
             </div>
         <br>
             <div class = "squarecolorsmall">
             <?php
-                /*$conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robot`";
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
         
-                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
-        
-                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
-            
-                mysqli_stmt_bind_result($stmt, $serialNum);
-                mysqli_stmt_store_result($stmt);
-            
-      
-              if (mysqli_stmt_num_rows($stmt) > 0) {
-              while(mysqli_stmt_fetch($stmt)){ 
-              
-              echo $serialNum;
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $serialNum= $row['serialNum'];
+                echo $seriailNum;
               }
-              }*/
-            ?>
+                ?>
             </div>
         <br>
             <div class = "squarecolorsmall">
             <?php
-                /*$conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robot`";
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
         
-                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
-        
-                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
-            
-                mysqli_stmt_bind_result($stmt, $sound);
-                mysqli_stmt_store_result($stmt);
-            
-      
-              if (mysqli_stmt_num_rows($stmt) > 0) {
-              while(mysqli_stmt_fetch($stmt)){ 
-              
-              echo $sound;
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $sound = $row['sound'];
+                echo $sound;
               }
-              }*/
-            ?>
+                ?>
             </div>
         </div>     
         <div class = "overall2"> 
             <div class = "squarecolorbig">
             <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robot`";
-        
-                $stmt = mysqli_prepare($conn, $query) OR DIE ("Preparation Error 1");
-        
-                mysqli_stmt_execute($stmt) OR DIE ("Data retrieval error");
-            
-                mysqli_stmt_bind_result($stmt, $robotPicture);
-                mysqli_stmt_store_result($stmt);
-            
+              $conn = mysqli_connect("localhost","root","","webapp");
+              $query = "SELECT * FROM `robots`";
+              $result = mysqli_query($conn,$query)
       
-              if (mysqli_stmt_num_rows($stmt) > 0) {
-              while(mysqli_stmt_fetch($stmt)){ 
-              
-              echo $robotPicture;
-              }
-              }
             ?>
+            <?php
+            while($row = mysqli_fetch_assoc($result)) {
+              $robotPicture = $row['robotPicture'];
+              echo $robotPicture;
+            }
+              ?>
             </div>
         </div>
     </div>
