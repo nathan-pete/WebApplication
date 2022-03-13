@@ -58,7 +58,7 @@
               <?php
               while($row = mysqli_fetch_assoc($result)) {
                 $serialNum= $row['serialNum'];
-                echo $seriailNum;
+                echo $serialNum;
               }
                 ?>
             </div>

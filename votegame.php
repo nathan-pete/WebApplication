@@ -1,3 +1,6 @@
+<?php 
+include "connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +36,6 @@
     <h1 style="font-weight: 700; pointer-events: none;">Vote for a game</h1>
   </div>
   <div class="events-content">
-
     <div class="event-items">
       <div class="event-img">
         <img src="./assets/sumo.png" class="tweak" alt="Battle Bot - Sumo" height="110" width="135">
@@ -43,16 +45,69 @@
         </div>
       </div>
 <div class="container">
+<?php 
+            $query = "SELECT * FROM games";
+            $result = mysqli_query($conn,$query);
+
+            $count = mysqli_num_rows($result);
+    ?>
+    <?php 
+            while ($game_details = mysqli_fetch_assoc($result) ) { 
+                echo $game_details['name'];
+    ?>
+    <?php
+            }
+    ?>
   <div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a> </div>
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a></div>
   </div>
 </div>
+<?php
+      $name = $GET['name'];
+
+      $query = "SELECT * FROM users WHERE name = 'name' ";
+      $result = mysqli_query($conn, $query)
+
+      $game_details = mysqli_fetch_assoc($result);
+
+      $current_votes = $game_details['vote'];
+      $calc_vote = $current_votes + 1;
+
+      $update_query = "UPDATE games SET vote = $calc_vote WHERE name = '$name'";
+      $update_result = mysqli_query($conn, $update_query);
+
+      if ($update_result) {
+        echo "Vote Successfull!";
+      }else{
+        echo "Error while voting!";
+        echo $conn -> error;
+      }  
+?>
+<?php
+}
+?>
 <!-- /container --> 
 <!-- Bootstrap core JavaScript
     ================================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">   <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method=get>
+            value="Vote" type="submit" name="vote"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</form>
+<h3>Votes:
+<?php
+      $conn = mysqli_connect("localhost","root","","webapp");
+      $query = "SELECT * FROM `users`";
+      $result = mysqli_query($conn,$query)
+        
+      ?>
+      <?php
+          while($row = mysqli_fetch_assoc($result)) {
+          $votes= $row['vote'];
+          echo $votes;
+          }
+?>
+</h3>
     </div>
     <div class="event-items">
       <div class="event-img">
@@ -73,6 +128,20 @@
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<h3>Votes:
+<?php
+      $conn = mysqli_connect("localhost","root","","webapp");
+      $query = "SELECT * FROM `users`";
+      $result = mysqli_query($conn,$query)
+        
+      ?>
+      <?php
+          while($row = mysqli_fetch_assoc($result)) {
+          $votes= $row['vote'];
+          echo $votes;
+          }
+?>
+</h3>
 </div>
     <div class="event-items">
       <div class="event-img">
@@ -93,6 +162,20 @@
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<h3>Votes:
+<?php
+      $conn = mysqli_connect("localhost","root","","webapp");
+      $query = "SELECT * FROM `users`";
+      $result = mysqli_query($conn,$query)
+        
+      ?>
+      <?php
+          while($row = mysqli_fetch_assoc($result)) {
+          $votes= $row['vote'];
+          echo $votes;
+          }
+?>
+</h3>
 </div>
     <div class="event-items">
       <div class="event-img">
@@ -113,6 +196,20 @@
 <!-- Placed at the end of the document so the pages load faster --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<h3>Votes:
+<?php
+      $conn = mysqli_connect("localhost","root","","webapp");
+      $query = "SELECT * FROM `users`";
+      $result = mysqli_query($conn,$query)
+        
+      ?>
+      <?php
+          while($row = mysqli_fetch_assoc($result)) {
+          $votes= $row['vote'];
+          echo $votes;
+          }
+?>
+</h3>
     </div>
     </div>
   </div>
