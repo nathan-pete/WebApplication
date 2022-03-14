@@ -31,6 +31,7 @@
   <div class="events-content">
 
     <div class="event-items">
+      <a href="liveStream/liveEvent.php">
       <div class="event-img">
         <img src="./assets/sumo.png" class="tweak" alt="Battle Bot - Sumo" height="110" width="135">
         <div class="event-text">
@@ -42,6 +43,7 @@
     </div>
 
     <div class="event-items">
+      <a href="liveStream/liveEvent.php">
       <div class="event-img">
         <img src="./assets/line.png" class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
         <div class="event-text">
@@ -53,6 +55,7 @@
     </div>
 
     <div class="event-items">
+      <a href="liveStream/liveEvent.php">
       <div class="event-img">
         <img src="./assets/pen.png" class="tweak" alt="Battle Bot - Figure Drawing" height="110" width="135">
         <div class="event-text">
@@ -64,6 +67,7 @@
     </div>
 
     <div class="event-items">
+      <a href="liveStream/liveEvent.php">
       <div class="event-img">
         <img src="./assets/maze.png" class="tweak" alt="Battle Bot - Maze Race" height="110" width="135">
         <div class="event-text">
