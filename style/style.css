@@ -55,7 +55,7 @@ body {
 }
 
 .nav input:checked ~ .menu {
-  width: 700px;
+  width: 500px;
 }
 
 .h-sign {
@@ -158,6 +158,11 @@ body {
   width: 80%;
   transition: 1s;
   transform: translate3D(0, -1px, 0);
+}
+
+.event-items a {
+  text-decoration: none;
+  color: black;
 }
 
 .event-img {
@@ -452,12 +457,8 @@ body {
 /*-------------------------------Footer End-------------------------------*/
 /*------------------------------Index Start------------------------------*/
 #indexContainer {
-  width: 98vw;
+  max-width: 1080px;
   margin: 0 auto;
-  height: 97vh;
-  display: grid;
-  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh; 
-  grid-template-columns: 39vw 20vw 39vw;
 }
  #indexCenterGallery {
   grid-column: 1/4;
@@ -503,7 +504,8 @@ body {
 #indexScrollTitle {
   grid-row: 3/4;
   grid-column: 1/4;
-  padding-left: 5vw;
+  padding: 0 0 4% 0;
+
   color: #F1F2F1;
   font-family: 'Orbitron', 'sans-serif';
   display: flex;
@@ -516,23 +518,22 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
-  align-items: space-around;
   grid-column-gap: 2vh;
 }
 
 .indexScrollItem {
   background-color: lightgray;
   border-radius: 30px;
-  height: 100%;
-  width: 40vh;
+  width: 25%;
+  height: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.indexScrollItem img {
-  height: 90%;
-  width: auto;
+.index-img{
+  width: 100%;
+  padding: 5%;
 }
 
 .indexScrollSpacer {

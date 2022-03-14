@@ -75,14 +75,16 @@
     </div>
 
     <div class="event-items">
-      <div class="event-img">
-        <img src="./assets/rc.png" class="tweak" alt="Battle Bot" height="110" width="107">
-        <div class="event-text">
-          <h3 class="event-h" style="padding-bottom:0.5%;">Control a Robot</h3>
-          <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
+      <a href="controlRobot.php">
+        <div class="event-img">
+          <img src="./assets/rc.png" class="tweak" alt="Battle Bot" height="110" width="107">
+          <div class="event-text">
+            <h3 class="event-h" style="padding-bottom:0.5%;">Control a Robot</h3>
+            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
 
   </div>
