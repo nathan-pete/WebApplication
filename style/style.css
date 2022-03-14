@@ -601,6 +601,7 @@ body {
   grid-template-columns: 44vw 44vw;
   grid-template-rows: 15vh 70vh 85vh;
   background: rgba(255, 255, 255, 0.55);
+  border-radius: 6vh;
 }
 
 .controlRobottitle {
