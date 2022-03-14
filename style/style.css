@@ -456,7 +456,7 @@ body {
   margin: 0 auto;
   height: 97vh;
   display: grid;
-  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh; 
+  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
   grid-template-columns: 39vw 20vw 39vw;
 }
  #indexCenterGallery {
@@ -465,8 +465,8 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 10% 80% 10%; 
-  grid-template-columns: 5% 30% 5% 55% 5%; 
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 5% 30% 5% 55% 5%;
 }
 .indexyellow{
   color: yellow;
@@ -487,7 +487,7 @@ body {
   font-size: 1.3vmax;
   margin-top: 8vw;
   margin-left: -23.7vh;
-  
+
 }
 
 #indexCenterImage {
@@ -635,7 +635,7 @@ iframe {
   width: 80%;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 5vh;
+  border-radius: 5vh;оп
   background:rgb(167, 168, 168);
   height: 600px;
 }
@@ -645,7 +645,6 @@ iframe {
   font-weight: bold;
 }
 .chat_text_message{
-  color: rgb(192, 93, 93);
   font-family: "Orbitron", sans-serif;
   font-weight: bold;
 }
@@ -708,7 +707,7 @@ iframe {
   grid-area: 3 / 2 / 4 / 3;
   border-radius: 5vh;
   height: 600px;
-  
+
 }
 .button_up{
   grid-area: 1 / 1 / 2 / 3;
@@ -731,11 +730,10 @@ iframe {
   align-self: center;
   justify-self: center;
   margin-top: -90px;
-  
+
 }
-
-
 /*---------------------------Control Robot End---------------------------*/
+
 /*--------------------------- Profile ---------------------------------*/
 #profileCenterTitle {
   grid-column: 2/3;
@@ -748,15 +746,19 @@ iframe {
 }
 .squarecolor {
   background-color: lightslategray;
-  width: 1080px;
+  width: 1000px;
   height: 600px;
-  border-radius: 60px; 
+  border-radius: 60px;
+<<<<<<< HEAD
+=======
+  margin: 50px;
+>>>>>>> 1a4e8f09d0366c7fe9880667193ed83a9d3a1b18
 }
 .squarecolorsmall {
   background-color: lightgray;
-  width: 600px;
+  width: 500px;
   height: 30px;
-  border-radius: 60px; 
+  border-radius: 60px;
   min-height: 10em;
   display: flex;
   float: left;
@@ -766,23 +768,87 @@ iframe {
 .squarecolorbig {
   background-color: lightgray;
   width: 400px;
-  height: 300px;
   border-radius: 60px;
 }
 .overall {
-  width: 650px;
+  width: 500px;
   height: 500px;
 }
 .overall2 {
-  width: 430px;
+  width: 500px;
   height: 500px;
   float: right;
   display: flex;
   align-items: stretch;
   margin: -10px;
+  transform: translate(50px, -500px);
+}
+<<<<<<< HEAD
+
+/*--------------------------- Profile End ---------------------------------*/
+/*--------------------------- Live Stream ---------------------------------*/
+
+#streamContainer {
+  width: 98vw;
+  margin: 0 auto;
+  height: 97vh;
+  display: grid;
+  grid-template-rows: 40vh 3vh 6vh 60vh 6vh 21vh;
+  grid-template-columns: 39vw 20vw 39vw;
+}
+=======
+.space {
+  width: 1080px;
+  height: 10px;
+}
+/* -------------------------------Vote for a game page ----------------------------------------------------------------*/
+  a.animated-button.victoria-two {
+  border: 2px solid #D24D57;
+  }
+  a.animated-button.victoria-two:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  }
+
+
+>>>>>>> 1a4e8f09d0366c7fe9880667193ed83a9d3a1b18
+
+/*#stream_video {
+  grid-column: 1/3;
+  grid-row: 1/5;
+  margin-bottom: 25vh;
+  margin-left: 10vh;
+  margin-top: 10vh;
+  background-color: lightsteelblue;
 }
 
+#stream_video iframe {
+    grid-column: 1/2;
+    grid-row: 1/5;
+    margin-right: -125vh;
+    border-radius: 0vh;
+    border: none;
+}*/
 
+#stream_video {
+    margin-left: 5vh;
+    margin-top: 15vh;
+    position: relative;
+    margin-bottom: -40vh;
+    margin-right: -40vh;
+    /* height: 0; */
+    overflow: hidden;
+}
 
-
-
+#stream_video iframe, #stream_video object, #stream_video embed {
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 555px;
+}

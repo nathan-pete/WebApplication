@@ -28,32 +28,78 @@
   <div id="profileCenterTitle">
         <h1>Robot <br> Profile</h1>
     </div>
-    <pre>
+    <div class = "space">
+      </div>
   <div class = "squarecolor">
         <br>
         <div class = "overall">
             <div class = "squarecolorsmall">
-                </div>
+            <?php
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
+        
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $robotName = $row['robotName'];
+                echo $robotName;
+              }
+                ?>
+            </div>
         <br>
             <div class = "squarecolorsmall">
-                </div>
+            <?php
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
+        
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $serialNum= $row['serialNum'];
+                echo $serialNum;
+              }
+                ?>
+            </div>
         <br>
             <div class = "squarecolorsmall">
-                </div>
-            </div>     
+            <?php
+                $conn = mysqli_connect("localhost","root","","webapp");
+                $query = "SELECT * FROM `robots`";
+                $result = mysqli_query($conn,$query)
+        
+              ?>
+              <?php
+              while($row = mysqli_fetch_assoc($result)) {
+                $sound = $row['sound'];
+                echo $sound;
+              }
+                ?>
+            </div>
+        </div>     
         <div class = "overall2"> 
             <div class = "squarecolorbig">
-                </div>
+            <?php
+              $conn = mysqli_connect("localhost","root","","webapp");
+              $query = "SELECT * FROM `robots`";
+              $result = mysqli_query($conn,$query)
+      
+            ?>
+            <?php
+            while($row = mysqli_fetch_assoc($result)) {
+              $robotPicture = $row['robotPicture'];
+              echo $robotPicture;
+            }
+              ?>
             </div>
+        </div>
     </div>
   <br>
   <br>
   <br>
-  <br>
-  <br>
-
 <?php
-  include "footer.html";
+  include_once "footer.html";
 ?>
 </body>
 </html>
