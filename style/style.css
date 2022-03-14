@@ -460,6 +460,7 @@ body {
   max-width: 1080px;
   margin: 0 auto;
 }
+
  #indexCenterGallery {
   grid-column: 1/4;
   grid-row: 1/2;
@@ -469,8 +470,10 @@ body {
   grid-template-rows: 10% 80% 10%;
   grid-template-columns: 5% 30% 5% 55% 5%;
 }
-.indexyellow{
-  color: yellow;
+
+.indexCenterTitle h1{
+  font-size: 36px;
+  color:yellow;
 }
 
 #indexCenterTitle {
@@ -486,8 +489,6 @@ body {
 #indexCenterSubtitle {
   font-family: 'Orbitron', 'sans-serif';
   font-size: 1.3vmax;
-  margin-top: 8vw;
-  margin-left: -23.7vh;
 
 }
 
