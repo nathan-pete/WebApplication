@@ -26,8 +26,8 @@
 <div id="indexContainer">
   <div id="indexCenterGallery">
     <div id="indexCenterTitle">
-      <h1 class="indexyellow">Project <br> Battle Bots</h1>
-      <p id="indexCenterSubtitle">By NHL Stenden</p>
+      <h1>Project <br> Battle Bots</h1><br>
+
     </div>
 
     <div id="indexCenterImage">
