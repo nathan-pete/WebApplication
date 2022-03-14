@@ -466,8 +466,8 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 10% 80% 10%; 
-  grid-template-columns: 5% 30% 5% 55% 5%; 
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 5% 30% 5% 55% 5%;
 }
 .indexyellow{
   color: yellow;
@@ -488,7 +488,7 @@ body {
   font-size: 1.3vmax;
   margin-top: 8vw;
   margin-left: -23.7vh;
-  
+
 }
 
 #indexCenterImage {
@@ -708,7 +708,7 @@ iframe {
   grid-area: 3 / 2 / 4 / 3;
   border-radius: 5vh;
   height: 600px;
-  
+
 }
 .button_up{
   grid-area: 1 / 1 / 2 / 3;
@@ -731,7 +731,7 @@ iframe {
   align-self: center;
   justify-self: center;
   margin-top: -90px;
-  
+
 }
 /*---------------------------Control Robot End---------------------------*/
 
@@ -750,13 +750,13 @@ iframe {
   width: 1000px;
   height: 600px;
   border-radius: 60px;
-  margin: 50px; 
+  margin: 50px;
 }
 .squarecolorsmall {
   background-color: lightgray;
   width: 500px;
   height: 30px;
-  border-radius: 60px; 
+  border-radius: 60px;
   min-height: 10em;
   display: flex;
   float: left;
@@ -781,10 +781,44 @@ iframe {
   margin: -10px;
   transform: translate(50px, -500px);
 }
+
+/*--------------------------- Profile End ---------------------------------*/
+/*--------------------------- Live Stream ---------------------------------*/
+
+.streamContainer {
+  width: 98vw;
+  margin: 0 auto;
+  height: 97vh;
+  display: grid;
+  grid-template-rows: 40vh 3vh 6vh 60vh 6vh 21vh;
+  grid-template-columns: 39vw 20vw 39vw;
+}
 .space {
   width: 1080px;
   height: 10px;
 }
+
+#stream_video {
+    margin-left: 5vh;
+    margin-top: 15vh;
+    position: relative;
+    margin-bottom: -40vh;
+    margin-right: -40vh;
+    /* height: 0; */
+    overflow: hidden;
+}
+
+#stream_video iframe, #stream_video object, #stream_video embed {
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 555px;
+}
+
+
 /* -------------------------------Vote for a game page ----------------------------------------------------------------*/
   a.animated-button.victoria-two {
   border: 2px solid #D24D57;
@@ -796,8 +830,3 @@ iframe {
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
   transform: translateX(-50%) translateY(-50%) rotate(25deg);
   }
-  
-  
-
-
-
