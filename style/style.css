@@ -831,3 +831,11 @@ iframe {
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
   transform: translateX(-50%) translateY(-50%) rotate(25deg);
   }
+
+
+
+
+
+  .space-indx{
+    margin:15%;
+  }

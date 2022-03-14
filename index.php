@@ -22,16 +22,16 @@
 </head>
 <body>
 <?php include_once "header.html"; ?>
-
+<br>
 <div id="indexContainer">
   <div id="indexCenterGallery">
     <div id="indexCenterTitle">
-      <h1>Project <br> Battle Bots</h1><br>
-
+      <h1>Project <br> Battle Bots</h1>
     </div>
 
+
     <div id="indexCenterImage">
-      <img src="./assets/PBBblack.png" alt="Battle bot">
+      <img src="./assets/PBBblack.png" alt="Battle bot" width="55%">
     </div>
   </div>
 
@@ -56,6 +56,7 @@
   </div>
 
 </div>
+<div class="space-indx"></div>
 <div id="indexMoreButton">
   <p><a class="indexa" href="#"><b>More!</b></a></p>
 </div>
