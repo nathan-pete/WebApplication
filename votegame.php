@@ -45,7 +45,7 @@ include "connect.php";
         </div>
       </div>
 <div class="container">
-<?php 
+<!-- <?php 
             $query = "SELECT * FROM games";
             $result = mysqli_query($conn,$query);
 
@@ -57,34 +57,31 @@ include "connect.php";
     ?>
     <?php
             }
-    ?>
+    ?> -->
   <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a></div>
   </div>
 </div>
 <?php
-      $name = $GET['name'];
+      // $name = $_GET['name'];
 
-      $query = "SELECT * FROM users WHERE name = 'name' ";
-      $result = mysqli_query($conn, $query)
+      // $query = "SELECT * FROM users WHERE name = 'name' ";
+      // $result = mysqli_query($conn, $query);
 
-      $game_details = mysqli_fetch_assoc($result);
+      // $game_details = mysqli_fetch_assoc($result);
 
-      $current_votes = $game_details['vote'];
-      $calc_vote = $current_votes + 1;
+      // $current_votes = $game_details['vote'];
+      // $calc_vote = $current_votes + 1;
 
-      $update_query = "UPDATE games SET vote = $calc_vote WHERE name = '$name'";
-      $update_result = mysqli_query($conn, $update_query);
+      // $update_query = "UPDATE games SET vote = $calc_vote WHERE name = '$name'";
+      // $update_result = mysqli_query($conn, $update_query);
 
-      if ($update_result) {
-        echo "Vote Successfull!";
-      }else{
-        echo "Error while voting!";
-        echo $conn -> error;
-      }  
-?>
-<?php
-}
+      // if ($update_result) {
+      //   echo "Vote Successfull!";
+      // }else{
+      //   echo "Error while voting!";
+      //   echo $conn -> error;
+      // }  
 ?>
 <!-- /container --> 
 <!-- Bootstrap core JavaScript
@@ -96,16 +93,15 @@ include "connect.php";
 </form>
 <h3>Votes:
 <?php
-      $conn = mysqli_connect("localhost","root","","webapp");
-      $query = "SELECT * FROM `users`";
-      $result = mysqli_query($conn,$query)
-        
-      ?>
-      <?php
-          while($row = mysqli_fetch_assoc($result)) {
-          $votes= $row['vote'];
-          echo $votes;
-          }
+      // $conn = mysqli_connect("localhost","root","","webapp");
+      // $query = "SELECT * FROM `users`";
+      // $result = mysqli_query($conn,$query);
+      // ?>
+      // <?php
+      //     while($row = mysqli_fetch_assoc($result)) {
+      //     $votes= $row['vote'];
+      //     echo $votes;
+      //     }
 ?>
 </h3>
     </div>
@@ -130,16 +126,16 @@ include "connect.php";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <h3>Votes:
 <?php
-      $conn = mysqli_connect("localhost","root","","webapp");
-      $query = "SELECT * FROM `users`";
-      $result = mysqli_query($conn,$query)
+      // $conn = mysqli_connect("localhost","root","","webapp");
+      // $query = "SELECT * FROM `users`";
+      // $result = mysqli_query($conn,$query)
         
-      ?>
-      <?php
-          while($row = mysqli_fetch_assoc($result)) {
-          $votes= $row['vote'];
-          echo $votes;
-          }
+      // ?>
+      // <?php
+      //     while($row = mysqli_fetch_assoc($result)) {
+      //     $votes= $row['vote'];
+      //     echo $votes;
+          //}
 ?>
 </h3>
 </div>
@@ -164,16 +160,16 @@ include "connect.php";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <h3>Votes:
 <?php
-      $conn = mysqli_connect("localhost","root","","webapp");
-      $query = "SELECT * FROM `users`";
-      $result = mysqli_query($conn,$query)
+      // $conn = mysqli_connect("localhost","root","","webapp");
+      // $query = "SELECT * FROM `users`";
+      // $result = mysqli_query($conn,$query)
         
-      ?>
-      <?php
-          while($row = mysqli_fetch_assoc($result)) {
-          $votes= $row['vote'];
-          echo $votes;
-          }
+      // ?>
+      // <?php
+      //     while($row = mysqli_fetch_assoc($result)) {
+      //     $votes= $row['vote'];
+      //     echo $votes;
+      //     }
 ?>
 </h3>
 </div>
@@ -198,17 +194,17 @@ include "connect.php";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <h3>Votes:
 <?php
-      $conn = mysqli_connect("localhost","root","","webapp");
-      $query = "SELECT * FROM `users`";
-      $result = mysqli_query($conn,$query)
+//       $conn = mysqli_connect("localhost","root","","webapp");
+//       $query = "SELECT * FROM `users`";
+//       $result = mysqli_query($conn,$query)
         
-      ?>
-      <?php
-          while($row = mysqli_fetch_assoc($result)) {
-          $votes= $row['vote'];
-          echo $votes;
-          }
-?>
+//       ?>
+//       <?php
+//           while($row = mysqli_fetch_assoc($result)) {
+//           $votes= $row['vote'];
+//           echo $votes;
+//           }
+// ?>
 </h3>
     </div>
     </div>
