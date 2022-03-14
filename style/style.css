@@ -749,10 +749,7 @@ iframe {
   width: 1000px;
   height: 600px;
   border-radius: 60px;
-<<<<<<< HEAD
-=======
   margin: 50px;
->>>>>>> bce2bb49e9ab3d6c8ccc358dad8e5011e95ec5b0
 }
 .squarecolorsmall {
   background-color: lightgray;
@@ -783,12 +780,11 @@ iframe {
   margin: -10px;
   transform: translate(50px, -500px);
 }
-<<<<<<< HEAD
 
 /*--------------------------- Profile End ---------------------------------*/
 /*--------------------------- Live Stream ---------------------------------*/
 
-#streamContainer {
+.streamContainer {
   width: 98vw;
   margin: 0 auto;
   height: 97vh;
@@ -800,37 +796,6 @@ iframe {
   width: 1080px;
   height: 10px;
 }
-/* -------------------------------Vote for a game page ----------------------------------------------------------------*/
-  a.animated-button.victoria-two {
-  border: 2px solid #D24D57;
-  }
-  a.animated-button.victoria-two:after {
-  background: #D24D57;
-  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  transform: translateX(-50%) translateY(-50%) rotate(25deg);
-  }
-
-
->>>>>>> 1a4e8f09d0366c7fe9880667193ed83a9d3a1b18
-
-/*#stream_video {
-  grid-column: 1/3;
-  grid-row: 1/5;
-  margin-bottom: 25vh;
-  margin-left: 10vh;
-  margin-top: 10vh;
-  background-color: lightsteelblue;
-}
-
-#stream_video iframe {
-    grid-column: 1/2;
-    grid-row: 1/5;
-    margin-right: -125vh;
-    border-radius: 0vh;
-    border: none;
-}*/
 
 #stream_video {
     margin-left: 5vh;
@@ -851,3 +816,16 @@ iframe {
   width: 100%;
   height: 555px;
 }
+
+
+/* -------------------------------Vote for a game page ----------------------------------------------------------------*/
+  a.animated-button.victoria-two {
+  border: 2px solid #D24D57;
+  }
+  a.animated-button.victoria-two:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  }
