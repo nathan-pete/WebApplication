@@ -752,7 +752,7 @@ iframe {
 <<<<<<< HEAD
 =======
   margin: 50px;
->>>>>>> 1a4e8f09d0366c7fe9880667193ed83a9d3a1b18
+>>>>>>> bce2bb49e9ab3d6c8ccc358dad8e5011e95ec5b0
 }
 .squarecolorsmall {
   background-color: lightgray;
@@ -796,7 +796,6 @@ iframe {
   grid-template-rows: 40vh 3vh 6vh 60vh 6vh 21vh;
   grid-template-columns: 39vw 20vw 39vw;
 }
-=======
 .space {
   width: 1080px;
   height: 10px;
