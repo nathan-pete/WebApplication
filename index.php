@@ -43,7 +43,7 @@
   <div id="indexScrollGroup">
     <!--PHP is used to allow easier connection to DB, which stores pictures os robots-->
     <?php
-      for ($a = 0; $a < 3; $a++) {
+      for ($a = 0; $a < 4; $a++) {
         echo '
                         <div class="indexScrollItem">
                             <img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img">  

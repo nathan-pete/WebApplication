@@ -45,43 +45,82 @@ include "connect.php";
         </div>
       </div>
 <div class="container">
-<!-- <?php 
+<?php 
             $query = "SELECT * FROM games";
             $result = mysqli_query($conn,$query);
 
             $count = mysqli_num_rows($result);
     ?>
-    <?php 
-            while ($game_details = mysqli_fetch_assoc($result) ) { 
-                echo $game_details['name'];
-    ?>
-    <?php
-            }
-    ?> -->
   <div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-two">Vote</a></div>
+    <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame.php?name=sumo" class="btn btn-sm animated-button victoria-two">Vote</a></div>
   </div>
 </div>
 <?php
-      // $name = $_GET['name'];
+        if (mysqli_connect_error()) {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        exit();
+        }   
+      //$name = $_GET['name']; //if this has been set, execute code below
+      if(isset($_GET['name'])) {
+        if($_SERVER['REQUEST_METHOD']==='GET'){
+          $name = $_GET['name'];
 
-      // $query = "SELECT * FROM users WHERE name = 'name' ";
-      // $result = mysqli_query($conn, $query);
+            $query = $conn ->prepare("SELECT `votes` FROM games WHERE name = ?");
+            mysqli_stmt_bind_param( $query, 's', $name);
+            //mysqli_stmt_store_result($query);
+            //bind parameters to question marks
+            
+          $query->execute();
+          $query->bind_result($amountOfVotes);
+          $query->fetch();
 
-      // $game_details = mysqli_fetch_assoc($result);
+                   /* if(!$query) {
+                      die(mysqli_error($conn));
+                    }
+                    $result = $query->get_result();
+                    $gameData = $result->fetch_all(MYSQLI_ASSOC);*/            
+      /*$result = mysqli_query($conn, $query);
 
-      // $current_votes = $game_details['vote'];
-      // $calc_vote = $current_votes + 1;
+      $game_details = mysqli_fetch_assoc($result);*/
+      $calc_vote = $amountOfVotes + 1;
+      mysqli_stmt_close($query);
+      //var_dump( $amountOfVotes);
+      //echo $calc_vote;
+      //die();
+?>
+<?php
+        }
+                  }
+?>
+<?php
+      if (mysqli_connect_error()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      exit();
+      } 
+    if(isset($_GET['name'])) {
+      if($_SERVER['REQUEST_METHOD']==='GET'){
+        $name = $_GET['name'];
 
-      // $update_query = "UPDATE games SET vote = $calc_vote WHERE name = '$name'";
-      // $update_result = mysqli_query($conn, $update_query);
+        $update_query = mysqli_prepare($conn, "UPDATE games SET votes = ? WHERE `name`=?");
+       mysqli_stmt_bind_param($update_query , 'is',$calc_vote, $name);
+       mysqli_stmt_execute($update_query);
+       mysqli_stmt_store_result($update_query);
+       
+     $update_query -> execute();
+     //$update_query -> bind_result($amountOfVotes);
+     $update_query -> fetch();
 
-      // if ($update_result) {
-      //   echo "Vote Successfull!";
-      // }else{
-      //   echo "Error while voting!";
-      //   echo $conn -> error;
-      // }  
+     $calc_vote = $amountOfVotes + 1;
+
+     /*try{
+       //do something
+     }catch{
+       echo mysqli_error($conn);
+     }*/
+?>
+<?php
+      }
+    }
 ?>
 <!-- /container --> 
 <!-- Bootstrap core JavaScript
@@ -91,20 +130,9 @@ include "connect.php";
             value="Vote" type="submit" name="vote"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </form>
-<h3>Votes:
-<?php
-      // $conn = mysqli_connect("localhost","root","","webapp");
-      // $query = "SELECT * FROM `users`";
-      // $result = mysqli_query($conn,$query);
-      // ?>
-      // <?php
-      //     while($row = mysqli_fetch_assoc($result)) {
-      //     $votes= $row['vote'];
-      //     echo $votes;
-      //     }
-?>
-</h3>
+<h3>Votes: <?php echo $calc_vote; ?></h3>
     </div>
+    
     <div class="event-items">
       <div class="event-img">
         <img src="./assets/line.png" class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
