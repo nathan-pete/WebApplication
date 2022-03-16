@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-<?php require 'header.html' ?>
+<?php require 'header.php' ?>
 
 <div class="streamContainer">
   <div id="stream_video">

@@ -9,7 +9,7 @@
   <title>Battle Bot Events</title>
 </head>
 <body>
-<?php include_once "header.html"; ?>
+<?php include_once "header.php"; ?>
 <!-- Control Robot page -->
 <div class="controlRobotContainer">
   <div class="controlRobottitle">

@@ -23,7 +23,7 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.html";
+    include_once "header.php";
   ?>
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Events</h1>

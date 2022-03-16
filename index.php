@@ -21,7 +21,7 @@
   ?>
 </head>
 <body>
-<?php include_once "header.html"; ?>
+<?php include_once "header.php"; ?>
 <br>
 <div id="indexContainer">
   <div id="indexCenterGallery">
