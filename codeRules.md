@@ -59,9 +59,6 @@
 
 - Every communication with the database has to be done **secure**! This means that the **methods taught during the
   workshops** must be used (prepare, bind, store...)!
-- Regarding sharing the database and its contents. I am not sure which is the best way of doing so yet, but for the
-  begining I say after we alter the database on our local machine, we export the sql file and share it on GitHub (
-  honesly, I have no clue of how to do this in a better way...).
 
 # =====================================
 
