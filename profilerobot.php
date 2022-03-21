@@ -73,7 +73,7 @@
   <div class = "squarecolor">
         <br>
         <div class = "overall">
-            <div class = "squarecolorsmall">
+            /*<div class = "squarecolorsmall">
               <?php
 
               if(isset($name)){
@@ -124,7 +124,7 @@
               ?>
             </div>
         </div>
-    </div>
+    </div>*/
 <?php
   include_once "footer.html";
 ?>
