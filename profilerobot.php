@@ -70,65 +70,6 @@
     <br>
     <div class="overall">
       <div class="squarecolorsmall">
-        <?php
-          $conn = mysqli_connect("localhost", "root", "", "webapp");
-          $query = "SELECT * FROM `robots`";
-          $result = mysqli_query($conn, $query)
-
-        ?>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            $robotName = $row['robotName'];
-            echo $robotName;
-          }
-        ?>
-      </div>
-      <br>
-      <div class="squarecolorsmall">
-        <?php
-          $conn = mysqli_connect("localhost", "root", "", "webapp");
-          $query = "SELECT * FROM `robots`";
-          $result = mysqli_query($conn, $query)
-
-        ?>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            $serialNum = $row['serialNum'];
-            echo $serialNum;
-          }
-        ?>
-      </div>
-      <br>
-      <div class="squarecolorsmall">
-        <?php
-          $conn = mysqli_connect("localhost", "root", "", "webapp");
-          $query = "SELECT * FROM `robots`";
-          $result = mysqli_query($conn, $query)
-
-        ?>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            $sound = $row['sound'];
-            echo $sound;
-          }
-        ?>
-      </div>
-    </div>
-    <div class="overall2">
-      <div class="squarecolorbig">
-        <?php
-          $conn = mysqli_connect("localhost", "root", "", "webapp");
-          $query = "SELECT * FROM `robots`";
-          $result = mysqli_query($conn, $query)
-
-        ?>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            $robotPicture = $row['robotPicture'];
-            echo $robotPicture;
-          }
-        ?>
-      </div>
   <div class = "squarecolor">
         <br>
         <div class = "overall">
