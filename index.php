@@ -46,9 +46,9 @@
       for ($a = 0; $a < 3; $a++) {
         echo '
                         <div class="indexScrollItem">
-                            <img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img">  
+                            <img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img">
                         </div>
-    
+
                         <!--An empty div to space items apart-->
                         <div class="indexScrollSpacer"></div>';
       }
