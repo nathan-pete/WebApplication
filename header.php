@@ -11,7 +11,13 @@
       <li class="line"> &VerticalLine;</li>
       <li><a href="#" class="bets">Bets</a></li>
       <li class="line"> &VerticalLine;</li>
-      <li><a href="#" class="login">Login</a></li>
+      <?php
+        if (isset($_SESSION["isLogged"])) {
+          echo '<li><a href="usrpnl.php" class="login">' . $_SESSION["islogged"] . '</a></li>';
+        } else {
+          echo '<li><a href="#" class="login">Login</a></li>';
+        }
+      ?>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="h-sign">

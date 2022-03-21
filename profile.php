@@ -23,83 +23,83 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.html";
+    include_once "header.php";
   ?>
   <div id="profileCenterTitle">
-        <h1>Robot <br> Profile</h1>
-    </div>
-    <div class = "space">
+    <h1>Robot <br> Profile</h1>
+  </div>
+  <div class="space">
+  </div>
+  <div class="squarecolor">
+    <br>
+    <div class="overall">
+      <div class="squarecolorsmall">
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "webapp");
+          $query = "SELECT * FROM `robots`";
+          $result = mysqli_query($conn, $query)
+
+        ?>
+        <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+            $robotName = $row['robotName'];
+            echo $robotName;
+          }
+        ?>
       </div>
-  <div class = "squarecolor">
-        <br>
-        <div class = "overall">
-            <div class = "squarecolorsmall">
-            <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
-              <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $robotName = $row['robotName'];
-                echo $robotName;
-              }
-                ?>
-            </div>
-        <br>
-            <div class = "squarecolorsmall">
-            <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
-              <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $serialNum= $row['serialNum'];
-                echo $serialNum;
-              }
-                ?>
-            </div>
-        <br>
-            <div class = "squarecolorsmall">
-            <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
-              <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $sound = $row['sound'];
-                echo $sound;
-              }
-                ?>
-            </div>
-        </div>     
-        <div class = "overall2"> 
-            <div class = "squarecolorbig">
-            <?php
-              $conn = mysqli_connect("localhost","root","","webapp");
-              $query = "SELECT * FROM `robots`";
-              $result = mysqli_query($conn,$query)
-      
-            ?>
-            <?php
-            while($row = mysqli_fetch_assoc($result)) {
-              $robotPicture = $row['robotPicture'];
-              echo $robotPicture;
-            }
-              ?>
-            </div>
-        </div>
+      <br>
+      <div class="squarecolorsmall">
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "webapp");
+          $query = "SELECT * FROM `robots`";
+          $result = mysqli_query($conn, $query)
+
+        ?>
+        <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+            $serialNum = $row['serialNum'];
+            echo $serialNum;
+          }
+        ?>
+      </div>
+      <br>
+      <div class="squarecolorsmall">
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "webapp");
+          $query = "SELECT * FROM `robots`";
+          $result = mysqli_query($conn, $query)
+
+        ?>
+        <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+            $sound = $row['sound'];
+            echo $sound;
+          }
+        ?>
+      </div>
     </div>
+    <div class="overall2">
+      <div class="squarecolorbig">
+        <?php
+          $conn = mysqli_connect("localhost", "root", "", "webapp");
+          $query = "SELECT * FROM `robots`";
+          $result = mysqli_query($conn, $query)
+
+        ?>
+        <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+            $robotPicture = $row['robotPicture'];
+            echo $robotPicture;
+          }
+        ?>
+      </div>
+    </div>
+  </div>
   <br>
   <br>
   <br>
-<?php
-  include_once "footer.html";
-?>
+  <?php
+    include_once "footer.html";
+  ?>
 </body>
 </html>
