@@ -74,7 +74,7 @@
           if(isset($name)){
             if($infoR) {
               foreach($infoR as $robot) {
-                echo $robot['robotName'];
+                echo '<h3 class="event-h" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
               }
             }   
           }
@@ -85,7 +85,7 @@
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      echo $robot['serialNum'];
+                      echo '<h3 class="event-h" style="padding-bottom:0.5%;">'.$robot['serialNum'].'';
                     }
                   }  
                 }
@@ -117,5 +117,8 @@
           </div>
       </div>
       </div>
+      <?php
+            include_once "footer.html";
+      ?>
 </body>
 </html>
