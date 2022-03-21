@@ -10,14 +10,14 @@
 }
 
 body {
-  background-color: black;
-  background-repeat: no-repeat;
-  background-image: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
+  /*background-color: black;*/
+  background-repeat: no-repeat !important;
+  background: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
   radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent),
-  linear-gradient(#7959ca, #1a626f 30%, #a73fe3 50%, #b738f7 70%, #fec66d 100%);
-  background-size: cover;
+  linear-gradient(#7959ca, #1a626f 30%, #a73fe3 50%, #b738f7 70%, #fec66d 100%) !important;
+  background-size: cover !important;
 }
 
 .body {
@@ -820,7 +820,6 @@ iframe {
   height: 555px;
 }
 
-
 /* -------------------------------Vote for a game page ----------------------------------------------------------------*/
   a.animated-button.victoria-two {
   border: 2px solid #D24D57;
@@ -832,11 +831,6 @@ iframe {
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
   transform: translateX(-50%) translateY(-50%) rotate(25deg);
   }
-
-
-
-
-
   .space-indx{
     margin:15%;
   }

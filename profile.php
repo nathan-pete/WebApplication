@@ -1,3 +1,46 @@
+<?php 
+  include "connect.php";
+?>
+
+<?php 
+     if($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if(isset($_GET['name'])) {
+          $name = $_GET['name'];
+
+          $info  = $conn -> prepare("SELECT * FROM robots WHERE robotName = ?");
+
+          if(!$info) {
+            die('Prepare failed' . mysqli_error($conn));
+          }
+
+          $info -> bind_param("s", $name);
+
+          if(!$info) {
+            die('Binding failed' . mysqli_error($conn));
+          }
+
+          $info -> execute();
+
+          if(!$info) {
+            die('Execute failed' . mysqli_error($conn));
+          }
+
+          $result = $info->get_result();
+
+          $infoR = $result -> fetch_all(MYSQLI_ASSOC);
+
+          $info -> close();
+          $conn -> close();
+
+          
+
+        }
+     }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,70 +77,62 @@
         <br>
         <div class = "overall">
             <div class = "squarecolorsmall">
-            <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
               <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $robotName = $row['robotName'];
-                echo $robotName;
+
+              if(isset($name)){
+                 if($infoR) {
+                  foreach($infoR as $robot) {
+                    echo $robot['robotName'];
+                  }
+                }   
               }
+                 
+
+              
+              ?>
+            </div>
+        <br>
+            <div class = "squarecolorsmall">
+            <?php
+                              if(isset($name)){
+                                if($infoR) {
+                                 foreach($infoR as $robot) {
+                                   echo $robot['serialNum'];
+                                 }
+                               }  
+                             }
+                                
                 ?>
             </div>
         <br>
             <div class = "squarecolorsmall">
             <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
-              <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $serialNum= $row['serialNum'];
-                echo $serialNum;
-              }
-                ?>
-            </div>
-        <br>
-            <div class = "squarecolorsmall">
-            <?php
-                $conn = mysqli_connect("localhost","root","","webapp");
-                $query = "SELECT * FROM `robots`";
-                $result = mysqli_query($conn,$query)
-        
-              ?>
-              <?php
-              while($row = mysqli_fetch_assoc($result)) {
-                $sound = $row['sound'];
-                echo $sound;
-              }
+                                if(isset($name)){
+                                  if($infoR) {
+                                   foreach($infoR as $robot) {
+                                     echo $robot['sound'];
+                                   }
+                                 }  
+                               }
+                                  
                 ?>
             </div>
         </div>     
         <div class = "overall2"> 
             <div class = "squarecolorbig">
             <?php
-              $conn = mysqli_connect("localhost","root","","webapp");
-              $query = "SELECT * FROM `robots`";
-              $result = mysqli_query($conn,$query)
-      
-            ?>
-            <?php
-            while($row = mysqli_fetch_assoc($result)) {
-              $robotPicture = $row['robotPicture'];
-              echo $robotPicture;
-            }
+              if(isset($name)){
+                if($infoR) {
+                 foreach($infoR as $robot) {
+                   echo $robot['robotPicture'];
+                 }
+               }  
+             }
+                
               ?>
             </div>
         </div>
     </div>
-  <br>
-  <br>
-  <br>
 <?php
   include_once "footer.html";
 ?>

@@ -31,13 +31,12 @@ if(isset($_GET['name'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style/style.css">
   <link rel="icon" href="./assets/PBBwhite.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link href="http://designify.me/code-snippets/animated-buttons/css/btns.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
   <title>Battle Bot Events</title>
@@ -59,7 +58,9 @@ if(isset($_GET['name'])) {
   <?php
     include_once "header.html";
   ?>
-  <div class="container">
+<div class="events-title">
+    <h1 style="font-weight: 700; pointer-events: none;">Vote the game</h1>
+  </div>
 <?php
 
 $query = $conn ->prepare("SELECT `name`, `picture`, `votes` FROM games");
@@ -77,7 +78,7 @@ while($query->fetch())
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame.php?name='. $name .'" class="btn btn-sm animated-button victoria-two">Vote</a></div>
+        <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame2.php?name='. $name .'" class="btn btn-sm animated-button victoria-two">Vote</a></div>
       </div>
       <h3>Votes: '.$votes.'</h3> 
     </div>';
@@ -88,8 +89,6 @@ while($query->fetch())
 
 mysqli_stmt_close($query); 
 ?>
-  </div>
-
 <!-- /container --> 
 <!-- Bootstrap core JavaScript
     ================================================== --> 
