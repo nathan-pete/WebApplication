@@ -763,7 +763,7 @@ iframe {
   display: flex;
   float: left;
   margin: 15px;
-  padding: 15px;
+  padding: 20px;
 }
 .squarecolorbig {
   background-color: lightgray;
@@ -800,7 +800,6 @@ iframe {
 }
 .space {
   width: 1080px;
-  height: 10px;
 }
 
 #stream_video {
