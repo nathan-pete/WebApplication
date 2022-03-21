@@ -769,6 +769,9 @@ iframe {
   background-color: lightgray;
   width: 400px;
   border-radius: 60px;
+  padding: 100px;
+  margin-left: 20px;
+  margin-top: 50px;
 }
 .overall {
   width: 500px;

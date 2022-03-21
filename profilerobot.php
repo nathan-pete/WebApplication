@@ -67,7 +67,55 @@
   <div class="space">
   </div>
   <div class="squarecolor">
-    
+  <div class="overall">
+    <div class="squarecolorsmall">
+    <?php
 
+          if(isset($name)){
+            if($infoR) {
+              foreach($infoR as $robot) {
+                echo $robot['robotName'];
+              }
+            }   
+          }
+    ?>
+      </div>
+      <div class = "squarecolorsmall">
+          <?php
+                if(isset($name)){
+                  if($infoR) {
+                    foreach($infoR as $robot) {
+                      echo $robot['serialNum'];
+                    }
+                  }  
+                }
+              ?>
+          </div>
+          <div class = "squarecolorsmall">
+          <?php
+                if(isset($name)){
+                  if($infoR) {
+                    foreach($infoR as $robot) {
+                      echo $robot['sound'];
+                    }
+                  }  
+                }               
+              ?>
+          </div>
+              </div>
+          <div class = "overall2"> 
+          <div class = "squarecolorbig">
+          <?php
+            if(isset($name)){
+              if($infoR) {
+               foreach($infoR as $robot) {
+                 echo $robot['robotPicture'];
+               }
+             }  
+           } 
+            ?>
+          </div>
+      </div>
+      </div>
 </body>
 </html>
