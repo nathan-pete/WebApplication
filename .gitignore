@@ -11,9 +11,9 @@
 *credentials.php
 */vendor
 */Test
-*credentials.php
 *composer.phar
 *pull.bat
 *web.config
 *easteregg1.jpg
 *easteregg2.jpg
+./connect.php

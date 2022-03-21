@@ -834,3 +834,173 @@ iframe {
   .space-indx{
     margin:15%;
   }
+  .row {
+    margin-right: -600px;
+    margin-left: 600px;
+    width: 150px;
+}
+  
+
+  /*----------2048 Game-----------*/
+
+  #gameContainer {
+    width: 98vw;
+    margin: 0 auto;
+    height: 97vh;
+    display: grid;
+    grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
+    grid-template-columns: 39vw 20vw 39vw;
+  }
+
+  .grid {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+      height: 400px;
+      margin-top: 100px;
+      margin-bottom: 200px;
+      margin-left: -320px;
+      background-color: #6665DD;
+
+  }
+
+  .grid div {
+      width: 100px;
+      height: 100px;
+      background-color: #ACADBC;
+      font-size: 60px;
+      text-align: center;
+      font-weight: semi-bold;
+      font-family: monospace;
+  }
+
+  .score-container {
+      margin-left: 50px;
+      margin-top: 170px;
+      font-size: x-large;
+      font-weight: bold;
+      font-family: monospace;
+      padding: 17px;
+  }
+
+  .explanation {
+      margin-left: 50px;
+      margin-right: 100px;
+      padding: 17px;
+  }
+
+  .explanation p {
+      font-family: monospace;
+      font-size: large;
+      margin-top: 40px;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 66px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 320px;
+    top: 150%;
+    left: 50%;
+    margin-left: -220px;
+    background-color:  #6665DD;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 8px;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+
+/*----------End of 2048 Game-----------*/
+
+/*----------Falling robot Game Start-----------*/
+
+  #game{
+      width: 400px;
+      height: 500px;
+      margin-left: 420px;
+      margin-top: 45px;
+      border: 5px solid #6665DD;
+      overflow: hidden;
+  }
+
+  #character{
+      position: relative;
+      top: 400px;
+      left: 190px;
+      z-index: 1000000;
+  }
+
+  #character img {
+  	width: 50px;
+  }
+
+  .block{
+      width: 400px;
+      height: 20px;
+      background-color:  #529bcf;
+      position: relative;
+      top: 100px;
+      margin-top: -20px;
+  }
+
+  .hole{
+      width: 50px;
+      height: 20px;
+      background-color: white;
+      position: relative;
+      top: 100px;
+      margin-top: -20px;
+  }
+
+  .restart_button {
+  	margin-left: 150px;
+  	margin-top: 45px;
+  }
+
+  .restart_button button {
+  	  padding: 10px;
+      font-size: medium;
+      background-color: darkslateblue;
+      color: white;
+      border: none;
+      font-family: monospace;
+  }
+
+  #result {
+  	margin-top: 250px;
+  	margin-left: 30px;
+  	font-size: x-large;
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+  .explanation {
+      margin-left: 50px;
+      margin-right: 100px;
+      padding: 17px;
+      margin-top: -50px;
+  }
+
+  .explanation p {
+      font-family: monospace;
+      font-size: large;
+  }
+
+
+/*----------End of Falling Robot Game-----------*/

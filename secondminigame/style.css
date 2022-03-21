@@ -1,0 +1,325 @@
+@import url('http://fonts.cdnfonts.com/css/boycott');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+  background-color: black;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent),
+  linear-gradient(#7959ca, #1a626f 30%, #a73fe3 50%, #b738f7 70%, #fec66d 100%);
+  background-size: cover;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#indexContainer {
+  width: 98vw;
+  margin: 0 auto;
+  height: 97vh;
+  display: grid;
+  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
+  grid-template-columns: 39vw 20vw 39vw;
+}
+
+/*------------------------------Header Start-----------------------------*/
+.header-style, .nav, .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.nav {
+  position: relative;
+  background-color: #2A2A2A;
+  padding-left: 1%;
+  margin: 1.5% 0 0 0;
+  transition: 0.5s;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(255, 0, 0, 0.5);
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.nav input:checked ~ .menu {
+  width: 700px;
+}
+
+.h-sign {
+  opacity: 0.4;
+  color: white;
+  position: absolute;
+  width: 200px;
+  left: 115%;
+  transition: 1s;
+  pointer-events: none;
+}
+
+.nav input:checked ~ .h-sign {
+  opacity: 0;
+
+}
+
+.nav input:hover ~ span {
+  background-color: #0386FF;
+}
+
+.menu li {
+  list-style: none;
+  margin: 0 5px;
+  color: #ffffff;
+}
+
+.menu li.line {
+  pointer-events: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.menu li a:hover {
+  color: #0386FF;
+}
+
+.nav input {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.nav span {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  width: 20px;
+  height: 4px;
+  border-radius: 50px;
+  background-color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+  transform: rotate(-90deg);
+}
+
+.nav input:checked ~ span {
+  background-color: #ff0000;
+  transform: rotate(180deg);
+  left: 18px;
+}
+
+/*-------------------------------Header End-------------------------------*/
+
+#game{
+    width: 400px;
+    height: 500px;
+    margin-left: 550px;
+    margin-top: 100px;
+    border: 5px solid #6665DD;
+    overflow: hidden;
+}
+#character{
+    position: relative;
+    top: 400px;
+    left: 190px;
+    z-index: 1000000;
+}
+#character img {
+	width: 50px;
+}
+.block{
+    width: 400px;
+    height: 20px;
+    background-color:  #529bcf;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+.hole{
+    width: 50px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+
+.restart_button {
+	margin-left: 150px;
+	margin-top: 150px;
+}
+
+.restart_button button {
+	padding: 10px;
+    font-size: medium;
+    background-color: darkslateblue;
+    color: white;
+    border: none;
+    font-family: monospace;
+}
+
+#result {
+	margin-top: 150px;
+	margin-left: -530px;
+	font-size: x-large;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.explanation {
+    margin-left: 50px;
+    margin-right: 100px;
+    padding: 17px;
+    margin-top: -50px;
+}
+
+.explanation p {
+    font-family: monospace;
+    font-size: large;
+}
+
+/*------------------------------Footer Start------------------------------*/
+.footer-top {
+  color: black;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.65));
+  border-radius: 20px 20px 0 0;
+  height: 9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 -8px 15px rgba(255, 0, 0, 0.5);
+}
+
+.footer-top img {
+  margin-left: 40%;
+
+}
+
+.text-contact {
+  color: black;
+  margin-left: -4.5%;
+  margin-right: 5%;
+  line-height: 150%;
+
+}
+
+.text-contact a {
+  color: black;
+}
+
+.text-address {
+  color: black;
+  margin-left: 5%;
+  margin-right: 3%;
+  line-height: 150%;
+
+}
+
+.text-address .uni-name {
+  color: black;
+  width: 100%;
+}
+
+.text-address a {
+  color: black;
+}
+
+.icons {
+  margin-left: 6%;
+  width: 5.5%;
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  align-items: center;
+  list-style: none;
+}
+
+.icons ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.social-icons li {
+  display: list-item;
+  margin-bottom: 4px;
+  justify-content: space-around;
+}
+
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.social-icons a {
+  background: radial-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 30px 30px 60px 30px;
+  -webkit-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.PBBlogo {
+  height: 120px;
+  width: 200px;
+}
+
+.social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+  color: #fff;
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icons a.whatsapp:hover {
+  background: linear-gradient(to bottom, #1daa52, #042f2b);
+}
+
+.social-icons a.reddit:hover {
+  background-color: #FF4501;
+}
+
+.social-icons a.instagram:hover {
+  background: radial-gradient(circle farthest-corner at 35% 90%, #977839, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 20% -50%, #3d419a, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 0, #5e2a84, transparent 50%),
+  radial-gradient(ellipse farthest-corner at 100% 100%, #821e49, transparent),
+  linear-gradient(#393372, #801e49 30%, #661c2a 50%, #6d351b 70%, #fec66d 100%);
+}
+
+/*-------------------------------Footer End-------------------------------*/

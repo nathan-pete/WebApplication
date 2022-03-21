@@ -36,7 +36,7 @@ if(isset($_GET['name'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style/style.css">
   <link rel="icon" href="./assets/PBBwhite.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  
   <link href="http://designify.me/code-snippets/animated-buttons/css/btns.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
