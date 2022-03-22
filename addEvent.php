@@ -44,6 +44,21 @@
                             $acceptedFileTypes = ["image/png", "image/jpeg", "image/jpg"];
                             $uploadedFileType = finfo_file(finfo_open(FILEINFO_MIME_TYPE), $_FILES['image']['tmp_name']);
                             if(!empty($_POST['name']) && !empty($_POST['desc']) && !empty($_FILES['image'])) {
+                                if ($_FILES['image']['size']<2500000) {
+                                    if (strlen($_FILES['image']['name']) <= 35) {
+                                        if (in_array($uploadedFileType, $acceptedFileTypes)) {
+                                            $fileinfo = getimagesize($_FILES["image"]["tmp_name"]);
+                                            $width = $fileinfo[0];
+                                            $height = $fileinfo[1];
+                                        }else {
+                                            echo "Invalid image type! Only png, jpeg and jpg are permitted.";
+                                        }
+                                    }else {
+                                        echo "File name must not exceed 35 Characters.";
+                                    }
+                                }else {
+                                    echo "Image should not exceed 3MB.";
+                                }
                             }else {
                                 echo "Please fill in all fields!";
                             }
