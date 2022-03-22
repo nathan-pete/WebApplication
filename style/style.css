@@ -1024,3 +1024,72 @@ a.animated-button.victoria-two:after {
 
 
 /*----------End of Falling Robot Game-----------*/
+
+/* Register page start */
+.registerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.registerBox {
+  display: flex;
+  justify-content: center;
+  transition: 1s;
+  transform: translate3D(0, -1px, 0);
+  background: linear-gradient(360deg, rgb(222 222 222 / 42%), lightslategray);
+  border-radius: 20px;
+  color: black;
+  width: 50%;
+}
+
+.registerBox:hover {
+  border-radius: 20px;
+  width: 52%;
+  transition: 1s;
+  background-color: rgba(222, 222, 222, 0.35);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  color: rgb(71, 70, 70);
+}
+
+.registerBox:nth-child(1) {
+  display: flex;
+  justify-content: center;
+}
+
+.registerBox h1 {
+  padding-left: 10px;
+  padding-top: 0.6em;
+}
+
+.registerBox form>div{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.registerBox input {
+  width: 25em;
+  background-color: rgba(255, 255, 255, 0.71);
+  border-radius: 20px;
+  color: black;
+  height: 2.5em;
+  border: none;
+}
+
+.registerBox input[type="text"], input[type="password"] {
+  padding-bottom: 1.3em;
+}
+
+.registerBox[type="submit"] {
+  text-align: center;
+}
+
+.registerBox label {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* Register page end*/

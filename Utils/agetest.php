@@ -1,11 +1,11 @@
 <?php
-if(isset($_POST['submit'])){
+
 
   $birthDate = $_POST['dOb'];
   $dateToday = date("Y-m-d");
   $age = date_diff(date_create($birthDate), date_create($dateToday));
   $ageCalc = $age->format('%y');
-
+if(isset($_POST['submit'])){
   if($birthDate == '' or $birthDate >= $dateToday){
     echo "Please enter a valid date of birth";
   }
