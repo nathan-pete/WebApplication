@@ -57,7 +57,7 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.html";
+    include_once "header.php";
   ?>
   <div id="profileCenterTitle">
     <h1>Vote the game</h1>
@@ -100,7 +100,7 @@
   <br>
 </div>
 <?php
-    include_once "footer.html";
-  ?>
+  include_once "footer.html";
+?>
 </body>
 </html>
