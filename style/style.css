@@ -24,7 +24,6 @@ body {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-  height: 100%
 }
 
 /*------------------------------General End------------------------------*/
@@ -747,6 +746,17 @@ iframe {
   color: whitesmoke;
   font-family: 'boycott', sans-serif;
 }
+
+.robot-details{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-weight: 600;
+  margin: 0 auto;
+  max-width: 100%;
+
+}
+
 .squarecolor {
   background-color: lightslategray;
   width: 1000px;

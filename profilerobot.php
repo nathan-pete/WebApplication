@@ -53,6 +53,7 @@
           color: #0386FF;
           text-decoration: none;
         }
+        
       </style>";
   ?>
 </head>
@@ -74,7 +75,7 @@
           if(isset($name)){
             if($infoR) {
               foreach($infoR as $robot) {
-                echo '<h3 class="event-h" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
+                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
               }
             }   
           }
@@ -85,7 +86,7 @@
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      echo '<h3 class="event-h" style="padding-bottom:0.5%;">'.$robot['serialNum'].'';
+                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['serialNum'].'';
                     }
                   }  
                 }
