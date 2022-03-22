@@ -2,8 +2,9 @@
   function connectDatabase(): bool|mysqli
   {
     require "../connect.php";
-    if ($DB = mysqli_connect($host, $user, $pass, $database)) {
+    if ($DB = $conn) {
       return $DB;
+
     }
     return FALSE;
   }
