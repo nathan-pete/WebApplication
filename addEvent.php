@@ -50,6 +50,20 @@
                                             $fileinfo = getimagesize($_FILES["image"]["tmp_name"]);
                                             $width = $fileinfo[0];
                                             $height = $fileinfo[1];
+                                            if ($width < 500 && $height < 500) {
+                                                if (!file_exists("./uploads/games/" . $_FILES['image']['name'])) {
+                                                    if (move_uploaded_file($_FILES['image']['tmp_name'], "./uploads/games/" . $_FILES['image']['name'])) {
+                                                       
+                                                        
+                                                    }else {
+                                                        echo "Something went wrong, please try again";
+                                                    }
+                                                }else {
+                                                    echo "<br><p>" . $_FILES['image']['name'] . " already exists.</p>";
+                                                }
+                                            }else {
+                                                echo "Image dimensions can't exceed 500x500!";
+                                            }
                                         }else {
                                             echo "Invalid image type! Only png, jpeg and jpg are permitted.";
                                         }
