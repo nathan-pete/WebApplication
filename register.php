@@ -61,7 +61,29 @@
                                         if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
                                             if (strlen(trim($_POST['password'])) > 6) { //check if the password is longer than 6 char.
                                                 $email = $_POST["email"];
-                                                
+                                                if (filter_var($email, FILTER_VALIDATE_EMAIL)) { //validate the email format
+                                                    $sql = "SELECT email FROM users WHERE email = ?"; //query to search if email already exists
+                                                    if($stmt = mysqli_prepare($conn, $sql)) {
+                                                        mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            mysqli_stmt_store_result($stmt);
+                                                            if (mysqli_stmt_num_rows($stmt) == 0) {
+                                                                mysqli_stmt_close($stmt); //close statement
+                                                                
+                                                            } else {
+                                                                echo "Email already exists.";
+                                                            }
+                                                        } else {
+                                                            echo "Error executing query" . mysqli_error($conn);
+                                                            die();
+                                                        }
+                                                    }else {
+                                                        echo "Error executing query" . mysqli_error($conn);
+                                                        die();
+                                                    }
+                                                }else {
+                                                    echo "Invalid email.";
+                                                }
                                             }else {
                                                 echo "Password must be longer than 6 characters!";
                                             }
