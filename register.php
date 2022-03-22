@@ -69,7 +69,27 @@
                                                             mysqli_stmt_store_result($stmt);
                                                             if (mysqli_stmt_num_rows($stmt) == 0) {
                                                                 mysqli_stmt_close($stmt); //close statement
-                                                                
+                                                                $userName = $_POST["userName"];
+                                                                $firstName = $_POST['firstName'];
+                                                                $lastName = $_POST['lastName'];
+                                                                $dOb = $_POST['dOb'];
+                                                                $points = 500;
+                                                                $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
+                                                                $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password) VALUES (?,?,?,?,?,?,?)"; //the query for inserting into the database
+                                                                if ($stmt = mysqli_prepare($conn, $sql)) {
+                                                                    mysqli_stmt_bind_param($stmt, "ssissds", $userName, $email, $points, $firstName, $lastName, $dOb, $password); //bind values to parameters
+                                                                    if (mysqli_stmt_execute($stmt)) {
+                                                                        mysqli_stmt_close($stmt); //close statement
+                                                                        mysqli_close($conn); //close connection
+                                                                        echo "You successfully registered!";
+                                                                    } else {
+                                                                        echo "Error: " . mysqli_error($conn);
+                                                                        die();
+                                                                    }
+                                                                } else {
+                                                                    echo "Error: " . mysqli_error($conn);
+                                                                    die();
+                                                                }
                                                             } else {
                                                                 echo "Email already exists.";
                                                             }
