@@ -53,8 +53,22 @@
                                             if ($width < 500 && $height < 500) {
                                                 if (!file_exists("./uploads/games/" . $_FILES['image']['name'])) {
                                                     if (move_uploaded_file($_FILES['image']['tmp_name'], "./uploads/games/" . $_FILES['image']['name'])) {
-                                                       
-                                                        
+                                                        $name = $_POST['name'];
+                                                        $desc = $_POST['desc'];
+                                                        $img = $_FILES['image']['name'];
+                                                        $sql = "INSERT INTO games (name, Descrption, picture) VALUES (?,?,?)";
+                                                        if ($stmt = mysqli_prepare($conn, $sql)) {
+                                                            mysqli_stmt_bind_param($stmt, "sss", $name, $desc, $img);
+                                                            if (!mysqli_stmt_execute($stmt)) {
+                                                                echo "Error executing query" . mysqli_error($conn);
+                                                                die(); //die if we cant execute statement
+                                                            }else {
+                                                                echo "Event created successfully";
+                                                            }
+                                                        }else {
+                                                            echo "Error executing query" . mysqli_error($conn);
+                                                            die(); //die if we cant execute statement
+                                                        }
                                                     }else {
                                                         echo "Something went wrong, please try again";
                                                     }
