@@ -36,18 +36,14 @@
     <div class="event-items">
       <a href="liveEvent.php">
         <div class="event-img">
-          <a href="#' . $picture . '"class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
+          <a href="#' . $picture . '"class="tweak" alt="Battle Bot Game" height="110" width="109">
           <div class="event-text">
             <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
+            <p class=" event-p">' . $description . '</p>
           </div>
         </div>
     </div>';
       }
-
-      //if (mysqli_stmt_num_rows() > 0) {
-      //while(mysqli_stmt_fetch()){
 
       mysqli_stmt_close($query);
     ?>
