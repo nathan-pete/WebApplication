@@ -51,83 +51,83 @@
                             </div>
                         </form>
                         <?php
-                        include "connect.php";
-                        if (isset($_POST['register'])) {
-                            if (!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['dOb']) && !empty($_POST['userName'])) { //check if all fields are filled
-                                if(strlen(trim($_POST['userName'])) < 30){
-                                    $date = date('Y/m/d');
-                                    $birthDate = $_POST['dOb'];
-                                    $age = date_diff(date_create($birthDate), date_create($date));
-                                    $ageCalc = $age->format('%y');
-                                    if ($_POST['dOb'] > $date or $ageCalc >='10'){
-                                        if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
-                                            if (strlen(trim($_POST['password'])) > 6) { //check if the password is longer than 6 char.
-                                                $email = $_POST["email"];
-                                                if (filter_var($email, FILTER_VALIDATE_EMAIL)) { //validate the email format
-                                                    $sql = "SELECT email FROM users WHERE email = ?"; //query to search if email already exists
-                                                    if($stmt = mysqli_prepare($conn, $sql)) {
-                                                        mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
-                                                        if (mysqli_stmt_execute($stmt)) {
-                                                            mysqli_stmt_store_result($stmt);
-                                                            if (mysqli_stmt_num_rows($stmt) == 0) {
-                                                                mysqli_stmt_close($stmt); //close statement
-                                                                $emailHandle = substr(($email), strpos(($email), "@") + 1); //get the email handle
-                                                                if (str_contains($emailHandle, "administrator")) {
-                                                                    $status = "administrator";
-                                                                }else{
-                                                                    $status = "user";
-                                                                }
-                                                                $userName = $_POST["userName"];
-                                                                $firstName = $_POST['firstName'];
-                                                                $lastName = $_POST['lastName'];
-                                                                $dOb = $_POST['dOb'];
-                                                                $points = 500;
-                                                                $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
-                                                                $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password, status) VALUES (?,?,?,?,?,?,?,?)"; //the query for inserting into the database
-                                                                if ($stmt = mysqli_prepare($conn, $sql)) {
-                                                                    mysqli_stmt_bind_param($stmt, "ssissdss", $userName, $email, $points, $firstName, $lastName, $dOb, $password, $status); //bind values to parameters
-                                                                    if (mysqli_stmt_execute($stmt)) {
-                                                                        mysqli_stmt_close($stmt); //close statement
-                                                                        mysqli_close($conn); //close connection
-                                                                        echo "You successfully registered!";
+                            include "connect.php";
+                            if (isset($_POST['register'])) {
+                                if (!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['dOb']) && !empty($_POST['userName'])) { //check if all fields are filled
+                                    if(strlen(trim($_POST['userName'])) < 30){
+                                        $date = date('Y/m/d');
+                                        $birthDate = $_POST['dOb'];
+                                        $age = date_diff(date_create($birthDate), date_create($date));
+                                        $ageCalc = $age->format('%y');
+                                        if ($_POST['dOb'] > $date or $ageCalc >='10'){
+                                            if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
+                                                if (strlen(trim($_POST['password'])) > 6) { //check if the password is longer than 6 char.
+                                                    $email = $_POST["email"];
+                                                    if (filter_var($email, FILTER_VALIDATE_EMAIL)) { //validate the email format
+                                                        $sql = "SELECT email FROM users WHERE email = ?"; //query to search if email already exists
+                                                        if($stmt = mysqli_prepare($conn, $sql)) {
+                                                            mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
+                                                            if (mysqli_stmt_execute($stmt)) {
+                                                                mysqli_stmt_store_result($stmt);
+                                                                if (mysqli_stmt_num_rows($stmt) == 0) {
+                                                                    mysqli_stmt_close($stmt); //close statement
+                                                                    $emailHandle = substr(($email), strpos(($email), "@") + 1); //get the email handle
+                                                                    if (str_contains($emailHandle, "administrator")) {
+                                                                        $status = "administrator";
+                                                                    }else{
+                                                                        $status = "user";
+                                                                    }
+                                                                    $userName = $_POST["userName"];
+                                                                    $firstName = $_POST['firstName'];
+                                                                    $lastName = $_POST['lastName'];
+                                                                    $dOb = $_POST['dOb'];
+                                                                    $points = 500;
+                                                                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
+                                                                    $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password, status) VALUES (?,?,?,?,?,?,?,?)"; //the query for inserting into the database
+                                                                    if ($stmt = mysqli_prepare($conn, $sql)) {
+                                                                        mysqli_stmt_bind_param($stmt, "ssissdss", $userName, $email, $points, $firstName, $lastName, $dOb, $password, $status); //bind values to parameters
+                                                                        if (mysqli_stmt_execute($stmt)) {
+                                                                            mysqli_stmt_close($stmt); //close statement
+                                                                            mysqli_close($conn); //close connection
+                                                                            echo "You successfully registered!";
+                                                                        } else {
+                                                                            echo "Error: " . mysqli_error($conn);
+                                                                            die();
+                                                                        }
                                                                     } else {
                                                                         echo "Error: " . mysqli_error($conn);
                                                                         die();
                                                                     }
                                                                 } else {
-                                                                    echo "Error: " . mysqli_error($conn);
-                                                                    die();
+                                                                    echo "Email already exists.";
                                                                 }
                                                             } else {
-                                                                echo "Email already exists.";
+                                                                echo "Error executing query" . mysqli_error($conn);
+                                                                die();
                                                             }
-                                                        } else {
+                                                        }else {
                                                             echo "Error executing query" . mysqli_error($conn);
                                                             die();
                                                         }
                                                     }else {
-                                                        echo "Error executing query" . mysqli_error($conn);
-                                                        die();
+                                                        echo "Invalid email.";
                                                     }
                                                 }else {
-                                                    echo "Invalid email.";
+                                                    echo "Password must be longer than 6 characters!";
                                                 }
-                                            }else {
-                                                echo "Password must be longer than 6 characters!";
+                                            }else{
+                                                echo "Passwords don't match!";
                                             }
                                         }else{
-                                            echo "Passwords don't match!";
+                                            echo"You must be older than 10 years old to register!";
                                         }
                                     }else{
-                                        echo"You must be older than 10 years old to register!";
+                                        echo "Username can't be longer than 30 characters!";
                                     }
                                 }else{
-                                    echo "Username can't be longer than 30 characters!";
+                                    echo "Please fill in all fields!";
                                 }
-                            }else{
-                                echo "Please fill in all fields!";
                             }
-                        }
                         ?>
                     </div>
                 </div>
