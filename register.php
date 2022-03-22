@@ -51,13 +51,15 @@
                             </div>
                         </form>
                         <?php
-                        //include "./Utils/agetest.php";
                         include "connect.php";
                         if (isset($_POST['register'])) {
                             if (!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['dOb']) && !empty($_POST['userName'])) { //check if all fields are filled
                                 if(strlen(trim($_POST['userName'])) < 30){
-                                    $date = date('Y/m/d H:i:s');
-                                    //if ($_POST['dOb'] > $date or $ageCalc >='10'){
+                                    $date = date('Y/m/d');
+                                    $birthDate = $_POST['dOb'];
+                                    $age = date_diff(date_create($birthDate), date_create($date));
+                                    $ageCalc = $age->format('%y');
+                                    if ($_POST['dOb'] > $date or $ageCalc >='10'){
                                         if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
                                             if (strlen(trim($_POST['password'])) > 6) { //check if the password is longer than 6 char.
                                                 $email = $_POST["email"];
@@ -116,9 +118,9 @@
                                         }else{
                                             echo "Passwords don't match!";
                                         }
-                                    //}else{
-                                      //  echo"You must be older than 10 years old to register!";
-                                    //}
+                                    }else{
+                                        echo"You must be older than 10 years old to register!";
+                                    }
                                 }else{
                                     echo "Username can't be longer than 30 characters!";
                                 }
