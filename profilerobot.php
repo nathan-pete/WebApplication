@@ -117,8 +117,9 @@
           </div>
       </div>
       </div>
-      <?php
-            include_once "footer.html";
-      ?>
+      </div>
+<?php
+    include_once "footer.html";
+  ?>
 </body>
 </html>
