@@ -1149,3 +1149,53 @@ a.animated-button.victoria-two:after {
 }
 
 /* Register page end*/
+
+/* Add event page start */
+.addEventContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.addEventBox {
+  background-color: #a5aedc;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.addEventBox div {
+  margin-top: 0.9em;
+}
+
+.yes {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.yes form input {
+  margin-top: 1em;
+}
+
+.addEventBox h1 {
+  margin-left: 2.7em;
+}
+
+.eventUpload {
+  margin-left: 5.4em;
+}
+
+.addEventBox form:nth-child(3) {
+  background-color: red;
+}
+
+.addEventBox form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Add event page end */
