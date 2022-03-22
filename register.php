@@ -51,13 +51,13 @@
                             </div>
                         </form>
                         <?php
-                        include "./Utils/agetest.php";
+                        //include "./Utils/agetest.php";
                         include "connect.php";
                         if (isset($_POST['register'])) {
                             if (!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['dOb']) && !empty($_POST['userName'])) { //check if all fields are filled
                                 if(strlen(trim($_POST['userName'])) < 30){
                                     $date = date('Y/m/d H:i:s');
-                                    if ($_POST['dOb'] > $date or $ageCalc >='10'){
+                                    //if ($_POST['dOb'] > $date or $ageCalc >='10'){
                                         if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
                                             if (strlen(trim($_POST['password'])) > 6) { //check if the password is longer than 6 char.
                                                 $email = $_POST["email"];
@@ -69,15 +69,21 @@
                                                             mysqli_stmt_store_result($stmt);
                                                             if (mysqli_stmt_num_rows($stmt) == 0) {
                                                                 mysqli_stmt_close($stmt); //close statement
+                                                                $emailHandle = substr(($email), strpos(($email), "@") + 1); //get the email handle
+                                                                if (str_contains($emailHandle, "administrator")) {
+                                                                    $status = "administrator";
+                                                                }else{
+                                                                    $status = "user";
+                                                                }
                                                                 $userName = $_POST["userName"];
                                                                 $firstName = $_POST['firstName'];
                                                                 $lastName = $_POST['lastName'];
                                                                 $dOb = $_POST['dOb'];
                                                                 $points = 500;
                                                                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
-                                                                $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password) VALUES (?,?,?,?,?,?,?)"; //the query for inserting into the database
+                                                                $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password, status) VALUES (?,?,?,?,?,?,?,?)"; //the query for inserting into the database
                                                                 if ($stmt = mysqli_prepare($conn, $sql)) {
-                                                                    mysqli_stmt_bind_param($stmt, "ssissds", $userName, $email, $points, $firstName, $lastName, $dOb, $password); //bind values to parameters
+                                                                    mysqli_stmt_bind_param($stmt, "ssissdss", $userName, $email, $points, $firstName, $lastName, $dOb, $password, $status); //bind values to parameters
                                                                     if (mysqli_stmt_execute($stmt)) {
                                                                         mysqli_stmt_close($stmt); //close statement
                                                                         mysqli_close($conn); //close connection
@@ -110,9 +116,9 @@
                                         }else{
                                             echo "Passwords don't match!";
                                         }
-                                    }else{
-                                        echo"You must be older than 10 years old to register!";
-                                    }
+                                    //}else{
+                                      //  echo"You must be older than 10 years old to register!";
+                                    //}
                                 }else{
                                     echo "Username can't be longer than 30 characters!";
                                 }
