@@ -25,10 +25,10 @@
           }
 
 
-          $info->bind_result($one, $two, $three, $four, $five, $six, $seven);
+          $info->bind_result($robotName, $serialNum, $sound, $robotPicture, $teamName, $point, $password);
           $info->fetch();
 
-          echo $four;
+          echo $robotPicture;
           die();
           /* $result = $info->get_result();
 
@@ -80,9 +80,9 @@
 
           if(isset($name)){
             if($infoR) {     
-              foreach($infoR as $robot) {
-                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$one.'';
-              }
+              //foreach($infoR as $robot) {
+                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robotName.'';
+              //}
             }   
           }
     ?>
@@ -91,9 +91,9 @@
           <?php
                 if(isset($name)){
                   if($infoR) {
-                    foreach($infoR as $robot) {
-                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['serialNum'].'';
-                    }
+                    //foreach($infoR as $robot) {
+                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$serialNum.'';
+                    //}
                   }  
                 }
               ?>
@@ -102,10 +102,10 @@
           <?php
                 if(isset($name)){
                   if($infoR) {
-                    foreach($infoR as $robot) {
-                      echo $robot['sound'];
+                    //foreach($infoR as $robot) {
+                      echo $sound;
                       //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
-                    }
+                    //}
                   }  
                 } 
                             
@@ -117,8 +117,8 @@
           <?php
             if(isset($name)){
               if($infoR) {
-               foreach($infoR as $robotPicture) {
-                 echo '<img src="image.php?robotPicture='.$robotPicture['robotPicture'].'" />'; 
+               //foreach($infoR as $robotPicture) {
+                 echo '<img src="./uploads/games/'.$robotPicture.'" />'; 
                  
                  /*$query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
                  mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
@@ -136,7 +136,7 @@
                          }
                  
                  echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';*/
-               }
+               //}
              }  
             }
             ?>
