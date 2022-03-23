@@ -11,7 +11,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
+      font-weight: 500;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -53,9 +54,11 @@
             <label for='confirmPassword'>Confirm Password</label><br>
             <input type="password" name="confirmPassword" class="input">
           </div>
+          <br>
           <div class="reg-bttn">
-            <input type="submit" name="register" value="Create account" class="input-bttn">
+            <input type="submit" name="register" value="Register!" class="input-bttn">
           </div>
+          <br>
         </form>
         <?php
           include "connect.php";
@@ -63,7 +66,7 @@
             if (!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['dOb']) && !empty($_POST['userName'])) { //check if all fields are filled
               if (strlen(trim($_POST['userName'])) < 30) {
                 $date = date('Y/m/d');
-                $dateOfBirth= $_POST['dOb'];
+                $dateOfBirth = $_POST['dOb'];
                 $age = date_diff(date_create($dateOfBirth), date_create($date));
                 $ageCalc = $age->format('%y');
                 if ($_POST['dOb'] > $date or $ageCalc >= '10') {
@@ -88,9 +91,9 @@
                               $firstName = $_POST['firstName'];
                               $lastName = $_POST['lastName'];
                               if ($ageCalc >= '18') {
-                                  $dateOfBirth = true;
+                                $dateOfBirth = true;
                               } else {
-                                  $dateOfBirth = false;
+                                $dateOfBirth = false;
                               }
                               $points = 500;
                               $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
@@ -100,43 +103,43 @@
                                 if (mysqli_stmt_execute($stmt)) {
                                   mysqli_stmt_close($stmt); //close statement
                                   mysqli_close($conn); //close connection
-                                  echo "You successfully registered!";
+                                  echo "<div class='successmessage'>You successfully registered!</div>";
                                 } else {
-                                  echo "Error: " . mysqli_error($conn);
+                                  echo "<div class='errormessage'>Error: " . mysqli_error($conn) . "</div>";
                                   die();
                                 }
                               } else {
-                                echo "Error: " . mysqli_error($conn);
+                                echo "<div class='errormessage'>Error: " . mysqli_error($conn) . "</div>";
                                 die();
                               }
                             } else {
-                              echo "Email already exists.";
+                              echo "<div class='errormessage'>Email already exists!</div>";
                             }
                           } else {
-                            echo "Error executing query" . mysqli_error($conn);
+                            echo "<div class='errormessage'>Error executing query" . mysqli_error($conn) . "</div>";
                             die();
                           }
                         } else {
-                          echo "Error executing query" . mysqli_error($conn);
+                          echo "<div class='errormessage'>Error executing query" . mysqli_error($conn) . "</div>";
                           die();
                         }
                       } else {
-                        echo "Invalid email.";
+                        echo "<div class='errormessage'>Invalid email!</div>";
                       }
                     } else {
-                      echo "Password must be longer than 6 characters!";
+                      echo "<div class='errormessage'>Password must be longer than 6 characters!</div>";
                     }
                   } else {
-                    echo "Passwords don't match!";
+                    echo "<div class='errormessage'>Passwords don't match!</div>";
                   }
                 } else {
-                  echo "You must be older than 10 years old to register!";
+                  echo "<div class='errormessage'>You must be older than 10 years old to register!</div>";
                 }
               } else {
-                echo "Username can't be longer than 30 characters!";
+                echo "<div class='errormessage'>Username can't be longer than 30 characters!</div>";
               }
             } else {
-              echo "Please fill in all fields!";
+              echo "<div class='errormessage'>Please fill in all fields!</div>";
             }
           }
         ?>
