@@ -23,77 +23,35 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.html";
+    include_once "header.php";
+    require_once "./Utils/eventDB.php";
   ?>
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
   </div>
   <div class="events-content">
-
-    <div class="event-items">
-      <a href="liveEvent.php">
-        <div class="event-img">
-          <img src="./assets/sumo.png" class="tweak" alt="Battle Bot - Sumo" height="110" width="135">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">Sumo</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
+    <?php
+      while ($query->fetch()) {
+        echo '
+          <div class="event-items">
+            <a href="liveEvent.php">
+              <div class="event-img">
+                <a href="#' . $picture . '"class="tweak" alt="Battle Bot Game" height="110" width="109">
+                <div class="event-text">
+                  <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
+                  <p class=" event-p">' . $description . '</p>
+                </div>
+              </div>
           </div>
-        </div>
-    </div>
 
-    <div class="event-items">
-      <a href="liveEvent.php">
-        <div class="event-img">
-          <img src="./assets/line.png" class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">Line Tracking</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
-          </div>
-        </div>
-    </div>
+        ';
+      }
 
-    <div class="event-items">
-      <a href="liveEvent.php">
-        <div class="event-img">
-          <img src="./assets/pen.png" class="tweak" alt="Battle Bot - Figure Drawing" height="110" width="135">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">Figure Drawing</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
-          </div>
-        </div>
-    </div>
-
-    <div class="event-items">
-      <a href="liveEvent.php">
-        <div class="event-img">
-          <img src="./assets/maze.png" class="tweak" alt="Battle Bot - Maze Race" height="110" width="135">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">Maze Race</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
-          </div>
-        </div>
-    </div>
-
-    <div class="event-items">
-      <a href="controlRobot.php">
-        <div class="event-img">
-          <img src="./assets/rc.png" class="tweak" alt="Battle Bot" height="110" width="107">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">Control a Robot</h3>
-            <p class=" event-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Quisque condimentum diam vel velit lobortis, tempor dictum lacus hendrerit.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
+      mysqli_stmt_close($query);
+    ?>
   </div>
 </div>
-<br>
+<div class="space-event"></div>
 <?php
   include_once "footer.html";
 ?>
