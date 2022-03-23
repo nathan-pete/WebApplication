@@ -97,7 +97,8 @@
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      //echo $robot //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
+                      echo $robot['sound'];
+                      //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
                     }
                   }  
                 } 
