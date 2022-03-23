@@ -4,8 +4,8 @@
 <?php 
      if($_SERVER['REQUEST_METHOD'] === 'GET') {
         if(isset($_GET['name'])) {
+          
           $name = $_GET['name'];
-
           $info  = $conn -> prepare("SELECT * FROM robots WHERE robotName = ?");
 
           if(!$info) {
@@ -24,10 +24,16 @@
             die('Execute failed' . mysqli_error($conn));
           }
 
-          $result = $info->get_result();
+
+          $info->bind_result($robotName, $serialNum, $sound, $robotPicture, $teamName, $point, $password);
+          $info->fetch();
+
+          echo $robotPicture;
+          die();
+          /* $result = $info->get_result();
 
           $infoR = $result -> fetch_all(MYSQLI_ASSOC);
-
+*/
           $info -> close();
           $conn -> close();
         }
@@ -73,10 +79,10 @@
     <?php
 
           if(isset($name)){
-            if($infoR) {
-              foreach($infoR as $robot) {
-                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
-              }
+            if($infoR) {     
+              //foreach($infoR as $robot) {
+                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robotName.'';
+              //}
             }   
           }
     ?>
@@ -85,9 +91,9 @@
           <?php
                 if(isset($name)){
                   if($infoR) {
-                    foreach($infoR as $robot) {
-                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['serialNum'].'';
-                    }
+                    //foreach($infoR as $robot) {
+                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$serialNum.'';
+                    //}
                   }  
                 }
               ?>
@@ -96,10 +102,10 @@
           <?php
                 if(isset($name)){
                   if($infoR) {
-                    foreach($infoR as $robot) {
-                      echo $robot['sound']; 
-                      //<iframe src="https://www.youtube.com/embed/<?php echo $_GET['id']" title="YouTube player" allowfullscreen></iframe>
-                    }
+                    //foreach($infoR as $robot) {
+                      echo $sound;
+                      //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
+                    //}
                   }  
                 } 
                             
@@ -111,8 +117,10 @@
           <?php
             if(isset($name)){
               if($infoR) {
-               foreach($infoR as $robotPicture) {
-                 echo $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
+               //foreach($infoR as $robotPicture) {
+                 echo '<img src="./uploads/games/'.$robotPicture.'" />'; 
+                 
+                 /*$query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
                  mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
              
                  $query->execute();
@@ -127,10 +135,10 @@
                              $robotPicture = "profile-default.jpg";
                          }
                  
-                 echo'<img src="./uploads/games/'. $robotpicture .' " alt="Robot picture">';
-               }
+                 echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';*/
+               //}
              }  
-           } 
+            }
             ?>
           </div>
       </div>
