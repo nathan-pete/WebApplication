@@ -112,7 +112,9 @@
             if(isset($name)){
               if($infoR) {
                foreach($infoR as $robotPicture) {
-                 echo $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
+                 echo '<img src="image.php?id='.$robotPicture['robotPicture'].'" />'; 
+                 
+                 $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
                  mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
              
                  $query->execute();
