@@ -88,14 +88,13 @@
         </div>
     </div>';
     }
-?>
-
+    
 
     //if (mysqli_stmt_num_rows() > 0) {
     //while(mysqli_stmt_fetch()){
 
     mysqli_stmt_close($query);
-  ?>
+?>
   <!-- /container -->
   <!-- Bootstrap core JavaScript
       ================================================== -->
