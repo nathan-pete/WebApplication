@@ -49,6 +49,19 @@
                     <input type="submit" name="register" value="Create account" class="input-bttn">
                   </div>
                 </form>
+                <?php
+                  include "connect.php";
+                  if (isset($_POST['register'])) {
+                    if (!empty($_POST['robotName']) && !empty($_POST['serialNum']) && !empty($_POST['teamName']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])) { //check if all fields are filled
+                      if (strlen(trim($_POST['robotName'])) < 30) {
+                      } else {
+                        echo "<div class='errormessage'>Username can't be longer than 30 characters!</div>";
+                      }
+                    } else {
+                      echo "<div class='errormessage'>Please fill in all fields!</div>";
+                    }
+                  }
+                ?>
               </div>
             </div>
           </div>
