@@ -61,6 +61,16 @@
                                     mysqli_stmt_bind_param($stmt, "s", $_POST['serialNum']);
                                     if (mysqli_stmt_execute($stmt)) {
                                       mysqli_stmt_store_result($stmt);
+                                      if (mysqli_stmt_num_rows($stmt) == 0) {
+                                          mysqli_stmt_close($stmt);//check if the password is longer than 6 char.
+                                          $robotName = $_POST["robotName"];
+                                          $serialNum = $_POST['serialNum'];
+                                          $teamName = $_POST['teamName'];
+                                          $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
+                                          $sql = "INSERT INTO robots (robotName, serialNum, teamName, password) VALUES (?,?,?,?)"; //the query for inserting into the database
+                                      } else {
+                                        echo "<div class='errormessage'>Serial number already exists.</div>";
+                                      }
                                     } else {
                                       echo "<div class='errormessage'>Error executing query" . mysqli_error($conn) . "</div>";
                                       die();
