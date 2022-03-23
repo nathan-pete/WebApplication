@@ -78,6 +78,12 @@
                             mysqli_stmt_store_result($stmt);
                             if (mysqli_stmt_num_rows($stmt) == 0) {
                               mysqli_stmt_close($stmt); //close statement
+                              $emailHandle = substr(($email), strpos(($email), "@") + 1); //get the email handle
+                              if (str_contains($emailHandle, "administrator")) {
+                                $status = "administrator";
+                              } else {
+                                $status = "user";
+                              }
                               $userName = $_POST["userName"];
                               $firstName = $_POST['firstName'];
                               $lastName = $_POST['lastName'];
@@ -88,9 +94,9 @@
                               }
                               $points = 500;
                               $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
-                              $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password) VALUES (?,?,?,?,?,?,?)"; //the query for inserting into the database
+                              $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password, status) VALUES (?,?,?,?,?,?,?,?)"; //the query for inserting into the database
                               if ($stmt = mysqli_prepare($conn, $sql)) {
-                                mysqli_stmt_bind_param($stmt, "ssissis", $userName, $email, $points, $firstName, $lastName, $dateOfBirth, $password); //bind values to parameters
+                                mysqli_stmt_bind_param($stmt, "ssississ", $userName, $email, $points, $firstName, $lastName, $dateOfBirth, $password, $status); //bind values to parameters
                                 if (mysqli_stmt_execute($stmt)) {
                                   mysqli_stmt_close($stmt); //close statement
                                   mysqli_close($conn); //close connection
