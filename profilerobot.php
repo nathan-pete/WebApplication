@@ -112,9 +112,9 @@
             if(isset($name)){
               if($infoR) {
                foreach($infoR as $robotPicture) {
-                 echo '<img src="image.php?id='.$robotPicture['robotPicture'].'" />'; 
+                 echo '<img src="image.php?robotPicture='.$robotPicture['robotPicture'].'" />'; 
                  
-                 $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
+                 /*$query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
                  mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
              
                  $query->execute();
@@ -132,7 +132,7 @@
                  echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';
                }
              }  
-           } 
+           } */
             ?>
           </div>
       </div>
