@@ -129,10 +129,10 @@
                              $robotPicture = "profile-default.jpg";
                          }
                  
-                 echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';
+                 echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';*/
                }
              }  
-           } */
+           } 
             ?>
           </div>
       </div>
