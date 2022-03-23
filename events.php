@@ -33,16 +33,17 @@
     <?php
       while ($query->fetch()) {
         echo '
-    <div class="event-items">
-      <a href="liveEvent.php">
-        <div class="event-img">
-          <a href="#' . $picture . '"class="tweak" alt="Battle Bot Game" height="110" width="109">
-          <div class="event-text">
-            <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
-            <p class=" event-p">' . $description . '</p>
+          <div class="event-items">
+            <a href="liveEvent.php">
+              <div class="event-img">
+                <a href="#' . $picture . '"class="tweak" alt="Battle Bot Game" height="110" width="109">
+                <div class="event-text">
+                  <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
+                  <p class=" event-p">' . $description . '</p>
+                </div>
+              </div>
           </div>
-        </div>
-    </div>';
+        ';
       }
 
       mysqli_stmt_close($query);
