@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./style/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="icon" href="./assets/PBBwhite.png">
   <title>Battle Bot Events</title>
 </head>
@@ -37,18 +38,14 @@
   </div>
   <h1 class="title_remote">Remote</h1>
   <div id="remote_box">
-    <div class="button_up">
-      <input type="image" src="./assets/up.png" name="up" width="50" height="48" alt="up"/>
-    </div>
-    <div class="button_down">
-      <input type="image" src="./assets/down.png" name="down" width="50" height="48" alt="up"/>
-    </div>
-    <div class="button_left">
-      <input class="button_left" type="image" src="./assets/left.png" name="left" width="50" height="48" alt="up"/>
-    </div>
-    <div class="button_right">
-      <input class="button_right" type="image" src="./assets/right.png" name="right" width="50" height="48" alt="up"/>
-    </div>
+      <form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
+      <input type="submit" value="Forward" name="Forward">
+      <input type="submit" value="Back" name="Back">
+      <input type="submit" value="Stop" name="Stop">
+      <input type="submit" value="TurnLeft" name="TurnLeft">
+      <input type="submit" value="TurnRight" name="TurnRight">
+      <input type="submit" value="LineTrack" name="LineTrack">
+</form>
   </div>
 </div>
 
