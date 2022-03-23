@@ -24,24 +24,28 @@
 <div class="body">
   <?php
     include_once "header.php";
+    require_once "./Utils/userDB.php";
+    $name = $firstName . "&nbsp;" . $lastName;
   ?>
   <div class="user-title">
-    <h1 style="font-weight: 700; pointer-events: none;">Welcome User!</h1>
+    <h1 style="font-weight: 700; pointer-events: none;">Welcome <?php echo $firstName; ?>!</h1>
   </div>
   <div class="user-content">
     <div class="user-items">
       <div class="user-text">
         <div class="user-pfp">
           <br>
-          <img src="./assets/defaultpfp.png" class="usrtweak" alt="Profile Picture"><br>
-          <h3>Username: </h3>
+          <div class="usrtweak">
+            <img src="./uploads/profilePictures/<?= $pfp ?>" alt="Profile picture">
+          </div>
+          <h3>Username: &nbsp;<?php echo $userName; ?></h3>
           <br>
         </div>
         <div class="usr-details">
-          <p class="user-p"><b>Name:</b>&nbsp;</p>
-          <p class="user-p"><b>E-mail:</b>&nbsp;</p>
-          <p class="user-p"><b>Date of Birth:</b>&nbsp;</p>
-          <p class="user-p"><b>Points:</b>&nbsp;</p>
+          <p class="user-p"><b>Name:</b>&nbsp;<?php echo $name; ?></p>
+          <p class="user-p"><b>E-mail:</b>&nbsp;<<?php echo $email; ?>/p>
+          <p class="user-p"><b>Date of Birth:</b>&nbsp;<?php echo $DoB; ?></p>
+          <p class="user-p"><b>Points:</b>&nbsp;<?php echo $points; ?></p>
         </div>
         <br>
         <div class="usr-buttons">
