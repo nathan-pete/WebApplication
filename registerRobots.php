@@ -57,6 +57,18 @@
                           if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
                             if (strlen(trim($_POST['password'])) > 6) {
                                 $sql = "SELECT serialNum FROM robots WHERE serialNum = ?";
+                                if ($stmt = mysqli_prepare($conn, $sql)) {
+                                    mysqli_stmt_bind_param($stmt, "s", $_POST['serialNum']);
+                                    if (mysqli_stmt_execute($stmt)) {
+                                      mysqli_stmt_store_result($stmt);
+                                    } else {
+                                      echo "<div class='errormessage'>Error executing query" . mysqli_error($conn) . "</div>";
+                                      die();
+                                    }
+                                } else {
+                                  echo "<div class='errormessage'>Error executing query" . mysqli_error($conn) . "</div>";
+                                  die();
+                                }
                             } else {
                               echo "<div class='errormessage'>Password must be longer than 6 characters!</div>";
                             }
