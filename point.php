@@ -68,7 +68,7 @@
 <?php 
     foreach($data as $row) {
         $_SESSION['token'] = $row['token'];
-        echo 'Received tokens are :' . $row['token']; 
+        echo 'Received tokens are :' . $_SESSION['token']; 
     }
 ?> 
 

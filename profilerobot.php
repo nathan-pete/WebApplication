@@ -28,8 +28,8 @@
           $info->bind_result();
           $info->fetch();
 
-          echo $robotPicture;
-          die();
+          //echo $robotPicture;
+          //die();
           $result = $info->get_result();
 
           $infoR = $result -> fetch_all(MYSQLI_ASSOC);
