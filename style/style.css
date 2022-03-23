@@ -54,7 +54,7 @@ body {
 }
 
 .nav input:checked ~ .menu {
-  width: 500px;
+  width: 550px;
 }
 
 .h-sign {
@@ -460,7 +460,7 @@ body {
   margin: 0 auto;
 }
 
- #indexCenterGallery {
+#indexCenterGallery {
   grid-column: 1/4;
   grid-row: 1/2;
   height: 100%;
@@ -470,9 +470,9 @@ body {
   grid-template-columns: 5% 30% 5% 55% 5%;
 }
 
-.indexCenterTitle h1{
+.indexCenterTitle h1 {
   font-size: 36px;
-  color:yellow;
+  color: yellow;
 }
 
 #indexCenterTitle {
@@ -531,7 +531,7 @@ body {
   justify-content: center;
 }
 
-.index-img{
+.index-img {
   width: 100%;
   padding: 5%;
 }
@@ -540,13 +540,15 @@ body {
   height: 100%;
   width: 5vw;
 }
-#indexMoreButton{
+
+#indexMoreButton {
   text-align: center;
   margin-bottom: 8vh;
   margin-top: -10vw;
   font-size: 1.7vmax;
 }
-.indexa{
+
+.indexa {
   color: white;
   text-decoration: none;
   border: 2px solid grey;
@@ -554,7 +556,8 @@ body {
   padding: 1vh;
   background: grey;
 }
-.indexa:hover{
+
+.indexa:hover {
   color: yellow;
 }
 
@@ -625,48 +628,56 @@ iframe {
   width: 80vw;
   height: 60vh;
 }
-.title_chat{
+
+.title_chat {
   grid-area: 2 / 1 / 3 / 2;
   align-self: end;
   justify-self: center;
   color: white;
   font-family: "Orbitron", sans-serif;
 }
-#robotcontainer{
+
+#robotcontainer {
   grid-area: 3 / 1 / 4 / 2;
   width: 80%;
   margin: 0 auto;
   padding: 20px;
   border-radius: 5vh;
-  background:rgb(167, 168, 168);
+  background: rgb(167, 168, 168);
   height: 600px;
 }
-.chat_text{
+
+.chat_text {
   color: green;
   font-family: "Orbitron", sans-serif;
   font-weight: bold;
 }
-.chat_text_message{
+
+.chat_text_message {
   font-family: "Orbitron", sans-serif;
   font-weight: bold;
 }
-.chat_text_time{
+
+.chat_text_time {
   font-family: "Orbitron", sans-serif;
   margin-left: 195px;
   color: white;
   font-weight: bold;
 }
-#chat_box{
+
+#chat_box {
   width: 90%;
   height: 450px;
 }
-.chat_data{
+
+.chat_data {
   width: 100%;
   padding: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid silver;
 }
-.robot_text[type='text']{
+
+.robot_text[type='text'] {
   width: 100%;
   height: 40px;
   border: 1px solid grey;
@@ -674,14 +685,16 @@ iframe {
   padding: 10px;
   font-family: "Orbitron", sans-serif;
 }
-.robot_submit[type='submit']{
+
+.robot_submit[type='submit'] {
   width: 100%;
   height: 40px;
   border: 1px solid grey;
   border-radius: 2vh;
   font-family: "Orbitron", sans-serif;
 }
-.robot_message{
+
+.robot_message {
   width: 100%;
   height: 40px;
   border: 1px solid grey;
@@ -690,17 +703,19 @@ iframe {
   padding: 10px;
   font-family: "Orbitron", sans-serif;
 }
-.title_remote{
+
+.title_remote {
   grid-area: 2 / 2 / 3 / 3;
   align-self: end;
   justify-self: center;
   color: white;
   font-family: "Orbitron", sans-serif;
 }
-#remote_box{
+
+#remote_box {
   background: rgb(167, 168, 168);
   margin: 0 auto;
-  width:80%;
+  width: 80%;
   display: grid;
   grid-template-columns: 40% 40%;
   grid-template-rows: 250px 250px 250px;
@@ -711,29 +726,34 @@ iframe {
   height: 600px;
 
 }
-.button_up{
+
+.button_up {
   grid-area: 1 / 1 / 2 / 3;
   align-self: end;
   justify-self: center;
 }
-.button_right{
+
+.button_right {
   grid-area: 2 / 2 / 3 / 3;
   align-self: start;
   margin-left: 15px;
 }
-.button_left{
+
+.button_left {
   grid-area: 2 / 1 / 3 / 2;
   align-self: start;
   justify-self: end;
   margin-right: 15px;
 }
-.button_down{
+
+.button_down {
   grid-area: 2 / 1 / 3 / 3;
   align-self: center;
   justify-self: center;
   margin-top: -90px;
 
 }
+
 /*---------------------------Control Robot End---------------------------*/
 
 /*--------------------------- Profile ---------------------------------*/
@@ -747,7 +767,7 @@ iframe {
   font-family: 'boycott', sans-serif;
 }
 
-.robot-details{
+.robot-details {
   display: flex;
   text-align: center;
   align-items: center;
@@ -764,6 +784,7 @@ iframe {
   border-radius: 60px;
   margin: 50px;
 }
+
 .squarecolorsmall {
   background-color: lightgray;
   width: 500px;
@@ -775,6 +796,7 @@ iframe {
   margin: 15px;
   padding: 20px;
 }
+
 .squarecolorbig {
   background-color: lightgray;
   width: 400px;
@@ -783,10 +805,12 @@ iframe {
   margin-left: 20px;
   margin-top: 50px;
 }
+
 .overall {
   width: 500px;
   height: 500px;
 }
+
 .overall2 {
   width: 500px;
   height: 500px;
@@ -808,18 +832,19 @@ iframe {
   grid-template-rows: 40vh 3vh 6vh 60vh 6vh 21vh;
   grid-template-columns: 39vw 20vw 39vw;
 }
+
 .space {
   width: 1080px;
 }
 
 #stream_video {
-    margin-left: 5vh;
-    margin-top: 15vh;
-    position: relative;
-    margin-bottom: -40vh;
-    margin-right: -40vh;
-    /* height: 0; */
-    overflow: hidden;
+  margin-left: 5vh;
+  margin-top: 15vh;
+  position: relative;
+  margin-bottom: -40vh;
+  margin-right: -40vh;
+  /* height: 0; */
+  overflow: hidden;
 }
 
 #stream_video iframe, #stream_video object, #stream_video embed {
@@ -854,6 +879,7 @@ a.animated-button.victoria-two:after {
   margin-left: 600px;
   width: 150px;
 }
+
 .votetext {
   float: right;
   position: relative;
@@ -861,185 +887,186 @@ a.animated-button.victoria-two:after {
   top: -25px;
 }
 
-  /*----------2048 Game-----------*/
+/*----------2048 Game-----------*/
 
-  #gameContainer {
-    width: 98vw;
-    margin: 0 auto;
-    height: 97vh;
-    display: grid;
-    grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
-    grid-template-columns: 39vw 20vw 39vw;
-  }
+#gameContainer {
+  width: 98vw;
+  margin: 0 auto;
+  height: 97vh;
+  display: grid;
+  grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
+  grid-template-columns: 39vw 20vw 39vw;
+}
 
-  .grid {
-      display: flex;
-      flex-wrap: wrap;
-      width: 400px;
-      height: 400px;
-      margin-top: 100px;
-      margin-bottom: 200px;
-      margin-left: -320px;
-      background-color: #6665DD;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  margin-left: -320px;
+  background-color: #6665DD;
 
-  }
+}
 
-  .grid div {
-      width: 100px;
-      height: 100px;
-      background-color: #ACADBC;
-      font-size: 60px;
-      text-align: center;
-      font-weight: semi-bold;
-      font-family: monospace;
-  }
+.grid div {
+  width: 100px;
+  height: 100px;
+  background-color: #ACADBC;
+  font-size: 60px;
+  text-align: center;
+  font-weight: semi-bold;
+  font-family: monospace;
+}
 
-  .score-container {
-      margin-left: 50px;
-      margin-top: 170px;
-      font-size: x-large;
-      font-weight: bold;
-      font-family: monospace;
-      padding: 17px;
-  }
+.score-container {
+  margin-left: 50px;
+  margin-top: 170px;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: monospace;
+  padding: 17px;
+}
 
-  .explanation {
-      margin-left: 50px;
-      margin-right: 100px;
-      padding: 17px;
-  }
+.explanation {
+  margin-left: 50px;
+  margin-right: 100px;
+  padding: 17px;
+}
 
-  .explanation p {
-      font-family: monospace;
-      font-size: large;
-      margin-top: 40px;
-  }
+.explanation p {
+  font-family: monospace;
+  font-size: large;
+  margin-top: 40px;
+}
 
-  .tooltip {
-    position: relative;
-    display: inline-block;
-    margin-left: 66px;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 20px;
-  }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 66px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
 
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 320px;
-    top: 150%;
-    left: 50%;
-    margin-left: -220px;
-    background-color:  #6665DD;
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 8px;
-    font-size: 15px;
-    font-weight: normal;
-    position: absolute;
-    z-index: 1;
-  }
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  top: 150%;
+  left: 50%;
+  margin-left: -220px;
+  background-color: #6665DD;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 8px;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  z-index: 1;
+}
 
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
 
 /*----------End of 2048 Game-----------*/
 
 /*----------Falling robot Game Start-----------*/
 
-  #game{
-      width: 400px;
-      height: 500px;
-      margin-left: 420px;
-      margin-top: 45px;
-      border: 5px solid #6665DD;
-      overflow: hidden;
-  }
+#game {
+  width: 400px;
+  height: 500px;
+  margin-left: 420px;
+  margin-top: 45px;
+  border: 5px solid #6665DD;
+  overflow: hidden;
+}
 
-  #character{
-      position: relative;
-      top: 400px;
-      left: 190px;
-      z-index: 1000000;
-  }
+#character {
+  position: relative;
+  top: 400px;
+  left: 190px;
+  z-index: 1000000;
+}
 
-  #character img {
-  	width: 50px;
-  }
+#character img {
+  width: 50px;
+}
 
-  .block{
-      width: 400px;
-      height: 20px;
-      background-color:  #529bcf;
-      position: relative;
-      top: 100px;
-      margin-top: -20px;
-  }
+.block {
+  width: 400px;
+  height: 20px;
+  background-color: #529bcf;
+  position: relative;
+  top: 100px;
+  margin-top: -20px;
+}
 
-  .hole{
-      width: 50px;
-      height: 20px;
-      background-color: white;
-      position: relative;
-      top: 100px;
-      margin-top: -20px;
-  }
+.hole {
+  width: 50px;
+  height: 20px;
+  background-color: white;
+  position: relative;
+  top: 100px;
+  margin-top: -20px;
+}
 
-  .restart_button {
-  	margin-left: 150px;
-  	margin-top: 45px;
-  }
+.restart_button {
+  margin-left: 150px;
+  margin-top: 45px;
+}
 
-  .restart_button button {
-  	  padding: 10px;
-      font-size: medium;
-      background-color: darkslateblue;
-      color: white;
-      border: none;
-      font-family: monospace;
-  }
+.restart_button button {
+  padding: 10px;
+  font-size: medium;
+  background-color: darkslateblue;
+  color: white;
+  border: none;
+  font-family: monospace;
+}
 
-  #result {
-  	margin-top: 250px;
-  	margin-left: 30px;
-  	font-size: x-large;
-    font-weight: bold;
-    font-family: monospace;
-  }
+#result {
+  margin-top: 250px;
+  margin-left: 30px;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: monospace;
+}
 
-  .explanation {
-      margin-left: 50px;
-      margin-right: 100px;
-      padding: 17px;
-      margin-top: -50px;
-  }
+.explanation {
+  margin-left: 50px;
+  margin-right: 100px;
+  padding: 17px;
+  margin-top: -50px;
+}
 
-  .explanation p {
-      font-family: monospace;
-      font-size: large;
-  }
+.explanation p {
+  font-family: monospace;
+  font-size: large;
+}
 
 
 /*----------End of Falling Robot Game-----------*/
 
 /* Register page start */
 .registerContent {
+  font-family: "Orbitron", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 5% 0 5% 0;
 }
 
 .registerBox {
+  font-family: "Orbitron", sans-serif;
   display: flex;
   justify-content: center;
   transition: 1s;
   transform: translate3D(0, -1px, 0);
-  background: linear-gradient(360deg, rgb(222 222 222 / 42%), lightslategray);
+  background-color: rgba(174, 173, 173, 0.55);
   border-radius: 20px;
   color: black;
   width: 50%;
@@ -1047,12 +1074,13 @@ a.animated-button.victoria-two:after {
 
 .registerBox:hover {
   border-radius: 20px;
-  width: 52%;
+  color: black;
+  margin: 0 auto;
   transition: 1s;
   background-color: rgba(222, 222, 222, 0.35);
+  cursor: pointer;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
   transform: translate3D(0, -1px, 0) scale(1.03);
-  color: rgb(71, 70, 70);
 }
 
 .registerBox:nth-child(1) {
@@ -1061,35 +1089,113 @@ a.animated-button.victoria-two:after {
 }
 
 .registerBox h1 {
-  padding-left: 10px;
-  padding-top: 0.6em;
+  padding: 0.6em 0 15px 10px;
+
 }
 
-.registerBox form>div{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+.registerBox form div {
+  padding: 0 0 15px 10px;
 }
 
-.registerBox input {
+.registerBox .input {
   width: 25em;
+  margin: 3% 0 0 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 5%;
   background-color: rgba(255, 255, 255, 0.71);
   border-radius: 20px;
   color: black;
   height: 2.5em;
   border: none;
+  font-family: "Orbitron", sans-serif;
+  color: black;
+}
+
+.registerBox .input-bttn {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.71);
+  border-radius: 20px;
+  color: black;
+  height: 2.5em;
+  border: none;
+  font-family: "Orbitron", sans-serif;
+  color: black;
+  transition: 0.3s;
+}
+
+.registerBox .input-bttn:hover {
+  background-color: Green;
+  transition: 0.3s;
+}
+
+.registerBox .reg-bttn {
+  width: 55%;
+  margin: 0 auto;
 }
 
 .registerBox input[type="text"], input[type="password"] {
   padding-bottom: 1.3em;
 }
 
-.registerBox[type="submit"] {
-  text-align: center;
-}
-
 .registerBox label {
   font-weight: bold;
   font-size: 1.2em;
 }
+
 /* Register page end*/
+
+/* Add event page start */
+.addEventContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.addEventBox {
+  background-color: #a5aedc;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.addEventBox div {
+  margin-top: 0.9em;
+}
+
+.yes {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.yes form input {
+  margin-top: 1em;
+}
+
+.addEventBox h1 {
+  margin-left: 2.7em;
+}
+
+.eventUpload {
+  margin-left: 5.4em;
+}
+
+.addEventBox form:nth-child(3) {
+  background-color: red;
+}
+
+.addEventBox form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Add event page end */

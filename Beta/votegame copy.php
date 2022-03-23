@@ -1,33 +1,6 @@
 <?php
   include "connect.php";
 ?>
-
-<?php
-if(isset($_GET['name'])) {
-  if($_SERVER['REQUEST_METHOD']==='GET'){
-      $name = $_GET['name'];
-
-      $query = $conn ->prepare("SELECT `votes` FROM games WHERE name = ?");
-      mysqli_stmt_bind_param( $query, 's', $name);
-      $query->execute();
-      $query->bind_result($amountOfVotes);
-      $query->fetch();
-
-      $calc_vote = $amountOfVotes +1;
-      mysqli_stmt_close($query);
-
-      $update_query = mysqli_prepare($conn, "UPDATE games SET votes = ? WHERE `name`=?");
-      mysqli_stmt_bind_param($update_query , 'is',$calc_vote, $name);
-      mysqli_stmt_execute($update_query);
-      $update_query -> execute();
-  }
-}
-/*try{
- //do something
-}catch{
- echo mysqli_error($conn);
-}*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,26 +32,45 @@ if(isset($_GET['name'])) {
   <?php
     include_once "header.php";
   ?>
-  <div class="container">
-<?php
-
-$query = $conn ->prepare("SELECT `name`, `picture`, `votes` FROM games");
-  
-$query->execute();
-$query->bind_result($name, $picture, $votes);
-while($query->fetch())
-{
-  echo'<div class="event-items">
-=======
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Vote for a game</h1>
   </div>
   <div class="events-content">
     <div class="event-items">
       <div class="event-img">
-        <img src="./assets/sumo.png" class="tweak" alt="Battle Bot - Sumo" height="110" width="135">
+        <?php
+
+          if (mysqli_connect_error()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+          }
+
+          //if(isset($_GET['name'])) {
+          if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            //$name = $_GET['name'];
+
+
+            //$id = $_GET['id'];
+
+            $query = $conn->prepare("SELECT `picture`, `name` FROM games");
+            //mysqli_stmt_bind_param( $query, 'ss', $picture, $name);
+
+            $query->execute();
+            $query->bind_result($picture, $name);
+            $query->fetch();
+
+            //if (mysqli_stmt_num_rows() > 0) {
+            //while(mysqli_stmt_fetch()){
+
+            echo "<p>$name</p>";
+            mysqli_stmt_close($query);
+
+          }
+        ?>
+        <class
+        ="tweak" alt="Battle Bot - Sumo" height="110" width="135">
         <div class="event-text">
-          <h3 class="event-h" style="padding-bottom:0.5%;">Sumo</h3>
+          <h3 class="event-h" style="padding-bottom:0.5%;"></h3>
           <p class=" event-p"></p>
         </div>
       </div>
@@ -90,7 +82,18 @@ while($query->fetch())
           $count = mysqli_num_rows($result);
         ?>
         <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-6"><a href="votegame.php?name=sumo" class="btn btn-sm animated-button victoria-two">Vote</a></div>
+          <div class="col-md-3 col-sm-3 col-xs-6"><a href="votegame.php<?php
+              $query = $conn->prepare("SELECT `name` FROM games");
+
+              $query->execute();
+              $query->fetch();
+
+              if (mysqli_stmt_num_rows($query) > 0) {
+                while (mysqli_stmt_fetch($query)) {
+                  "<a href='Votegame.php?name=sumo'>";
+                }
+              }
+              mysqli_stmt_close($query); ?>" class="btn btn-sm animated-button victoria-two">Vote</a></div>
         </div>
       </div>
       <?php
@@ -111,7 +114,7 @@ while($query->fetch())
             $query->fetch();
 
             $game_details = mysqli_fetch_assoc($result);
-            $calc_vote = $amountOfVotes + 1;
+            $calc_vote = $amountOfVotes - 2;
             mysqli_stmt_close($query);
             //var_dump( $amountOfVotes);
             //echo $calc_vote;
@@ -138,7 +141,7 @@ while($query->fetch())
             $update_query->execute();
             $update_query->fetch();
 
-            $calc_vote = $amountOfVotes + 1;
+            $calc_vote = $amountOfVotes - 2;
 
             /*try{
               //do something
@@ -158,39 +161,25 @@ while($query->fetch())
               value="Vote" type="submit" name="vote"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       </form>
-      <h3>Votes: <?php echo $calc_vote; ?></h3>
+      <h3>Votes:
+        <?php
+
+          $calc_vote = $amountOfVotes + 123456789;
+          echo $calc_vote . '</h3>';
+
+        ?>
+
+
     </div>
 
     <div class="event-items">
->>>>>>> e76a61db1b6ede88784447a62c7f1d5e7cca4a87
       <div class="event-img">
-        <a href="votegame.php?name='. $picture .'"class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
+        <img src="./assets/line.png" class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
         <div class="event-text">
-          <h3 class="event-h" style="padding-bottom:0.5%;">'.$name.'</h3>
+          <h3 class="event-h" style="padding-bottom:0.5%;">Line Tracking</h3>
           <p class=" event-p"></p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame.php?name='. $name .'" class="btn btn-sm animated-button victoria-two">Vote</a></div>
-      </div>
-      <h3>Votes: '.$votes.'</h3> 
-    </div>';
-}
-
-//if (mysqli_stmt_num_rows() > 0) {
-  //while(mysqli_stmt_fetch()){ 
-
-mysqli_stmt_close($query); 
-?>
-  </div>
-
-<!-- /container --> 
-<!-- Bootstrap core JavaScript
-    ================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-=======
       <div class="container">
         <?php
           $query = "SELECT * FROM games";
@@ -441,7 +430,6 @@ mysqli_stmt_close($query);
 </div>
 </div>
 </div>
->>>>>>> e76a61db1b6ede88784447a62c7f1d5e7cca4a87
 <br>
 <?php
   include_once "footer.html";
