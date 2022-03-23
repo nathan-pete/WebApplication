@@ -43,7 +43,7 @@
                 </div>
               </div>
           </div>
-          <br>
+
         ';
       }
 
@@ -51,7 +51,7 @@
     ?>
   </div>
 </div>
-<br>
+<div class="space-event"></div>
 <?php
   include_once "footer.html";
 ?>

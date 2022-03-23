@@ -1,0 +1,1 @@
+netsh dhcp server dump > dhcpdumb.txt
