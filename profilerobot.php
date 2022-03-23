@@ -24,10 +24,16 @@
             die('Execute failed' . mysqli_error($conn));
           }
 
-          $result = $info->get_result();
+
+          $info->bind_result($one, $two, $three, $four, $five, $six, $seven);
+          $info->fetch();
+
+          echo $four;
+          die();
+          /* $result = $info->get_result();
 
           $infoR = $result -> fetch_all(MYSQLI_ASSOC);
-
+*/
           $info -> close();
           $conn -> close();
         }
@@ -75,7 +81,7 @@
           if(isset($name)){
             if($infoR) {     
               foreach($infoR as $robot) {
-                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
+                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$one.'';
               }
             }   
           }
