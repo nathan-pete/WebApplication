@@ -4,8 +4,8 @@
 <?php 
      if($_SERVER['REQUEST_METHOD'] === 'GET') {
         if(isset($_GET['name'])) {
+          
           $name = $_GET['name'];
-
           $info  = $conn -> prepare("SELECT * FROM robots WHERE robotName = ?");
 
           if(!$info) {
@@ -73,7 +73,7 @@
     <?php
 
           if(isset($name)){
-            if($infoR) {
+            if($infoR) {     
               foreach($infoR as $robot) {
                 echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robot['robotName'].'';
               }
