@@ -15,6 +15,15 @@
             $sql = "SELECT DoB FROM users WHERE userID = ?";
             if ($stmt = mysqli_prepare($conn, $sql)) {
                 $stmt->bind_param('i', $userID);
+                if (mysqli_stmt_execute($stmt)) {
+                    mysqli_stmt_bind_result($stmt, $dateOfBirth);
+                    mysqli_stmt_fetch($stmt);
+                    mysqli_stmt_close($stmt);
+                    echo $dateOfBirth;
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                    die();
+                }
             } else {
                 echo "Error: " . mysqli_error($conn);
                 die();
