@@ -65,6 +65,7 @@
                                                                     die(); //die if we cant execute statement
                                                                 } else {
                                                                     echo "Event created successfully";
+                                                                    mysqli_stmt_close($stmt);
                                                                 }
                                                             } else {
                                                                 echo "Error executing query" . mysqli_error($conn);
