@@ -68,6 +68,12 @@
                                           $teamName = $_POST['teamName'];
                                           $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
                                           $sql = "INSERT INTO robots (robotName, serialNum, teamName, password) VALUES (?,?,?,?)"; //the query for inserting into the database
+                                          if ($stmt = mysqli_prepare($conn, $sql)) {
+                                            mysqli_stmt_bind_param($stmt, "ssss", $robotName, $serialNum, $teamName, $password); //bind values to parameters
+                                          } else {
+                                            echo "<div class='errormessage'>Error: " . mysqli_error($conn) . "</div>";
+                                            die();
+                                          }
                                       } else {
                                         echo "<div class='errormessage'>Serial number already exists.</div>";
                                       }
