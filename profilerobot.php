@@ -97,8 +97,7 @@
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      echo $robot['sound']; 
-                      //<iframe src="https://www.youtube.com/embed/<?php echo $_GET['id']" title="YouTube player" allowfullscreen></iframe>
+                      //echo $robot //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
                     }
                   }  
                 } 
@@ -127,7 +126,7 @@
                              $robotPicture = "profile-default.jpg";
                          }
                  
-                 echo'<img src="./uploads/games/'. $robotpicture .' " alt="Robot picture">';
+                 echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';
                }
              }  
            } 

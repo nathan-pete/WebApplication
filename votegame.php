@@ -10,6 +10,7 @@
       $query = $conn->prepare("SELECT `votes` FROM games WHERE name = ?");
       mysqli_stmt_bind_param($query, 's', $name);
       $query->execute();
+      
       $query->bind_result($amountOfVotes);
       $query->fetch();
 
@@ -18,6 +19,7 @@
 
       $update_query = mysqli_prepare($conn, "UPDATE games SET votes = ? WHERE `name`=?");
       mysqli_stmt_bind_param($update_query, 'is', $calc_vote, $name);
+
       mysqli_stmt_execute($update_query);
       $update_query->execute();
     }
@@ -57,7 +59,7 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.php";
+    include_once "header.html";
   ?>
   <div id="profileCenterTitle">
     <h1>Vote the game</h1>
@@ -87,23 +89,11 @@
     </div>';
     }
 ?>
-$query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
-    mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
 
-    $query->execute();
-    $query->bind_result($picture);
 
-    $result = $query->get_result();
-    $query->fetch();
 
-            if (mysqli_stmt_num_rows($stmt) > 0) {
-                while ($stmt->fetch()) {}
-            } else {
-                $picture = "profile-default.jpg";
-            }
-    
-    echo'<img src="./uploads/games/'. $picture .' " alt="Robot picture">.
-    
+
+
     //if (mysqli_stmt_num_rows() > 0) {
     //while(mysqli_stmt_fetch()){
 
@@ -118,7 +108,7 @@ $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND ro
   <br>
 </div>
 <?php
-  include_once "footer.html";
-?>
+    include_once "footer.html";
+  ?>
 </body>
 </html>
