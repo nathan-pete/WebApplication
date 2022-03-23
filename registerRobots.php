@@ -70,6 +70,14 @@
                                           $sql = "INSERT INTO robots (robotName, serialNum, teamName, password) VALUES (?,?,?,?)"; //the query for inserting into the database
                                           if ($stmt = mysqli_prepare($conn, $sql)) {
                                             mysqli_stmt_bind_param($stmt, "ssss", $robotName, $serialNum, $teamName, $password); //bind values to parameters
+                                            if (mysqli_stmt_execute($stmt)) {
+                                              mysqli_stmt_close($stmt); //close statement
+                                              mysqli_close($conn); //close connection
+                                              echo "<div class='successmessage'>You successfully registered your robot!</div>";
+                                            } else {
+                                              echo "<div class='errormessage'>Error: " . mysqli_error($conn) . "</div>";
+                                              die();
+                                            }
                                           } else {
                                             echo "<div class='errormessage'>Error: " . mysqli_error($conn) . "</div>";
                                             die();
