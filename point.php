@@ -1,14 +1,12 @@
 <?php
+session_start();
+include "./connect.php";
+
 define("INTERVAL", 5 ); // every 5 seconds
 
 function runIt() { // Your function to run every 5 seconds
-    echo "something\n";
-    session_start();
-
-    include "./connect.php";
-
     //Set session on user id in login page
-    $userID = $_GET['userID']; //change this $_SESSION['userID'];
+    $userID = $_SESSION['userID']; 
 
     if(isset($_GET['userID'])) {
 
@@ -62,10 +60,31 @@ function runIt() { // Your function to run every 5 seconds
         }
       
     }
+}
 
+/*function checkForStopFlag() { // completely optional
+    // Logic to check for a program-exit flag
+    // Could be via socket or file etc.
+    // Return TRUE to stop.
+    return false;
+}*/
+
+function start() {
+    $active = true;
+    $nextTime   = microtime(true) + 5; // Set initial delay
+
+    while($active) {
+        usleep(1000); // optional, if you want to be considerate
+
+        if (microtime(true) >= $nextTime) {
+            runIt();
+            $nextTime = microtime(true) + 5;
+        }
+    }
+}
+
+start();
 ?>
-
-
 
 <h1>Test points</h1>
 
@@ -81,28 +100,3 @@ function runIt() { // Your function to run every 5 seconds
     <input type="submit" name="submitT" value="Submit">
 </form>
 }
-
-<?php
-function start() {
-    $active = true;
-    $nextTime   = microtime(true) + INTERVAL; // Set initial delay
-
-    while($active) {
-        usleep(1000); // optional, if you want to be considerate
-
-        if (microtime(true) >= $nextTime) {
-            runIt();
-            $nextTime = microtime(true) + INTERVAL;
-        }
-
-        // Do other stuff (you can have as many other timers as you want)           
-
-        $active = !checkForStopFlag();
-    }
-}
-
-start();
-?>
-
-
-    
