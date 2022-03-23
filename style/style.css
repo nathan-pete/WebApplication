@@ -1130,7 +1130,7 @@ a.animated-button.victoria-two:after {
 }
 
 .registerBox .input-bttn:hover {
-  background-color: Green;
+  background-color: #279203;
   transition: 0.3s;
 }
 
@@ -1148,8 +1148,24 @@ a.animated-button.victoria-two:after {
   font-size: 1.2em;
 }
 
-/* Register page end*/
+.errormessage {
+  color: #920303;
+  padding: 0 0 3% 0;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline;
+}
 
+.successmessage {
+  color: #279203;
+  padding: 0 0 3% 0;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+
+/* Register page end*/
 /* Add event page start */
 .addEventContainer {
   display: flex;
