@@ -88,15 +88,13 @@
               } else {
                 echo "<div class='errormessage-usr'>Invalid image type!</div>";
               }
-
-
             }
           ?>
           <img src="./uploads/profilePictures/<?= $profilePicture ?>" alt="Profile picture" class="usrtweak">
           <div class="space-usr"></div>
           <div class="usr-form">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-              <input type="file" name="uploadedFile">
+              <input type="file" name="uploadedFile"><br>
               <div>
                 <button type="submit" name="submit" value="submit">Upload Profile Picture</button>
               </div>
