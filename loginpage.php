@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-    require("header.html");
+    require("header.php");
     require "connect.php";
 ?>
 <?php
@@ -90,30 +90,32 @@
 </div>
 <?php
       //viewer login
-      $error = NULL;
-      if(isset($_POST['login_viewer_button'])){
-        if(!empty($_POST['email']) && !empty($_POST['password_viewer'])){ // Checks if fields are filled
-          if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ //Checks if email is an email
-            $email = $_POST['email'];
-            $sql = "SELECT userID, `password` FROM users where email = ?"; //query to insert to db
-            if($stmt = mysqli_prepare($conn, $sql)){
-              mysqli_stmt_bind_param($stmt, "s", $email);
-              if(mysqli_stmt_execute($stmt)){
-                mysqli_stmt_bind_result($stmt, $id, $password_db);
-                mysqli_stmt_store_result($stmt);
-                  if(mysqli_stmt_num_rows($stmt) != 0){
-                    mysqli_stmt_fetch($stmt);
-                    //if($_POST['password_viewer'] == $password_db){
-                      $_SESSION ['cusId'] = $id;
-                      $_SESSION ['loggedIn'] = 1;
-                      echo "You are now logged in";
-                      echo $_SESSION ['loggedIn'], $_SESSION ['cusId'] ;
-                      // Redirect user to welcome page
-                      header("location: index.php");
+    $error = NULL;
+    if(isset($_POST['login_viewer_button'])){
+      if(!empty($_POST['email']) && !empty($_POST['password_viewer'])){ // Checks if fields are filled
+        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ //Checks if email is an email
+          $email = $_POST['email'];
+          $sql = "SELECT userID, `password` FROM users where email = ?"; //query to insert to db
+          if($stmt = mysqli_prepare($conn, $sql)){
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            if(mysqli_stmt_execute($stmt)){
+              mysqli_stmt_bind_result($stmt, $id, $password_db);
+              mysqli_stmt_store_result($stmt);
+                if(mysqli_stmt_num_rows($stmt) != 0){
+                  mysqli_stmt_fetch($stmt);
+                  $viewer_password = $_POST['password_viewer'];
+                  //using function to verify password
+                  if(password_verify($viewer_password, $password_db)){
+                    $_SESSION ['userId'] = $id;
+                    $_SESSION ['loggedIn'] = 1;
+                    echo "You are now logged in";
+                    echo $_SESSION ['loggedIn'], $_SESSION ['cusId'] ;
+                    // Redirect user to welcome page
+                    header("location: index.php");
 
-                    //}else{
-                    //$error = "Wrong password!";
-                    //}
+                  }else{
+                    $error = "Wrong password!";
+                  }
                   }else{
                     $error = "Wrong Email";
                   }
@@ -125,17 +127,67 @@
             }else{
               die(mysqli_error($conn));
             }
-          }else{
-            $error = "Email is not valid";
-          }
         }else{
-          $error = "Fill all the fields";
+          $error = "Email is not valid";
         }
+      }else{
+        $error = "Fill all the fields";
+      }
         if($error != NULL){ //echo error if the variable has been set
           echo $error;
         }
       }
-      ?>        
+      ?>
+<?php
+  //Robot login
+  $error = NULL;
+  if(isset($_POST['login_robot_button'])){
+    if(!empty($_POST['serialnum_robot']) && !empty($_POST['password_robot'])){ // Checks if fields are filled
+        $serialnum_robot = $_POST['serialnum_robot'];
+        $sql = "SELECT robotID, `password` FROM robots where serialNum = ?"; //query to insert to db
+        if($stmt = mysqli_prepare($conn, $sql)){
+          mysqli_stmt_bind_param($stmt, "s", $serialnum_robot);
+          if(mysqli_stmt_execute($stmt)){
+            mysqli_stmt_bind_result($stmt, $id, $password_db);
+            mysqli_stmt_store_result($stmt);
+              if(mysqli_stmt_num_rows($stmt) != 0){
+                mysqli_stmt_fetch($stmt);
+                $robot_password = $_POST['password_robot'];
+                //using function to verify password
+                if(password_verify($robot_password, $password_db)){
+                  $_SESSION ['userId'] = $id;
+                  $_SESSION ['loggedIn'] = 1;
+                  echo "You are now logged in";
+                  echo $_SESSION ['loggedIn'], $_SESSION ['cusId'] ;
+                  // Redirect user to welcome page
+                  header("location: index.php");
+
+                }else{
+                $error = "Wrong password!";
+                }
+              }else{
+                $error = "Wrong Email";
+              }
+              
+          }
+          else{
+            echo "Something went wrong executing statement";
+            die(mysqli_error($conn));
+          }  
+        }
+        else{
+          die(mysqli_error($conn));
+        }
+    }
+    else{
+      $error = "Fill all the fields";
+    }
+  }
+    
+    
+  
+
+?>    
 
 
 
