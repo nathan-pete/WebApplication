@@ -19,7 +19,11 @@
                     mysqli_stmt_bind_result($stmt, $dateOfBirth);
                     mysqli_stmt_fetch($stmt);
                     mysqli_stmt_close($stmt);
-                    echo $dateOfBirth;
+                    if ($dateOfBirth == 1) {
+                        echo '<li><a href="betting18p.php" class="bets">Bets</a></li>';
+                    } else {
+                        echo '<li><a href="betting18m.php" class="bets">Bets</a></li>';
+                    }
                 } else {
                     echo "Error: " . mysqli_error($conn);
                     die();
