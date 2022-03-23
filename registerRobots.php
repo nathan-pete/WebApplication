@@ -54,6 +54,15 @@
                   if (isset($_POST['register'])) {
                     if (!empty($_POST['robotName']) && !empty($_POST['serialNum']) && !empty($_POST['teamName']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])) { //check if all fields are filled
                       if (strlen(trim($_POST['robotName'])) < 30) {
+                          if ($_POST['password'] == $_POST['confirmPassword']) { //check if the entered passwords are the same
+                            if (strlen(trim($_POST['password'])) > 6) {
+                                $sql = "SELECT serialNum FROM robots WHERE serialNum = ?";
+                            } else {
+                              echo "<div class='errormessage'>Password must be longer than 6 characters!</div>";
+                            }
+                          } else {
+                            echo "<div class='errormessage'>Passwords don't match!</div>";
+                          }
                       } else {
                         echo "<div class='errormessage'>Username can't be longer than 30 characters!</div>";
                       }
