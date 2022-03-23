@@ -13,6 +13,12 @@
         if (isset($_SESSION['isLogged'])) {
             include "connect.php";
             $sql = "SELECT DoB FROM users WHERE userID = ?";
+            if ($stmt = mysqli_prepare($conn, $sql)) {
+                $stmt->bind_param('i', $userID);
+            } else {
+                echo "Error: " . mysqli_error($conn);
+                die();
+            }
         } else {
             echo ' <li><a href="login.php" class="bets">Bets</a></li>';
         }
