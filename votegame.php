@@ -10,7 +10,7 @@
       $query = $conn->prepare("SELECT `votes` FROM games WHERE name = ?");
       mysqli_stmt_bind_param($query, 's', $name);
       $query->execute();
-      
+
       $query->bind_result($amountOfVotes);
       $query->fetch();
 
@@ -89,9 +89,6 @@
     </div>';
     }
 ?>
-
-
-
 
 
     //if (mysqli_stmt_num_rows() > 0) {
