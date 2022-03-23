@@ -132,7 +132,7 @@
                  echo'<img src="./assets'. $robotpicture .' " alt="Robot picture">';*/
                }
              }  
-           } 
+            }
             ?>
           </div>
       </div>
