@@ -97,10 +97,12 @@
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      echo $robot['sound'];
+                      echo $robot['sound']; 
+                      //<iframe src="https://www.youtube.com/embed/<?php echo $_GET['id']" title="YouTube player" allowfullscreen></iframe>
                     }
                   }  
-                }               
+                } 
+                            
               ?>
           </div>
               </div>
@@ -109,8 +111,23 @@
           <?php
             if(isset($name)){
               if($infoR) {
-               foreach($infoR as $robot) {
-                 echo $robot['robotPicture'];
+               foreach($infoR as $robotPicture) {
+                 echo $query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
+                 mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
+             
+                 $query->execute();
+                 $query->bind_result($robotPicture);
+             
+                 $result = $query->get_result();
+                 $query->fetch();
+             
+                         if (mysqli_stmt_num_rows($stmt) > 0) {
+                             while ($stmt->fetch()) {}
+                         } else {
+                             $robotPicture = "profile-default.jpg";
+                         }
+                 
+                 echo'<img src="./uploads/games/'. $robotpicture .' " alt="Robot picture">';
                }
              }  
            } 

@@ -69,6 +69,7 @@
     $query->execute();
     $query->bind_result($name, $picture, $votes);
     while ($query->fetch()) {
+
       echo '<div class="event-items">
       <div class="event-img">
         <a href="votegame.php?name=' . $picture . '"class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
@@ -85,7 +86,24 @@
         </div>
     </div>';
     }
+?>
+$query = $conn->prepare("SELECT `robotPicture` FROM robots WHERE name = ? AND robotPicture IS NOT NULL");
+    mysqli_stmt_bind_param($stmt, 's', $_SESSION['sessionID']);
 
+    $query->execute();
+    $query->bind_result($picture);
+
+    $result = $query->get_result();
+    $query->fetch();
+
+            if (mysqli_stmt_num_rows($stmt) > 0) {
+                while ($stmt->fetch()) {}
+            } else {
+                $picture = "profile-default.jpg";
+            }
+    
+    echo'<img src="./uploads/games/'. $picture .' " alt="Robot picture">.
+    
     //if (mysqli_stmt_num_rows() > 0) {
     //while(mysqli_stmt_fetch()){
 
