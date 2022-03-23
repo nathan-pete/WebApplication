@@ -1,3 +1,18 @@
+<?php
+	
+	$ipAddress = "192.168.137.12";
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		foreach ($_POST as $postRequest) {
+			if (isset($postRequest)) {
+				$url = curl_init("http://" . $ipAddress . "/" . $postRequest);
+				curl_exec($url);
+				curl_close($url);
+				echo $postRequest;
+			}
+		}
+	}
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
