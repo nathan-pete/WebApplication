@@ -1,4 +1,8 @@
 <?php
+define("INTERVAL", 5 ); // every 5 seconds
+
+function runIt() { // Your function to run every 5 seconds
+    echo "something\n";
     session_start();
 
     include "./connect.php";
@@ -68,10 +72,37 @@
 <?php 
     foreach($data as $row) {
         $_SESSION['token'] = $row['token'];
-        echo 'Received tokens are :' . $_SESSION['token']; 
+        echo 'Received tokens are :' . $_SESSION['token']
+        ; 
     }
 ?> 
 
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get">
     <input type="submit" name="submitT" value="Submit">
 </form>
+}
+
+<?php
+function start() {
+    $active = true;
+    $nextTime   = microtime(true) + INTERVAL; // Set initial delay
+
+    while($active) {
+        usleep(1000); // optional, if you want to be considerate
+
+        if (microtime(true) >= $nextTime) {
+            runIt();
+            $nextTime = microtime(true) + INTERVAL;
+        }
+
+        // Do other stuff (you can have as many other timers as you want)           
+
+        $active = !checkForStopFlag();
+    }
+}
+
+start();
+?>
+
+
+    
