@@ -136,9 +136,7 @@
   
           $data = $result->fetch_all(MYSQLI_ASSOC);
   
-  
           $query->close();
-      
       
       foreach($data as $row) {
         echo '<img src=assets/' . $row['robotPicture'] . '>'; 

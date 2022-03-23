@@ -82,8 +82,18 @@ function start() {
         }
     }
 }
-
 start();
+
+function autoCall(){
+    var feedback = $.ajax({
+        type: "GET",
+        url: "point.php",
+        async: false
+    }).success(function(){
+        setTimeout(function(){autoCall();}, 5000);
+    }).responseText; 
+    $('div').html(feedback);
+    }
 ?>
 
 <h1>Test points</h1>
