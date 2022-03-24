@@ -10,7 +10,7 @@
       <li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
       <li class="line"> &VerticalLine;</li>
       <?php
-        if (isset($_SESSION['isLogged'])) {
+        if (isset($_SESSION['loggedin']) == true) {
           include "connect.php";
           $sql = "SELECT DoB FROM users WHERE userID = ?";
           if ($stmt = mysqli_prepare($conn, $sql)) {
@@ -33,13 +33,13 @@
             die();
           }
         } else {
-          echo ' <li><a href="login.php" class="bets">Bets</a></li>';
+          echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
         }
         echo "<li class='line'> &VerticalLine;</li>";
-        if (isset($_SESSION['isLogged'])) {
+        if (isset($_SESSION['loggedin']) == true) {
           echo '<li><a href="usrpnl.php" class="login">' . $firstName . '</a></li>';
         } else {
-          echo '<li><a href="login.php" class="login">Login</a></li>';
+          echo '<li><a href="loginpage.php" class="login">Login</a></li>';
         }
       ?>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
