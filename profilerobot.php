@@ -90,7 +90,7 @@
               ?>
           </div>
           <div class = "squarecolorsmall">
-          <audio controls><source src ='./uploads/sound.mp3 type ='audio/mpeg'></audio>
+          <audio controls><source src ="./uploads/sound.mp3" type = "audio/mpeg"></audio>
           <?php
                 if(isset($name)){
                   if($infoR) {

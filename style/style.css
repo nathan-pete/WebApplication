@@ -824,6 +824,12 @@ iframe {
   float: left;
   margin: 15px;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+  color: black;
 }
 
 .squarecolorbig {
@@ -850,6 +856,12 @@ iframe {
   transform: translate(50px, -500px);
 }
 
+img{
+  width: 300px;
+  height: 300px;
+  margin: -40px;
+  padding: 50px;
+}
 /*--------------------------- Profile End ---------------------------------*/
 /*--------------------------- Live Stream ---------------------------------*/
 
