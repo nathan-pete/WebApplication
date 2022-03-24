@@ -3,41 +3,32 @@
 ?>
 <?php 
      if($_SERVER['REQUEST_METHOD'] === 'GET') {
-        if(isset($_GET['name'])) {
+        if(isset($_GET['robotName'])) {
           
-          $name = $_GET['name'];
-          $info  = $conn -> prepare("SELECT * FROM robots WHERE robotName = ?");
+         
+          $robotName = $_GET['robotName'];
+
+          $info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
 
           if(!$info) {
-            die('Prepare failed' . mysqli_error($conn));
+              echo 'Prepare failed' . mysqli_error($conn);
           }
-
-          $info -> bind_param("s", $name);
-
+  
+          $info->bind_param("s", $robotName);
+  
           if(!$info) {
-            die('Binding failed' . mysqli_error($conn));
+              echo 'Binding failed' . mysqli_error($conn);
           }
-
-          $info -> execute();
-
-          if(!$info) {
-            die('Execute failed' . mysqli_error($conn));
-          }
-
-
-          $info->bind_result();
-          $info->fetch();
-
-          //echo $robotPicture;
-          //die();
+  
+          $info->execute();
+  
           $result = $info->get_result();
-
-          $infoR = $result -> fetch_all(MYSQLI_ASSOC);
-          
-          $info -> close();
-          $conn -> close();
-        }
+  
+          $infoR = $result->fetch_all(MYSQLI_ASSOC);
+  
+          $info->close();
      }
+    }
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!DOCTYPE html>
@@ -78,10 +69,10 @@
     <div class="squarecolorsmall">
     <?php
 
-          if(isset($name)){
+          if($_GET['robotName']){
             if($infoR) {     
               foreach($infoR as $robot) {
-                echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$robotName.'';
+                echo $robot['robotName'];
               }
             }   
           }
@@ -89,22 +80,22 @@
       </div>
       <div class = "squarecolorsmall">
           <?php
-                if(isset($name)){
-                  if($infoR) {
-                    foreach($infoR as $robot) {
-                      echo '<h3 class="robot-details" style="padding-bottom:0.5%;">'.$serialNum.'';
-                    }
-                  }  
-                }
+    if($_GET['robotName']){
+      if($infoR) {     
+        foreach($infoR as $robot) {
+          echo $robot['serialNum'];
+        }
+      }   
+    }
               ?>
           </div>
           <div class = "squarecolorsmall">
+          <audio controls><source src ='./uploads/sound.mp3 type ='audio/mpeg'></audio>
           <?php
                 if(isset($name)){
                   if($infoR) {
                     foreach($infoR as $robot) {
-                      echo $sound;
-                    //(embed src="/html/sound.mp3" loop="true" autostart="true" width="2" height="0">)
+                      
                     }
                   }  
                 } 
@@ -116,31 +107,13 @@
           <div class = "squarecolorbig">
           <?php
 
-          $robotName = $_GET['robotName'];
-
-          $query = $conn->prepare("SELECT robotPicture FROM robots WHERE robotName = ?");
-
-          if(!$query) {
-              echo 'Prepare failed' . mysqli_error($conn);
+          if($_GET['robotName']){
+            if($infoR) {     
+              foreach($infoR as $robot) {
+                  echo '<img src=assets/' . $robot['robotPicture'] . '>'; 
+              }
+            }
           }
-  
-          $query->bind_param("s", $robotName);
-  
-          if(!$query) {
-              echo 'Binding failed' . mysqli_error($conn);
-          }
-  
-          $query->execute();
-  
-          $result = $query->get_result();
-  
-          $data = $result->fetch_all(MYSQLI_ASSOC);
-  
-          $query->close();
-      
-      foreach($data as $row) {
-        echo '<img src=assets/' . $row['robotPicture'] . '>'; 
-      }
     ?>
           </div>
       </div>
