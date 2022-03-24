@@ -59,7 +59,7 @@
 <body>
 <div class="body">
   <?php
-    include_once "header.html";
+    @include_once "header.html";
   ?>
   <div id="profileCenterTitle">
     <h1>Vote the game</h1>

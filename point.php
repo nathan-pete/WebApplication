@@ -1,6 +1,9 @@
 <?php
 
+
 session_start();
+
+
 
 include "./connect.php";
 
@@ -60,8 +63,7 @@ $userID = $_SESSION['userID'];
             $pushT->close();
         }
  
-        }
-      
+        }   
     
 ?>
 
