@@ -1,14 +1,29 @@
+<script>
+$function (){
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: "point.php",
+            success(function(data){
+                $(".main").html(data);
+            }
+        });
+},2000);
+</script>
+
 <?php
-session_start();
+
 include "./connect.php";
+session_start();
 
-define("INTERVAL", 5 ); // every 5 seconds
+$_SESSION['userID'] = 11;
 
-function runIt() { // Your function to run every 5 seconds
-    //Set session on user id in login page
-    $userID = $_SESSION['userID']; 
+echo $_SESSION['userId'];
 
-    if(isset($_GET['userID'])) {
+
+$userID = $_SESSION['userID'];
+
+    if(isset($_GET['submitT'])) {
 
         $query = $conn->prepare("SELECT `token` FROM users WHERE userID = ?");
 
@@ -60,40 +75,6 @@ function runIt() { // Your function to run every 5 seconds
         }
       
     }
-}
-
-/*function checkForStopFlag() { // completely optional
-    // Logic to check for a program-exit flag
-    // Could be via socket or file etc.
-    // Return TRUE to stop.
-    return false;
-}*/
-
-function start() {
-    $active = true;
-    $nextTime   = microtime(true) + 5; // Set initial delay
-
-    while($active) {
-        usleep(1000); // optional, if you want to be considerate
-
-        if (microtime(true) >= $nextTime) {
-            runIt();
-            $nextTime = microtime(true) + 5;
-        }
-    }
-}
-start();
-
-function autoCall(){
-    var feedback = $.ajax({
-        type: "GET",
-        url: "point.php",
-        async: false
-    }).success(function(){
-        setTimeout(function(){autoCall();}, 5000);
-    }).responseText; 
-    $('div').html(feedback);
-    }
 ?>
 
 <h1>Test points</h1>
@@ -109,4 +90,4 @@ function autoCall(){
 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get">
     <input type="submit" name="submitT" value="Submit">
 </form>
-}
+ 
