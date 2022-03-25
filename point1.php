@@ -8,15 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 id="text"><?php
+    <h1>Test points</h1>
+    <h2 id="text">
+        <?php
+                session_start();
+                $_SESSION['userId'];
+                $_SESSION['token'] = 5;
+                include "./connect.php";
 
-        session_start();
-        $_SESSION['userId'];
-        $_SESSION['token'] = 5;
-        include "./connect.php";
-         
-        
-        
                 if(isset($_GET['submitT'])) {
         
                     if(isset($userID)) {
@@ -40,19 +39,13 @@
                         }
                 
                         $result = $query->get_result();
-                
                         $data = $result->fetch_all(MYSQLI_ASSOC);
-                
-                
+
                         $query->close();
                 
-                    
-                
                     $tokenPl= $_SESSION['token'];
-        
                     $tokenPl++;
-        
-                    
+
                     $pushT = $conn->prepare("UPDATE users SET token = ? WHERE userID = ?");
         
                     if(!$pushT) {
@@ -64,36 +57,28 @@
                     if(!$pushT) {
                         echo 'Binding failed' . mysqli_error($conn);
                     }
-        
                     $pushT -> execute();
                     $pushT->close();
                 }
-         
                 }   
             
         ?>
-        
-        <h1>Test points</h1>
-        
         <?php 
-            foreach($data as $row) {
+            /*foreach($data as $row) {
                 $_SESSION['token'] = $row['token'];
                 echo 'Received tokens are :' . $_SESSION['token']; 
-            }
-        ?> 
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="get">
-            <!--<input type="hidden" name="action" value="delete">-->
-            <input type="submit" name="submitT" value="Submit">
-            
-        </form>
-         
-        
+            }*/
+        ?>
+        <!--<form action="<?php $_SERVER['PHP_SELF'] ?>" method="get">
+            <input type="hidden" name="action" value="delete">-->
+            <!--<input type="submit" name="submitT" value="Submit">-->
+        <!--</form>-->
         </h2>
 </body>
 </html>
 <script>
     let counter = 0;
-    let UserId = 12;
+    let UserId = ['userId'];
     var intervalId = window.setInterval(function(){
         counter++;
         document.getElementById("text").innerHTML = counter;
@@ -108,5 +93,5 @@
                 success: function(data) {
                 }
             });
-}, 500);
+}, 3000);
 </script>
