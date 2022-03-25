@@ -99,6 +99,20 @@
                                 mysqli_stmt_bind_param($stmt, "issii", $id, $robotName, $gameName, $betAmount, $place);
                                 if (mysqli_stmt_execute($stmt)) {
                                   mysqli_stmt_close($stmt); //close statement
+                                  $sql = "UPDATE users SET points = ? WHERE userID = ?";
+                                  $newPoints = $row['points'] - $betAmount;
+                                  if ($stmt = mysqli_prepare($conn, $sql)) {
+                                    mysqli_stmt_bind_param($stmt, "ii", $newPoints, $id);
+                                    if (mysqli_stmt_execute($stmt)) {
+                                      mysqli_stmt_close($stmt); //close statement
+                                      mysqli_close($conn); // close connection
+                                      echo "Your bet is placed!";
+                                    } else {
+                                      echo "Error preparing: " . mysqli_error($conn);
+                                    }
+                                  } else {
+                                    echo "Error preparing: " . mysqli_error($conn);
+                                  }
                                 } else {
                                   echo "Error: " . mysqli_error($conn);
                                 }
