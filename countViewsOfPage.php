@@ -1,36 +1,38 @@
 <?php
-$total_data="base.dat";
-$online_data="online.dat";
-$time=time();
-$now=(int)(time()/86400);
-$past_time=time()-600;
+$total_data="total.dat";
 
-$readdata=fopen($online_data,"r") or die("Can not open the file $online_data");
-$online_data_array=file($online_data);
+$onlineData="online.dat";
+
+$time = time();
+$now = (int) (time() / 86400);
+$past_time = time() - 600;
+
+$readdata = fopen($onlineData,"r") or die("Can not open the file $onlineData"); //open a file
+$onlineArray = file($onlineData); 
 fclose($readdata);
 
-if(getenv('HTTP_X_FORWARDED_FOR'))
-        $user=getenv('HTTP_X_FORWARDED_FOR');
+if (getenv('HTTP_X_FORWARDED_FOR')) // Get the value of an environment var, method for identifying the originating IP address of a client connecting to a web server.
+        $user = getenv('HTTP_X_FORWARDED_FOR');
 else
-        $user=getenv('REMOTE_ADDR');
+        $user = getenv('REMOTE_ADDR');  // real IP address that connects 
 
-$d = count($online_data_array);
-for($i = 0; $i < $d; $i++)
+$data = count($onlineArray);
+for($i = 0; $i < $data; $i++)
         {
-        list($live_user,$last_time)=explode("::","$online_data_array[$i]");
-        if($live_user!=""&&$last_time!=""):
-        if($last_time<$past_time):
-                $live_user="";
-                $last_time="";
-        endif;
-        if($live_user!=""&&$last_time!="")
+        list ($liveUser,$last_time) = explode("::", "$onlineArray [$i]"); //Assign variables as if they were an array,  Split a string by a string
+        if ($liveUser != " " && $last_time !=" "): //open
+        if ($last_time < $past_time):
+                $liveUser = " ";
+                $last_time = " ";
+        endif; //close
+        if($liveUser != " " && $last_time != " ")
                 {
-                if($user==$live_user)
+                if($user == $liveUser)
                         {
-                        $online_array[]="$user::$time\r\n";
+                        $online_array []="$user::$time\r\n";
                         }
                 else
-                        $online_array[]="$live_user::$last_time";
+                        $online_array[]="$liveUser::$last_time";
                 }
         endif;
         }
@@ -50,7 +52,7 @@ for($i = 0; $i < $d; $i++)
                 }
        endif;
 
-$writedata=fopen($online_data,"w") or die("Не могу открыть файл $online_data");
+$writedata=fopen($onlineData,"w") or die("Не могу открыть файл $onlineData");
 flock($writedata,2);
 if($online_array=="") $online_array[]="$user::$time\r\n";
 foreach($online_array as $str)
@@ -58,10 +60,10 @@ foreach($online_array as $str)
 flock($writedata,3);
 fclose($writedata);
 
-$readdata=fopen($online_data,"r") or die("Не могу открыть файл $online_data");
-$online_data_array=file($online_data);
+$readdata=fopen($onlineData,"r") or die("Can not open the file $onlineData");
+$onlineArray=file($onlineData);
 fclose($readdata);
-$online=count($online_data_array);
+$online=count($onlineArray);
 
 $f=fopen($total_data,"a");
 $call="$user|$now\n";
