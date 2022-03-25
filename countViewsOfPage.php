@@ -5,7 +5,7 @@ $time=time();
 $now=(int)(time()/86400);
 $past_time=time()-600;
 
-$readdata=fopen($online_data,"r") or die("Не могу открыть файл $online_data");
+$readdata=fopen($online_data,"r") or die("Can not open the file $online_data");
 $online_data_array=file($online_data);
 fclose($readdata);
 
@@ -14,8 +14,8 @@ if(getenv('HTTP_X_FORWARDED_FOR'))
 else
         $user=getenv('REMOTE_ADDR');
 
-$d=count($online_data_array);
-for($i=0;$i<$d;$i++)
+$d = count($online_data_array);
+for($i = 0; $i < $d; $i++)
         {
         list($live_user,$last_time)=explode("::","$online_data_array[$i]");
         if($live_user!=""&&$last_time!=""):
@@ -82,28 +82,7 @@ for($i=0;$i<count($tarray);$i++)
         }
 $today_hits=count($today_hits_array);
 
-$total_hosts_array=array();
-for($i=0;$i<count($tarray);$i++)
-        {
-        list($ip,$t)=explode("|",$tarray[$i]);
-        array_push($total_hosts_array,$ip);
-        }
-$total_hosts=count(array_unique($total_hosts_array  ));
-
-$today_hosts_array=array();
-for($i=0;$i<count($tarray);$i++)
-        {
-        list($ip,$t)=explode("|",$tarray[$i]);
-        if($now==$t) { array_push($today_hosts_array,$ip); }
-        }
-$today_hosts=count(array_unique($today_hosts_array  ));
-
-
-echo "document.write('<center><b><span style=font-size:14px;color:#990000;>Статистика сайта</span></b></center>');";
-echo "document.write('<span style=font-size:13px;>Хитов всего: <b>$total_hits</span></b><br />');";
-echo "document.write('<span style=font-size:13px;>Хитов сегодня: <b>$today_hits</span></b><br />');";
-echo "document.write('<span style=font-size:13px;>Хостов всего: <b>$total_hosts</span></b><br />');";
-echo "document.write('<span style=font-size:13px;>Хостов сегодня: <b>$today_hosts</span></b><br />');";
-echo "document.write('<span style=font-size:13px;>Сейчас на сайте: <b>$online</span></b>');";
-
+echo "Total viewrs: $total_hits <pre>";
+echo "Today views: $today_hits <pre>";
+echo "Online view: $online";
 ?> 
