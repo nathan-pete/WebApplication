@@ -79,6 +79,35 @@
                   }
                   echo "</select>";
                   mysqli_stmt_close($stmt);
+                  echo "<input type='submit' name='bet' value='Place Bet'>";
+                  if (isset($_POST['bet'])) {
+                    if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
+                      $id = 1;
+                      $robotName = $_POST['name'];
+                      $gameName = $_POST['game'];
+                      $place = $_POST['place'];
+                      $betAmount = $_POST['amount'];
+                      $sql = "SELECT points FROM users WHERE userID=?"; //the query for selecting from the database
+                      if ($stmt = mysqli_prepare($conn, $sql)) { //database parses, compiles, and performs query optimization and stores w/o executing
+                        mysqli_stmt_bind_param($stmt, "i", $id); //bind values to parameters
+                        if (mysqli_stmt_execute($stmt)) { //execute stmt
+                          $result = mysqli_stmt_get_result($stmt); //get result
+                          while ($row = mysqli_fetch_assoc($result)) { //fetch results
+                            if ($row['points'] > $betAmount) {
+                            } else {
+                              echo "You don't have enough points!";
+                            }
+                          }
+                        } else {
+                          echo "Error: " . mysqli_error($conn);
+                        }
+                      } else {
+                        echo "Error preparing: " . mysqli_error($conn);
+                      }
+                    } else {
+                        echo "Please fill in all the fields!";
+                    }
+                  }
                 ?>
             </form>
         </div>
