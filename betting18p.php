@@ -94,6 +94,17 @@
                           $result = mysqli_stmt_get_result($stmt); //get result
                           while ($row = mysqli_fetch_assoc($result)) { //fetch results
                             if ($row['points'] > $betAmount) {
+                              $sql = "INSERT INTO bets (userID, robotName, gameName, betAmount, position) VALUES (?,?,?,?,?)";
+                              if ($stmt = mysqli_prepare($conn, $sql)) {
+                                mysqli_stmt_bind_param($stmt, "issii", $id, $robotName, $gameName, $betAmount, $place);
+                                if (mysqli_stmt_execute($stmt)) {
+                                  mysqli_stmt_close($stmt); //close statement
+                                } else {
+                                  echo "Error: " . mysqli_error($conn);
+                                }
+                              } else {
+                                echo "Error preparing: " . mysqli_error($conn);
+                              }
                             } else {
                               echo "You don't have enough points!";
                             }
