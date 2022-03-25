@@ -18,7 +18,7 @@
 
   // Checking if user is logged it
   if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: index.php");
+    header("location: test.php");
     exit;
   }
 ?>
@@ -110,7 +110,7 @@
                 echo "You are now logged in";
                 echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
                 // Redirect user to welcome page
-                header("location: index.php");
+                header("location: test.php");
 
               } else {
                 $error = "Wrong password!";
@@ -159,7 +159,7 @@
               echo "You are now logged in";
               echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
               // Redirect user to welcome page
-              header("location: index.php");
+              header("location: test.php");
 
             } else {
               $error = "Wrong password!";

@@ -91,7 +91,7 @@
       </div>
       <div class="squarecolorsmall">
         <audio controls>
-          <source src="./uploads/sound.mp3" type="audio/mpeg">
+          <source src="./assets/sound.mp3" type="audio/mp3">
         </audio>
         <?php
           if (isset($name)) {
