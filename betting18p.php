@@ -54,6 +54,32 @@
                     mysqli_stmt_close($stmt);
                   }
                 ?>
+                <br><label for="amount">Bet amount</label><br>
+                <input type="number" name="amount" class="input"><br>
+                <label for="place">Final position</label><br>
+                <input type="number" name="place" class="input"><br>
+                <?php
+                  // pull from db into drop down all game names
+                  echo "<label for='game'>Game Name</label><br>";
+                  echo "<select name='game' value='Game Name'>";
+                  echo "<option selected></option>";
+                  $sql = "SELECT name FROM games";
+                  if ($stmt = mysqli_prepare($conn, $sql)) { //database parses, compiles, and performs query optimization and stores w/o executing
+                    if (mysqli_stmt_execute($stmt)) { //execute the statement
+                      $result =  mysqli_stmt_get_result($stmt); //get result
+                      foreach ($result as $row){
+                        echo "<option value=$row[name]>$row[name]</option>";
+                        /* Option values are added by looping through the array */
+                      }
+                    } else {
+                      echo "Error executing" . mysqli_error($conn);
+                    }
+                  } else {
+                    echo "Error preparing" . mysqli_error($conn);
+                  }
+                  echo "</select>";
+                  mysqli_stmt_close($stmt);
+                ?>
             </form>
         </div>
 	</body>
