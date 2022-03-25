@@ -32,6 +32,27 @@
                     }
                   echo "</select>";
                   mysqli_stmt_close($stmt);
+                  echo "<input type='submit' name='picture' value='Picture of the robot'>";
+                  if (isset($_POST['picture'])) {
+                      //if a certain robot name is selected show it's picture
+                     $sql = "SELECT robotName, robotPicture FROM robots WHERE robotName = ?";
+                     if ($stmt = mysqli_prepare($conn, $sql)) {
+                      $robotName = $_POST['name'];
+                      mysqli_stmt_bind_param($stmt, "s", $robotName);
+                      if (mysqli_stmt_execute($stmt)) {
+                      $result =  mysqli_stmt_get_result($stmt);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo $row['robotPicture'];
+                          echo "<img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'>";
+                        }
+                      } else {
+                        echo "Error executing" . mysqli_error($conn);
+                      }
+                     } else {
+                       echo "Error preparing: " . mysqli_error($conn);
+                     }
+                    mysqli_stmt_close($stmt);
+                  }
                 ?>
             </form>
         </div>
