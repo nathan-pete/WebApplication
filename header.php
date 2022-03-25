@@ -10,7 +10,8 @@
       <li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
       <li class="line"> &VerticalLine;</li>
       <?php
-        if (isset($_SESSION['loggedin']) == true) {
+        session_start();
+        if (isset($_SESSION['loggedin'])) {
           include "connect.php";
           $sql = "SELECT DoB FROM users WHERE userID = ?";
           if ($stmt = mysqli_prepare($conn, $sql)) {
@@ -36,7 +37,7 @@
           echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
         }
         echo "<li class='line'> &VerticalLine;</li>";
-        if (isset($_SESSION['loggedin']) == true) {
+        if (isset($_SESSION['loggedin'])) {
           echo '<li><a href="usrpnl.php" class="login">' . $firstName . '</a></li>';
         } else {
           echo '<li><a href="loginpage.php" class="login">Login</a></li>';
