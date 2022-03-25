@@ -1,34 +1,34 @@
-<?php 
+<?php
   include "connect.php";
 ?>
-<?php 
-     if($_SERVER['REQUEST_METHOD'] === 'GET') {
-        if(isset($_GET['robotName'])) {
-          
-         
-          $robotName = $_GET['robotName'];
+<?php
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['robotName'])) {
 
-          $info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
 
-          if(!$info) {
-              echo 'Prepare failed' . mysqli_error($conn);
-          }
-  
-          $info->bind_param("s", $robotName);
-  
-          if(!$info) {
-              echo 'Binding failed' . mysqli_error($conn);
-          }
-  
-          $info->execute();
-  
-          $result = $info->get_result();
-  
-          $infoR = $result->fetch_all(MYSQLI_ASSOC);
-  
-          $info->close();
-     }
+      $robotName = $_GET['robotName'];
+
+      $info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
+
+      if (!$info) {
+        echo 'Prepare failed' . mysqli_error($conn);
+      }
+
+      $info->bind_param("s", $robotName);
+
+      if (!$info) {
+        echo 'Binding failed' . mysqli_error($conn);
+      }
+
+      $info->execute();
+
+      $result = $info->get_result();
+
+      $infoR = $result->fetch_all(MYSQLI_ASSOC);
+
+      $info->close();
     }
+  }
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!DOCTYPE html>
@@ -65,62 +65,64 @@
   <div class="space">
   </div>
   <div class="squarecolor">
-  <div class="overall">
-    <div class="squarecolorsmall">
-    <?php
+    <div class="overall">
+      <div class="squarecolorsmall">
+        <?php
 
-          if($_GET['robotName']){
-            if($infoR) {     
-              foreach($infoR as $robot) {
+          if ($_GET['robotName']) {
+            if ($infoR) {
+              foreach ($infoR as $robot) {
                 echo $robot['robotName'];
-              }
-            }   
-          }
-    ?>
-      </div>
-      <div class = "squarecolorsmall">
-          <?php
-    if($_GET['robotName']){
-      if($infoR) {     
-        foreach($infoR as $robot) {
-          echo $robot['serialNum'];
-        }
-      }   
-    }
-              ?>
-          </div>
-          <div class = "squarecolorsmall">
-          <audio controls><source src ='./uploads/sound.mp3 type ='audio/mpeg'></audio>
-          <?php
-                if(isset($name)){
-                  if($infoR) {
-                    foreach($infoR as $robot) {
-                      
-                    }
-                  }  
-                } 
-                            
-              ?>
-          </div>
-              </div>
-          <div class = "overall2"> 
-          <div class = "squarecolorbig">
-          <?php
-
-          if($_GET['robotName']){
-            if($infoR) {     
-              foreach($infoR as $robot) {
-                  echo '<img src=assets/' . $robot['robotPicture'] . '>'; 
               }
             }
           }
-    ?>
-          </div>
+        ?>
       </div>
+      <div class="squarecolorsmall">
+        <?php
+          if ($_GET['robotName']) {
+            if ($infoR) {
+              foreach ($infoR as $robot) {
+                echo $robot['serialNum'];
+              }
+            }
+          }
+        ?>
       </div>
+      <div class="squarecolorsmall">
+        <audio controls>
+          <source src="./uploads/sound.mp3" type="audio/mpeg">
+        </audio>
+        <?php
+          if (isset($name)) {
+            if ($infoR) {
+              foreach ($infoR as $robot) {
+
+              }
+            }
+          }
+
+        ?>
       </div>
+    </div>
+    <div class="overall2">
+      <div class="squarecolorbig">
+        <?php
+
+          if ($_GET['robotName']) {
+            if ($infoR) {
+              foreach ($infoR as $robot) {
+                echo '<img class="robotimg" src=assets/' . $robot['robotPicture'] . '>';
+              }
+            }
+          }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
-    include_once "footer.html";
-  ?>
+  include_once "footer.html";
+?>
 </body>
 </html>

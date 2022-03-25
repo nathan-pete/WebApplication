@@ -236,6 +236,7 @@ body {
   transition: 0.5s;
 }
 
+
 .user-p:hover {
   font-weight: 500;
   background-color: rgb(179, 178, 178);
@@ -302,7 +303,6 @@ body {
 .space-usr {
   margin: 2%;
 }
-
 
 .user-pfp h3 {
   text-align: center;
@@ -824,6 +824,12 @@ iframe {
   float: left;
   margin: 15px;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+  color: black;
 }
 
 .squarecolorbig {
@@ -848,6 +854,13 @@ iframe {
   align-items: stretch;
   margin: -10px;
   transform: translate(50px, -500px);
+}
+
+.robotimg {
+  width: 300px;
+  height: 300px;
+  margin: -40px;
+  padding: 50px;
 }
 
 /*--------------------------- Profile End ---------------------------------*/
@@ -1243,222 +1256,247 @@ a.animated-button.victoria-two:after {
 }
 
 
-  .space-indx{
-    margin:15%;
-  }
+.space-indx {
+  margin: 15%;
+}
+
 /*-------------------------- Vote for a game page END--------------------------*/
 /*--------------------------Login Start--------------------------*/
 
-.logins{
+.logins {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 120px;
 }
-.div-robot-login{
+
+.div-robot-login {
   background-color: lightslategray;
   width: 450px;
   height: 550px;
   border-radius: 30px;
 }
-.div-viewer-login{
+
+.div-viewer-login {
   background-color: lightslategray;
   width: 450px;
   height: 550px;
   border-radius: 30px;
 }
-.main-content-heading{
+
+.main-content-heading {
   font-size: 50px;
   padding-left: 200px;
   color: white;
 }
 
 /*Animation for div-robot-login button*/
-.login-bttn-robot {  
-  position: relative;  
-  display: inline-block;  
-  padding: 10px 20px;  
-  color: #03e9f4;  
-  font-size: 22px;  
-  text-decoration: none;  
-  text-transform: uppercase;  
-  overflow: hidden;  
-  transition: .5s;  
-  margin-top: 40px;  
+.login-bttn-robot {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
   margin-top: 85px;
- }  
-  
- .login-bttn-robot span {  
-  position: absolute;  
-  display: block;  
- }  
- .login-bttn-robot span:nth-child(1) {  
-  top: 0;  
-  left: -100%;  
-  width: 100%;  
-  height: 2px;  
-  background: linear-gradient(90deg, transparent, rgb(64 90 167));  
-  animation: btn-anim1 3s linear infinite;  
- }  
- @keyframes btn-anim1 {  
-  0% {  
-   left: -100%;  
-  }  
-  50%,100% {  
-   left: 100%;  
-  }  
- }  
- .login-bttn-robot span:nth-child(2) {  
-  top: -100%;  
-  right: 0;  
-  width: 2px;  
-  height: 100%;  
-  background: linear-gradient(180deg, transparent, rgb(64 90 167));  
-  animation: btn-anim2 3s linear infinite;  
-  animation-delay: .50s  
- }  
- @keyframes btn-anim2 {  
-  0% {  
-   top: -100%;  
-  }  
-  50%,100% {  
-   top: 100%;  
-  }  
- }  
- .login-bttn-robot span:nth-child(3) {  
-  bottom: 0;  
-  right: -100%;  
-  width: 100%;  
-  height: 2px;  
-  background: linear-gradient(270deg, transparent, rgb(64 90 167));  
-  animation: btn-anim3 3s linear infinite;  
-  animation-delay: .8s  
- }  
- .div-robot-login,  .login-bttn-robot span:nth-child(4) {  
-   
+}
+
+.login-bttn-robot span {
+  position: absolute;
+  display: block;
+}
+
+.login-bttn-robot span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(64 90 167));
+  animation: btn-anim1 3s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+.login-bttn-robot span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(64 90 167));
+  animation: btn-anim2 3s linear infinite;
+  animation-delay: .50s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+
+.login-bttn-robot span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgb(64 90 167));
+  animation: btn-anim3 3s linear infinite;
+  animation-delay: .8s
+}
+
+.div-robot-login, .login-bttn-robot span:nth-child(4) {
+
   background: linear-gradient(360deg, rgb(222 222 222 / 42%), lightslategray);
-  animation: btn-anim4 3s linear infinite;  
-  animation-delay: .90s  
- }  
- @keyframes btn-anim3 {  
-  0% {  
-   right: -100%;  
-  }  
-  50%,100% {  
-   right: 100%;  
-  }   
- }  
- @keyframes btn-anim4 {  
-  0% {  
-   bottom: -100%;  
-  }  
-  50%,100% {  
-   bottom: 100%;  
-  }  
- }
- /*Animation for div-viewer-login button*/
- .login-bttn-viewer {  
-  position: relative;  
-  display: inline-block;  
-  padding: 10px 20px;  
-  color: #03e9f4;  
-  font-size: 22px;  
-  text-decoration: none;  
-  text-transform: uppercase;  
-  overflow: hidden;  
-  transition: .8s;  
-  margin-top: 40px;  
+  animation: btn-anim4 3s linear infinite;
+  animation-delay: .90s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+
+/*Animation for div-viewer-login button*/
+.login-bttn-viewer {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .8s;
+  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
   margin-top: 85px;
- }  
- .login-bttn-viewer:hover {  
-  background: rgb(64 90 167);  
-  color: #fff;  
-  border-radius: 5px;  
-  box-shadow: 0 0 5px rgb(64 90 167),  
-        0 0 25px rgb(64 90 167),  
-        0 0 50px rgb(64 90 167),  
-        0 0 100px rgb(64 90 167);  
- }  
- .login-bttn-viewer span {  
-  position: absolute;  
-  display: block;  
- }  
- .login-bttn-viewer span:nth-child(1) {  
-  top: 0;  
-  left: -100%;  
-  width: 100%;  
-  height: 2px;  
-  background: linear-gradient(90deg, transparent, rgb(64 90 167));  
-  animation: btn-anim1 3s linear infinite;  
- }  
- @keyframes btn-anim1 {  
-  0% {  
-   left: -100%;  
-  }  
-  50%,100% {  
-   left: 100%;  
-  }  
- }  
- .login-bttn-viewer span:nth-child(2) {  
-  top: -100%;  
-  right: 0;  
-  width: 2px;  
-  height: 100%;  
-  background: linear-gradient(180deg, transparent, rgb(64 90 167));  
-  animation: btn-anim2 3s linear infinite;  
-  animation-delay: .45s  
- }  
- @keyframes btn-anim2 {  
-  0% {  
-   top: -100%;  
-  }  
-  50%,100% {  
-   top: 100%;  
-  }  
- }  
- .login-bttn-viewer span:nth-child(3) {  
-  bottom: 0;  
-  right: -100%;  
-  width: 100%;  
-  height: 2px;  
-  background: linear-gradient(270deg, transparent, rgb(64 90 167));  
-  animation: btn-anim3 3s linear infinite;  
-  animation-delay: .8s  
- }  
- .div-viewer-login,  .login-bttn-viewer span:nth-child(4) {  
-   
+}
+
+.login-bttn-viewer:hover {
+  background: rgb(64 90 167);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(64 90 167),
+  0 0 25px rgb(64 90 167),
+  0 0 50px rgb(64 90 167),
+  0 0 100px rgb(64 90 167);
+}
+
+.login-bttn-viewer span {
+  position: absolute;
+  display: block;
+}
+
+.login-bttn-viewer span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(64 90 167));
+  animation: btn-anim1 3s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+.login-bttn-viewer span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(64 90 167));
+  animation: btn-anim2 3s linear infinite;
+  animation-delay: .45s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+
+.login-bttn-viewer span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgb(64 90 167));
+  animation: btn-anim3 3s linear infinite;
+  animation-delay: .8s
+}
+
+.div-viewer-login, .login-bttn-viewer span:nth-child(4) {
+
   background: linear-gradient(360deg, rgb(222 222 222 / 42%), lightslategray);
-  animation: btn-anim4 3s linear infinite;  
-  animation-delay: .90s  
- }  
- @keyframes btn-anim3 {  
-  0% {  
-   right: -100%;  
-  }  
-  50%,100% {  
-   right: 100%;  
-  }   
- }  
- @keyframes btn-anim4 {  
-  0% {  
-   bottom: -100%;  
-  }  
-  50%,100% {  
-   bottom: 100%;  
-  }  
- }
- /*Robot div*/
- .robot-log-heading{
+  animation: btn-anim4 3s linear infinite;
+  animation-delay: .90s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+
+/*Robot div*/
+.robot-log-heading {
   padding-top: 30px;
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
 }
+
 /*Inputs */
 input[type=text], input[type=password] {
   width: 80%;
@@ -1469,69 +1507,74 @@ input[type=text], input[type=password] {
   margin-left: 40px;
   background-color: lightgray;
 }
+
 /*Viewer div*/
-.viewer-log-heading{
+.viewer-log-heading {
   padding-top: 30px;
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
 }
+
 /* Forogtten password new user */
 
-.bttn-fg-pass, .register_new_t {  
-  position: relative;  
-  display: inline-block;  
-  padding: 10px 20px;  
-  color: #03e9f4;  
-  font-size: 10px;  
-  text-decoration: none;  
-  text-transform: uppercase;  
-  overflow: hidden;  
-  transition: .8s;  
-  margin-top: 40px;  
+.bttn-fg-pass, .register_new_t {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .8s;
+  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
- }  
- .bttn-fg-pass:hover, .register_new_t:hover {  
-  background: rgb(64 90 167);  
-  color: #fff;  
-  border-radius: 5px;  
-  box-shadow: 0 0 5px rgb(64 90 167),  
-        0 0 25px rgb(64 90 167),  
-        0 0 50px rgb(64 90 167),  
-        0 0 100px rgb(64 90 167);  
- }
- /*LOgins buttons */
+}
+
+.bttn-fg-pass:hover, .register_new_t:hover {
+  background: rgb(64 90 167);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(64 90 167),
+  0 0 25px rgb(64 90 167),
+  0 0 50px rgb(64 90 167),
+  0 0 100px rgb(64 90 167);
+}
+
+/*LOgins buttons */
 
 
- .logins-bttns{
-  position: relative;  
-  display: inline-block;  
-  padding: 10px 20px;  
-  color: #03e9f4;  
+.logins-bttns {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
   font-size: 20px;
-  text-decoration: none;  
-  text-transform: uppercase;  
-  overflow: hidden;  
-  transition: .8s;  
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .8s;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
   background-color: rgb(126 142 175);
   border: none;
   width: 100%;
- }
- .logins-bttns:hover{
-  background: rgb(64 90 167);  
-  color: #fff;  
-  border-radius: 5px;  
-  box-shadow: 0 0 5px rgb(64 90 167),  
-        0 0 25px rgb(64 90 167),  
-        0 0 50px rgb(64 90 167),  
-        0 0 100px rgb(64 90 167);  
+}
+
+.logins-bttns:hover {
+  background: rgb(64 90 167);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(64 90 167),
+  0 0 25px rgb(64 90 167),
+  0 0 50px rgb(64 90 167),
+  0 0 100px rgb(64 90 167);
   cursor: pointer;
- }
+}
 
  

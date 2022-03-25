@@ -25,7 +25,6 @@
   <?php
     include_once "header.php";
     require_once "./Utils/userDB.php";
-    $firstName = "Doe";
     $name = $firstName . "&nbsp;" . $lastName;
   ?>
   <div class="user-title">
@@ -54,6 +53,7 @@
                 } else {
                   $profilePicture = "defaultpfp.png";
                 }
+
               }
             }
 
@@ -89,14 +89,16 @@
                 echo "<div class='errormessage-usr'>Invalid image type!</div>";
               }
             }
+
           ?>
           <img src="./uploads/profilePictures/<?= $profilePicture ?>" alt="Profile picture" class="usrtweak">
           <div class="space-usr"></div>
           <div class="usr-form">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-              <input type="file" name="uploadedFile"><br>
+              <input type="file" name="uploadedFile">
               <div>
-                <button type="submit" name="submit" value="submit">Upload Profile Picture</button>
+                <br>
+                <button type="submit" name="submit" value="submit" class="profile-upload">Upload Profile Picture</button>
               </div>
             </form>
           </div>
@@ -106,14 +108,15 @@
         </div>
         <div class="usr-details">
           <p class="user-p"><b>Name:</b>&nbsp;<?php echo $name; ?></p>
-          <p class="user-p"><b>E-mail:</b>&nbsp;<<?php echo $email; ?>/p>
+          <p class="user-p"><b>E-mail:</b>&nbsp;<?php echo $email; ?></p>
           <p class="user-p"><b>Age Threshold:</b>&nbsp;<?php
               if ($DoB == 1) {
                 echo "Above 18";
               } elseif ($DoB == 0) {
                 echo "Below 18";
+              } else {
+                echo "";
               }
-              else
             ?></p>
           <p class="user-p"><b>Points:</b>&nbsp;<?php echo $points; ?></p>
         </div>
@@ -123,7 +126,9 @@
             <p>Edit My Info</p>
           </div>
           <div class="info">
-            <p>Change Password</p>
+            <p>
+              <a href="chngepass.php">Change Password</a>
+            </p>
           </div>
           <div class="delete-profile">
             <p>Delete My Profile</p>
@@ -138,7 +143,6 @@
 <div class="space"></div>
 <?php
   include_once "footer.html";
-
 ?>
 </body>
 </html>
