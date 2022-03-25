@@ -74,7 +74,7 @@
 
       echo '<div class="event-items">
       <div class="event-img">
-        <a href="votegame.php?name=' . $picture . '"class="tweak" alt="Battle Bot - Line Tracking" height="110" width="109">
+        <img class="voteimg" src=assets/' . $picture. '>
         <div class="event-text">
           <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
           <p class=" event-p"></p>

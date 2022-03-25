@@ -68,7 +68,6 @@
     <div class="overall">
       <div class="squarecolorsmall">
         <?php
-
           if ($_GET['robotName']) {
             if ($infoR) {
               foreach ($infoR as $robot) {
@@ -97,7 +96,6 @@
           if (isset($name)) {
             if ($infoR) {
               foreach ($infoR as $robot) {
-
               }
             }
           }
@@ -107,7 +105,6 @@
     <div class="overall2">
       <div class="squarecolorbig">
         <?php
-
           if ($_GET['robotName']) {
             if ($infoR) {
               foreach ($infoR as $robot) {

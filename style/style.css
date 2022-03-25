@@ -848,20 +848,20 @@ iframe {
 }
 
 .overall2 {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   float: right;
   display: flex;
   align-items: stretch;
   margin: -10px;
-  transform: translate(50px, -500px);
+  transform: translate(-50px, -400px);
 }
 
 .robotimg {
   width: 300px;
-  height: 300px;
-  margin: -40px;
-  padding: 50px;
+  height: 290px;
+  margin: -60px;
+  padding: 30px;
 }
 
 /*--------------------------- Profile End ---------------------------------*/
@@ -928,6 +928,12 @@ a.animated-button.victoria-two:after {
   position: relative;
   left: -750px;
   top: -25px;
+}
+.voteimg{
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  padding: 5px;
 }
 
 /*----------2048 Game-----------*/
