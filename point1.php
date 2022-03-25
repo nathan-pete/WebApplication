@@ -78,13 +78,13 @@
 </html>
 <script>
     let counter = 0;
-    let UserId = ['userId'];
+    let UserId = 11; //change it 
     var intervalId = window.setInterval(function(){
         counter++;
         document.getElementById("text").innerHTML = counter;
         $.ajax({
                 type: 'POST',
-                url: 'sql_execute.php',
+                url: 'point-query.php',
                 dataType: "json",
                 data: ({
                     "userId": UserId,
