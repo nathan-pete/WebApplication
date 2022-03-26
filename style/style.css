@@ -1559,7 +1559,6 @@ input[type=text], input[type=password] {
 
 /*LOgins buttons */
 
-
 .logins-bttns {
   position: relative;
   display: inline-block;
@@ -1668,6 +1667,7 @@ input[type=text], input[type=password] {
 }
 
 /* Betting 18+ page start */
+
 .bettingContainer {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -1686,6 +1686,7 @@ input[type=text], input[type=password] {
   transition: 0.3s;
   width: 50%;
 }
+
 .bettingBox:hover {
   border-radius: 20px;
   color: black;
@@ -1725,5 +1726,12 @@ input[type=text], input[type=password] {
   background-color: #7ac8e3;
   transition: 0.3s;
 }
+
+.bettingBox img {
+  max-width: 70%;
+  max-height: 70%;
+  margin-bottom: 4%;
+}
+
 /* Betting 18+ page end */
 
