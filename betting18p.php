@@ -19,7 +19,7 @@
                     <?php
                       include "connect.php";
                       //pull from db into drop down all robot names
-                      echo "<p><label class='betting-lbl' for='name'>Robot Name</label></p>";
+                      echo "<p><label for='name'>Robot Name</label></p>";
                       echo "<select name='name' value='Robot Name'>";
                       echo "<option selected></option>";
                       $sql = "SELECT robotName FROM robots";
@@ -38,7 +38,7 @@
                         }
                       echo "</select>";
                       mysqli_stmt_close($stmt);
-                      echo "<p><input type='submit' name='picture' value='Picture of the robot'></p>";
+                      echo "<p><input type='submit' name='picture' value='Picture of the robot' class='input-bttn'></p>";
                       if (isset($_POST['picture'])) {
                           //if a certain robot name is selected show it's picture
                          $sql = "SELECT robotName, robotPicture FROM robots WHERE robotName = ?";
@@ -60,13 +60,13 @@
                         mysqli_stmt_close($stmt);
                       }
                     ?>
-                    <p><label class="betting-lbl" for="amount">Bet amount</label></p>
-                    <p><input type="number" name="amount" class="input"></p>
-                    <p><label class="betting-lbl" for="place">Final position</label></p>
-                    <p><input type="number" name="place" class="input"></p>
+                    <p><label for="amount">Bet amount</label></p>
+                    <p><input type="number" name="amount"></p>
+                    <p><label for="place">Final position</label></p>
+                    <p><input type="number" name="place"></p>
                     <?php
                       // pull from db into drop down all game names
-                      echo "<p><label class='betting-lbl' for='game'>Game Name</label></p>";
+                      echo "<p><label for='game'>Game Name</label></p>";
                       echo "<select name='game' value='Game Name'>";
                       echo "<option selected></option>";
                       $sql = "SELECT name FROM games";
@@ -85,7 +85,7 @@
                       }
                       echo "</select>";
                       mysqli_stmt_close($stmt);
-                      echo "<p><input type='submit' name='bet' value='Place Bet'></p>";
+                      echo "<p><input type='submit' name='bet' value='Place Bet' class='input-bttn'></p>";
                       if (isset($_POST['bet'])) {
                         if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
                           $id = 1;

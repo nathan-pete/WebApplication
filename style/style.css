@@ -1163,7 +1163,7 @@ a.animated-button.victoria-two:after {
   color: black;
 }
 
-.registerBox .input-bttn {
+.input-bttn {
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -1675,11 +1675,10 @@ input[type=text], input[type=password] {
   justify-content: center;
 }
 
-.bettingBox, select, input[type="number"] {
+.bettingBox{
   transform: translate3D(0, -1px, 0);
-  text-align: center;
-  font-weight: 600;
   background-color: rgba(255, 255, 255, 0.71);
+  text-align: center;
   border-radius: 20px;
   color: black;
   border: none;
@@ -1698,7 +1697,15 @@ input[type=text], input[type=password] {
 }
 
 .bettingBox select, input[type="number"] {
-  height: 2em;
+  height: 2.3em;
+  text-align: center;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.71);
+  border-radius: 20px;
+  width: 70%;
+  border: none;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
 }
 
 .bettingBox form label {
@@ -1709,8 +1716,14 @@ input[type=text], input[type=password] {
   margin-top: 10%;
 }
 
-.bettingBox form {
-  margin-bottom: 10%;
+.bettingBox .input-bttn {
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+.bettingBox .input-bttn:hover {
+  background-color: #7ac8e3;
+  transition: 0.3s;
 }
 /* Betting 18+ page end */
 
