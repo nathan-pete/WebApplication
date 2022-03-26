@@ -929,7 +929,8 @@ a.animated-button.victoria-two:after {
   left: -750px;
   top: -25px;
 }
-.voteimg{
+
+.voteimg {
   width: 150px;
   height: 150px;
   margin: 5px;
@@ -1588,4 +1589,79 @@ input[type=text], input[type=password] {
   cursor: pointer;
 }
 
- 
+.passbox .passin {
+  display: flex;
+  jusitify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  transition: 1s;
+}
+
+.passbox h3 {
+  margin: 2% 0 3% 4%;
+  text-align: center;
+
+}
+
+.space-pass {
+  margin: 4%;
+}
+
+.passbut {
+  display: flex;
+  jusitify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  background: rgb(154, 154, 154);
+  padding: 2% 4% 2% 4%;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  transition: 1s;
+}
+
+.pass-content {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 50%
+}
+
+.passmsgfail {
+  color: #ba1616;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+
+  text-transform: uppercase;
+}
+
+.passmsgsuc {
+  color: rgb(2, 186, 2);
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.passin:hover {
+  box-shadow: 0 0 25px #0353ff;
+  transition: 1s;
+}
+
+.passbut:hover {
+  background-color: rgb(38, 179, 2);
+  box-shadow: 0 0 25px rgba(55, 255, 0, 0.4);
+  transition: 1s;
+  color: white;
+}
+
+.required {
+  color: #ba1616;
+  text-align: center;
+}
