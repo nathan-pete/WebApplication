@@ -1,3 +1,6 @@
+<?php
+  //session_start();
+?>
 <div class="header-style">
   <div class="nav">
     <input type="checkbox">
@@ -10,7 +13,6 @@
       <li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
       <li class="line"> &VerticalLine;</li>
       <?php
-        session_start();
         if (isset($_SESSION['loggedin'])) {
           include "connect.php";
           $sql = "SELECT DoB FROM users WHERE userID = ?";

@@ -929,7 +929,8 @@ a.animated-button.victoria-two:after {
   left: -750px;
   top: -25px;
 }
-.voteimg{
+
+.voteimg {
   width: 150px;
   height: 150px;
   margin: 5px;
@@ -1588,52 +1589,81 @@ input[type=text], input[type=password] {
   cursor: pointer;
 }
 
-/* Betting 18+ page start */
-.bettingContainer {
-  margin-top: 5%;
-  margin-bottom: 5%;
+
+.passbox .passin {
   display: flex;
-  justify-content: center;
-}
-
-.bettingBox, select, input[type="number"] {
-  transform: translate3D(0, -1px, 0);
-  text-align: center;
-  font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.71);
-  border-radius: 20px;
-  color: black;
-  border: none;
-  font-family: "Orbitron", sans-serif;
-  transition: 0.3s;
-  width: 50%;
-}
-.bettingBox:hover {
-  border-radius: 20px;
-  color: black;
+  jusitify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
   transition: 1s;
-  background-color: rgba(222, 222, 222, 0.35);
-  cursor: pointer;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
-  transform: translate3D(0, -1px, 0) scale(1.03);
 }
 
-.bettingBox select, input[type="number"] {
-  height: 2em;
+.passbox h3 {
+  margin: 2% 0 3% 4%;
+  text-align: center;
+
 }
 
-.bettingBox form label {
-  margin: 5em;
+.space-pass {
+  margin: 4%;
 }
 
-.bettingBox h1 {
-  margin-top: 10%;
+.passbut {
+  display: flex;
+  jusitify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  background: rgb(154, 154, 154);
+  padding: 2% 4% 2% 4%;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  transition: 1s;
 }
 
-.bettingBox form {
-  margin-bottom: 10%;
+.pass-content {
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 50%
 }
 
+.passmsgfail {
+  color: #ba1616;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
 
-/* Betting 18+ page end */
- 
+  text-transform: uppercase;
+}
+
+.passmsgsuc {
+  color: rgb(2, 186, 2);
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.passin:hover {
+  box-shadow: 0 0 25px #0353ff;
+  transition: 1s;
+}
+
+.passbut:hover {
+  background-color: rgb(38, 179, 2);
+  box-shadow: 0 0 25px rgba(55, 255, 0, 0.4);
+  transition: 1s;
+  color: white;
+}
+
+.required {
+  color: #ba1616;
+  text-align: center;
+}
+
