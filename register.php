@@ -21,7 +21,7 @@
   <?php
     include_once "header.php";
   ?>
-  <div class="registerContent">
+  <div class="registerContainer">
     <div class="registerBox">
       <div>
         <h1>Register User</h1>
