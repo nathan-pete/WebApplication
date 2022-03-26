@@ -48,7 +48,8 @@
                           if (mysqli_stmt_execute($stmt)) {
                           $result =  mysqli_stmt_get_result($stmt);
                             while ($row = mysqli_fetch_assoc($result)) {
-                              if (mysqli_num_rows($result) == 0) {
+                              // stmt_num_rows needs mysqli_stmt_store_result($stmt); or something returning a bool, clashes with get_result
+                              if (mysqli_stmt_num_rows($stmt) == 0) {
                                 echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
                               } else {
                                 echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
