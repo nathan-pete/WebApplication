@@ -48,7 +48,11 @@
                           if (mysqli_stmt_execute($stmt)) {
                           $result =  mysqli_stmt_get_result($stmt);
                             while ($row = mysqli_fetch_assoc($result)) {
-                              echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
+                              if (mysqli_num_rows($result) == 0) {
+                                echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
+                              } else {
+                                echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
+                              }
                             }
                           } else {
                             echo "Error executing" . mysqli_error($conn);
