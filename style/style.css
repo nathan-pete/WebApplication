@@ -324,6 +324,13 @@ body {
   width: 25%;
   text-align: center;
   transition: 0.5s;
+  text-decoration: none;
+}
+
+.info a {
+  text-decoration: none;
+  color: white;
+
 }
 
 .usr-buttons .info:hover {
@@ -1272,6 +1279,8 @@ a.animated-button.victoria-two:after {
 /*--------------------------Login Start--------------------------*/
 .main-content {
   margin-top: 5%;
+  font-family: "Orbitron", sans-serif;
+
 }
 
 .logins {
@@ -1299,6 +1308,8 @@ a.animated-button.victoria-two:after {
   font-size: 50px;
   padding-left: 200px;
   color: white;
+  font-family: "Orbitron", sans-serif;
+
 }
 
 /*Animation for div-robot-login button*/
@@ -1317,6 +1328,8 @@ a.animated-button.victoria-two:after {
   display: flex;
   justify-content: center;
   margin-top: 85px;
+  font-family: "Orbitron", sans-serif;
+
 }
 
 .login-bttn-robot span {
@@ -1412,6 +1425,8 @@ a.animated-button.victoria-two:after {
   display: flex;
   justify-content: center;
   margin-top: 85px;
+  font-family: "Orbitron", sans-serif;
+  background-color: none;
 }
 
 .login-bttn-viewer:hover {
@@ -1589,6 +1604,8 @@ input[type=text], input[type=password] {
   cursor: pointer;
 }
 
+/*------------------------------Login End------------------------------*/
+/*--------------------------Change Pass Start--------------------------*/
 .passbox .passin {
   display: flex;
   jusitify-content: center;
@@ -1665,3 +1682,5 @@ input[type=text], input[type=password] {
   color: #ba1616;
   text-align: center;
 }
+
+/*---------------------------Change Pass End---------------------------*/

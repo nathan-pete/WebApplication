@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <link rel="icon" href="./assets/PBBwhite.png">
-  <title>Battle Bot Events</title>
+  <title>Change Password</title>
   <?php
     echo "
       <style>
@@ -69,10 +69,11 @@
   <?php
     include_once "./header.php";
   ?>
-  <div class="space-pass"></div>
+  <br>
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Change Password</h1>
   </div>
+  <br>
   <div class="pass-content">
     <div class="user-items">
       <div class="events-text">
