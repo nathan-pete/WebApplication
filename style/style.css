@@ -1269,11 +1269,15 @@ a.animated-button.victoria-two:after {
 
 /*-------------------------- Vote for a game page END--------------------------*/
 /*--------------------------Login Start--------------------------*/
+.main-content {
+  margin-top: 5%;
+}
 
 .logins {
   display: flex;
   justify-content: center;
   gap: 120px;
+  margin-bottom: 5%;
 }
 
 .div-robot-login {
