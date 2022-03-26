@@ -41,16 +41,16 @@
                       echo "<p><input type='submit' name='picture' value='Picture of the robot' class='input-bttn'></p>";
                       if (isset($_POST['picture'])) {
                           //if a certain robot name is selected show it's picture
-                         $sql = "SELECT robotName, robotPicture FROM robots WHERE robotName = ?";
+                         $sql = "SELECT robotPicture FROM robots WHERE robotName = ?";
                          if ($stmt = mysqli_prepare($conn, $sql)) {
                           $robotName = $_POST['name'];
                           mysqli_stmt_bind_param($stmt, "s", $robotName);
                           if (mysqli_stmt_execute($stmt)) {
                           $result =  mysqli_stmt_get_result($stmt);
-                            if (mysqli_num_rows($result) == 0) {
-                              echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
-                            } else {
-                              while ($row = mysqli_fetch_assoc($result)) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                              if (mysqli_num_rows($result) == 0) {
+                                echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
+                              } else {
                                 echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
                               }
                             }
