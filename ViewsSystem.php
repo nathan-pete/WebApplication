@@ -1,4 +1,4 @@
-<?phps
+<?php
 include "connect.php";
 
 $visitCounter = 0;  // 0 only when there is not cookies
@@ -23,7 +23,6 @@ if($visitCounter == 0){
 echo "This is visit number ".$visitCounter;
 echo '<br>';
 echo "Last time, you were here ".$lastVisit;
-
 }
 ?>
 

@@ -17,5 +17,4 @@ if(!$pushT) {
 $pushT -> execute();
 $pushT->close();
 
-
 ?>
