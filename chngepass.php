@@ -1,6 +1,6 @@
 <?php
   require_once "./connect.php";
-  $_SESSION["userId"] = "10";
+  $_SESSION["userId"] = 13;
   if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, "SELECT * from users WHERE userId='" . $_SESSION["userId"] . "'");
     $row = mysqli_fetch_array($result);
