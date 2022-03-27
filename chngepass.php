@@ -2,19 +2,38 @@
   require_once "./connect.php";
   $_SESSION["userId"] = 13;
   if (isset($_POST['submit'])) {
-    $result = mysqli_query($conn, "SELECT * from users WHERE userId='" . $_SESSION["userId"] . "'");
-    $row = mysqli_fetch_array($result);
-    //$currpass = password_hash($_POST['currentPassword'], PASSWORD_DEFAULT); //hash password
-    $newpass = password_hash($_POST['newPassword'], PASSWORD_DEFAULT); //hash password
-    if (password_verify($_POST['currentPassword'], $row["password"])) {
-      header("refresh:3; url=./usrpnl.php");
-      mysqli_query($conn, "UPDATE users set password='" . $newpass . "' WHERE userId='" . $_SESSION["userId"] . "'");
-      $message = "<div class='passmsgsuc'>Password Changed</div>";
+    $sql = "SELECT * FROM users WHERE userID = ?";
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+      $id = 13;
+      mysqli_stmt_bind_param($stmt, "i", $id);
+      if (mysqli_stmt_execute($stmt)) {
+        $result = mysqli_stmt_get_result($stmt);
+        $row = mysqli_fetch_array($result);
+        //$currpass = password_hash($_POST['currentPassword'], PASSWORD_DEFAULT); //hash password
+        $newpass = password_hash($_POST['newPassword'], PASSWORD_DEFAULT); //hash password
+        if (password_verify($_POST['currentPassword'], $row["password"])) {
+          header("refresh:3; url=./usrpnl.php");
+          $sql = "UPDATE users SET password = ? WHERE userID = ?";
+          if ($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "si", $newpass, $id);
+            if (mysqli_stmt_execute($stmt)) {
+              $message = "<div class='passmsgsuc'>Password Changed</div>";
+            } else {
+              echo "Error: " . mysqli_error($conn);
+            }
+          } else {
+            echo "Error preparing: " . mysqli_error($conn);
+          }
+        } else {
+          $message = "<div class='passmsgfail'>Current Password is not correct</div>";
+        }
+      } else {
+        echo "Error: " . mysqli_error($conn);
+      }
     } else {
-      $message = "<div class='passmsgfail'>Current Password is not correct</div>";
+      echo "Error preparing: " . mysqli_error($conn);
     }
   }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
