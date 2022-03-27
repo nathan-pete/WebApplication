@@ -29,8 +29,10 @@
   ?>
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Leaderboard</h1>
-    <p>**This Pages Refresh every Five seconds**</p>
+    <div class="space-event"></div>
+    <p class="leadnote">**Note: This Pages Refresh every Five seconds**</p>
   </div>
+  <div class="space-event"></div>
   <div class="center">
     <table class="leaderboard">
       <tr>
@@ -40,15 +42,11 @@
       </tr>
       <?php
 
-        /* Mysqli query to fetch rows
-        in descending order of marks */
         $result = mysqli_query($conn, "SELECT robotName,points FROM robots ORDER BY points DESC");
 
         /* First rank will be 1 and
           second be 2 and so on */
         $ranking = 1;
-
-        /* Fetch Rows from the SQL query */
         if (mysqli_num_rows($result)) {
           while ($row = mysqli_fetch_array($result)) {
             echo "
@@ -63,8 +61,11 @@
         }
       ?>
     </table>
+
   </div>
 </div>
+<div class="space-pass"></div>
+
 <br>
 <?php
   include_once "footer.html";

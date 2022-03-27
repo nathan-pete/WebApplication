@@ -37,10 +37,7 @@
           <br>
           <?php
 
-            $query = "
-              SELECT profilePic 
-              FROM users 
-              WHERE userID = ?";
+            $query = "SELECT profilePic FROM users WHERE userID = ?";
             if ($stmt = mysqli_prepare($conn, $query)) {
               mysqli_stmt_bind_param($stmt, "s", $userID);
               if (mysqli_stmt_execute($stmt)) {
