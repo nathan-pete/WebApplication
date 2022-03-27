@@ -50,7 +50,7 @@
                             mysqli_stmt_bind_result($stmt, $result);
                             mysqli_stmt_fetch($stmt);
                             if ($result == NULL) {
-                              echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
+                              echo "<div class='betmsg'>Sorry, this robot has no available pictures.</div><div class='space-event'></div><br>";
                             } else {
                               echo "<p><img src='./uploads/robots/" . $result . "' alt='Picture of the robot'></p>";
                             }
