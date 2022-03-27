@@ -46,15 +46,20 @@
                           $robotName = $_POST['name'];
                           mysqli_stmt_bind_param($stmt, "s", $robotName);
                           if (mysqli_stmt_execute($stmt)) {
-                          $result =  mysqli_stmt_get_result($stmt);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                              // stmt_num_rows needs mysqli_stmt_store_result($stmt); or something returning a bool, clashes with get_result
+                              mysqli_stmt_store_result($stmt);
+                              mysqli_stmt_bind_result($stmt, $result);
+                              mysqli_stmt_fetch($stmt);
+                              // doesn't clash & echoes correctly with fetch but always gives a 1
+                              /* if (mysqli_stmt_num_rows($stmt) == 0) {
+                                    echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
+                                 } else {
+                                    echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
+                                 } */
                               if (mysqli_stmt_num_rows($stmt) == 0) {
-                                echo "<div class='space-event'>Sorry, this robot has no available pictures.</div>";
+                                echo "0";
                               } else {
-                                echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
+                                echo "1";
                               }
-                            }
                           } else {
                             echo "Error executing" . mysqli_error($conn);
                           }
