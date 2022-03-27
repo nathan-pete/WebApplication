@@ -50,7 +50,7 @@
           <span></span>
           Forgotten password
         </a>
-        <a class="register_new_t" href="url">Register a new Robot</a>
+        <a class="register_new_t" href="registerRobots.php">Register a new Robot</a>
 
 
       </form>
@@ -80,7 +80,7 @@
           <span></span>
           Forgotten password
         </a>
-        <a class="register_new_t" href="url">Register a new User</a>
+        <a class="register_new_t" href="register.php">Register a new User</a>
 
 
       </form>
