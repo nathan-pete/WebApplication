@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5">
   <link rel="stylesheet" type="text/css" href="./style/style.css">
   <link rel="icon" href="./assets/PBBwhite.png">
   <title>Battle Bot Events</title>
@@ -24,9 +25,11 @@
 <div class="body">
   <?php
     include_once "header.php";
+    require_once "connect.php";
   ?>
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Leaderboard</h1>
+    <p>**This Pages Refresh every Five seconds**</p>
   </div>
   <div class="center">
     <table class="leaderboard">
@@ -37,13 +40,9 @@
       </tr>
       <?php
 
-        /* Connection Variable ("Servername",
-        "username","password","database") */
-        $con = mysqli_connect("mysql", "root", "qwerty", "webapp");
-
         /* Mysqli query to fetch rows
         in descending order of marks */
-        $result = mysqli_query($con, "SELECT robotName,points FROM robots ORDER BY points DESC");
+        $result = mysqli_query($conn, "SELECT robotName,points FROM robots ORDER BY points DESC");
 
         /* First rank will be 1 and
           second be 2 and so on */
