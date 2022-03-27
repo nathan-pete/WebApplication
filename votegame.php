@@ -1,5 +1,5 @@
 <?php
-  include "./connect.php";
+  include "connect.php";
 ?>
 
 <?php
@@ -58,11 +58,16 @@
 </head>
 <body>
 <div class="body">
-  <?php
-    include_once "header.html";
+  <?php 
+    include_once "header.php";
   ?>
   <div id="profileCenterTitle">
     <h1>Vote the game</h1>
+    <div class = "statistics">
+      <form method="LINK" action="ViewsSystem.php">
+    <button class="custom-btn btn-6"><span>Statistics</span></button>
+</form>
+      </div>
   </div>
   <?php
 
