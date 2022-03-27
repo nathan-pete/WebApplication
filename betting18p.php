@@ -30,6 +30,7 @@
                               echo "<option value=$row[robotName]>$row[robotName]</option>";
                               /* Option values are added by looping through the array */
                             }
+                            mysqli_stmt_close($stmt);
                           } else {
                               echo "Error executing: " . mysqli_error($conn);
                           }
@@ -37,18 +38,21 @@
                             echo "Error preparing: " . mysqli_error($conn);
                         }
                       echo "</select>";
-                      mysqli_stmt_close($stmt);
                       echo "<p><input type='submit' name='picture' value='Picture of the robot' class='input-bttn'></p>";
                       if (isset($_POST['picture'])) {
                           //if a certain robot name is selected show it's picture
-                         $sql = "SELECT robotName, robotPicture FROM robots WHERE robotName = ?";
+                         $sql = "SELECT robotPicture FROM robots WHERE robotName = ?";
                          if ($stmt = mysqli_prepare($conn, $sql)) {
                           $robotName = $_POST['name'];
                           mysqli_stmt_bind_param($stmt, "s", $robotName);
                           if (mysqli_stmt_execute($stmt)) {
-                          $result =  mysqli_stmt_get_result($stmt);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                              echo "<p><img src='./uploads/robots/" . $row['robotPicture'] ."' alt='Picture of the robot'></p>";
+                            mysqli_stmt_store_result($stmt);
+                            mysqli_stmt_bind_result($stmt, $result);
+                            mysqli_stmt_fetch($stmt);
+                            if ($result == NULL) {
+                              echo "<div class='betmsg'>Sorry, this robot has no available pictures.</div><div class='space-event'></div><br>";
+                            } else {
+                              echo "<p><img src='./uploads/robots/" . $result . "' alt='Picture of the robot'></p>";
                             }
                           } else {
                             echo "Error executing" . mysqli_error($conn);
