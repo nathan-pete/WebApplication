@@ -33,46 +33,36 @@
       <tr>
         <th class="ldh">Position</th>
         <th class="ldh">Robot Name</th>
-        <th class="ldh">Team Name</th>
         <th class="ldh">Points</th>
       </tr>
-      <tr>
-        <td class="ldt">1</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
-      <tr>
-        <td class="ldt">2</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
-      <tr>
-        <td class="ldt">3</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
-      <tr>
-        <td class="ldt">4</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
-      <tr>
-        <td class="ldt">5</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
+      <?php
 
-      <tr>
-        <td class="ldt">6</td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-        <td class="ldt"></td>
-      </tr>
+        /* Connection Variable ("Servername",
+        "username","password","database") */
+        $con = mysqli_connect("mysql", "root", "qwerty", "webapp");
+
+        /* Mysqli query to fetch rows
+        in descending order of marks */
+        $result = mysqli_query($con, "SELECT robotName,points FROM robots ORDER BY points DESC");
+
+        /* First rank will be 1 and
+          second be 2 and so on */
+        $ranking = 1;
+
+        /* Fetch Rows from the SQL query */
+        if (mysqli_num_rows($result)) {
+          while ($row = mysqli_fetch_array($result)) {
+            echo "
+              <tr>
+                <td class='ldt'>{$ranking}</td>
+                <td class='ldt'>{$row['robotName']}</td>
+                <td class='ldt'>{$row['points']}</td>
+              </tr>
+            ";
+            $ranking++;
+          }
+        }
+      ?>
     </table>
   </div>
 </div>
