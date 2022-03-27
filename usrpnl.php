@@ -36,7 +36,6 @@
         <div class="user-pfp">
           <br>
           <?php
-            $userID = 10;
 
             $query = "
               SELECT profilePic 
