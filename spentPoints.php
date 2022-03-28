@@ -34,7 +34,7 @@
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <input type="submit" name="smile" value = "smile" />
             <input type="submit" name="laugh" value = "laugh"/>
-            <input type="submit" name="angry" value = "angry"/>
+            <input type="submit" name="angry" value = "angry" />
             </form>
 
             <?php
@@ -53,12 +53,12 @@
                                 {
                                   if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
                                   {
-                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
+                                    if ($com = mysqli_prepare($conn, "INSERT into webapp (message) VALUES (?)")
                                     {
                                     $newPoints = $row['points'] - $action;
                                     $message = "smile :)";
                                     mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
-                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
+                                    mysqli_stmt_bind_param($com, 'si', $message);
                                     //echo $userID;
                                     //echo $newPoints;
                                     echo $message;
@@ -110,7 +110,7 @@
                                 } else {echo "you don't have enough points";}
                                 if (mysqli_stmt_execute($com))
                                 {  
-                                    mysqli_stmt_close($com);
+                                    mysqli_stmt_close($com);     
                                 } else {
                                     echo "error" . mysqli_error($conn);
                                 }
