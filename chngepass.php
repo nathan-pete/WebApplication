@@ -12,12 +12,12 @@
         //$currpass = password_hash($_POST['currentPassword'], PASSWORD_DEFAULT); //hash password
         $newpass = password_hash($_POST['newPassword'], PASSWORD_DEFAULT); //hash password
         if (password_verify($_POST['currentPassword'], $row["password"])) {
-          header("refresh:3; url=./usrpnl.php");
           $sql = "UPDATE users SET password = ? WHERE userID = ?";
           if ($stmt = mysqli_prepare($conn, $sql)) {
             mysqli_stmt_bind_param($stmt, "si", $newpass, $id);
             if (mysqli_stmt_execute($stmt)) {
-              $message = "<div class='passmsgsuc'>Password Changed</div>";
+              $message = "<div class='passmsgsuc'>Password Changed<br>Page will redirect in 3 seconds</div>";
+              header("refresh:3; url=./usrpnl.php");
             } else {
               echo "Error: " . mysqli_error($conn);
             }
