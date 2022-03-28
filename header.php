@@ -12,6 +12,8 @@
 			<li class="line"> &VerticalLine;</li>
 			<li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
 			<li class="line"> &VerticalLine;</li>
+			<li><a href="leaderboard.php" class="lead">Minigames</a></li>
+			<li class="line"> &VerticalLine;</li>
 			<?php
 				if (isset($_SESSION['loggedin'])) {
 					include "connect.php";

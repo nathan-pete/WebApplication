@@ -12,7 +12,7 @@
 </head>
 <body>
 <?php
-  require("header.php");
+  require "header.php";
   require "connect.php";
 ?>
 <?php
