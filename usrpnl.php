@@ -122,7 +122,7 @@
         <br>
         <div class="usr-buttons">
           <div class="info">
-            <p>Logout</p>
+            <a href="logout.php">Logout</a>
           </div>
           <div class="info">
             <p>

@@ -17,7 +17,7 @@
   require "connect.php";
 ?>
 <?php
-  
+
   // Checking if user is logged in
   if ($_SESSION["loggedIn"] == 1) {
     header("location: index.php");
@@ -25,7 +25,7 @@
   } else {
       $_SESSION['loggedIn'] = 0;
   }
-  
+
 
 ?>
 <div class="main-content">
@@ -64,14 +64,14 @@
                       echo "You are now logged in!";
                       // Redirect user to welcome page
                       header("refresh:3; url=./index.php");
-                
+
                     } else {
                       $error = "Wrong password!";
                     }
                   } else {
                     $error = "Wrong Email";
                   }
-            
+
                 } else {
                   echo "Something went wrong executing statement";
                   die(mysqli_error($conn));
@@ -106,7 +106,7 @@
         <a class="register_new_t" href="url">Register a new Robot</a>
       </form>
     </div>
-    
+
     <div class="div-viewer-login">
       <h1 class="viewer-log-heading">I am a Viewer</h1>
       <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
@@ -123,11 +123,11 @@
             if (!empty($_POST['email']) && !empty($_POST['password_viewer'])) { // Checks if fields are filled
               if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { //Checks if email is an email
                 $email = $_POST['email'];
-                $sql = "SELECT userID, userName, `password` FROM users where email = ?"; //query to insert to db
+                $sql = "SELECT userID, userName, `password`, status FROM users where email = ?"; //query to insert to db
                 if ($stmt = mysqli_prepare($conn, $sql)) {
                   mysqli_stmt_bind_param($stmt, "s", $email);
                   if (mysqli_stmt_execute($stmt)) {
-                    mysqli_stmt_bind_result($stmt, $id, $usereName, $password_db);
+                    mysqli_stmt_bind_result($stmt, $id, $userName, $password_db, $status);
                     mysqli_stmt_store_result($stmt);
                     if (mysqli_stmt_num_rows($stmt) != 0) {
                       mysqli_stmt_fetch($stmt);
@@ -136,35 +136,41 @@
                       if (password_verify($viewer_password, $password_db)) {
                         $_SESSION ['userId'] = $id;
                         $_SESSION ['loggedIn'] = 1;
-                        $_SESSION ['userName'] = $usereName;
-                        echo "You are now logged in!";
-                        // Redirect user to welcome page
-                        header("refresh:3; url=./index.php");
-                  
+                        $_SESSION ['userName'] = $userName;
+
+                          if ($status == "administrator") {
+
+                             header("Location: Admin.php");
+                             }
+                             elseif ($status == "user") {
+                                 // Redirect user to welcome page
+                                 header("Location: index.php");
+                             }
+
+                          } else {
+                            $error = "Wrong password!";
+                          }
+                        } else {
+                          $error = "Wrong Email";
+                        }
+
                       } else {
-                        $error = "Wrong password!";
+                        echo "Something went wrong executing statement";
+                        die(mysqli_error($conn));
                       }
                     } else {
-                      $error = "Wrong Email";
+                      die(mysqli_error($conn));
                     }
-              
                   } else {
-                    echo "Something went wrong executing statement";
-                    die(mysqli_error($conn));
+                    $error = "Email is not valid";
                   }
                 } else {
-                  die(mysqli_error($conn));
+                  $error = "Fill all the fields";
                 }
-              } else {
-                $error = "Email is not valid";
+                if ($error != NULL) { //echo error if the variable has been set
+                  echo $error;
+                }
               }
-            } else {
-              $error = "Fill all the fields";
-            }
-            if ($error != NULL) { //echo error if the variable has been set
-              echo $error;
-            }
-          }
         ?>
         <!--Login-->
         <!--<input type="submit" class="registerbtn" name="register" value="Login">-->
@@ -182,7 +188,7 @@
           <span></span>
           Forgotten password
         </a>
-        <a class="register_new_t" href="url">Register a new User</a>
+        <a class="register_new_t" href="register.php">Register a new User</a>
       </form>
     </div>
   </div>
