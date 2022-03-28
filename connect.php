@@ -1,9 +1,9 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "admin";
+$password = "";
 
-$conn = new mysqli($servername, $username, $password, "webapp1");
+$conn = new mysqli($servername, $username, $password, "webapp");
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);

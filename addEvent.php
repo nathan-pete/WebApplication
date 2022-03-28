@@ -19,7 +19,7 @@
             ?>
             <div class="addEventContainer">
                 <div class="addEventBox">
-                    <div class="yes">
+                    <div class="addEventForm">
                         <h1>Add event</h1>
                         <form method="post" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF']; ?>"
                               enctype="multipart/form-data">

@@ -2,8 +2,9 @@
 
   require_once "./connect.php";
 
-  $query = $conn->prepare("SELECT `userID`,`userName`,`firstName`, `lastName`,`email`, `DoB`, `points`
-            FROM users");
+  $query = $conn->prepare("SELECT `userID`,`userName`, `email`,  `points`, `firstName`, `lastName`, `DoB` 
+            FROM users WHERE userID = 13");
 
   $query->execute();
-  $query->bind_result($userID, $userName, $firstname, $lastName, $email, $DoB, $points);
+  $query->bind_result($userID, $userName, $email, $points, $firstName, $lastName, $DoB);
+  $query->fetch();
