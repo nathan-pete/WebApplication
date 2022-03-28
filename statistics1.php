@@ -33,23 +33,35 @@
     include_once "header.php";
   ?>
   <div id="profileCenterTitle">
-    <h1>Try your Luck!</h1>
+    <h1>Your Visiting Statistics</h1>
     </div>
     <div class="space">
     </div>
     <?php
-           if($_POST['submit'])
-           {
-               $min = 0;
-               $max = 100;
-               $n = rand($min,$max);
-               echo "You win:" . $n . "points!";
-           }
-           //
-       ?>
-       <form action = "" method = "POST">
-           <input type = "submit" name = "submit">
-       </form> 
+            $visitCounter = 0;  // 0 only when there is not cookies
+
+            if(isset($_COOKIE['visitCounter'])){
+                $visitCounter = $_COOKIE['visitCounter'];
+                $visitCounter ++; //if the cookie is assigned to a variable, we + 1
+            }
+
+            if(isset($_COOKIE['lastVisit'])){
+                $lastVisit = $_COOKIE['lastVisit'];
+            }
+
+            setcookie('visitCounter', $visitCounter+1,  time()+3600);
+
+            setcookie('lastVisit', date("d-m-Y"),  time()+3600);
+
+            if($visitCounter == 0){
+                echo "Welcome to the page, we are glad to see you!";
+            } else {
+
+            echo "This is visit number ".$visitCounter;
+            echo '<br>';
+            echo "Last time, you were here ".$lastVisit;
+            }
+?>
 </div>
 <div class="space">
     </div>

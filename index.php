@@ -46,9 +46,14 @@
 			
 			echo '
                         <div class="indexScrollItem">
-                            <a href="profilerobot.php"><img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img"></a> 
+                            <a href="profilerobot.php?robotName=First"><img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img"></a> 
                         </div>
-    
+                        <div class="indexScrollItem">
+                            <a href="profilerobot.php?robotName=SECOND"><img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img"></a> 
+                        </div>
+                        <div class="indexScrollItem">
+                            <a href="profilerobot.php?robotName=Third"><img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img"></a> 
+                        </div>
                         <!--An empty div to space items apart-->
                         <div class="indexScrollSpacer"></div>';
 		
