@@ -30,18 +30,31 @@
             $post_username = filter_input(INPUT_POST,'username');
             $post_email = filter_input(INPUT_POST,'email');
 
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
             //preparating and updating the database
             //pprep
-            $sql = "UPDATE feedback SET `ev_cool_ent`=?, `future_eve`=?, `viewer_partc`=?, `email`=? WHERE `IDFeedback`=?";
-            $stmt = mysqli_prepare($conn, $sql) OR DIE ("Preparation Error1" .mysqli_error($conn));
-            mysqli_stmt_bind_param($stmt, 'ssssi', $post_first_name, $post_last_name, $post_username, $post_email, $ID);
-            mysqli_stmt_execute($stmt) OR DIE ("Submission Error");
-            echo "<div style='width: 100%; text-align:center; color: #266bf9; font-size: 30px; padding-top: 25px'>Customer updated!</div>";
-            $result = $stmt->get_result();
-            mysqli_stmt_close($stmt);
-            echo "<p><a href='customers-overview.php'>&lt;&lt; See customers</a></p>";
-            }
+            //$sql = "UPDATE feedback SET `ev_cool_ent`=?, `future_eve`=?, `viewer_partc`=?, `email`=? WHERE `IDFeedback`=?";
+            //$stmt = mysqli_prepare($conn, $sql) OR DIE ("Preparation Error1" .mysqli_error($conn));
+            //mysqli_stmt_bind_param($stmt, 'ssssi', $post_first_name, $post_last_name, $post_username, $post_email, $ID);
+            //mysqli_stmt_execute($stmt) OR DIE ("Submission Error");
+            //echo "<div style='width: 100%; text-align:center; color: #266bf9; font-size: 30px; padding-top: 25px'>Customer updated!</div>";
+            //$result = $stmt->get_result();
+            //mysqli_stmt_close($stmt);
+            //echo "<p><a href='customers-overview.php'>&lt;&lt; See customers</a></p>";
+            //}
        
         ?>
 
