@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include 'connect.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,105 +31,135 @@
   ?>
 </head>
 <body>
-<form action="action.php" method="POST">
- <input type="submit" name="smile" value = "smile - 10p" />
- <input type="submit" name="laugh" value = "laugh - 20p"/>
- <input type="submit" name="angry" value = "angry - 30p"/>
-</form>
-<?php 
-    session_start();
-    $_SESSION['userId'];
-    $_SESSION['points'] = 0;
-    include "./connect.php";
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <input type="submit" name="smile" value = "smile" />
+            <input type="submit" name="laugh" value = "laugh"/>
+            <input type="submit" name="angry" value = "angry"/>
+            </form>
 
-    if(isset($_GET['submitT'])) {
+            <?php
 
-        if(isset($userID)) {
+                        $userID = 1;
+                        $query ="SELECT `points` FROM users WHERE userID = ?";
+                        if ($stmt = mysqli_prepare($conn, $query)) {
+                          mysqli_stmt_bind_param($stmt, "i", $userID);
+                          if (mysqli_stmt_execute($stmt)) {
+                            $result = mysqli_stmt_get_result($stmt);
+                            while ($row = mysqli_fetch_array($result)) {
+                              if (isset($_POST['smile']))
+                              {
+                                $action = 10;
+                                if ($row['points'] > $action)
+                                {
+                                  if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
+                                  {
+                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
+                                    {
+                                    $newPoints = $row['points'] - $action;
+                                    $message = "smile :)";
+                                    mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
+                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
+                                    //echo $userID;
+                                    //echo $newPoints;
+                                    echo $message;
+                                    if (mysqli_stmt_execute($sql))
+                                    {
+                                      mysqli_stmt_close($sql);
+                                    } else {
+                                      echo "error" . mysqli_error($conn);
+                                    }
+                                  } else {
+                                    echo "error" . mysqli_error($conn);
+                                  }
+                                } else {echo "you don't have enough points";}
+                                if (mysqli_stmt_execute($com))
+                                {  
+                                    mysqli_stmt_close($com);
+                                } else {
+                                    echo "error" . mysqli_error($conn);
+                                }
+                            } else {
+                                    echo "Sorry, you can not uses emojies";
+                                }
+                              }
+                              if (isset($_POST['laugh']))
+                              {
+                                $action = 10;
+                                if ($row['points'] > $action)
+                                {
+                                  if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
+                                  {
+                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
+                                    {
+                                    $newPoints = $row['points'] - $action;
+                                    $message = "laugh :D";
+                                    mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
+                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
+                                    //echo $userID;
+                                    //echo $newPoints;
+                                    echo $message;
+                                    if (mysqli_stmt_execute($sql))
+                                    {
+                                      mysqli_stmt_close($sql);
+                                    } else {
+                                      echo "error" . mysqli_error($conn);
+                                    }
+                                  } else {
+                                    echo "error" . mysqli_error($conn);
+                                  }
+                                } else {echo "you don't have enough points";}
+                                if (mysqli_stmt_execute($com))
+                                {  
+                                    mysqli_stmt_close($com);
+                                } else {
+                                    echo "error" . mysqli_error($conn);
+                                }
+                            } else {
+                                    echo "Sorry, you can not uses emojies";
+                                }
+                              }
 
-            $query = $conn->prepare("SELECT `points` FROM users WHERE userID = ?");
-    
-            if(!$query) {
-                echo 'Prepare failed' . mysqli_error($conn);
-            }
-    
-            $query->bind_param("i", $userID);
-    
-            if(!$query) {
-                echo 'Binding failed' . mysqli_error($conn);
-            }
-    
-            $query->execute();
-    
-            if(!$query) {
-                echo 'Execute failed' . mysqli_error($conn);
-            }
-    
-            $result = $query->get_result();
-            $data = $result->fetch_all(MYSQLI_ASSOC);
+                              if (isset($_POST['angry']))
+                              {
+                                $action = 10;
+                                if ($row['points'] > $action)
+                                {
+                                  if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
+                                  {
+                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
+                                    {
+                                    $newPoints = $row['points'] - $action;
+                                    $message = "angry :F";
+                                    mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
+                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
+                                    //echo $userID;
+                                    //echo $newPoints;
+                                    echo $message;
+                                    if (mysqli_stmt_execute($sql))
+                                    {
+                                      mysqli_stmt_close($sql);
+                                    } else {
+                                      echo "error" . mysqli_error($conn);
+                                    }
+                                  } else {
+                                    echo "error" . mysqli_error($conn);
+                                  }
+                                } else {echo "you don't have enough points";}
+                                if (mysqli_stmt_execute($com))
+                                {  
+                                    mysqli_stmt_close($com);
+                                } else {
+                                    echo "error" . mysqli_error($conn);
+                                }
+                            } else {
+                                    echo "Sorry, you can not uses emojies";
+                                }
+                              }
 
-            $query->close();
-
-        $info = $conn->prepare("SELECT * FROM users WHERE point = ?");
-
-        if (!$info) {
-          echo 'Prepare failed' . mysqli_error($conn);
-        }
-
-        $date = $_POST['smile'];
-        if(isset($_POST['submit']))
-        {
-            $smile = $conn->prepare("SELECT * FROM points WHERE name = ?");
-            if (!$smile) {
-                echo 'Prepare failed' . mysqli_error($conn);
-              }
-            $smile ->bind_param("s", $name);
-  
-            if (!$smile) {
-                echo 'Binding failed' . mysqli_error($conn);
-              }
-
-            $smile->execute();
-  
-            $result1 = $smile->get_result();
-        
-            $smileR = $result->fetch_all(MYSQLI_ASSOC);
-        
-            $smile->close();
-      
-        }else{
-            echo 'Кнопка пока не нажата'; $bam=FALSE;}
-?>
-        
-        $info->bind_param("i", $points);
-  
-        if (!$info) {
-          echo 'Binding failed' . mysqli_error($conn);
-        }
-  
-        $info->execute();
-  
-        $result = $info->get_result();
-  
-        $infoR = $result->fetch_all(MYSQLI_ASSOC);
-  
-        $info->close();
-      }
-    }
-
- 
- 
- elseif(todays_points < 5)
-     addPoint($user)
- 
- 
- 
- function resetPoints($user)
-     UPDATE todays_points to zero;
- 
- function addPoint($user)
-     ADD one to total points
-     ADD one to todays points
-     UPDATE last_point to current times
+                            }
+                        }
+                    }
+                
 ?>
     </body>
 </html>

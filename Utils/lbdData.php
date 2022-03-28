@@ -6,7 +6,6 @@
 <?php
   require_once "../connect.php";
 
-
   $result = mysqli_query($conn, "SELECT robotName,points FROM robots ORDER BY points DESC");
 
   $position = 1;
@@ -17,7 +16,6 @@
                 <td class='ldt'>" . $position . "</td>
                 <td class='ldt'>" . $row['robotName'] . "</td>
                 <td class='ldt'>" . $row['points'] . "</td>
-
               </tr>
             ";
       $position++;

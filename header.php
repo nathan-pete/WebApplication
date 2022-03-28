@@ -1,6 +1,7 @@
 <?php
-	//session_start();
+	include "connect.php"
 ?>
+
 <div class="header-style">
 	<div class="nav">
 		<input type="checkbox">
@@ -11,22 +12,32 @@
 			<li><a href="events.php" class="events">Events</a></li>
 			<li class="line"> &VerticalLine;</li>
 			<li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
+			<li><class="line"> &VerticalLine;</li>
+				<li>
+					<div class="dropdown">
+					<button class="dropbtn">Minigames</button>
+						<div class="dropdown-content">
+							<a href="2048.php">2048</a>
+							<a href="fallingRobot.php">Falling Robot</a>
+						</div>
+					</div>
+				</li>
 			<li class="line"> &VerticalLine;</li>
 			<?php
-				if (isset($_SESSION['loggedin'])) {
-					include "connect.php";
+				if ($_SESSION['loggedIn'] == 1) {
 					$sql = "SELECT DoB FROM users WHERE userID = ?";
 					if ($stmt = mysqli_prepare($conn, $sql)) {
+                        $userID = $_SESSION['userId'];
 						$stmt->bind_param('i', $userID);
 						if (mysqli_stmt_execute($stmt)) {
 							mysqli_stmt_bind_result($stmt, $dateOfBirth);
 							mysqli_stmt_fetch($stmt);
-							mysqli_stmt_close($stmt);
 							if ($dateOfBirth == 1) {
 								echo '<li><a href="betting18p.php" class="bets">Bets</a></li>';
 							} else {
 								echo '<li><a href="betting18m.php" class="bets">Bets</a></li>';
 							}
+                            mysqli_stmt_close($stmt);
 						} else {
 							echo "Error: " . mysqli_error($conn);
 							die();
@@ -39,8 +50,8 @@
 					echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
 				}
 				echo "<li class='line'> &VerticalLine;</li>";
-				if (isset($_SESSION['loggedin'])) {
-					echo '<li><a href="usrpnl.php" class="login">' . $firstName . '</a></li>';
+				if ($_SESSION['loggedIn'] == 1) {
+					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['loggedIn'] . '</a></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}
