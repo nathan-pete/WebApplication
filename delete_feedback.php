@@ -1,7 +1,7 @@
 <?php
     require "connect.php";
     $delete_th = $_GET['IDFeedback'];
-    $sql = "DELETE FROM contact_admin WHERE IDContact = $delete_th";
+    $sql = "DELETE FROM feedback WHERE IDFeedback = $delete_th";
 
     if ($conn->query($sql) === TRUE) {
 
