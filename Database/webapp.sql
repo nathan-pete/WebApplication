@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2022 at 03:49 PM
+-- Generation Time: Mar 28, 2022 at 04:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.0
 
@@ -131,7 +131,6 @@ CREATE TABLE `users` (
   `DoB` tinyint(1) NOT NULL,
   `password` varchar(255) NOT NULL,
   `profilePic` varchar(30) NOT NULL DEFAULT 'defaultpfp.png',
-  `vote` int(30) NOT NULL DEFAULT 0,
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
