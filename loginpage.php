@@ -15,7 +15,7 @@
 <?php
     // Starting session
     session_start();
-     
+    
     // Checking if user is logged it
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         header("location: index.php");

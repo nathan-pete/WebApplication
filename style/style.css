@@ -1519,7 +1519,7 @@ input[type=text], input[type=password] {
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
-  background-color: rgb(126 142 175);
+  background-color: rgb(133 139 191);
   border: none;
   width: 100%;
  }
@@ -1533,5 +1533,16 @@ input[type=text], input[type=password] {
         0 0 100px rgb(64 90 167);  
   cursor: pointer;
  }
-
+/*-------------------------- Login END--------------------------*/
+/*--------------------------Feedback Start--------------------------*/
  
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #3b65ba;
+}
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
