@@ -388,6 +388,19 @@ body {
   transition: 1s;
 }
 
+.delete-profile a {
+  text-decoration: none;
+  color: red;
+  transition: 1s;
+}
+
+.delete-profile a:hover {
+  text-decoration: none;
+  color: white;
+  transition: 1s;
+}
+
+
 .usr-buttons .delete-profile:hover {
   background-color: rgb(255, 0, 0);
   color: white;
@@ -1935,7 +1948,8 @@ input[type=text], input[type=password] {
   transition: 1s;
   background-color: rgba(222, 222, 222, 0.35);
   cursor: pointer;
- }
+}
+
 /*-------------------------- Login END--------------------------*/
 /*--------------------------Feedback Start--------------------------*/
 
@@ -1944,8 +1958,18 @@ table {
   width: 100%;
   background-color: #3b65ba;
 }
+
 th, td {
   padding: 0.25rem;
   text-align: left;
   border: 1px solid #ccc;
+}
+
+p .del-sub {
+  background: none;
+  border: none;
+  font-family: "Obitron", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: red;
 }
