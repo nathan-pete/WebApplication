@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	
+	if (!isset($_SESSION["robotID"])) {
+		header("location: ./loginpage.php");
+		die();
+	}
+?>
+
 <!doctype html>
 <html lang="en">
 

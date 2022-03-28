@@ -108,7 +108,7 @@
 								echo "You are now logged in";
 								echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
 								// Redirect user to welcome page
-								header("location: test.php");
+								//header("location: test.php");
 							} else {
 								$error = "Wrong password!";
 							}
@@ -151,12 +151,12 @@
 						$robot_password = $_POST['password_robot'];
 						//using function to verify password
 						if (password_verify($robot_password, $password_db)) {
-							$_SESSION ['userId'] = $id;
+							$_SESSION ['robotID'] = $id;
 							$_SESSION ['loggedIn'] = 1;
 							echo "You are now logged in";
-							echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
+							//echo $_SESSION ['loggedIn'], $_SESSION ['userId'];
 							// Redirect user to welcome page
-							header("location: test.php");
+							header("location: robotControl.php");
 							
 						} else {
 							$error = "Wrong password!";
