@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: mysql
--- Generation Time: Mar 09, 2022 at 09:53 AM
--- Server version: 10.6.5-MariaDB-1:10.6.5+maria~focal
--- PHP Version: 7.4.27
+-- Host: 127.0.0.1
+-- Generation Time: Mar 28, 2022 at 01:11 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,62 @@ SET time_zone = "+00:00";
 --
 -- Database: `webapp`
 --
+CREATE DATABASE IF NOT EXISTS `webapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `webapp`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bets`
+--
+
+CREATE TABLE `bets` (
+  `userId` int(255) NOT NULL,
+  `robotName` varchar(255) NOT NULL,
+  `gameName` varchar(255) NOT NULL,
+  `betAmount` int(255) NOT NULL DEFAULT 0,
+  `position` int(255) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `IDFeedback` int(255) NOT NULL,
+  `ev_cool_ent` varchar(255) NOT NULL,
+  `future_eve` varchar(255) NOT NULL,
+  `viewer_partc` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `games`
+--
+
+CREATE TABLE `games` (
+  `name` varchar(250) NOT NULL,
+  `Descrption` varchar(250) NOT NULL,
+  `picture` varchar(250) NOT NULL,
+  `votes` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -29,25 +85,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `robots` (
   `robotName` varchar(100) NOT NULL,
-  `serialNum` int(100) NOT NULL,
+  `serialNum` varchar(255) NOT NULL,
   `sound` blob NOT NULL,
-  `robotPicture` blob NOT NULL,
+  `robotPicture` varchar(50) NOT NULL,
   `teamName` varchar(255) NOT NULL,
-  `points` int(255) NOT NULL
+  `points` int(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_comment`
---
-
-CREATE TABLE `tbl_comment` (
-  `comment_id` int(11) NOT NULL,
-  `comment` varchar(200) NOT NULL,
-  `comment_sender_name` varchar(40) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -62,11 +106,11 @@ CREATE TABLE `users` (
   `points` int(255) NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
-  `DoB` date NOT NULL,
-  `Password` varchar(40) NOT NULL,
-  `profilePic` blob NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `vote` int(30) NOT NULL
+  `DoB` tinyint(1) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `profilePic` varchar(30) NOT NULL DEFAULT 'defaultpfp.png',
+  `vote` int(30) NOT NULL DEFAULT 0,
+  `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -74,20 +118,55 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `tbl_comment`
+-- Indexes for table `comments`
 --
-ALTER TABLE `tbl_comment`
-  ADD PRIMARY KEY (`comment_id`);
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_userID` (`userID`);
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`IDFeedback`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tbl_comment`
+-- AUTO_INCREMENT for table `comments`
 --
-ALTER TABLE `tbl_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `IDFeedback` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `fk_userID` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -29,7 +29,7 @@
     </div>
     </section>
 
-    <?php // Creating an account 
+    <?php // Creating an account
 
     if (isset($_POST["submit"])) {
 

@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 use LDAP\Result;
 
-session_start();
-include "functions.php";
+//include "functions.php";
 include "dbh.php";
+
 ?>
 
 <!doctype html>
@@ -20,6 +20,7 @@ include "dbh.php";
 	<title>Live Stream</title>
 </head>
 <body>
+
 <div class="box">
 	<div class="user">
 		<?php
@@ -32,25 +33,18 @@ include "dbh.php";
 	</div>
 
 	<div class="chatenter">
-<form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
-	<label for="message">Enter your message!</label>
-	<input type="text" name="message" id="message">
-	<span class="submit_txt_db" >Submit</span>
-</form>
+			<form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
+					<label for="message">Enter your message!</label>
+					<input type="text" name="message" id="message">
+					<span class="submit_txt_db" >Submit</span>
+			</form>
+	</div>
+
+	<div class="chatbox">
+		<div style="height: 10px"></div>
+		<div class="main"></div>
+	</div>
 </div>
-<div class="chatbox">
-<div style="height: 10px"></div>
-<div class="main"></div>
-</div>
-</div>
-<!---</div>
-<div class="ActiveRobots">
-<div class="RobotBoxActivitie">Robot 1</div>
-<div class="RobotBoxActivitie">Robot 2</div>
-<div class="RobotBoxActivitie">Robot 3</div>
-<div class="RobotBoxActivitie">Robot 4</div>
-<div class="RobotBoxActivitie">Robot 5</div>
-<div class="RobotBoxActivitie">Robot 6</div>
-</div>--->
+
 </body>
 </html>

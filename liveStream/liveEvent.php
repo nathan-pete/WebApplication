@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +12,14 @@
 <?php require '../header.php' ?>
 
 <div class="streamContainer">
-  <!---<div id="stream_video">
-    <iframe src="http://192.168.10.11/live.htm" title="YouTube video player"></iframe>
-  </div>--->
+  <div id="stream_video">
+    <img src="http://foscam.serverict.nl/mjpg/1/video.mjpg?1647876232941&amp;Axis-Orig-Sw=true">
+  </div>
 </div>
 
 <?php
 require 'Index.php';
-require '../footer.html'
+require '../footer.html';
 ?>
 </body>
 </html>

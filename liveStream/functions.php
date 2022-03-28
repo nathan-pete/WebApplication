@@ -160,13 +160,10 @@ function loginUser($conn, $email, $pwd)
         session_start();
         $_SESSION["User"]  = $idExist["email"];
         $_SESSION["userID"] = $idExist["userID"];
-        header("location: index.php");
+        header("location: liveEvent.php");
     }
 }
 
 
 
 ?>
-
-
-
