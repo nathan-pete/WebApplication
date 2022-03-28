@@ -1,3 +1,7 @@
+<?php
+		session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -8,6 +12,9 @@
 	<title>Project Battle Bots</title>
 	<!--Highlight the page the user has open. Home in this case-->
 	<?php
+
+		
+
 		echo "
             <style>
                 .header-style .nav .menu .home{
@@ -63,6 +70,7 @@
 </div>
 <div class="space-indx"></div>
 <div id="indexMoreButton">
+	<?php echo $_SESSION['loggedIn']; ?>
 	<p><a class="indexa" href="#"><b>More!</b></a></p>
 </div>
 

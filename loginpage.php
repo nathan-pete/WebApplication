@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +17,6 @@
 <?php
     require("header.php");
     require "connect.php";
-?>
-<?php
-    // Starting session
-    session_start();
-    
-    // Checking if user is logged it
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        header("location: index.php");
-        exit;
-    }
 ?>
 <div class="main-content">
     <h1 class="main-content-heading">Login</h1>
