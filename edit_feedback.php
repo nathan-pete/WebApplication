@@ -64,12 +64,7 @@
             $post_future_ev = $_POST['post_future_ev'];
             $post_role = $_POST['post_role'];
             $post_email = $_POST['post_email'];
-            echo $post_event_feeling;
-            echo $post_future_ev;
-            echo $post_role;
-            echo $post_email;
             $sql = "UPDATE feedback SET `ev_cool_ent`=?, `future_eve`=?, `viewer_partc`=?, `email`=? WHERE `IDFeedback`=?";
-            echo "STIGAM DO TUK";
             $stmt = mysqli_prepare($conn, $sql) OR DIE ("Error inserting into database" . mysqli_error($conn));
             //echo mysqli_error($conn);
             mysqli_stmt_bind_param($stmt, 'ssssi', $post_event_feeling, $post_future_ev, $post_role, $post_email, $ID);
@@ -86,11 +81,6 @@
 
     ?>
        
-
-
-
-
-
     <?php
         require("footer.html");
     ?>
