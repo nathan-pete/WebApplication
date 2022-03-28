@@ -1,9 +1,8 @@
 <?php
-session_start();
 use LDAP\Result;
 
-//include "functions.php";
-include "dbh.php";
+
+include "connect.php";
 
 ?>
 
@@ -14,7 +13,7 @@ include "dbh.php";
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="styling.css" type="text/css">
+	<link rel="stylesheet" href="liveStream/styling.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="liveChat.js"></script>
 	<title>Live Stream</title>
@@ -28,7 +27,7 @@ include "dbh.php";
 		$result = mysqli_query($conn,$query);
 
 		// Echo session variables that were set on previous page
-		echo "<p>"."Hello " . $_SESSION['User'] ."</p>";
+		echo "<p>"."Hello " . $_SESSION ['loggedIn'] ."</p>";
 		?>
 	</div>
 

@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <title>Battle Bot Live Stream</title>
-  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-<?php require '../header.php' ?>
+<?php require 'header.php' ?>
 
 <div class="streamContainer">
   <div id="stream_video">
@@ -18,8 +18,8 @@
 </div>
 
 <?php
-require 'Index.php';
-require '../footer.html';
+require 'chatBox.php';
+require 'footer.html';
 ?>
 </body>
 </html>

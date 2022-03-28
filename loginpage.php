@@ -19,7 +19,7 @@
   // Starting session
 
   // Checking if user is logged it
-  if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+  if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] === true) {
     header("location: index.php");
     exit;
   }
@@ -97,11 +97,11 @@
     if (!empty($_POST['email']) && !empty($_POST['password_viewer'])) { // Checks if fields are filled
       if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { //Checks if email is an email
         $email = $_POST['email'];
-        $sql = "SELECT userID, `password` FROM users where email = ?"; //query to insert to db
+        $sql = "SELECT userID, userName, `password` FROM users where email = ?"; //query to insert to db
         if ($stmt = mysqli_prepare($conn, $sql)) {
           mysqli_stmt_bind_param($stmt, "s", $email);
           if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_bind_result($stmt, $id, $password_db);
+            mysqli_stmt_bind_result($stmt, $id, $usereName, $password_db);
             mysqli_stmt_store_result($stmt);
             if (mysqli_stmt_num_rows($stmt) != 0) {
               mysqli_stmt_fetch($stmt);
@@ -109,9 +109,9 @@
               //using function to verify password
               if (password_verify($viewer_password, $password_db)) {
                 $_SESSION ['userId'] = $id;
-                $_SESSION ['loggedIn'] = 1;
+                $_SESSION ['loggedIn'] = $usereName;
                 echo "You are now logged in";
-                echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
+                echo $_SESSION ['loggedIn'], $_SESSION ['userID'];
                 // Redirect user to welcome page
                 header("location: index.php");
 
@@ -146,11 +146,11 @@
   if (isset($_POST['login_robot_button'])) {
     if (!empty($_POST['serialnum_robot']) && !empty($_POST['password_robot'])) { // Checks if fields are filled
       $serialnum_robot = $_POST['serialnum_robot'];
-      $sql = "SELECT robotID, `password` FROM robots where serialNum = ?"; //query to insert to db
+      $sql = "SELECT robotID, robotName, `password` FROM robots where serialNum = ?"; //query to insert to db
       if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "s", $serialnum_robot);
         if (mysqli_stmt_execute($stmt)) {
-          mysqli_stmt_bind_result($stmt, $id, $password_db);
+          mysqli_stmt_bind_result($stmt, $id, $robotName, $password_db);
           mysqli_stmt_store_result($stmt);
           if (mysqli_stmt_num_rows($stmt) != 0) {
             mysqli_stmt_fetch($stmt);
@@ -158,9 +158,9 @@
             //using function to verify password
             if (password_verify($robot_password, $password_db)) {
               $_SESSION ['userId'] = $id;
-              $_SESSION ['loggedIn'] = 1;
+              $_SESSION ['loggedIn'] = $robotName;
               echo "You are now logged in";
-              echo $_SESSION ['loggedIn'], $_SESSION ['cusId'];
+              echo $_SESSION ['loggedIn'], $_SESSION ['userID'];
               // Redirect user to welcome page
               header("location: index.php");
 
