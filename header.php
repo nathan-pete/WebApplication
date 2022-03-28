@@ -1,5 +1,5 @@
 <?php
-	//session_start();
+	include "connect.php"
 ?>
 
 <div class="header-style">
@@ -25,7 +25,6 @@
 			<li class="line"> &VerticalLine;</li>
 			<?php
 				if ($_SESSION['loggedIn'] == 1) {
-					include "connect.php";
 					$sql = "SELECT DoB FROM users WHERE userID = ?";
 					if ($stmt = mysqli_prepare($conn, $sql)) {
                         $userID = $_SESSION['userId'];
@@ -52,7 +51,7 @@
 				}
 				echo "<li class='line'> &VerticalLine;</li>";
 				if ($_SESSION['loggedIn'] == 1) {
-					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['userName'] . '</a></li>';
+					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['loggedIn'] . '</a></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}

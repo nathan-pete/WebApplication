@@ -81,7 +81,7 @@
                         $future_eve = $_POST['future_eve'];
                         $role_event = $_POST['role_event'];
                         $email = $_POST['email'];
-                        //Checking if there is image
+                        //Checking if there is message
                         if(!empty($_POST['additional_message'])){
                             $additional_message = $_POST['additional_message'];
                         }

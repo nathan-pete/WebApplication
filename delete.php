@@ -20,8 +20,8 @@
         .space-delete {
           margin: 17.3%;
         }
-        
-        
+
+
       </style>";
   ?>
 </head>
@@ -47,17 +47,17 @@
         <br>
         <div class="usr-buttons">
           <div class="delete-profile">
-            <p>
-              <input type="submit" Value="" name="submit" class="del-sub">Yes
+            <form action="delete.php" method="post">
               <?php
 
                 if (isset($_POST['submit'])) {
                   $sql = "DELETE FROM users WHERE userID = ?";
-                  $userID = 11;
+                  $userID = 13;
                   if ($stmt = mysqli_prepare($conn, $sql)) {
                     mysqli_stmt_bind_param($stmt, 'i', $userID);
                     if (mysqli_stmt_execute($stmt)) {
-                      $message = "Record deleted successfully";
+                      $message =  "Record deleted successfully";
+
                     } else {
                       echo "Error deleting record: " . mysqli_error($conn);
                     }
@@ -70,7 +70,9 @@
 
 
               ?>
-            </p>
+              <input type="submit" name="submit" class="del-sub">
+
+            </form>
           </div>
 
           <div class="info">
