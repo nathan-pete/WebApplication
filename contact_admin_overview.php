@@ -37,26 +37,33 @@
                 <th>Delete</th>
             </tr>
             <?php
-                while ($row = mysqli_fetch_array($result)) 
-                {
-                    echo "<tr>";
-                    echo "<td>".$row['IDContact']."</td>";
-                    echo "<td>".$row['viewer_partc']."</td>";
-                    echo "<td>".$row['Message']."</td>";
-                    echo "<td>".$row['image_problem']."</td>";
-                    echo "<td>".$row['email']."</td>";
-                    echo "<td>" . '<a href="delete_contact.php?IDContact=' . $row['IDContact'] . '">Delete</a>' . "</td>";
-                    echo "</tr>";
-                }
+                while ($row = mysqli_fetch_assoc($result)) 
+                {   
+                    $idcontact = $row['IDContact'];
+                    $role = $row['viewer_partc'];
+                    $message = $row['Message'];
+                    $image_problem = $row['image_problem'];
+                    $email = $row['email'];
+                    include "delete_contact.php";
+
+                
             ?>
-        </table>
+                <tr>
+                    <td class="td"><?php echo $idcontact?></td>
+                    <td class="td"><?php echo $role?></td>
+                    <td class="td"><?php echo $message?></td>
+                    <td class="td"><?php echo $image_problem?></td>
+                    <td class="td"><?php echo $email?></td>
+                    <td class="td"><a href="contact_admin_overview.php?IDContact=<?php echo $row['IDContact'];?>" class="td">Delete</td>
+                </tr>
+
         <?php
-            mysqli_stmt_close($stmt);
-            mysqli_close($conn);
+             }
         ?>
+
+
+                
+        </table>
     </div>
-<?php
-require 'footer.html'
-?> 
 </body>
 </html>
