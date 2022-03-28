@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +122,7 @@
         <br>
         <div class="usr-buttons">
           <div class="info">
-            <p>Edit My Info</p>
+            <a href="logout.php">Logout</a>
           </div>
           <div class="info">
             <p>
@@ -127,7 +130,9 @@
             </p>
           </div>
           <div class="delete-profile">
-            <p>Delete My Profile</p>
+            <p>
+              <a href="delete.php">Delete My Profile</a>
+            </p>
           </div>
         </div>
         <div class="space"></div>

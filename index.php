@@ -1,5 +1,5 @@
 <?php
-		session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -11,9 +11,6 @@
 	<title>Project Battle Bots</title>
 	<!--Highlight the page the user has open. Home in this case-->
 	<?php
-
-
-
 		echo "
             <style>
                 .header-style .nav .menu .home{
@@ -34,8 +31,6 @@
 		<div id="indexCenterTitle">
 			<h1>Project <br> Battle Bots</h1>
 		</div>
-
-
 		<div id="indexCenterImage">
 			<img src="./assets/PBBblack.png" alt="Battle bot" width="55%">
 		</div>
@@ -70,7 +65,6 @@
 <div class="space-indx"></div>
 
 <div id="indexMoreButton">
-	<?php echo $_SESSION['loggedIn']; ?>
 	<p><a class="indexa" href="#"><b>More!</b></a></p>
 </div>
 
