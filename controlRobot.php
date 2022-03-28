@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.6/jquery.min.js"></script>
 	<link rel="icon" href="./assets/PBBwhite.png">
 	<title>Battle Bot Events</title>
 </head>
@@ -21,7 +21,7 @@
 	</div>
 	<h1 class="title_chat">Chat</h1>
 	<div id="robotcontainer">
-		
+
 		<div id="chat_box">
 			<div class="chat_data">
 				<span class="chat_text">Kaiser: </span>
@@ -29,7 +29,7 @@
 				<span class="chat_text_time">12:30</span>
 			</div>
 		</div>
-		
+
 		<form class="robotchat" method="post" action="controlRobot.php">
 			<input class="robot_text" type="text" name="name" placeholder="enter name"/>
 			<textarea class="robot_message" name="enter message" placeholder="enter message"></textarea>
@@ -51,7 +51,7 @@
 
 <?php include_once "footer.html"; ?>
 <?php
-	
+
 	$ipAddress = "192.168.137.12";
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		foreach ($_POST as $postRequest) {
