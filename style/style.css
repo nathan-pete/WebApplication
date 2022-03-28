@@ -1063,7 +1063,14 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
   float: right;
 }
 /*-------------------------- Vote for a game page END--------------------------*/
-/*----------2048 Game-----------*/
+
+
+/*-----------------------------Minigames home start-------------------------------*/
+
+
+/*-----------------------------Minigames home end-------------------------------*/
+
+/*-----------------------------2048 Game-------------------------------*/
 
 #gameContainer {
   width: 98vw;
@@ -1148,15 +1155,15 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 }
 
 
-/*----------End of 2048 Game-----------*/
+/*------------------------------------End of 2048 Game-----------------------------*/
 
-/*----------Falling robot Game Start-----------*/
+/*------------------------------Falling robot Game Start---------------------------*/
 
 #game {
   width: 400px;
   height: 500px;
-  margin-left: 420px;
-  margin-top: 45px;
+  margin-left: 550px;
+  margin-top: 90px;
   border: 5px solid #6665DD;
   overflow: hidden;
 }
@@ -1192,7 +1199,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 
 .restart_button {
   margin-left: 150px;
-  margin-top: 45px;
+  margin-top: 90px;
 }
 
 .restart_button button {
@@ -1205,7 +1212,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 }
 
 #result {
-  margin-top: 250px;
+  margin-top: 300px;
   margin-left: 30px;
   font-size: x-large;
   font-weight: bold;
@@ -1225,7 +1232,7 @@ background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 
 }
 
 
-/*----------End of Falling Robot Game-----------*/
+/*--------------------------End of Falling Robot Game------------------------------*/
 
 /* Register page start */
 .registerContainer {
@@ -1878,4 +1885,3 @@ input[type=text], input[type=password] {
 }
 
 /* Betting 18+ page end */
-
