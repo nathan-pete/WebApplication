@@ -124,6 +124,44 @@ body {
   left: 18px;
 }
 
+.dropbtn {
+  background-color: transparent;
+  color: #fff;;
+  font-size: 16px;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 /*-------------------------------Header End-------------------------------*/
 /*------------------------------Events Start------------------------------*/
 .events-content {
@@ -1126,7 +1164,6 @@ a.animated-button.victoria-two:after {
 
 
 /*-----------------------------Minigames home start-------------------------------*/
-
 
 /*-----------------------------Minigames home end-------------------------------*/
 

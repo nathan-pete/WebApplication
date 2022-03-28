@@ -1,6 +1,7 @@
 <?php
 	//session_start();
 ?>
+
 <div class="header-style">
 	<div class="nav">
 		<input type="checkbox">
@@ -11,8 +12,16 @@
 			<li><a href="events.php" class="events">Events</a></li>
 			<li class="line"> &VerticalLine;</li>
 			<li><a href="leaderboard.php" class="lead">Leaderboard</a></li>
-			<li class="line"> &VerticalLine;</li>
-			<li><a href="leaderboard.php" class="lead">Minigames</a></li>
+			<li><class="line"> &VerticalLine;</li>
+				<li>
+					<div class="dropdown">
+					<button class="dropbtn">Minigames</button>
+						<div class="dropdown-content">
+							<a href="2048.php">2048</a>
+							<a href="fallingRobot.php">Falling Robot</a>
+						</div>
+					</div>
+				</li>
 			<li class="line"> &VerticalLine;</li>
 			<?php
 				if (isset($_SESSION['loggedin'])) {
