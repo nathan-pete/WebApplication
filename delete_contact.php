@@ -3,7 +3,7 @@
     $delete_th = $_GET['IDContact'];
     $sql = "DELETE FROM contact_admin WHERE IDContact = $delete_th";
 
-    if ($conn->query($sql) === TRUE) {
+    if (mysqli_query($conn, $sql)) {
 
         echo "Record deleted successfully";
         header("location: contact_admin_overview.php");
@@ -14,8 +14,7 @@
         echo "Error deleting record: " . $conn->error;
     }
       
-    $conn->close();
-
+    mysqli_close($conn);
 
 
 ?>

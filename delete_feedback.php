@@ -3,7 +3,7 @@
     $delete_th = $_GET['IDFeedback'];
     $sql = "DELETE FROM feedback WHERE IDFeedback = $delete_th";
 
-    if ($conn->query($sql) === TRUE) {
+    if (mysqli_query($conn, $sql)) {
 
         echo "Record deleted successfully";
         header("location: feedback_overview.php");
@@ -14,7 +14,7 @@
         echo "Error deleting record: " . $conn->error;
     }
       
-    $conn->close();
+    mysqli_close($conn);
 
 
 
