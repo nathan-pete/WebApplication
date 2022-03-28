@@ -64,7 +64,7 @@
   <div id="profileCenterTitle">
     <h1>Vote the game</h1>
     <div class = "statistics">
-      <form method="LINK" action="ViewsSystem.php">
+      <form method="LINK" action="Statistics.php">
     <button class="custom-btn btn-6"><span>Statistics</span></button>
 </form>
       </div>
