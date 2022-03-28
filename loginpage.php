@@ -153,6 +153,7 @@
 						if (password_verify($robot_password, $password_db)) {
 							$_SESSION ['robotID'] = $id;
 							$_SESSION ['loggedIn'] = 1;
+							$_SESSION["serialNr"] = $serialnum_robot;
 							echo "You are now logged in";
 							//echo $_SESSION ['loggedIn'], $_SESSION ['userId'];
 							// Redirect user to welcome page
