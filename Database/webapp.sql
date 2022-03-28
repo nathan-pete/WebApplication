@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2022 at 01:11 PM
+-- Generation Time: Mar 28, 2022 at 03:49 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.0
 
@@ -48,6 +48,28 @@ CREATE TABLE `comments` (
   `userID` int(11) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_admin`
+--
+
+CREATE TABLE `contact_admin` (
+  `IDContact` int(255) NOT NULL,
+  `viewer_partc` varchar(5) NOT NULL,
+  `Message` varchar(255) NOT NULL,
+  `image_problem` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact_admin`
+--
+
+INSERT INTO `contact_admin` (`IDContact`, `viewer_partc`, `Message`, `image_problem`, `email`) VALUES
+(2, 'parti', 'Heeey Girlz', '', 'hey@yahoo.com'),
+(3, 'viewe', 'Martino is my nemico', '', 'violettafazzi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -125,6 +147,12 @@ ALTER TABLE `comments`
   ADD KEY `fk_userID` (`userID`);
 
 --
+-- Indexes for table `contact_admin`
+--
+ALTER TABLE `contact_admin`
+  ADD PRIMARY KEY (`IDContact`);
+
+--
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -145,6 +173,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `contact_admin`
+--
+ALTER TABLE `contact_admin`
+  MODIFY `IDContact` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `feedback`
