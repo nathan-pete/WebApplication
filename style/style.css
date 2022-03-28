@@ -125,8 +125,8 @@ body {
 }
 
 .dropbtn {
-  background-color: transparent;
-  color: #fff;;
+  background: none;
+  color: #fff;
   font-size: 16px;
   border: none;
   font-family: 'Orbitron', sans-serif;
@@ -140,13 +140,14 @@ body {
 }
 
 .dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    transition: 0.5s;
+  display: none;
+  position: fixed;
+  background-color: #2A2A2A;
+  min-width: 160px;
+  box-shadow: 0 8px 15px rgba(255, 0, 0, 0.5);
+  z-index: 1;
+  transition: 0.5s;
+  border-radius: 0 20px 20px 20px;
 }
 
 .dropdown-content a {
@@ -156,11 +157,18 @@ body {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 20px;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 /*-------------------------------Header End-------------------------------*/
 /*------------------------------Events Start------------------------------*/
@@ -997,11 +1005,11 @@ iframe {
 
 
 .box {
-    margin-top: -40vw;
-    margin-bottom: 30vw;
-    margin-left: 70vw;
-    margin-right: 10vw;
-    float: right;
+  margin-top: -40vw;
+  margin-bottom: 30vw;
+  margin-left: 70vw;
+  margin-right: 10vw;
+  float: right;
 
 }
 
@@ -1009,19 +1017,20 @@ iframe {
   margin-bottom: 10px;
 }
 
-.chatbox{
-    width: 360px;
-    height: 400px;
-    border: 3px #3d67c2 solid;
-    overflow: auto;
-    border-radius: 5px;
-    background-color: white;
+.chatbox {
+  width: 360px;
+  height: 400px;
+  border: 3px #3d67c2 solid;
+  overflow: auto;
+  border-radius: 5px;
+  background-color: white;
 }
-.chatenter{
-    border: 3px #3d67c2 solid;
-    width: 360px;
-    height: auto;
-    border-radius: 5px;
+
+.chatenter {
+  border: 3px #3d67c2 solid;
+  width: 360px;
+  height: auto;
+  border-radius: 5px;
 }
 
 /* -------------------------------Vote for a game page ----------------------------------------------------------------*/
