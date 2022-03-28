@@ -28,24 +28,22 @@
         <div class="main-content">
             <h1>Edit feedback</h1>
             <form method="POST">
+                 <!--Event feeling-->
+                <label for="event_feeling"><b>The event was interesting and entertaining:</b></label>
+                <input type="text" name="post_event_fel" id="event_feeling" value="<?php echo $event_feeling; ?>">
+                <br>
 
-                <!--First Name
-                <label for="firstname"><b>The event was interesting and entertaining:</b></label>
-                <input type="text" name="first_name" id="firstname" value="<?php echo $event_feeling; ?>">
-                -->
-                <input type="radio" id="agree" name="post_event_fel" value="agree" checked="<?php if ($event_feeling == 'agree'){ echo 'checked'; } ?>">
+                <!--<input type="radio" id="agree" name="post_event_fel" value="agree" checked=" //if ($event_feeling == 'agree'){ echo 'checked'; }?>">
                 <label for="agree">Agree</label>
-                <?php
-                echo $event_feeling;
-                ?>
-                <input type="radio" id="disagree" name="post_event_fel" value="disagree" checked="<?php if ($event_feeling == 'disagree'){ echo 'checked'; } ?>">
+                <input type="radio" id="disagree" name="post_event_fel" value="disagree" checked=" if ($event_feeling == 'disagree'){ echo 'checked'; } ?>">
                 <label for="disagree">Disagree</label>
+                -->
 
 
                 <!--Future Events-->
                 <label for="lastname"><b>Would you like more events like this in the future?</b></label>
                 <input type="text" name="post_future_ev" id="lastname" value="<?php echo $future_eve; ?>">
-
+                <br>
                 <!--Role-->
                 <label for="username"><b>You was a viewer or participant?</b></label>
                 <input type="text" name="post_role" id="username" value="<?php echo $role_user; ?>">
