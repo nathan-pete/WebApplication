@@ -47,7 +47,7 @@
                             echo "Error preparing: " . mysqli_error($conn);
                         }
                       echo "</select>";
-                        
+                      
                       echo "<p><input type='submit' name='picture' value='Picture of the robot' class='input-bttn'></p>";
                       if (isset($_POST['picture'])) {
                           //if a certain robot name is selected show it's picture
@@ -56,8 +56,8 @@
                           $robotName = $_POST['name'];
                           mysqli_stmt_bind_param($stmt, "s", $robotName);
                           if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_store_result($stmt);
                             mysqli_stmt_bind_result($stmt, $result);
+                            mysqli_stmt_store_result($stmt);
                             while (mysqli_stmt_fetch($stmt)) {
                                 if ($result == NULL) {
                                   echo "<div class='betmsg'>Sorry, this robot has no available pictures.</div><div class='space-event'></div><br>";
@@ -102,7 +102,7 @@
                       echo "<p><input type='submit' name='bet' value='Place Bet' class='input-bttn'></p>";
                       if (isset($_POST['bet'])) {
                         if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
-                          $id = 1;
+                          $id = $_SESSION['user_Id'];
                           $robotName = $_POST['name'];
                           $gameName = $_POST['game'];
                           $place = $_POST['place'];
