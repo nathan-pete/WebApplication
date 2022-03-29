@@ -13,18 +13,17 @@
 </head>
 <body>
 <?php
-	require "header.php";
-	require "connect.php";
-?>
-<?php
+	include_once "header.php";
+	require_once "connect.php";
 	
 	// Checking if user is logged in
-	if ($_SESSION["loggedIn"] == 1) {
+	if (isset($_SESSION["loggedIn"])) {
 		header("location: index.php");
 		exit;
-	} else {
-		$_SESSION['loggedIn'] = 0;
 	}
+	//	else {
+	//		$_SESSION['loggedIn'] = 0;
+	//	}
 
 
 ?>
