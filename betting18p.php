@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,9 +39,11 @@
                             mysqli_stmt_close($stmt);
                           } else {
                               echo "Error executing: " . mysqli_error($conn);
+                              mysqli_close($conn);
                           }
                         } else {
                             echo "Error preparing: " . mysqli_error($conn);
+                            mysqli_close($conn);
                         }
                       echo "</select>";
                       
@@ -67,9 +66,11 @@
                             }
                           } else {
                             echo "Error executing" . mysqli_error($conn);
+                            mysqli_close($conn);
                           }
                          } else {
                            echo "Error preparing: " . mysqli_error($conn);
+                           mysqli_close($conn);
                          }
                         mysqli_stmt_close($stmt);
                       }
@@ -93,9 +94,11 @@
                           }
                         } else {
                           echo "Error executing" . mysqli_error($conn);
+                          mysqli_close($conn);
                         }
                       } else {
                         echo "Error preparing" . mysqli_error($conn);
+                        mysqli_close($conn);
                       }
                       echo "</select>";
                       mysqli_stmt_close($stmt);
@@ -126,28 +129,36 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                           mysqli_stmt_close($stmt); //close statement
                                           mysqli_close($conn); // close connection
+                                          mysqli_close($conn);
                                           echo "Your bet is placed!";
                                         } else {
                                           echo "Error preparing: " . mysqli_error($conn);
+                                          mysqli_close($conn);
                                         }
                                       } else {
                                         echo "Error preparing: " . mysqli_error($conn);
+                                        mysqli_close($conn);
                                       }
                                     } else {
                                       echo "Error: " . mysqli_error($conn);
+                                      mysqli_close($conn);
                                     }
                                   } else {
                                     echo "Error preparing: " . mysqli_error($conn);
+                                    mysqli_close($conn);
                                   }
                                 } else {
                                   echo "You don't have enough points!";
+                                  mysqli_close($conn);
                                 }
                               }
                             } else {
                               echo "Error: " . mysqli_error($conn);
+                              mysqli_close($conn);
                             }
                           } else {
                             echo "Error preparing: " . mysqli_error($conn);
+                            mysqli_close($conn);
                           }
                         } else {
                             echo "Please fill in all the fields!";
