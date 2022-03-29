@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +12,9 @@
 </head>
 <body>
 <?php
-        require("header.php");
-    ?>
+    include "header.php";
+    require_once "connect.php";
+?>
 
 <?php
             $ID = $_GET['IDFeedback'];
