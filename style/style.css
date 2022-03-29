@@ -1939,7 +1939,7 @@ input[type=text], input[type=password] {
   justify-content: center;
 }
 
-.bettingBox {
+.bettingBox{
   transform: translate3D(0, -1px, 0);
   background-color: rgba(255, 255, 255, 0.71);
   text-align: center;
@@ -1957,7 +1957,52 @@ input[type=text], input[type=password] {
   transition: 1s;
   background-color: rgba(222, 222, 222, 0.35);
   cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+  transform: translate3D(0, -1px, 0) scale(1.03);
 }
+
+.bettingBox select, input[type="number"] {
+  height: 2.3em;
+  text-align: center;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.71);
+  border-radius: 20px;
+  width: 70%;
+  border: none;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
+}
+
+.bettingBox form label {
+  margin: 5em;
+}
+
+.bettingBox h1 {
+  margin-top: 10%;
+}
+
+.bettingBox .input-bttn {
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+.bettingBox .input-bttn:hover {
+  background-color: #7ac8e3;
+  transition: 0.3s;
+}
+
+.bettingBox img {
+  max-width: 70%;
+  max-height: 70%;
+  margin-bottom: 4%;
+}
+
+.betmsg {
+  color: #ba1616;
+  text-align: center;
+  margin: 0 2% 0 2%;
+}
+
 
 /*-------------------------- Login END--------------------------*/
 /*--------------------------Feedback Start--------------------------*/
