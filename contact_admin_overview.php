@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +13,8 @@
 <body>
     <div class="body">
         <?php
-            require("header.php");
-            require "connect.php";
-            session_start();
+            include "header.php";
+            require_once "connect.php";
         ?>
         <?php
             
