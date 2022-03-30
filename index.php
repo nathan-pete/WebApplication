@@ -55,12 +55,12 @@
                           while (mysqli_stmt_fetch($stmt)) {
                             if ($robotPicture == NULL) {
                               echo '<div class="indexScrollItem">';
-                              echo $robotName;
+                              echo '<a href="profilerobot.php?robotName=' . $robotName . '">' . $robotName . '</a>';
                               echo '</div><div class="indexScrollSpacer"></div>'; // An empty div to space items apart
                             } else {
                               echo '<div class="indexScrollItem">';
                               echo $robotName;
-                              echo "<img src='./uploads/robots/" . $robotPicture . "' alt='Picture of the robot' class='index-img'>";
+                              echo '<a href="profilerobot.php?robotName=' . $robotName . '">' . '<img src="./uploads/robots/' . $robotPicture . '" alt="Picture of the robot" class="index-img"></a>';
                               echo '</div><div class="indexScrollSpacer"></div>'; // An empty div to space items apart
                             }
                           }
