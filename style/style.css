@@ -628,7 +628,6 @@ body {
 #indexScrollGroup {
   grid-row: 4/5;
   grid-column: 1/4;
-  overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   grid-column-gap: 2vh;
@@ -923,7 +922,6 @@ iframe {
   height: 30px;
   border-radius: 60px;
   min-height: 10em;
-  display: flex;
   float: left;
   margin: 10px;
   padding: 10px;
@@ -931,7 +929,7 @@ iframe {
   align-items: center;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18;
+  font-size: 18px;
   text-decoration: none;
   color: black;
 }
@@ -1412,7 +1410,6 @@ a.animated-button.victoria-two:after {
   height: 2.5em;
   border: none;
   font-family: "Orbitron", sans-serif;
-  color: black;
 }
 
 .input-bttn {
@@ -1427,7 +1424,6 @@ a.animated-button.victoria-two:after {
   height: 2.5em;
   border: none;
   font-family: "Orbitron", sans-serif;
-  color: black;
   transition: 0.3s;
 }
 
@@ -1560,7 +1556,6 @@ a.animated-button.victoria-two:after {
 /*Animation for div-robot-login button*/
 .login-bttn-robot {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 22px;
@@ -1568,7 +1563,6 @@ a.animated-button.victoria-two:after {
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1657,7 +1651,6 @@ a.animated-button.victoria-two:after {
 /*Animation for div-viewer-login button*/
 .login-bttn-viewer {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 22px;
@@ -1665,7 +1658,6 @@ a.animated-button.victoria-two:after {
   text-transform: uppercase;
   overflow: hidden;
   transition: .8s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1792,7 +1784,6 @@ input[type=text], input[type=password] {
 
 .bttn-fg-pass, .register_new_t {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 10px;
@@ -1800,7 +1791,6 @@ input[type=text], input[type=password] {
   text-transform: uppercase;
   overflow: hidden;
   transition: .8s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1821,7 +1811,6 @@ input[type=text], input[type=password] {
 
 .logins-bttns {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 20px;
@@ -1853,7 +1842,7 @@ input[type=text], input[type=password] {
 
 .passbox .passin {
   display: flex;
-  jusitify-content: center;
+  justify-content: center;
   max-width: 100%;
   margin: 0 auto;
   transition: 1s;
@@ -1871,7 +1860,7 @@ input[type=text], input[type=password] {
 
 .passbut {
   display: flex;
-  jusitify-content: center;
+  justify-content: center;
   max-width: 100%;
   margin: 0 auto;
   background: rgb(154, 154, 154);
