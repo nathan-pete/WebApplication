@@ -54,7 +54,10 @@
                   if ($stmt = mysqli_prepare($conn, $sql)) {
                     mysqli_stmt_bind_param($stmt, 'i', $userID);
                     if (mysqli_stmt_execute($stmt)) {
+                      session_start();
+	                    session_destroy();
                       header ('Location: index.php');
+                    	session_destroy();
 
                     } else {
                       echo "Error deleting record: " . mysqli_error($conn);
