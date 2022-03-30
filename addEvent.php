@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Add Event</title>
         <?php
-        /*  if($_SESSION['user_type'] != 'administrator') {
-                header("location:./errors&success.php?error=type");
-            } */
+            if($_SESSION['user_type'] != 'administrator') {
+                header("location:./loginpage.php");
+            }
         ?>
     </head>
     <body>

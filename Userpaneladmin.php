@@ -1,8 +1,9 @@
 <?php
-include "Sidebar.php";
-require_once("dbh.php");
-$query = "SELECT * FROM `users`";
-$result = mysqli_query($conn, $query);
+    session_start();
+    include "Sidebar.php";
+    require_once("dbh.php");
+    $query = "SELECT * FROM `users`";
+    $result = mysqli_query($conn, $query);
 
 ?>
 
@@ -15,6 +16,11 @@ $result = mysqli_query($conn, $query);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styling.css">
     <title>View All Data</title>
+  <?php
+    if($_SESSION['user_type'] != 'administrator') {
+      header("location:./loginpage.php");
+    }
+  ?>
 </head>
 
 <body class="backgroundforadmin">

@@ -3,19 +3,6 @@
 	require "connect.php";
 	session_start();
 
-	/*
-	$ipAddress = "192.168.137.12";
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		foreach ($_POST as $postRequest) {
-			if (isset($postRequest)) {
-				$url = curl_init("http://" . $ipAddress . "/" . $postRequest);
-				curl_exec($url);
-				curl_close($url);
-				echo $postRequest;
-			}
-		}
-	}
-	*/
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		$messages = [];
@@ -23,10 +10,10 @@
 		try {
 			$conn = new mysqli ($servername, $username, $password, "webapp");
 
-			$sql = $conn->prepare("SELECT message FROM comments");
+			$sql = $conn->prepare("SELECT `message`, `users`.`userName` FROM `comments` JOIN `users` where users.userID = comments.userID;");
 
 			$sql->execute();
-			$sql->bind_result($message);
+			$sql->bind_result($message, $userNameOut );
 
 			while ($sql->fetch()) {
 				$messages[] = $message;
@@ -38,7 +25,7 @@
 		}
 
 		foreach ($messages as $txt) {
-			echo "<p>" . $_SESSION ['loggedIn'].": ". $txt . "</p>";
+			echo "<p>" .$userNameOut.": ". $txt . "</p>";
 		}
 
 

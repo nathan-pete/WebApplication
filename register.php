@@ -95,10 +95,11 @@
                               $lastName = $_POST['lastName'];
                               if ($ageCalc >= '18') {
                                 $dateOfBirth = TRUE;
+                                $points = 500;
                               } else {
                                 $dateOfBirth = FALSE;
+                                $points = 0;
                               }
-                              $points = 500;
                               $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //hash password
                               $sql = "INSERT INTO users (userName, email, points, firstName, lastName, DoB, password, status) VALUES (?,?,?,?,?,?,?,?)"; //the query for inserting into the database
                               if ($stmt = mysqli_prepare($conn, $sql)) {
