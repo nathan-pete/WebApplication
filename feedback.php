@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include "header.php";
+    require_once "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +14,6 @@
 </head>
 <body>
     <div class="body">
-    <?php
-    include "header.php";
-    require_once "connect.php";
-   
-    ?>
     
     <div class="main-feed">
         <h1 class="main-content-heading">Feedback</h1>
@@ -24,7 +21,7 @@
             <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" >
                 <!--1-->
                 <p>The event was interesting and entertaining:</p>
-                <input type="radio" id="agree" name="event_fel" value="agree">
+                <input type="radio" id="agree" name="event_fel" value="agree" checked="checked">
                 <label for="agree">Agree</label>
                 <input type="radio" id="disagree" name="event_fel" value="disagree">
                 <label for="disagree">Disagree</label>
@@ -33,7 +30,7 @@
                 <!--2-->
                 <div class="future_events">
                 <p>Would you like more events like this in the future?</p>
-                <input type="radio" id="yes" name="future_eve" value="yes">
+                <input type="radio" id="yes" name="future_eve" value="yes" checked="checked">
                 <label for="yes">Yes</label>
                 <input type="radio" id="no" name="future_eve" value="no">
                 <label for="no">No</label>
