@@ -15,11 +15,9 @@
 <?php
   require "header.php";
   require "connect.php";
-?>
-<?php
 
   // Checking if user is logged in
-  if ($_SESSION["loggedIn"] == 1) {
+  if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
     header("location: index.php");
     exit;
   } else {
@@ -194,7 +192,16 @@
   </div>
 </div>
 <?php
-  require 'footer.html'
+  require 'footer.html';
+  if ($_SESSION["loggedIn"] == 1) {
+    header("location: index.php");
+    exit;
+  } else {
+      $_SESSION['loggedIn'] = 0;
+  }
+
+
+?>
 ?>
 </body>
 </html>

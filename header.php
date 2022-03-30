@@ -24,7 +24,7 @@
 				</li>
 			<li class="line"> &VerticalLine;</li>
 			<?php
-				if ($_SESSION['loggedIn'] == 1) {
+				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
 					$sql = "SELECT DoB FROM users WHERE userID = ?";
 					if ($stmt = mysqli_prepare($conn, $sql)) {
                         $userID = $_SESSION['userId'];
@@ -50,8 +50,8 @@
 					echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
 				}
 				echo "<li class='line'> &VerticalLine;</li>";
-				if ($_SESSION['loggedIn'] == 1) {
-					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['loggedIn'] . '</a></li>';
+				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
+					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['userName'] . '</a></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}

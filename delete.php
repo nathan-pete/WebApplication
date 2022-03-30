@@ -48,15 +48,15 @@
         <div class="usr-buttons">
           <div class="delete-profile">
             <form action="delete.php" method="post">
+              <input type="submit" name="submit" value="Yes" class="del-sub">
               <?php
-
                 if (isset($_POST['submit'])) {
                   $sql = "DELETE FROM users WHERE userID = ?";
                   $userID = 13;
                   if ($stmt = mysqli_prepare($conn, $sql)) {
                     mysqli_stmt_bind_param($stmt, 'i', $userID);
                     if (mysqli_stmt_execute($stmt)) {
-                      $message =  "Record deleted successfully";
+                      header ('Location: index.php');
 
                     } else {
                       echo "Error deleting record: " . mysqli_error($conn);
@@ -67,10 +67,7 @@
                   mysqli_stmt_close($stmt);
                   mysqli_close($conn);
                 }
-
-
               ?>
-              <input type="submit" name="submit" class="del-sub">
 
             </form>
           </div>
