@@ -12,7 +12,7 @@
 body {
   /*background-color: black;*/
   background-repeat: no-repeat !important;
-  background: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
+  background-image: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
   radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent),
@@ -440,9 +440,14 @@ body {
 
 /*-------------------------------Event End--------------------------------*/
 /*------------------------------Footer Start------------------------------*/
+.footer-container {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-top {
   color: black;
-  position: relative;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.65));
@@ -644,8 +649,8 @@ body {
 }
 
 .index-img {
-  width: 100%;
-  padding: 5%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .indexScrollSpacer {
@@ -2015,4 +2020,21 @@ p .del-sub {
   font-size: 14px;
   font-weight: 700;
   color: red;
+}
+
+
+/* Logout page start*/
+.logout-container {
+  margin-top: 3em;
+  height: 27em;
+  margin-bottom: 2.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-container a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.68);
 }
