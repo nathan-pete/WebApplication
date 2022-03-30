@@ -53,15 +53,14 @@
                                 {
                                   if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
                                   {
-                                    if ($com = mysqli_prepare($conn, "INSERT into webapp (message) VALUES (?)")
-                                    {
                                     $newPoints = $row['points'] - $action;
                                     $message = "smile :)";
                                     mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
-                                    mysqli_stmt_bind_param($com, 'si', $message);
                                     //echo $userID;
                                     //echo $newPoints;
-                                    echo $message;
+                                    echo "<form>
+                                    <textarea>$message</textarea>
+                                    </form>";
                                     if (mysqli_stmt_execute($sql))
                                     {
                                       mysqli_stmt_close($sql);
@@ -72,94 +71,31 @@
                                     echo "error" . mysqli_error($conn);
                                   }
                                 } else {echo "you don't have enough points";}
-                                if (mysqli_stmt_execute($com))
-                                {  
-                                    mysqli_stmt_close($com);
-                                } else {
-                                    echo "error" . mysqli_error($conn);
-                                }
-                            } else {
-                                    echo "Sorry, you can not uses emojies";
-                                }
                               }
-                              if (isset($_POST['laugh']))
-                              {
-                                $action = 10;
-                                if ($row['points'] > $action)
-                                {
-                                  if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
-                                  {
-                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
-                                    {
-                                    $newPoints = $row['points'] - $action;
-                                    $message = "laugh :D";
-                                    mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
-                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
-                                    //echo $userID;
-                                    //echo $newPoints;
-                                    echo $message;
-                                    if (mysqli_stmt_execute($sql))
-                                    {
-                                      mysqli_stmt_close($sql);
-                                    } else {
-                                      echo "error" . mysqli_error($conn);
-                                    }
-                                  } else {
-                                    echo "error" . mysqli_error($conn);
-                                  }
-                                } else {echo "you don't have enough points";}
-                                if (mysqli_stmt_execute($com))
-                                {  
-                                    mysqli_stmt_close($com);     
-                                } else {
-                                    echo "error" . mysqli_error($conn);
-                                }
-                            } else {
-                                    echo "Sorry, you can not uses emojies";
-                                }
-                              }
-
-                              if (isset($_POST['angry']))
-                              {
-                                $action = 10;
-                                if ($row['points'] > $action)
-                                {
-                                  if ($sql = mysqli_prepare($conn, "UPDATE users SET points = ? WHERE userID = ?"))
-                                  {
-                                    if ($com = mysqli_prepare($conn, "UPDATE comments SET `message` = ? WHERE userID = ?"))
-                                    {
-                                    $newPoints = $row['points'] - $action;
-                                    $message = "angry :F";
-                                    mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
-                                    mysqli_stmt_bind_param($com, 'si', $message, $userID);
-                                    //echo $userID;
-                                    //echo $newPoints;
-                                    echo $message;
-                                    if (mysqli_stmt_execute($sql))
-                                    {
-                                      mysqli_stmt_close($sql);
-                                    } else {
-                                      echo "error" . mysqli_error($conn);
-                                    }
-                                  } else {
-                                    echo "error" . mysqli_error($conn);
-                                  }
-                                } else {echo "you don't have enough points";}
-                                if (mysqli_stmt_execute($com))
-                                {  
-                                    mysqli_stmt_close($com);
-                                } else {
-                                    echo "error" . mysqli_error($conn);
-                                }
-                            } else {
-                                    echo "Sorry, you can not uses emojies";
-                                }
-                              }
-
                             }
-                        }
-                    }
-                
+                          }
+                        } 
+
+                              
+                              
+                              if (isset($_POST["submit"])) {
+                                $comment = $_POST["comments"];
+                                if (!empty($comment)) {
+                                      $sql = mysqli_prepare($conn, "INSERT INTO `Comments` (userID, `message`) VALUES (?, ?)");
+                                      mysqli_stmt_bind_param($sql, 'is', $userID, $message);
+                                    if (mysqli_stmt_execute($sql))
+                                    {
+                                      mysqli_stmt_close($sql);
+                                    } else {
+                                      echo "error" . mysqli_error($conn);
+                                    }
+                                  } else {
+                                    echo "error" . mysqli_error($conn);
+                                  }
+                            }
 ?>
+<form action="#"class="comments_form" method="POST">
+        <button type="submit" name="submit" class="comments_button">Add message</button>   
+    </form>
     </body>
 </html>

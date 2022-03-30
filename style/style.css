@@ -12,7 +12,7 @@
 body {
   /*background-color: black;*/
   background-repeat: no-repeat !important;
-  background: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
+  background-image: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
   radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent),
@@ -132,6 +132,8 @@ body {
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   font-weight: 600;
+  transition: 0.5s;
+
 }
 
 .dropdown {
@@ -160,14 +162,20 @@ body {
 .dropdown-content a:hover {
   background-color: #ddd;
   border-radius: 20px;
+  transition: 0.5s;
+
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  transition: 0.5s;
+
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  color: #0386FF;
+  transition: 0.5s;
+
 }
 
 /*-------------------------------Header End-------------------------------*/
@@ -182,6 +190,7 @@ body {
 
 .event-h {
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .event-p {
@@ -195,7 +204,7 @@ body {
 }
 
 .event-items {
-  padding: 1% 0 1% 0;
+  padding: 2% 0 2% 0;
   margin: 1% auto;
   background-color: rgba(255, 255, 255, 0.55);
   border-radius: 20px;
@@ -216,9 +225,9 @@ body {
 
 .event-img {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0 0 0 3%;
+  margin: 0 3% 0 3%;
 }
 
 .event-items:hover {
@@ -234,10 +243,17 @@ body {
 }
 
 .event-text {
-  margin-left: 3%;
+  margin: 0 0 0 5%;
   display: block;
   align-items: center;
 }
+
+.event-text-error {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
 
 /*-------------------------------Events End-------------------------------*/
 /*-------------------------------User Start-------------------------------*/
@@ -396,6 +412,14 @@ body {
   transition: 1s;
 }
 
+.del-sub  {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border-style: none;
+}
+
 .delete-profile a {
   text-decoration: none;
   color: red;
@@ -440,9 +464,14 @@ body {
 
 /*-------------------------------Event End--------------------------------*/
 /*------------------------------Footer Start------------------------------*/
+.footer-container {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-top {
   color: black;
-  position: relative;
   bottom: 0;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.65));
@@ -628,7 +657,6 @@ body {
 #indexScrollGroup {
   grid-row: 4/5;
   grid-column: 1/4;
-  overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   grid-column-gap: 2vh;
@@ -645,8 +673,8 @@ body {
 }
 
 .index-img {
-  width: 100%;
-  padding: 5%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .indexScrollSpacer {
@@ -923,7 +951,6 @@ iframe {
   height: 30px;
   border-radius: 60px;
   min-height: 10em;
-  display: flex;
   float: left;
   margin: 10px;
   padding: 10px;
@@ -931,7 +958,7 @@ iframe {
   align-items: center;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18;
+  font-size: 18px;
   text-decoration: none;
   color: black;
 }
@@ -1412,7 +1439,6 @@ a.animated-button.victoria-two:after {
   height: 2.5em;
   border: none;
   font-family: "Orbitron", sans-serif;
-  color: black;
 }
 
 .input-bttn {
@@ -1427,7 +1453,6 @@ a.animated-button.victoria-two:after {
   height: 2.5em;
   border: none;
   font-family: "Orbitron", sans-serif;
-  color: black;
   transition: 0.3s;
 }
 
@@ -1560,7 +1585,6 @@ a.animated-button.victoria-two:after {
 /*Animation for div-robot-login button*/
 .login-bttn-robot {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 22px;
@@ -1568,7 +1592,6 @@ a.animated-button.victoria-two:after {
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1657,7 +1680,6 @@ a.animated-button.victoria-two:after {
 /*Animation for div-viewer-login button*/
 .login-bttn-viewer {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 22px;
@@ -1665,7 +1687,6 @@ a.animated-button.victoria-two:after {
   text-transform: uppercase;
   overflow: hidden;
   transition: .8s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1792,7 +1813,6 @@ input[type=text], input[type=password] {
 
 .bttn-fg-pass, .register_new_t {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 10px;
@@ -1800,7 +1820,6 @@ input[type=text], input[type=password] {
   text-transform: uppercase;
   overflow: hidden;
   transition: .8s;
-  margin-top: 40px;
   letter-spacing: 4px;
   display: flex;
   justify-content: center;
@@ -1821,7 +1840,6 @@ input[type=text], input[type=password] {
 
 .logins-bttns {
   position: relative;
-  display: inline-block;
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 20px;
@@ -1853,7 +1871,7 @@ input[type=text], input[type=password] {
 
 .passbox .passin {
   display: flex;
-  jusitify-content: center;
+  justify-content: center;
   max-width: 100%;
   margin: 0 auto;
   transition: 1s;
@@ -1871,7 +1889,7 @@ input[type=text], input[type=password] {
 
 .passbut {
   display: flex;
-  jusitify-content: center;
+  justify-content: center;
   max-width: 100%;
   margin: 0 auto;
   background: rgb(154, 154, 154);
@@ -1957,7 +1975,52 @@ input[type=text], input[type=password] {
   transition: 1s;
   background-color: rgba(222, 222, 222, 0.35);
   cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+  transform: translate3D(0, -1px, 0) scale(1.03);
 }
+
+.bettingBox select, input[type="number"] {
+  height: 2.3em;
+  text-align: center;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.71);
+  border-radius: 20px;
+  width: 70%;
+  border: none;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
+}
+
+.bettingBox form label {
+  margin: 5em;
+}
+
+.bettingBox h1 {
+  margin-top: 10%;
+}
+
+.bettingBox .input-bttn {
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+.bettingBox .input-bttn:hover {
+  background-color: #7ac8e3;
+  transition: 0.3s;
+}
+
+.bettingBox img {
+  max-width: 70%;
+  max-height: 70%;
+  margin-bottom: 4%;
+}
+
+.betmsg {
+  color: #ba1616;
+  text-align: center;
+  margin: 0 2% 0 2%;
+}
+
 
 /*-------------------------- Login END--------------------------*/
 /*--------------------------Feedback Start--------------------------*/
@@ -1981,4 +2044,21 @@ p .del-sub {
   font-size: 14px;
   font-weight: 700;
   color: red;
+}
+
+
+/* Logout page start*/
+.logout-container {
+  margin-top: 3em;
+  height: 27em;
+  margin-bottom: 2.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-container a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.68);
 }

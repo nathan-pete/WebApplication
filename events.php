@@ -39,12 +39,12 @@
         if (mysqli_stmt_execute($stmt)) {
           mysqli_stmt_bind_result($stmt, $name, $picture, $description);
           mysqli_stmt_store_result($stmt);
-          if (mysqli_stmt_num_rows($stmt) == 0) {
+          if (mysqli_stmt_num_rows($stmt) === 0) {
             echo '
               <div class="event-items">
                 <a href="liveEvent.php">
                   <div class="event-img">
-                    <div class="event-text">
+                    <div class="event-text-error">
                       <h3 class="event-h" style="padding-bottom:0.5%;">There are no available events.</h3>
                     </div>
                   </div>
@@ -57,13 +57,14 @@
                 <div class="event-items">
                   <a href="liveEvent.php">
                     <div class="event-img">
-                      <a href="#' . $picture . '"class="tweak" alt="Battle Bot Game" height="110" width="109">
+                      <img src="./uploads/games/' . $picture . '"class="tweak" alt="Battle Bot Game" height="101">
                       <div class="event-text">
                         <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
                         <p class=" event-p">' . $description . '</p>
                       </div>
                     </div>
                 </div>
+                <div class="space-event"></div>
               ';
             }
             mysqli_stmt_close($stmt);

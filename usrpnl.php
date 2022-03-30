@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +25,9 @@
   <?php
     include_once "header.php";
     require_once "./Utils/userDB.php";
+
     $name = $firstName . "&nbsp;" . $lastName;
+
   ?>
   <div class="user-title">
     <h1 style="font-weight: 700; pointer-events: none;">Welcome <?php echo $firstName; ?>!</h1>
@@ -42,7 +41,7 @@
 
             $query = "SELECT profilePic FROM users WHERE userID = ?";
             if ($stmt = mysqli_prepare($conn, $query)) {
-              mysqli_stmt_bind_param($stmt, "s", $userID);
+              mysqli_stmt_bind_param($stmt, "i", $userID);
               if (mysqli_stmt_execute($stmt)) {
                 mysqli_stmt_bind_result($stmt, $profilePicture);
                 mysqli_stmt_store_result($stmt);
@@ -122,7 +121,7 @@
         <br>
         <div class="usr-buttons">
           <div class="info">
-            <a href="logout.php">Logout</a>
+            <a href="./logout.php">Logout</a>
           </div>
           <div class="info">
             <p>
