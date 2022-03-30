@@ -26,7 +26,7 @@ include "connect.php";
 				7 : "strong"
 			};
 
-			$(".s         mile").on("click", function () {
+			$(".smile").on("click", function () {
 				console.log($(this).text());
 				let smileText = smiles[$(this).text()];
 				$("#message").text(smileText);
