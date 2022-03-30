@@ -412,7 +412,7 @@ body {
   transition: 1s;
 }
 
-.del-sub  {
+.del-sub {
   font-family: "Orbitron", sans-serif;
   font-weight: 500;
   color: white;
@@ -654,17 +654,40 @@ body {
   align-items: center;
 }
 
-#indexScrollGroup {
+.indexScrollGroup {
   grid-row: 4/5;
   grid-column: 1/4;
   overflow-y: hidden;
   display: flex;
   grid-column-gap: 2vh;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 2%;
+  margin: 0 auto;
 }
 
 .indexScrollItem img {
-  margin-top: 1.1em;
-  border-radius: 50px;
+  display: flex;
+  justify–content: space-around;
+  margin: auto;
+  border-radius: 20px;
+  width: 250px;
+  height: 100px;
+
+}
+
+.indexScrollItem a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+}
+
+.indexScrollItem h4 {
+  padding: 0 0 10% 0;
 }
 
 .indexScrollItem {
@@ -678,8 +701,11 @@ body {
   background-color: rgba(174, 173, 173, 0.55);
   border-radius: 20px;
   color: black;
-  width: 50%;
-  height: auto;
+  width: 200px;
+  height: 180px;
+  margin: 0 5% 5% 2%;
+  padding: 4% auto
+
 }
 
 .indexScrollItem:hover {
@@ -714,9 +740,11 @@ body {
   color: white;
   text-decoration: none;
   border: 2px solid grey;
-  border-radius: 3vh;
+  border-radius: 20px;
   padding: 1vh;
   background: grey;
+  font-family: "Orbitron", sans-serif;
+
 }
 
 .indexa:hover {
@@ -1568,7 +1596,7 @@ a.animated-button.victoria-two:after {
 /*-------------------------- Vote for a game page END--------------------------*/
 /*--------------------------Login Start--------------------------*/
 .main-content {
-  margin-top: 5%;
+  margin-top: 2%;
   font-family: "Orbitron", sans-serif;
 
 }
