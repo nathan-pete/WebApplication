@@ -17,8 +17,8 @@
   require "connect.php";
 
   // Checking if user is logged in
-  if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
-    header("location: loginpage.php");
+  if (isset($_SESSION['loggedIn'])){
+    header("location: index.php");
     exit;
   } else {
       $_SESSION['loggedIn'] = 0;
