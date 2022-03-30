@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./style/style.css">
 		<title>Bets</title>
+      <?php
+        if($_SESSION['user_type'] != 'user') {
+          header("location:./loginpage.php");
+        }
+      ?>
 	</head>
 	<body>
         <div class="body">
@@ -64,6 +72,7 @@
                                   echo "<p><img src='./uploads/robots/" . $result . "' alt='Picture of the robot'></p>";
                                 }
                             }
+                            mysqli_stmt_close($stmt);
                           } else {
                             echo "Error executing" . mysqli_error($conn);
                             mysqli_close($conn);
@@ -72,7 +81,6 @@
                            echo "Error preparing: " . mysqli_error($conn);
                            mysqli_close($conn);
                          }
-                        mysqli_stmt_close($stmt);
                       }
                     ?>
                     <p><label for="amount">Bet amount</label></p>
@@ -92,6 +100,7 @@
                             echo "<option value=$row[name]>$row[name]</option>";
                             /* Option values are added by looping through the array */
                           }
+                          mysqli_stmt_close($stmt);
                         } else {
                           echo "Error executing" . mysqli_error($conn);
                           mysqli_close($conn);
@@ -101,7 +110,7 @@
                         mysqli_close($conn);
                       }
                       echo "</select>";
-                      mysqli_stmt_close($stmt);
+                      
                       echo "<p><input type='submit' name='bet' value='Place Bet' class='input-bttn'></p>";
                       if (isset($_POST['bet'])) {
                         if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
@@ -152,6 +161,7 @@
                                   mysqli_close($conn);
                                 }
                               }
+                              mysqli_stmt_close($stmt);
                             } else {
                               echo "Error: " . mysqli_error($conn);
                               mysqli_close($conn);
