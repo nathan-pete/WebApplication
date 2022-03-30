@@ -18,12 +18,12 @@ include "connect.php";
 		$(function(){
 			var smiles = {
 				"smile" : "(❛ ͜ʖ ͡❛)",
-				"laugh" : "laugh",
-				3 : "angry",
-				4 : "love",
-				5 : "sad",
-				6 : "wink",
-				7 : "strong"
+				"laugh" : "( ͡❛ ⏥ ͡❛)",
+				"angry": "(︡* ⏥*︠)",
+				"love" : "(ɔ◔‿◔)ɔ ♥",
+				"sad" : "( ˘︹˘ )",
+				"wink" : "(>‿◠)✌",
+				"strong" : "(ง︡'-'︠)ง"
 			};
 
 			$(".smile").on("click", function () {
