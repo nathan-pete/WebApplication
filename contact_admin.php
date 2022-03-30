@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style/style.css" type="text/css" rel="stylesheet">
     <title>Contact Admin</title>
+    <?php
+      if($_SESSION['user_type'] != 'user' or 'robot') {
+        header("location:./loginpage.php");
+      }
+    ?>
 </head>
 <body>
     <div class="body">
