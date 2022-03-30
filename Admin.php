@@ -19,5 +19,5 @@ session_start();
 </body>
 </html>
 <?php
-$_SESSION['admin']= "hello admin";
+$_SESSION['administrator']= "hello admin";
 ?>
