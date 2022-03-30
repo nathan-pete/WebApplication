@@ -18,17 +18,17 @@ include "connect.php";
 		$(function(){
 			var smiles = {
 				"smile" : "(❛ ͜ʖ ͡❛)",
-				"laugh" : "( ͡❛ ⏥ ͡❛)",
-				"angry": "(︡* ⏥*︠)",
-				"love" : "(ɔ◔‿◔)ɔ ♥",
-				"sad" : "( ˘︹˘ )",
-				"wink" : "(>‿◠)✌",
-				"strong" : "(ง︡'-'︠)ง"
+				"laugh" : "laugh",
+				3 : "angry",
+				4 : "love",
+				5 : "sad",
+				6 : "wink",
+				7 : "strong"
 			};
 
 			$(".smile").on("click", function () {
-				console.log($(this).text());
-				let smileText = smiles[$(this).text()];
+				console.log($(this).());
+				let smileText = smiles[$(this).attr()];
 				$("#message").text(smileText);
 			})
 		})
@@ -51,7 +51,7 @@ include "connect.php";
 	<div class="chatenter">
 			<form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
 					<label for="message">Enter your message!</label>
-					<div type="text" name="message" id="message"></div>
+					<input type="text" name="message" id="message">
 					<span class="submit_txt_db" >Submit</span>
 			</form>
 	</div>
