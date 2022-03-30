@@ -10,10 +10,10 @@
 		try {
 			$conn = new mysqli ($servername, $username, $password, "webapp");
 
-			$sql = $conn->prepare("SELECT message FROM comments");
+			$sql = $conn->prepare("SELECT `message`, `users`.`userName` FROM `comments` JOIN `users` where users.userID = comments.userID;");
 
 			$sql->execute();
-			$sql->bind_result($message);
+			$sql->bind_result($message, $userNameOut );
 
 			while ($sql->fetch()) {
 				$messages[] = $message;
@@ -25,7 +25,7 @@
 		}
 
 		foreach ($messages as $txt) {
-			echo "<p>" . $_SESSION ['userName'].": ". $txt . "</p>";
+			echo "<p>" .$userNameOut.": ". $txt . "</p>";
 		}
 
 
