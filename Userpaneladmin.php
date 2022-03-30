@@ -1,9 +1,8 @@
 <?php
-    session_start();
-    include "Sidebar.php";
-    require_once("dbh.php");
-    $query = "SELECT * FROM `users`";
-    $result = mysqli_query($conn, $query);
+include "Sidebar.php";
+require_once("dbh.php");
+$query = "SELECT * FROM `users`";
+$result = mysqli_query($conn, $query);
 
 ?>
 
@@ -16,11 +15,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styling.css">
     <title>View All Data</title>
-  <?php
-    if($_SESSION['user_type'] != 'administrator') {
-      header("location:./loginpage.php");
-    }
-  ?>
 </head>
 
 <body class="backgroundforadmin">
@@ -55,7 +49,7 @@
                             $LastName = $row['lastName'];
                             $point = $row['points'];
                             $UserEmail = $row['email'];
-                            $pwd = $row['Password'];
+                            $pwd = $row['password'];
                             $pic = $row['profilePic'];
                             $status = $row['status'];
                             $UserDate = $row['DoB'];
@@ -87,7 +81,7 @@
         </div>
     </div>
     <?php   //selects Id from userId and deletes it
-    include 'dbh.php';
+    require 'dbh.php';
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "DELETE FROM `users` WHERE userID = '$id'";
