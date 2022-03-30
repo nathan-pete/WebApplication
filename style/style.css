@@ -132,6 +132,8 @@ body {
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   font-weight: 600;
+  transition: 0.5s;
+
 }
 
 .dropdown {
@@ -160,14 +162,20 @@ body {
 .dropdown-content a:hover {
   background-color: #ddd;
   border-radius: 20px;
+  transition: 0.5s;
+
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  transition: 0.5s;
+
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  color: #0386FF;
+  transition: 0.5s;
+
 }
 
 /*-------------------------------Header End-------------------------------*/
@@ -182,6 +190,7 @@ body {
 
 .event-h {
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .event-p {
@@ -195,7 +204,7 @@ body {
 }
 
 .event-items {
-  padding: 1% 0 1% 0;
+  padding: 2% 0 2% 0;
   margin: 1% auto;
   background-color: rgba(255, 255, 255, 0.55);
   border-radius: 20px;
@@ -216,9 +225,9 @@ body {
 
 .event-img {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0 0 0 3%;
+  margin: 0 3% 0 3%;
 }
 
 .event-items:hover {
@@ -234,10 +243,17 @@ body {
 }
 
 .event-text {
-  margin-left: 3%;
+  margin: 0 0 0 5%;
   display: block;
   align-items: center;
 }
+
+.event-text-error {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
 
 /*-------------------------------Events End-------------------------------*/
 /*-------------------------------User Start-------------------------------*/
@@ -394,6 +410,14 @@ body {
   width: 25%;
   text-align: center;
   transition: 1s;
+}
+
+.del-sub  {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border-style: none;
 }
 
 .delete-profile a {
@@ -1954,7 +1978,7 @@ input[type=text], input[type=password] {
   justify-content: center;
 }
 
-.bettingBox{
+.bettingBox {
   transform: translate3D(0, -1px, 0);
   background-color: rgba(255, 255, 255, 0.71);
   text-align: center;

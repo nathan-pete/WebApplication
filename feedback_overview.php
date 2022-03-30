@@ -7,9 +7,9 @@
     <link href="./style/style.css" type="text/css" rel="stylesheet">
     <title>Overview</title>
     <!--Will be removed later -->
-    <style>
-            
-    </style>
+
+
+
 </head>
 <body>
     <div class="body">
@@ -21,13 +21,16 @@
     <?php
             
             
-            $sql = "SELECT * FROM feedback";
-            $stmt = mysqli_prepare($conn, $sql) OR DIE ("Preparation Error" . mysqli_error($conn));
-            mysqli_stmt_execute($stmt) OR DIE ("Error getting data");
-            //retrieving info
-            //think about changing it
-            $result = $stmt->get_result();
-        ?>
+        $sql = "SELECT * FROM feedback";
+        $stmt = mysqli_prepare($conn, $sql) OR DIE ("Preparation Error" . mysqli_error($conn));
+        mysqli_stmt_execute($stmt) OR DIE ("Error getting data");
+        //retrieving info
+        //think about changing it
+        $result = $stmt->get_result();
+        
+
+
+    ?>
         <h1 class="feedback-overview-heading">Feedback Overview</h1>
         
         <table id="table">
