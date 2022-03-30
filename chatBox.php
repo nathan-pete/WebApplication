@@ -36,12 +36,23 @@ include "connect.php";
 					<span class="submit_txt_db" >Submit</span>
 			</form>
 	</div>
+	<div class = "Emojes">
+		 
+	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <input type="submit" name="smile" value = "smile" />
+            <input type="submit" name="laugh" value = "laugh"/>
+            <input type="submit" name="angry" value = "angry" />
+            <input type="submit" name="love" value = "love" />
+            <input type="submit" name="sad" value = "sad" />
+            <input type="submit" name="wink" value = "wink" />
+            <input type="submit" name="strong" value = "strong" />
+            </form>
+	</div>
 
 	<div class="chatbox">
 		<div style="height: 10px"></div>
 		<div class="main"></div>
 	</div>
 </div>
-
 </body>
 </html>
