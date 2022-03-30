@@ -20,8 +20,6 @@
         .space-delete {
           margin: 17.3%;
         }
-
-
       </style>";
   ?>
 </head>

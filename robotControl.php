@@ -5,6 +5,16 @@
 		header("location: ./loginpage.php");
 		die();
 	}
+	
+	$ips = [
+			1 => "192.168.10.105",
+			2 => "192.168.10.106",
+			3 => "192.168.10.107",
+			4 => "192.168.10.108",
+			5 => "192.168.10.109"
+	];
+	
+	$ipAddress = $ips[$_SESSION["serialNr"]];
 ?>
 
 <!doctype html>
@@ -54,7 +64,7 @@
 <div class="main"></div>
 
 <?php
-	$ipAddress = "192.168.10.109";
+	//$ipAddress = "192.168.10.109";
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		foreach ($_POST as $postRequest) {
 			if (isset($postRequest)) {

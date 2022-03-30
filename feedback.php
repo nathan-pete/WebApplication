@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +13,9 @@
 <body>
     <div class="body">
     <?php
-    require("header.php");
-    require "connect.php";
-    session_start();
+    include "header.php";
+    require_once "connect.php";
+   
     ?>
     
     <div class="main-feed">
@@ -81,7 +84,7 @@
                         $future_eve = $_POST['future_eve'];
                         $role_event = $_POST['role_event'];
                         $email = $_POST['email'];
-                        //Checking if there is image
+                        //Checking if there is message
                         if(!empty($_POST['additional_message'])){
                             $additional_message = $_POST['additional_message'];
                         }
