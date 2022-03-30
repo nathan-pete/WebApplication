@@ -28,7 +28,7 @@
 				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
 					$sql = "SELECT DoB FROM users WHERE userID = ?";
 					if ($stmt = mysqli_prepare($conn, $sql)) {
-                        $userID = $_SESSION['userId'];
+                        $userID = $_SESSION['userID'];
 						$stmt->bind_param('i', $userID);
 						if (mysqli_stmt_execute($stmt)) {
 							mysqli_stmt_bind_result($stmt, $dateOfBirth);
