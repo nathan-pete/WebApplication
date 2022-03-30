@@ -136,7 +136,7 @@
 											$viewer_password = $_POST['password_viewer'];
 											//using function to verify password
 											if (password_verify($viewer_password, $password_db)) {
-												$_SESSION ['userId'] = $id;
+												$_SESSION ['userID'] = $id;
 												$_SESSION ['loggedIn'] = 1;
 												$_SESSION ['userName'] = $userName;
 
