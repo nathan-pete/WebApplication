@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	session_destroy();
+	//session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,8 +16,10 @@
 		<?php
 			include "header.php";
 		?>
-		<h1>You are now logged out!</h1><br>
-		<a href="index.php">Back</a>
+        <div class="logout-container">
+            <h1>You are now logged out!</h1><br>
+            <a href="index.php">Back</a>
+        </div>
 	</div>
 	<?php
 		include "footer.html";
