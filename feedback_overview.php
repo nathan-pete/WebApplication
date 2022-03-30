@@ -29,7 +29,8 @@
         mysqli_stmt_execute($stmt) OR DIE ("Error getting data");
         //retrieving info
         //think about changing it
-        $result = $stmt->get_result();
+        //$result = $stmt->get_result();
+        $result = mysqli_stmt_get_result($stmt);
         
 
 

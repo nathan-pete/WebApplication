@@ -7,7 +7,6 @@
     session_start();
 
     include 'connect.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +45,20 @@
             <input type="submit" name="strong" value = "strong" />
             </form>
 
+            <script>
+            $(function () {
+              setInterval(function () {
+                  $.ajax({
+                      type: "post",
+                      url: "sendRequest.php",
+                      success: function (data) {
+                          $(".main").html(data);
+                          //do something with response data
+                      }
+                  });
+              }, 2000);
+            </script>
             <?php
-
                         $userID = 1;
                         $query ="SELECT `points` FROM users WHERE userID = ?";
                         if ($stmt = mysqli_prepare($conn, $query)) {
@@ -69,7 +80,7 @@
                                     //echo $userID;
                                     //echo $newPoints;
                                     echo "<form action='spentPoints.php' method='POST'>
-                                        <textarea id='test' name = 'comments' rows='10' cols='50';>$message</textarea>
+                                        <textarea name = 'comments' type = 'text'  rows='10' cols='50';>$message</textarea>
                                         <input type='submit' name='submit'>
                                     </form>";
                                     if (mysqli_stmt_execute($sql))
@@ -267,7 +278,7 @@
                             }
                           }
                         }
-                        
+
                               if (isset($_POST["submit"])) {
                                 //$smile = $_GET['smile'];
                                 //var_dump($_POST);

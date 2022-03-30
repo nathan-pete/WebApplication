@@ -24,7 +24,8 @@
             mysqli_stmt_execute($stmt) OR DIE ("Error getting data");
             //retrieving info
             //think about changing it
-            $result = $stmt->get_result();
+            //$result = $stmt->get_result();
+            $result = mysqli_stmt_get_result($stmt);
             
         ?>
         <h1 class="contact-overview-heading">Contact Overview</h1>
@@ -46,7 +47,7 @@
                     $message = $row['Message'];
                     $image_problem = $row['image_problem'];
                     $email = $row['email'];
-                    include "delete_contact.php";
+                    //include "delete_contact.php";
 
                 
             ?>

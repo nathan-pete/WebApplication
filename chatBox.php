@@ -54,6 +54,5 @@ include "connect.php";
 		<div class="main"></div>
 	</div>
 </div>
-
 </body>
 </html>
