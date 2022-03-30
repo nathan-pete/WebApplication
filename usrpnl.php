@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,9 @@
   <link rel="icon" href="./assets/PBBwhite.png">
   <title>Battle Bot Events</title>
   <?php
+    if ($_SESSION['user_type'] != 'user') {
+      header("location:./loginpage.php");
+    }
     echo "
       <style>
         .header-style .nav .menu .login{
