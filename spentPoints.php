@@ -58,7 +58,9 @@
                                     mysqli_stmt_bind_param($sql, 'ii', $newPoints, $userID);
                                     //echo $userID;
                                     //echo $newPoints;
-                                    echo "<form><textarea>$message</textarea></form>";
+                                    echo "<form>
+                                    <textarea>$message</textarea>
+                                    </form>";
                                     if (mysqli_stmt_execute($sql))
                                     {
                                       mysqli_stmt_close($sql);
