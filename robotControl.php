@@ -1,11 +1,5 @@
 <?php
-	session_start();
-	
-	if (!isset($_SESSION["robotID"])) {
-		header("location: ./loginpage.php");
-		die();
-	}
-	
+
 	$ips = [
 			1 => "192.168.10.105",
 			2 => "192.168.10.106",
@@ -13,8 +7,8 @@
 			4 => "192.168.10.108",
 			5 => "192.168.10.109"
 	];
-	
-	$ipAddress = $ips[$_SESSION["serialNr"]];
+
+	$ipAddress = $ips[$_SESSION["serialNum"]];
 ?>
 
 <!doctype html>
@@ -56,10 +50,6 @@
 </form>
 
 <div style="height: 40px"></div>
-
-<label for="message">Enter your message!</label>
-<input type="text" name="message" id="message">
-<span class="submit_txt_db">Submit</span>
 
 <div class="main"></div>
 

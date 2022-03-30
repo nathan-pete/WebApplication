@@ -25,7 +25,7 @@ include "connect.php";
 		$result = mysqli_query($conn,$query);
 
 		// Echo session variables that were set on previous page
-		echo "<p>"."Hello " . $_SESSION ['loggedIn'] ."</p>";
+		echo "<p>"."Hello " . $_SESSION ['userName'] ."</p>";
 		?>
 	</div>
 
