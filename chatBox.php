@@ -54,6 +54,6 @@ include "connect.php";
 		<div class="main"></div>
 	</div>
 </div>
-
+<?php include "spentPoints.php"?>
 </body>
 </html>
