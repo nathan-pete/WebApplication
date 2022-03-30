@@ -10,19 +10,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style/style.css" type="text/css" rel="stylesheet">
   <title>Login</title>
+  <?php
+    include "connect.php";
+    echo "
+                <style>
+                    .header-style .nav .menu .login{
+                    color: #83c0ff;
+                    }
+                    .header-style .nav .menu .login:hover{
+                    color: #0386FF;
+                    text-decoration: none;
+                    }
+                    .login-bttn-viewer input a{
+                      text-decoration: none;
+                    }
+
+                </style>
+            ";
+  ?>
 </head>
 <body>
 <?php
   require "header.php";
   require "connect.php";
 
-  // Checking if user is logged in
+  /*// Checking if user is logged in
   if (isset($_SESSION['loggedIn'])) {
-    header("location: index.php");
+    //header("location: index.php");
     exit;
   } else {
     $_SESSION['loggedIn'] = 0;
-  }
+  }*/
 
   include_once "header.php";
   require_once "connect.php";
@@ -30,17 +48,19 @@
 
 ?>
 <div class="main-content">
-  <h1 class="main-content-heading">Login</h1>
+  <div class="login-title">
+    <h1 style="">Events</h1>
+  </div>
   <div class="space-event"></div>
   <div class="logins">
     <div class="div-robot-login">
       <h1 class="robot-log-heading">I have a Robot</h1>
       <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
         <!--Serial number-->
-        <input type="text" name="serialnum_robot" min="1" placeholder="Serial No." class="agestylebox">
+        <input type="text" name="serialnum_robot" min="1" placeholder="Serial No." class="loginbox">
         <br>
         <!--Password-->
-        <input type="password" placeholder="Enter Password" name="password_robot" id="psw">
+        <input type="password" placeholder="Enter Password" name="password_robot" class="loginbox">
         <br>
         <?php
           //Robot login
@@ -91,7 +111,7 @@
         ?>
         <!--Login-->
         <!--<input type="submit" class="registerbtn" name="register" value="Login">-->
-        <a class="login-bttn-robot" href="#">
+        <a class="login-bttn-viewer" href="#">
           <span></span>
           <span></span>
           <span></span>
@@ -105,7 +125,7 @@
           <span></span>
           Forgotten password
         </a>
-        <a class="register_new_t" href="url">Register a new Robot</a>
+        <a class="register_new_t" href="registerRobots.php">Register a new Robot</a>
       </form>
     </div>
 
@@ -113,10 +133,10 @@
       <h1 class="viewer-log-heading">I am a Viewer</h1>
       <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
         <!--Email-->
-        <input type="text" name="email" min="1" placeholder="Email" class="agestylebox">
+        <input type="text" name="email" min="1" placeholder="Email" class="loginbox">
         <br>
         <!--Password-->
-        <input type="password" placeholder="Enter Password" name="password_viewer" id="psw" required>
+        <input type="password" placeholder="Enter Password" name="password_viewer" class="loginbox" required>
         <br>
         <?php
           //viewer login
