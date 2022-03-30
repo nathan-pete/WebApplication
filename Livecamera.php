@@ -1,5 +1,6 @@
 <video id="video" autoplay="true"></video>
 <script>
+
 	let video=document.getElementById('video');
 	if(navigator.mediaDevices.getUserMedia) {
 		navigator.mediaDevices.getUserMedia({video:true})
@@ -15,9 +16,6 @@
     	console.log('No');
 
     }
-   
-
-
 
 </script>
 
