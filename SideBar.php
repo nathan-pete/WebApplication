@@ -22,7 +22,7 @@
     <br>
     <a href="commentpanel.php">Comments</a>
     <br>
-    <a href="feedback.php">FeedBack</a>
+    <a href="feedback_overview.php">FeedBack</a>
     <br>
     <a href="contact_admin_overview.php">Contact Panel</a>
     </div>
