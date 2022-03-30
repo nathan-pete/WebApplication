@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include "header.php";
+    require_once "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +13,6 @@
     <title>Edit Feedback</title>
 </head>
 <body>
-<?php
-    include "header.php";
-    require_once "connect.php";
-?>
 
 <?php
             $ID = $_GET['IDFeedback'];
