@@ -13,17 +13,20 @@
 </head>
 <body>
 <?php
+  require "header.php";
+  require "connect.php";
+
+  // Checking if user is logged in
+  if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
+    header("location: loginpage.php");
+    exit;
+  } else {
+      $_SESSION['loggedIn'] = 0;
+  }
+
 	include_once "header.php";
 	require_once "connect.php";
-	
-	// Checking if user is logged in
-	if (isset($_SESSION["loggedIn"])) {
-		header("location: index.php");
-		exit;
-	}
-	//	else {
-	//		$_SESSION['loggedIn'] = 0;
-	//	}
+
 
 
 ?>
@@ -63,14 +66,14 @@
 											echo "You are now logged in!";
 											// Redirect user to welcome page
 											header("refresh:3; url=./index.php");
-											
+
 										} else {
 											$error = "Wrong password!";
 										}
 									} else {
 										$error = "Wrong Email";
 									}
-									
+
 								} else {
 									echo "Something went wrong executing statement";
 									die(mysqli_error($conn));
@@ -105,7 +108,7 @@
 				<a class="register_new_t" href="url">Register a new Robot</a>
 			</form>
 		</div>
-		
+
 		<div class="div-viewer-login">
 			<h1 class="viewer-log-heading">I am a Viewer</h1>
 			<form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
@@ -136,22 +139,22 @@
 												$_SESSION ['userId'] = $id;
 												$_SESSION ['loggedIn'] = 1;
 												$_SESSION ['userName'] = $userName;
-												
+
 												if ($status == "administrator") {
-													
+
 													header("Location: Admin.php");
 												} elseif ($status == "user") {
 													// Redirect user to welcome page
 													header("Location: index.php");
 												}
-												
+
 											} else {
 												$error = "Wrong password!";
 											}
 										} else {
 											$error = "Wrong Email";
 										}
-										
+
 									} else {
 										echo "Something went wrong executing statement";
 										die(mysqli_error($conn));
@@ -192,7 +195,15 @@
 	</div>
 </div>
 <?php
-	require 'footer.html'
+  require 'footer.html';
+  if ($_SESSION["loggedIn"] == 1) {
+    header("location: index.php");
+    exit;
+  } else {
+      $_SESSION['loggedIn'] = 0;
+  }
+
+
 ?>
 </body>
 </html>
