@@ -1,5 +1,7 @@
 <?php
-  session_start();
+    session_start();
+    require "connect.php";
+    include "Sidebar.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +18,7 @@
 </head>
 <body>
     <div class="body">
-    <?php
-        require "connect.php";
-        include "Sidebar.php";
-        session_start();
-    ?>
+
     <?php
             
             
