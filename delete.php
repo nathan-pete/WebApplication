@@ -20,8 +20,6 @@
         .space-delete {
           margin: 17.3%;
         }
-
-
       </style>";
   ?>
 </head>
@@ -56,7 +54,7 @@
                   if ($stmt = mysqli_prepare($conn, $sql)) {
                     mysqli_stmt_bind_param($stmt, 'i', $userID);
                     if (mysqli_stmt_execute($stmt)) {
-                      $message =  "Record deleted successfully";
+                      $message = "Record deleted successfully";
 
                     } else {
                       echo "Error deleting record: " . mysqli_error($conn);
