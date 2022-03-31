@@ -1,12 +1,8 @@
 <?php
-
 	require "connect.php";
 	session_start();
-
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 		$messages = [];
-
 		try {
 			$conn = new mysqli ($servername, $username, $password, "webapp");
 
@@ -18,7 +14,6 @@
 			while ($sql->fetch()) {
 				$messages[] = $message;
 			}
-
 			$sql->close();
 		} catch (Exception $e) {
 			echo "Error! " . $e;
