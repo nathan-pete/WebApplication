@@ -114,7 +114,6 @@
                                         mysqli_stmt_close($stmt);
                                         mysqli_close($conn);
                                         echo "<p><a href='index.php'>&lt;&lt; Back to home page</a></p>";
-                                        echo $target_file_main;
                                         //die();
                                     }else {
                                         echo '<span style="color:red;text-align:center;font-size:18px;">Error uploading picture</span>';
