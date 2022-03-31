@@ -17,17 +17,17 @@ include "connect.php";
 	<script>
 		$(function(){
 			var smiles = {
-				"smile" : "(❛ ͜ʖ ͡❛)",
-				"laugh" : "laugh",
-				3 : "angry",
-				4 : "love",
-				5 : "sad",
-				6 : "wink",
-				7 : "strong"
+         		"smile" : "(❛ ͜ʖ ͡❛)",
+         		"laugh" : "( ͡❛ ⏥ ͡❛)",
+         		"angry" : "(︡* ⏥*︠)",
+         		"love" : "(ɔ◔‿◔)ɔ ♥",
+         		"sad" : "( ˘︹˘ )",
+         		"wink" : "(>‿◠)✌",
+         		"strong" : "(ง︡'-'︠)ง"
 			};
 
 			$(".smile").on("click", function () {
-				console.log($(this).());
+				console.log($(this).attr());
 				let smileText = smiles[$(this).attr()];
 				$("#message").text(smileText);
 			})
@@ -51,7 +51,7 @@ include "connect.php";
 	<div class="chatenter">
 			<form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
 					<label for="message">Enter your message!</label>
-					<input type="text" name="message" id="message">
+					<div type="text" name="message" id="message"></div>
 					<span class="submit_txt_db" >Submit</span>
 			</form>
 	</div>
@@ -67,13 +67,13 @@ include "connect.php";
 		<input type="submit" class="smile" name="strong" value = "strong" />
     </form> -->
 
-		<div class="smile" name="smile" value="smile">smile</div>
-		<div class="smile" name="laugh" value = "laugh">laugh</div>
-		<div class="smile" name="angry" value = "angry">angry</div>
+		<div class="smile" name="smile" value = "smile">smile</div>
+		<div class="smile" name="laugh" value = "laugh"></div>
+		<div class="smile" name="angry" value = "angry"></div>
 		<div class="smile" name="love" value = "love"></div>
 		<div class="smile" name="sad" value = "sad"></div>
 		<div class="smile" name="wink" value = "wink"> </div>
-		<div class="smile" name="strong" value = "strong"> </div>
+		<div class = "smile" name="strong" value = "strong"> </div>
 	</div>
 
 	<div class="chatbox">
