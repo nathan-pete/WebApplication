@@ -13,16 +13,16 @@
   <?php
     include "connect.php";
     echo "
-                <style>
-                    .header-style .nav .menu .home{
-                    color: #83c0ff;
-                    }
-                    .header-style .nav .menu .home:hover{
-                    color: #0386FF;
-                    text-decoration: none;
-                    }
-                </style>
-            ";
+      <style>
+        .header-style .nav .menu .home{
+          color: #83c0ff;
+        }
+        .header-style .nav .menu .home:hover{
+          color: #0386FF;
+          text-decoration: none;
+        }
+      </style>
+    ";
   ?>
 </head>
 <body>
