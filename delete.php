@@ -1,3 +1,29 @@
+<?php
+  session_start();
+  include_once "./Utils/userDB.php";
+  include "connect.php";
+
+  if (isset($_POST['submit'])) {
+    $sql = "DELETE FROM users WHERE userID = ?";
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+      $userID = $_SESSION ['userID'];
+      mysqli_stmt_bind_param($stmt, 'i', $userID);
+      if (mysqli_stmt_execute($stmt)) {
+        session_destroy();
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+        header('Location: index.php');
+      } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+        mysqli_close($conn);
+      }
+    } else {
+      echo "Error preparing: " . mysqli_error($conn);
+      mysqli_close($conn);
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +53,6 @@
 <div class="body">
   <?php
     include_once "./header.php";
-    include_once "./Utils/userDB.php";
-    include "connect.php";
   ?>
   <div class="space-delete"></div>
   <div class="user-content">
@@ -47,28 +71,7 @@
           <div class="delete-profile">
             <form action="delete.php" method="post">
               <input type="submit" name="submit" value="Yes" class="del-sub">
-              <?php
-                if (isset($_POST['submit'])) {
-                  $sql = "DELETE FROM users WHERE userID = ?";
-                  $userID = 13;
-                  if ($stmt = mysqli_prepare($conn, $sql)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $userID);
-                    if (mysqli_stmt_execute($stmt)) {
-                      session_start();
-	                    session_destroy();
-                      header ('Location: index.php');
-                    	session_destroy();
 
-                    } else {
-                      echo "Error deleting record: " . mysqli_error($conn);
-                    }
-                  } else {
-                    echo "Error preparing: " . mysqli_error($conn);
-                  }
-                  mysqli_stmt_close($stmt);
-                  mysqli_close($conn);
-                }
-              ?>
 
             </form>
           </div>
