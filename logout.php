@@ -16,9 +16,11 @@
   <?php
     include "header.php";
   ?>
-  <div class="logout-container">
-    <h1>You are now logged out!</h1><br>
-    <h2><a href="index.php">Back</a></h2>
+  <div class="morelogout">
+    <div class="logout-container">
+      <h1 class="logout-h">You are now logged out!</h1><br>
+      <a href="index.php"><h2 class="logout-p">Back</h2></a>
+    </div>
   </div>
 </div>
 <?php
