@@ -616,7 +616,9 @@ body {
   align-items: center;
   justify-content: left;
   color: whitesmoke;
+  font-size: 20px;
   font-family: 'boycott', sans-serif;
+  
 }
 
 #indexCenterSubtitle {
@@ -1113,7 +1115,7 @@ a.animated-button.victoria-two:after {
 }
 
 .space-indx {
-  margin: 15%;
+  margin: -5%;
 }
 
 .row {
@@ -1924,26 +1926,33 @@ p .del-sub {
 
 
 /* Logout page start*/
-.logout-container h1, h2 {
-  margin-top: 3em;
-  height: 66vh;
-  margin-bottom: 2.6em;
+.logout-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Obitron", sans-serif;
-
-
 }
 
-.logout-container {
+.logout-h {
+  font-family: "Obitron", sans-serif;
+}
 
+.logout-p {
 }
 
 .logout-container a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.68);
+}
+
+.morelogout {
+  height: 77vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Obitron", sans-serif;
+
 }
 
 /*------------------------ADMIN--------------*/
