@@ -81,13 +81,13 @@
       mysqli_stmt_close($stmt);
     ?>
   </div>
+  <div class="space-indx"></div>
 </div>
-<div class="indexScrollSpacer"></div>
-
-<div class="space-indx"></div>
 <div id="indexMoreButton">
   <p><a class="indexa" href="loginpage.php"><b>Login</b></a></p>
 </div>
+
+
 <?php
   include_once "footer.html";
 ?>
