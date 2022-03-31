@@ -21,3 +21,4 @@ session_start();
 <?php
 $_SESSION['administrator']= "hello admin";
 ?>
+
