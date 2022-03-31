@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,25 +29,23 @@
   <?php
     include_once "header.php";
   ?>
+  <div class="space-event"></div>
+
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Leaderboard</h1>
     <div class="space-event"></div>
-    <p class="leadnote">**Note: Leaderboard Refresh every Two seconds**</p>
   </div>
-  <div class="space-event"></div>
   <div class="center">
     <table class="leaderboard">
+      <script>
+        setInterval(function () {
+          $('.leaderboard').load('./Utils/lbdData.php');
+        }, 0)
+      </script>
     </table>
   </div>
 </div>
-<script>
-    setInterval(function () {
-        $('.leaderboard').load('./Utils/lbdData.php');
-    }, 2000)
-</script>
 <div class="space-pass"></div>
-
-
 <br>
 <?php
   include_once "footer.html";

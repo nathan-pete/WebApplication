@@ -1,5 +1,6 @@
 <?php
 include "SideBar.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +11,14 @@ include "SideBar.php";
     <link rel="stylesheet" href="styling.css">
     <title>Home Page</title>
 </head>
-<body>    <h1 class="TitleforAdminPage">Hello Admin!</h1>
+<body>    
     <div class="backgroundforadmin">
         <h1 class="TitleforAdminPage">Hello Admin!</h1>
    </div>
+   
 </body>
 </html>
+<?php
+$_SESSION['administrator']= "hello admin";
+?>
+

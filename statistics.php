@@ -51,7 +51,7 @@
 
             setcookie('visitCounter', $visitCounter+1,  time()+3600);
 
-            setcookie('lastVisit', date("d-m-Y H:i:s"),  time()+3600);
+            setcookie('lastVisit', date("d-m-Y"),  time()+3600);
 
             if($visitCounter == 0){
                 echo "Welcome to the page, we are glad to see you!";

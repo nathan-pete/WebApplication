@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./style/style.css">
 		<title>Bets</title>
+      <?php
+        if($_SESSION['user_type'] != 'user') {
+          header("location:./loginpage.php");
+        }
+      ?>
 	</head>
 	<body>
         <div class="body">
@@ -18,6 +26,12 @@
                 <form method="POST" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <?php
                       include "connect.php";
+                      if (isset($_POST['picture'])) {
+                        $startIndex = $_POST["name"];
+                      } else {
+                          $startIndex = "";
+                      }
+                      
                       //pull from db into drop down all robot names
                       echo "<p><label for='name'>Robot Name</label></p>";
                       echo "<select name='name' value='Robot Name'>";
@@ -27,17 +41,20 @@
                           if (mysqli_stmt_execute($stmt)) { //execute the statement
                             $result =  mysqli_stmt_get_result($stmt); //get result
                             foreach ($result as $row){
-                              echo "<option value=$row[robotName]>$row[robotName]</option>";
+                              echo "<option value='$row[robotName]' "; if($startIndex == $row["robotName"]) {echo "selected";}; echo ">$row[robotName]</option>";
                               /* Option values are added by looping through the array */
                             }
                             mysqli_stmt_close($stmt);
                           } else {
                               echo "Error executing: " . mysqli_error($conn);
+                              mysqli_close($conn);
                           }
                         } else {
                             echo "Error preparing: " . mysqli_error($conn);
+                            mysqli_close($conn);
                         }
                       echo "</select>";
+                      
                       echo "<p><input type='submit' name='picture' value='Picture of the robot' class='input-bttn'></p>";
                       if (isset($_POST['picture'])) {
                           //if a certain robot name is selected show it's picture
@@ -46,21 +63,24 @@
                           $robotName = $_POST['name'];
                           mysqli_stmt_bind_param($stmt, "s", $robotName);
                           if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_store_result($stmt);
                             mysqli_stmt_bind_result($stmt, $result);
-                            mysqli_stmt_fetch($stmt);
-                            if ($result == NULL) {
-                              echo "<div class='betmsg'>Sorry, this robot has no available pictures.</div><div class='space-event'></div><br>";
-                            } else {
-                              echo "<p><img src='./uploads/robots/" . $result . "' alt='Picture of the robot'></p>";
+                            mysqli_stmt_store_result($stmt);
+                            while (mysqli_stmt_fetch($stmt)) {
+                                if ($result == NULL) {
+                                  echo "<div class='betmsg'>Sorry, this robot has no available pictures.</div><div class='space-event'></div><br>";
+                                } else {
+                                  echo "<p><img src='./uploads/robots/" . $result . "' alt='Picture of the robot'></p>";
+                                }
                             }
+                            mysqli_stmt_close($stmt);
                           } else {
                             echo "Error executing" . mysqli_error($conn);
+                            mysqli_close($conn);
                           }
                          } else {
                            echo "Error preparing: " . mysqli_error($conn);
+                           mysqli_close($conn);
                          }
-                        mysqli_stmt_close($stmt);
                       }
                     ?>
                     <p><label for="amount">Bet amount</label></p>
@@ -80,18 +100,21 @@
                             echo "<option value=$row[name]>$row[name]</option>";
                             /* Option values are added by looping through the array */
                           }
+                          mysqli_stmt_close($stmt);
                         } else {
                           echo "Error executing" . mysqli_error($conn);
+                          mysqli_close($conn);
                         }
                       } else {
                         echo "Error preparing" . mysqli_error($conn);
+                        mysqli_close($conn);
                       }
                       echo "</select>";
-                      mysqli_stmt_close($stmt);
+                      
                       echo "<p><input type='submit' name='bet' value='Place Bet' class='input-bttn'></p>";
                       if (isset($_POST['bet'])) {
                         if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
-                          $id = 1;
+                          $id = $_SESSION['user_Id'];
                           $robotName = $_POST['name'];
                           $gameName = $_POST['game'];
                           $place = $_POST['place'];
@@ -115,28 +138,37 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                           mysqli_stmt_close($stmt); //close statement
                                           mysqli_close($conn); // close connection
+                                          mysqli_close($conn);
                                           echo "Your bet is placed!";
                                         } else {
                                           echo "Error preparing: " . mysqli_error($conn);
+                                          mysqli_close($conn);
                                         }
                                       } else {
                                         echo "Error preparing: " . mysqli_error($conn);
+                                        mysqli_close($conn);
                                       }
                                     } else {
                                       echo "Error: " . mysqli_error($conn);
+                                      mysqli_close($conn);
                                     }
                                   } else {
                                     echo "Error preparing: " . mysqli_error($conn);
+                                    mysqli_close($conn);
                                   }
                                 } else {
                                   echo "You don't have enough points!";
+                                  mysqli_close($conn);
                                 }
                               }
+                              mysqli_stmt_close($stmt);
                             } else {
                               echo "Error: " . mysqli_error($conn);
+                              mysqli_close($conn);
                             }
                           } else {
                             echo "Error preparing: " . mysqli_error($conn);
+                            mysqli_close($conn);
                           }
                         } else {
                             echo "Please fill in all the fields!";

@@ -27,5 +27,20 @@
                 $("#message").val("");
             }
         });
-    })
+    });
+
+     var smiles = {
+         "smile" : "(❛ ͜ʖ ͡❛)",
+         "laugh" : "( ͡❛ ⏥ ͡❛)",
+         "angry" : "(︡* ⏥*︠)",
+         "love" : "(ɔ◔‿◔)ɔ ♥",
+         "sad" : "( ˘︹˘ )",
+         "wink" : "(>‿◠)✌",
+         "strong" : "(ง︡'-'︠)ง"
+    };
+
+     $(".smile").on("click", function () {
+         let smileText = smiles[$(this).text()];
+         $("#message").text(smileText);
+     })
 })

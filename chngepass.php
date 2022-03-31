@@ -9,15 +9,14 @@
       if (mysqli_stmt_execute($stmt)) {
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_array($result);
-        //$currpass = password_hash($_POST['currentPassword'], PASSWORD_DEFAULT); //hash password
         $newpass = password_hash($_POST['newPassword'], PASSWORD_DEFAULT); //hash password
         if (password_verify($_POST['currentPassword'], $row["password"])) {
-          header("refresh:3; url=./usrpnl.php");
           $sql = "UPDATE users SET password = ? WHERE userID = ?";
           if ($stmt = mysqli_prepare($conn, $sql)) {
             mysqli_stmt_bind_param($stmt, "si", $newpass, $id);
             if (mysqli_stmt_execute($stmt)) {
-              $message = "<div class='passmsgsuc'>Password Changed</div>";
+              $message = "<div class='passmsgsuc'>Password Changed<br>Page will redirect in 3 seconds</div>";
+              header("refresh:3; url=./usrpnl.php");
             } else {
               echo "Error: " . mysqli_error($conn);
             }
@@ -57,30 +56,30 @@
       </style>";
   ?>
   <script>
-      function validatePassword() {
-          let currentPassword, newPassword, confirmPassword, output = true;
+    function validatePassword() {
+      let currentPassword, newPassword, confirmPassword, output = true;
 
-          currentPassword = document.frmChange.currentPassword;
-          newPassword = document.frmChange.newPassword;
-          confirmPassword = document.frmChange.confirmPassword;
+      currentPassword = document.frmChange.currentPassword;
+      newPassword = document.frmChange.newPassword;
+      confirmPassword = document.frmChange.confirmPassword;
 
-          if (!currentPassword.value) {
-              currentPassword.focus();
-              document.getElementById("currentPassword").innerHTML = "<h4><br>Current Password Required</h4>";
-              output = false;
-          } else if (!newPassword.value) {
-              newPassword.focus();
-              document.getElementById("newPassword").innerHTML = "<h4><br>New Password Required</h4>";
-              output = false;
-          } else if (newPassword.value != confirmPassword.value) {
-              newPassword.value = "";
-              confirmPassword.value = "";
-              newPassword.focus();
-              document.getElementById("confirmPassword").innerHTML = "<h4><br>Passwords do not match</h4>";
-              output = false;
-          }
-          return output;
+      if (!currentPassword.value) {
+        currentPassword.focus();
+        document.getElementById("currentPassword").innerHTML = "<h4><br>Current Password Required</h4>";
+        output = false;
+      } else if (!newPassword.value) {
+        newPassword.focus();
+        document.getElementById("newPassword").innerHTML = "<h4><br>New Password Required</h4>";
+        output = false;
+      } else if (newPassword.value !== confirmPassword.value) {
+        newPassword.value = "";
+        confirmPassword.value = "";
+        newPassword.focus();
+        document.getElementById("confirmPassword").innerHTML = "<h4><br>Passwords do not match</h4>";
+        output = false;
       }
+      return output;
+    }
   </script>
 </head>
 <body>

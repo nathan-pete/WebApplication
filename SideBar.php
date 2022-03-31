@@ -9,15 +9,24 @@
 </head>
 <body class="backgroundsidebar">
     <div class="Sidebar">
+    <div>
+    <img src="Jarvis.gif" class="jarvis">
+    </div>
     <a href="Admin.php" clas>Admin Home</a>
     <br>
-    <a href="Userpanel.php">User Panel</a>
+    <a href="Userpaneladmin.php">User Panel</a>
     <br>
     <a href="Index.php">Live stream</a>
     <br>
     <a href="Robotpanel.php">Robot Panel</a>
     <br>
     <a href="commentpanel.php">Comments</a>
+    <br>
+    <a href="feedback_overview.php">FeedBack</a>
+    <br>
+    <a href="contact_admin_overview.php">Contact Panel</a>
     </div>
+    
 </body>
 </html>
+>>>>>>> c9b8c9a433916873af303092d9af82b4b5b4dadf

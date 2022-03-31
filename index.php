@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -8,62 +11,85 @@
   <title>Project Battle Bots</title>
   <!--Highlight the page the user has open. Home in this case-->
   <?php
+    include "connect.php";
     echo "
-            <style>
-                .header-style .nav .menu .home{
-                color: #83c0ff;
-                }
-                .header-style .nav .menu .home:hover{
-                color: #0386FF;
-                text-decoration: none;
-                }
-            </style>";
+      <style>
+        .header-style .nav .menu .home{
+          color: #83c0ff;
+        }
+        .header-style .nav .menu .home:hover{
+          color: #0386FF;
+          text-decoration: none;
+        }
+      </style>
+    ";
   ?>
 </head>
 <body>
-<?php include_once "header.php"; ?>
-<br>
+<?php
+  include_once "header.php";
+?>
+<div class="space-pass"></div>
 <div id="indexContainer">
   <div id="indexCenterGallery">
     <div id="indexCenterTitle">
       <h1>Project <br> Battle Bots</h1>
     </div>
-
-
     <div id="indexCenterImage">
       <img src="./assets/PBBblack.png" alt="Battle bot" width="55%">
     </div>
   </div>
-
   <!--Scroll group title-->
   <div id="indexScrollTitle">
     <h2>Welcome to Project Battle Bots!</h2>
   </div>
   <!--Scroll group-->
-  <div id="indexScrollGroup">
-    <!--PHP is used to allow easier connection to DB, which stores pictures os robots-->
+  <div class="indexScrollGroup">
     <?php
-      
-        echo '
-                        <div class="indexScrollItem">
-                            <a href="profilerobot.php"><img src="./assets/PBBblack.png" alt="Battle bot small" class="index-img"></a> 
-                        </div>
-    
-                        <!--An empty div to space items apart-->
-                        <div class="indexScrollSpacer"></div>';
-      
+      //<a href="profilerobot.php?robotName=First"></a>
+      $sql = "SELECT robotName, robotPicture FROM robots";
+      if ($stmt = mysqli_prepare($conn, $sql)) {
+        if (mysqli_stmt_execute($stmt)) {
+          mysqli_stmt_bind_result($stmt, $robotName, $robotPicture);
+          mysqli_stmt_store_result($stmt);
+          while (mysqli_stmt_fetch($stmt)) {
+            if ($robotPicture == NULL) {
+              echo '
+                <div class="indexScrollItem">
+                  <a href="profilerobot.php?robotName=' . $robotName . '">
+                    <h4>' . $robotName . '</h4>
+                  </a>
+                </div>';
+            } else {
+              echo '
+                <div class="indexScrollItem">
+                  <a href="profilerobot.php?robotName=' . $robotName . '">
+                    <h4>' . $robotName . '</h4>
+                    <img src="./uploads/robots/' . $robotPicture . '" alt="Picture of the robot" class="index-img">
+                  </a>
+                </div>';
+            }
+          }
+        } else {
+          echo "Error executing" . mysqli_error($conn);
+          mysqli_close($conn);
+        }
+      } else {
+        echo "Error preparing: " . mysqli_error($conn);
+        mysqli_close($conn);
+      }
+      mysqli_stmt_close($stmt);
     ?>
   </div>
-
 </div>
+<div class="indexScrollSpacer"></div>
+
 <div class="space-indx"></div>
 <div id="indexMoreButton">
-  <p><a class="indexa" href="#"><b>More!</b></a></p>
+  <p><a class="indexa" href="loginpage.php"><b>Login</b></a></p>
 </div>
-
-<?php include_once "footer.html"; ?>
-
-
-
+<?php
+  include_once "footer.html";
+?>
 </body>
 </html>

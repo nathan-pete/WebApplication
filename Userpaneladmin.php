@@ -27,6 +27,7 @@ $result = mysqli_query($conn, $query);
                         <tr>
                             <td class="td"> User ID </td>
                             <td class="td"> User Name </td>
+                            <td class="td"> User FirstName </td>
                             <td class="td"> User LastName </td>
                             <td class="td"> Points </td>
                             <td class="td"> User Email </td>
@@ -48,7 +49,7 @@ $result = mysqli_query($conn, $query);
                             $LastName = $row['lastName'];
                             $point = $row['points'];
                             $UserEmail = $row['email'];
-                            $pwd = $row['Password'];
+                            $pwd = $row['password'];
                             $pic = $row['profilePic'];
                             $status = $row['status'];
                             $UserDate = $row['DoB'];
@@ -69,7 +70,7 @@ $result = mysqli_query($conn, $query);
                                 <td class="td"><?php echo $UserDate ?></td>
                                 <td class="td"><?php echo $votes ?></td>
                                 <td class="td"><a href="updateUser.php" class="td">Edit</a></td>
-                                <td class="td"><a href="Userpanel.php?id=<?php echo $row['userID']; ?>" class="td">Delete</a></td>
+                                <td class="td"><a href="Userpaneladmin.php?id=<?php echo $row['userID']; ?>" class="td">Delete</a></td>
                             </tr>
                         <?php
                         }
@@ -80,13 +81,13 @@ $result = mysqli_query($conn, $query);
         </div>
     </div>
     <?php   //selects Id from userId and deletes it
-    include 'dbh.php';
+    require 'dbh.php';
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "DELETE FROM `users` WHERE userID = '$id'";
         $run = mysqli_query($conn, $query);
         if ($run) {
-            header('location:Userpanel.php');
+            header('location:Userpaneladmin.php');
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -95,3 +96,4 @@ $result = mysqli_query($conn, $query);
 
 </body>
 </html>
+>>>>>>> c9b8c9a433916873af303092d9af82b4b5b4dadf:Userpaneladmin.php
