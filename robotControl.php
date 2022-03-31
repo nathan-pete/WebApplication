@@ -72,6 +72,11 @@
 		foreach ($_POST as $postRequest) {
 			if (isset($postRequest)) {
 				$url = curl_init("http://" . $ipAddress . "/" . $postRequest); //  http://192.168.137.225/Request
+				curl_setopt_array($url, [
+						CURLOPT_HTTPGET => TRUE,
+						CURLOPT_CONNECTTIMEOUT => 1,
+						CURLOPT_TIMEOUT => 2
+				]);
 				curl_exec($url);
 				curl_close($url);
 				//echo $postRequest;
