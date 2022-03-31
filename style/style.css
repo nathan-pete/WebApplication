@@ -190,7 +190,6 @@ body {
 
 .event-h {
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .event-p {
@@ -392,7 +391,6 @@ body {
 .info a {
   text-decoration: none;
   color: white;
-
 }
 
 .usr-buttons .info:hover {
@@ -414,7 +412,8 @@ body {
 
 .del-sub {
   font-family: "Orbitron", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 15px;
   color: white;
   background: transparent;
   border-style: none;
@@ -422,16 +421,9 @@ body {
 
 .delete-profile a {
   text-decoration: none;
-  color: red;
-  transition: 1s;
-}
-
-.delete-profile a:hover {
-  text-decoration: none;
   color: white;
   transition: 1s;
 }
-
 
 .usr-buttons .delete-profile:hover {
   background-color: rgb(255, 0, 0);
@@ -643,11 +635,10 @@ body {
   justify-content: center;
 }
 
-#indexScrollTitle {
+#indexScrollTitle h2 {
   grid-row: 3/4;
   grid-column: 1/4;
   padding: 0 0 4% 0;
-
   color: #F1F2F1;
   font-family: 'Orbitron', 'sans-serif';
   display: flex;
@@ -1933,51 +1924,63 @@ p .del-sub {
 
 
 /* Logout page start*/
-.logout-container {
+.logout-container h1, h2 {
   margin-top: 3em;
-  height: 27em;
+  height: 66vh;
   margin-bottom: 2.6em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Obitron", sans-serif;
+
+
+}
+
+.logout-container {
+
 }
 
 .logout-container a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.68);
 }
+
 /*------------------------ADMIN--------------*/
 
-.chatbox{
-    width: 360px;
-    height: 400px;
-    border: 3px black solid;
-    overflow: auto;
-    border-radius: 5px;
+.chatbox {
+  width: 360px;
+  height: 400px;
+  border: 3px black solid;
+  overflow: auto;
+  border-radius: 5px;
 }
-.chatenter{
-    border: 3px black solid;
-    width: 360px;
-    height: auto;
-    border-radius: 5px;
+
+.chatenter {
+  border: 3px black solid;
+  width: 360px;
+  height: auto;
+  border-radius: 5px;
 }
-.ActiveRobots{
-    border: 3px black solid;
-    margin: 10%;
-    height: 300px;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 10px;
+
+.ActiveRobots {
+  border: 3px black solid;
+  margin: 10%;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
 }
-.RobotBoxActivitie{
-    margin: auto;
-    width: 120px;
-    height: 80px;
-    border: 3px black solid;
-    border-radius: 10px;
+
+.RobotBoxActivitie {
+  margin: auto;
+  width: 120px;
+  height: 80px;
+  border: 3px black solid;
+  border-radius: 10px;
 }
-.jarvis{
+
+.jarvis {
   width: 80px;
   height: 80px;
   border-radius: 45%;
@@ -1987,82 +1990,90 @@ p .del-sub {
   margin-left: 25px;
 }
 
-.lightred{
-    background-color: red;
-    border: 3px black solid;
-    border-radius: 30px;
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
+.lightred {
+  background-color: red;
+  border: 3px black solid;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
 }
-.lightgreen{
-    background-color: green;
-    border: 3px black solid;
-    border-radius: 30px;
-    width: 40px;
-    height: 40px;
-    margin-left: 50px;
+
+.lightgreen {
+  background-color: green;
+  border: 3px black solid;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
 }
+
 .Sidebar {
-    height: 100%;
-    width: 160px;
-    position:fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .Sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .Sidebar a:hover {
-    color: #f1f1f1;
-  }
-  .TitleforAdminPage{
-    width: 400px;
-    height: 400px;
-    font-size: 3.5em;
-    margin-left: 40%;
-    margin-top: 18%;
-  }
-  .td {
-    background-color:white;
-    padding: 10px;
-    width: 82px;
-    font-size: 0.8em;
-    text-decoration: none;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
-.Titlepanel{
-    background-color: rgb(63, 145, 184);
-    border: black 4px solid;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    margin-left: 160px;
-    text-decoration: none;
-    margin-top: 100px;
-    border-radius: 10px;
+
+.Sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
-.table{
+
+.Sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.TitleforAdminPage {
+  width: 400px;
+  height: 400px;
+  font-size: 3.5em;
+  margin-left: 40%;
+  margin-top: 18%;
+}
+
+.td {
+  background-color: white;
+  padding: 10px;
+  width: 82px;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+.Titlepanel {
+  background-color: rgb(63, 145, 184);
+  border: black 4px solid;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  margin-left: 160px;
+  text-decoration: none;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.table {
   border: 3px black solid;
   float: right;
   border-radius: 10px;
 }
-.tablecomment{
+
+.tablecomment {
   border: 3px black solid;
   margin-left: 300px;
 }
+
 body {
   /*background-color: black;*/
-  height: auto;  
+  height: auto;
   background: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
   radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
