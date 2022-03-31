@@ -59,8 +59,8 @@
                     <div class="event-img">
                       <img src="./uploads/games/' . $picture . '"class="tweak" alt="Battle Bot Game" height="101">
                       <div class="event-text">
-                        <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
-                        <p class=" event-p">' . $description . '</p>
+                        <h3 class="event-h" style="padding-bottom:0.5%;">' . strtoupper($name) . '</h3>
+                        <p class=" event-p">' . ucfirst($description) . '</p>
                       </div>
                     </div>
                 </div>
