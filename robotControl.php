@@ -1,14 +1,21 @@
 <?php
-
-	$ips = [
-			1 => "192.168.10.105",
-			2 => "192.168.10.106",
-			3 => "192.168.10.107",
-			4 => "192.168.10.108",
-			5 => "192.168.10.109"
-	];
-
-	$ipAddress = $ips[$_SESSION["serialNum"]];
+	session_start();
+	if (!isset($_SESSION["robotLoggedIn"])) {
+		//echo $_SESSION["robotLoggedIn"];
+		header("location: loginpage.php");
+	}
+	//	$ips = [
+	//			1 => "192.168.10.105",
+	//			2 => "192.168.10.106",
+	//			3 => "192.168.10.107",
+	//			4 => "192.168.10.108",
+	//			5 => "192.168.10.109",
+	//			6 => "192.168.10.110"
+	//	];
+	
+	//	$ipAddress = $ips[$_SESSION["serialNum"]];
+	
+	$ipAddress = $_SESSION["robotIP"];
 ?>
 
 <!doctype html>
@@ -26,23 +33,29 @@
 </head>
 
 <body>
-
+<h1>Hello <?= $_SESSION["robotName"] ?></h1>
 <form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
+	<!-- Same for everyone (but not everyone might use it) -->
 	<input type="submit" value="Forward" name="Forward">
 	<input type="submit" value="Back" name="Back">
 	<input type="submit" value="Stop" name="Stop">
 	<br><br>
+	<!-- Most probably not used in the game -->
 	<input type="submit" value="TurnLeft" name="TurnLeft">
 	<input type="submit" value="Turn90Left" name="Turn90Left">
 	<input type="submit" value="TurnRight" name="TurnRight">
 	<input type="submit" value="Turn90Right" name="Turn90Right">
 	<br><br>
+	<!-- Games (definitely used!!!) -->
 	<input type="submit" value="LineTrack" name="LineTrack">
 	<input type="submit" value="Maze" name="Maze">
+	<input type="submit" value="Race" name="Race">
 	<br><br>
+	<!-- NOT USED -->
 	<input type="submit" value="ScanNetwork" name="ScanNetwork">
 	<input type="submit" value="SendHTTPRequest" name="SendHTTPRequest">
 	<h3>Testing</h3>
+	<!-- Used by capture the flag, but are NOT buttons, only functionality configured in PHP -->
 	<input type="submit" value="findFlag" name="findFlag">
 	<input type="submit" value="giveFlag" name="giveFlag">
 	<input type="submit" value="turnLeftOrRight" name="turnLeftOrRight">
