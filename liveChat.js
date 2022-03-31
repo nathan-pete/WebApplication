@@ -40,7 +40,7 @@
     };
 
      $(".smile").on("click", function () {
-         let smileText = smiles[$(this).attr()];
+         let smileText = smiles[$(this).text()];
          $("#message").text(smileText);
      })
 })
