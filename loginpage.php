@@ -35,12 +35,12 @@
   require "connect.php";
 
   /*// Checking if user is logged in
-  if (isset($_SESSION['loggedIn'])) {
-    //header("location: index.php");
-    exit;
-  } else {
-    $_SESSION['loggedIn'] = 0;
-  }*/
+   if (isset($_SESSION['loggedIn'])) {
+     header("location: index.php");
+     exit;
+   } else {
+     $_SESSION['loggedIn'] = 0;
+   }*/
 
   include_once "header.php";
   require_once "connect.php";
@@ -145,11 +145,11 @@
             if (!empty($_POST['email']) && !empty($_POST['password_viewer'])) { // Checks if fields are filled
               if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { //Checks if email is an email
                 $email = $_POST['email'];
-                $sql = "SELECT userID, userName, `password`, status FROM users WHERE email = ?"; //query to insert to db
+                $sql = "SELECT userID, firstName, userName, `password`, status FROM users WHERE email = ?"; //query to insert to db
                 if ($stmt = mysqli_prepare($conn, $sql)) {
                   mysqli_stmt_bind_param($stmt, "s", $email);
                   if (mysqli_stmt_execute($stmt)) {
-                    mysqli_stmt_bind_result($stmt, $id, $userName, $password_db, $status);
+                    mysqli_stmt_bind_result($stmt, $id, $firstName, $userName, $password_db, $status);
                     mysqli_stmt_store_result($stmt);
                     if (mysqli_stmt_num_rows($stmt) != 0) {
                       mysqli_stmt_fetch($stmt);
@@ -159,6 +159,7 @@
                         $_SESSION ['userID'] = $id;
                         $_SESSION ['loggedIn'] = 1;
                         $_SESSION ['userName'] = $userName;
+                        $_SESSION ['firstName'] = $firstName;
                         $_SESSION ['user_type'] = $status;
                         if ($status == "administrator") {
 
