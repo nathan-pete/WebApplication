@@ -56,7 +56,7 @@
 					url: "./robotControl.php",
 					data: {
 						"httpRequest": request,
-						"ipAddress": <?= $_SESSION["robotIP"]; ?>
+						"ipAddress": "<?= $_SESSION["robotIP"]; ?>"
 					},
 					success: function (data) {
 						$(".robotHTTPSuccess").text(data + " executed successfully!")
