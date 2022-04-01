@@ -50,7 +50,7 @@
 		$(function () {
 			$(".robotControl").on("click", function () {
 				let request = $(this).text();
-				
+				console.log(request);
 				$.ajax({
 					type: "post",
 					url: "./robotControl.php",
@@ -126,6 +126,7 @@
 <div style="height: 40px"></div>
 
 <div class="main"></div>
+<div class="robotHTTPSuccess"></div>
 
 <?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -146,8 +147,8 @@
 //		}
 		// Ajax method (preferred)
 		if (
-				$postRequest = filter_input(INPUT_POST, "httpRequest", FILTER_SANITIZE_FULL_SPECIAL_CHARS) &&
-						$ipAddress = filter_input(INPUT_POST, "ipAddress", FILTER_VALIDATE_IP)
+				$postRequest = filter_input(INPUT_POST, "httpRequest", FILTER_SANITIZE_FULL_SPECIAL_CHARS) and
+				$ipAddress = filter_input(INPUT_POST, "ipAddress", FILTER_VALIDATE_IP)
 		) {
 			$url = curl_init("http://" . $ipAddress . "/" . $postRequest); //  http://192.168.137.225/Request
 			curl_setopt_array($url, [
@@ -157,7 +158,7 @@
 			]);
 			curl_exec($url);
 			curl_close($url);
-			echo $postRequest;
+			//echo $postRequest;
 		}
 	}
 ?>
