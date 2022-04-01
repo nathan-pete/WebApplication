@@ -13,7 +13,7 @@
 
 <div class="streamContainer">
   <div id="stream_video">
-    <img src="http://foscam.serverict.nl/mjpg/1/video.mjpg?1647876232941&amp;Axis-Orig-Sw=true">
+    <img src="http://camera1.serverict.nl/mjpg/1/video.mjpg?Axis-Orig-Sw=true">
   </div>
 </div>
 

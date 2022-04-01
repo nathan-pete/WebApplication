@@ -11,7 +11,7 @@ include "connect.php";
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="../style/style.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="liveChat.js"></script>
+	<script src="js/liveChat.js"></script>
 	<title>Live Stream</title>
 </head>
 <body>

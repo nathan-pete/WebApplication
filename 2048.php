@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title>2048</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script2048.js" charset="utf-8"></script>
+    <script src="js/script2048.js" charset="utf-8"></script>
 </head>
 <body>
 

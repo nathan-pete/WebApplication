@@ -618,7 +618,7 @@ body {
   color: whitesmoke;
   font-size: 20px;
   font-family: 'boycott', sans-serif;
-  
+
 }
 
 #indexCenterSubtitle {
@@ -797,163 +797,30 @@ body {
 
 /*---------------------------Leaderboard End---------------------------*/
 /*------------------------------Control Robot Start------------------------------*/
-.controlRobotContainer {
-  width: 90vw;
-  margin: 5vh auto;
-  height: 180vh;
+.controlBox {
   display: grid;
-  grid-template-columns: 44vw 44vw;
-  grid-template-rows: 15vh 70vh 85vh;
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: 6vh;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 42em;
 }
 
-.controlRobottitle {
-  align-self: center;
-  padding: 8.2vh;
+.controlBox h3 {
+  grid-column: 1 / 5;
 }
 
-.title_color {
-  color: white;
-  font-family: "Orbitron", sans-serif;
+.robotControl {
+  width: 10em;
+  height: 2em;
+  background-color: #ff8800;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 2em;
+  margin: 0.5em 0 0.5em 0;
+  cursor: pointer;
 }
 
-.controlRobotvideo {
-  grid-area: 2 / 1 / 3 / 3;
-  justify-self: center;
-  align-self: start;
-}
-
-iframe {
-  border: 5px solid rgb(13, 126, 231);
-  border-radius: 10vh;
-  width: 80vw;
-  height: 60vh;
-}
-
-.title_chat {
-  grid-area: 2 / 1 / 3 / 2;
-  align-self: end;
-  justify-self: center;
-  color: white;
-  font-family: "Orbitron", sans-serif;
-}
-
-#robotcontainer {
-  grid-area: 3 / 1 / 4 / 2;
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 5vh;
-  background: rgb(167, 168, 168);
-  height: 600px;
-}
-
-.chat_text {
-  color: green;
-  font-family: "Orbitron", sans-serif;
-  font-weight: bold;
-}
-
-.chat_text_message {
-  font-family: "Orbitron", sans-serif;
-  font-weight: bold;
-}
-
-.chat_text_time {
-  font-family: "Orbitron", sans-serif;
-  margin-left: 195px;
-  color: white;
-  font-weight: bold;
-}
-
-#chat_box {
-  width: 90%;
-  height: 450px;
-}
-
-.chat_data {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid silver;
-}
-
-.robot_text[type='text'] {
-  width: 100%;
-  height: 40px;
-  border: 1px solid grey;
-  border-radius: 2vh;
-  padding: 10px;
-  font-family: "Orbitron", sans-serif;
-}
-
-.robot_submit[type='submit'] {
-  width: 100%;
-  height: 40px;
-  border: 1px solid grey;
-  border-radius: 2vh;
-  font-family: "Orbitron", sans-serif;
-}
-
-.robot_message {
-  width: 100%;
-  height: 40px;
-  border: 1px solid grey;
-  border-radius: 2vh;
-  resize: none;
-  padding: 10px;
-  font-family: "Orbitron", sans-serif;
-}
-
-.title_remote {
-  grid-area: 2 / 2 / 3 / 3;
-  align-self: end;
-  justify-self: center;
-  color: white;
-  font-family: "Orbitron", sans-serif;
-}
-
-#remote_box {
-  background: rgb(167, 168, 168);
-  margin: 0 auto;
-  width: 80%;
-  display: grid;
-  grid-template-columns: 40% 40%;
-  grid-template-rows: 250px 250px 250px;
-  align-items: center;
-  justify-content: center;
-  grid-area: 3 / 2 / 4 / 3;
-  border-radius: 5vh;
-  height: 600px;
-
-}
-
-.button_up {
-  grid-area: 1 / 1 / 2 / 3;
-  align-self: end;
-  justify-self: center;
-}
-
-.button_right {
-  grid-area: 2 / 2 / 3 / 3;
-  align-self: start;
-  margin-left: 15px;
-}
-
-.button_left {
-  grid-area: 2 / 1 / 3 / 2;
-  align-self: start;
-  justify-self: end;
-  margin-right: 15px;
-}
-
-.button_down {
-  grid-area: 2 / 1 / 3 / 3;
-  align-self: center;
-  justify-self: center;
-  margin-top: -90px;
-
+.robotControl:active {
+  background-color: #b2a7a7;
 }
 
 /*---------------------------Control Robot End---------------------------*/
