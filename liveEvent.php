@@ -13,7 +13,7 @@
 
 <div class="streamContainer">
   <div id="stream_video">
-    <img src="http://camera1.serverict.nl/mjpg/1/video.mjpg?Axis-Orig-Sw=true">
+    <img src="http://root:passw0rd098!@camera1.serverict.nl/mjpg/1/video.mjpg?Axis-Orig-Sw=true">
   </div>
 </div>
 
