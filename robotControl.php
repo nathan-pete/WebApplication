@@ -58,9 +58,9 @@
 						"httpRequest": request,
 						"ipAddress": "<?= $_SESSION["robotIP"]; ?>"
 					},
-					success: function (data) {
-						$(".robotHTTPSuccess").text(data + " executed successfully!")
-					}
+					// success: function (data) {
+					// 	$(".robotHTTPSuccess").text(data + " executed successfully!")
+					// }
 				});
 			})
 		})
@@ -72,27 +72,27 @@
 <body>
 <h1>Hello <?= $_SESSION["robotName"] ?></h1>
 <!--<form action="--><? //= htmlentities($_SERVER['PHP_SELF']) ?><!--" method="post">-->
-<!--	<!-- Same for everyone (but not everyone might use it) -->-->
+<!--	<!-- Same for everyone (but not everyone might use it) -->
 <!--	<input type="submit" value="Forward" name="Forward">-->
 <!--	<input type="submit" value="Back" name="Back">-->
 <!--	<input type="submit" value="Stop" name="Stop">-->
 <!--	<br><br>-->
-<!--	<!-- Most probably not used in the game -->-->
+<!--	<!-- Most probably not used in the game -->
 <!--	<input type="submit" value="TurnLeft" name="TurnLeft">-->
 <!--	<input type="submit" value="Turn90Left" name="Turn90Left">-->
 <!--	<input type="submit" value="TurnRight" name="TurnRight">-->
 <!--	<input type="submit" value="Turn90Right" name="Turn90Right">-->
 <!--	<br><br>-->
-<!--	<!-- Games (definitely used!!!) -->-->
+<!--	<!-- Games (definitely used!!!) -->
 <!--	<input type="submit" value="LineTrack" name="LineTrack">-->
 <!--	<input type="submit" value="Maze" name="Maze">-->
 <!--	<input type="submit" value="Race" name="Race">-->
 <!--	<br><br>-->
-<!--	<!-- NOT USED -->-->
+<!--	<!-- NOT USED -->
 <!--	<input type="submit" value="ScanNetwork" name="ScanNetwork">-->
 <!--	<input type="submit" value="SendHTTPRequest" name="SendHTTPRequest">-->
 <!--	<h3>Testing</h3>-->
-<!--	<!-- Used by capture the flag, but are NOT buttons, only functionality configured in PHP -->-->
+<!--	<!-- Used by capture the flag, but are NOT buttons, only functionality configured in PHP -->
 <!--	<input type="submit" value="findFlag" name="findFlag">-->
 <!--	<input type="submit" value="giveFlag" name="giveFlag">-->
 <!--	<input type="submit" value="turnLeftOrRight" name="turnLeftOrRight">-->
