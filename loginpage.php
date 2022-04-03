@@ -13,20 +13,19 @@
   <?php
     include "connect.php";
     echo "
-                <style>
-                    .header-style .nav .menu .login{
-                    color: #83c0ff;
-                    }
-                    .header-style .nav .menu .login:hover{
-                    color: #0386FF;
-                    text-decoration: none;
-                    }
-                    .login-bttn-viewer input a{
-                      text-decoration: none;
-                    }
-
-                </style>
-            ";
+      <style>
+        .header-style .nav .menu .login{
+        color: #83c0ff;
+        }
+        .header-style .nav .menu .login:hover{
+        color: #0386FF;
+        text-decoration: none;
+        }
+        .login-bttn-viewer input a{
+          text-decoration: none;
+        }
+      </style>
+    ";
   ?>
 </head>
 <body>
@@ -34,22 +33,20 @@
   require "header.php";
   require "connect.php";
 
-  /*// Checking if user is logged in
-   if (isset($_SESSION['loggedIn'])) {
-     header("location: index.php");
-     exit;
-   } else {
-     $_SESSION['loggedIn'] = 0;
-   }*/
+  // Checking if user is logged in
+  if (isset($_SESSION['loggedIn'])) {
+    header("location: index.php");
+    exit;
+  } else {
+    $_SESSION['loggedIn'] = 0;
+  }
 
   include_once "header.php";
   require_once "connect.php";
-
-
 ?>
 <div class="main-content">
   <div class="login-title">
-    <h1 style="">Events</h1>
+    <h1>Login</h1>
   </div>
   <div class="space-event"></div>
   <div class="logins">
