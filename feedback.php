@@ -35,16 +35,6 @@
                 <input type="radio" id="no" name="future_eve" value="no">
                 <label for="no">No</label>
                 </div>
-
-                <!--3-->
-                <div class="role_event">
-                <p>You was a viewer or participant?</p>
-                <input type="radio" id="viewer" name="role_event" value="viewer">
-                <label for="viewer">Viewer</label>
-                <input type="radio" id="participant" name="role_event" value="participant">
-                <label for="participant">Participant</label>
-                </div>
-
                 <!--Event photo-->
                 <div class="event_image">
                         <label for="image" class="event-image-text"><b>Do you want to share photos with us?</b></label>
@@ -63,7 +53,7 @@
                 </div>
 
                 <!--Submit-->
-                <input type="submit" name="submit" value="Submit">
+                <input type="submit" name="submit_feedback_button" value="Submit">
             </form>
 
 
@@ -72,14 +62,12 @@
 
     </div>
 <?php
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit_feedback_button'])){
         if(isset($_POST['event_fel'])){
             if(isset($_POST['future_eve'])){
-                if(isset($_POST['role_event'])){
                     if(!empty($_POST['email'])){
                         $event_fel = $_POST['event_fel'];
                         $future_eve = $_POST['future_eve'];
-                        $role_event = $_POST['role_event'];
                         $email = $_POST['email'];
                         //Checking if there is message
                         if(!empty($_POST['additional_message'])){
@@ -105,10 +93,10 @@
                                     if (move_uploaded_file($_FILES["event_photo"]["tmp_name"], $target_file_main)) {
                                         //prepared
                                         $event_photo = $_FILES["event_photo"]["tmp_name"];
-                                        $sql = "INSERT INTO feedback (ev_cool_ent, future_eve, viewer_partc, email, `image`, additionalMessage) VALUES (?,?,?,?,?,?)";
+                                        $sql = "INSERT INTO feedback (ev_cool_ent, future_eve, email, `image`, additionalMessage) VALUES (?,?,?,?,?)";
                                         $stmt = mysqli_prepare($conn, $sql) OR DIE ("Error inserting into database" . mysqli_error($conn));
                                         //echo mysqli_error($conn);
-                                        mysqli_stmt_bind_param($stmt, 'ssssss', $event_fel, $future_eve, $role_event, $email, $event_photo, $additional_message );
+                                        mysqli_stmt_bind_param($stmt, 'sssss', $event_fel, $future_eve, $email, $event_photo, $additional_message );
                                         mysqli_stmt_execute($stmt) OR DIE ("Errro while putting the product");
                                         echo "<div style='width: 100%; text-align:center; color: #266bf9; font-size: 22px; padding-top: 10px'>Succes!</div>";
                                         mysqli_stmt_close($stmt);
@@ -128,10 +116,10 @@
 
                         //If there is no image
                         else{
-                            $sql = "INSERT INTO feedback (ev_cool_ent, future_eve, viewer_partc, email) VALUES (?,?,?,?)";
+                            $sql = "INSERT INTO feedback (ev_cool_ent, future_eve, viewer_partc, email) VALUES (?,?,?)";
                             $stmt = mysqli_prepare($conn, $sql) OR DIE ("Error inserting into database" . mysqli_error($conn));
                             //echo mysqli_error($conn);
-                            mysqli_stmt_bind_param($stmt, 'ssss', $event_fel, $future_eve, $role_event, $email);
+                            mysqli_stmt_bind_param($stmt, 'sss', $event_fel, $future_eve, $email);
                             mysqli_stmt_execute($stmt) OR DIE ("Errro while putting the product");
                             echo "<div style='width: 100%; text-align:center; color: #266bf9; font-size: 22px; padding-top: 10px'>Succes!</div>";
                             mysqli_stmt_close($stmt);
@@ -146,20 +134,16 @@
 
                     }
                     else{
-                        echo "Please enter your email";
+                        echo "<div style='width: 100%; text-align:center; color: red; font-size: 22px; padding-top: 10px'>Please enter your email</div>";
                     }
-                }
-                else{
-                    echo "Please select your role!";
-                }
             }
             else{
-                echo "Do you want future events?";
+                echo "<div style='width: 100%; text-align:center; color: red; font-size: 22px; padding-top: 10px'>Do you want future events?</div>";
             }
 
         }
         else{
-            echo "Please check agree or disagree!";
+            echo "<div style='width: 100%; text-align:center; color: red; font-size: 22px; padding-top: 10px'>Please check agree or disagree!</div>";
         }
     }
 

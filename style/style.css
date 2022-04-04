@@ -1924,6 +1924,10 @@ p .del-sub {
   color: red;
 }
 
+.submit_feedback_button {
+  border-radius: 20px;
+}
+
 
 /* Logout page start*/
 .logout-container {
