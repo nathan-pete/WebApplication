@@ -1,6 +1,6 @@
 <?php
 include "Sidebar.php";
-require_once("dbh.php");
+require_once("connect.php");
 $query = "SELECT * FROM `robots`";
 $result = mysqli_query($conn, $query);
 
