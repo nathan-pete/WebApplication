@@ -33,5 +33,5 @@
 <?php include_once "footer.html"; ?>
 
 </body>
-    <script src="scriptFallingRobot.js" charset="utf-8"></script>
+    <script src="js/scriptFallingRobot.js" charset="utf-8"></script>
 </html>
