@@ -54,8 +54,8 @@
 					echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
 				}
 				echo "<li class='line'> &VerticalLine;</li>";
-				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
-					echo '<li><a href="usrpnl.php" class="login">' . $_SESSION['firstName'] . '</a></li>';
+				if (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
+					echo '<li><div class="dropdown"><button class="dropbtn">' . $_SESSION['robotName'] . '</button><div class="dropdown-content"><a href="logout.php">Logout</a></div></div></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}

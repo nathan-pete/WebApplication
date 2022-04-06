@@ -20,9 +20,6 @@ include "connect.php";
 		<?php
 		$query = "SELECT * FROM users";
 		$result = mysqli_query($conn,$query);
-
-		// Echo session variables that were set on previous page
-		echo "<p>"."Hello " . $_SESSION ['userName'] ."</p>";
 		?>
 	</div>
 
