@@ -6,21 +6,24 @@
 		try {
 			$conn = new mysqli ($servername, $username, $password, "webapp");
 
-			$sql = $conn->prepare("SELECT `message`, `users`.`userName` FROM `comments` JOIN `users` where users.userID = comments.userID;");
+			$sql = $conn->prepare("SELECT `message`, `users`.`userName` FROM `comments` JOIN `users` where users.userID = comments.userID ORDER BY users.userName");
 
 			$sql->execute();
-			$sql->bind_result($message, $userNameOut );
+			$sql->bind_result($message, $userNameOut);
 
+			$i = 1000;
 			while ($sql->fetch()) {
-				$messages[] = $message;
+				$messages += [$userNameOut . $i => $message];
+				$i++;
 			}
+
 			$sql->close();
 		} catch (Exception $e) {
 			echo "Error! " . $e;
 		}
 
-		foreach ($messages as $txt) {
-			echo "<p>" .$userNameOut.": ". $txt . "</p>";
+		foreach ($messages as $userName => $txt) {
+			echo "<p>" . substr($userName, 0, -4) . ": " . $txt . "</p>";
 		}
 
 

@@ -5,28 +5,28 @@
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		if (isset($_GET['robotName'])) {
-			
-			
+
+
 			$robotName = $_GET['robotName'];
-			
+
 			$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
-			
+
 			if (!$info) {
 				echo 'Prepare failed' . mysqli_error($conn);
 			}
-			
+
 			$info->bind_param("s", $robotName);
-			
+
 			if (!$info) {
 				echo 'Binding failed' . mysqli_error($conn);
 			}
-			
+
 			$info->execute();
-			
+
 			$result = $info->get_result();
-			
+
 			$infoR = $result->fetch_all(MYSQLI_ASSOC);
-			
+
 			$info->close();
 		}
 	}
@@ -108,7 +108,7 @@
 					if ($_GET['robotName']) {
 						if ($infoR) {
 							foreach ($infoR as $robot) {
-								echo '<img class="robotimg" src=assets/' . $robot['robotPicture'] . '>';
+								echo '<img class="robotimg" src= "uploads/robots/robot0.png">';
 							}
 						}
 					}
