@@ -24,8 +24,6 @@
   ?>
 </head>
 <body>
-<div class="streamContainer">
-<div class="body">
   <?php
       if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
             include('header.php');
@@ -35,6 +33,8 @@
           include('header.php');
       }
   ?>
+<div class="streamContainer">
+<div class="body">
   <div class="events-title">
     <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
   </div>
