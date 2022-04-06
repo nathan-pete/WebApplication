@@ -11,7 +11,15 @@
 </head>
 <body>
 
-<?php include_once "header.php"; ?>
+<?php
+    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
+          include('header.php');
+    } elseif (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
+              include('headerRobot.php');
+    } else {
+        include('header.php');
+    }
+?>
 
 
 <div id="gameContainer">

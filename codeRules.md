@@ -24,6 +24,7 @@
 5. Violetta
     - The Stream Page
     - Minigame
+    - Control a Robot
     - Database
 6. Terry
     - The Stream Page
@@ -34,7 +35,6 @@
     - Chat benefits
 8. Kaiser
     - Index
-    - Control a Robot
     - Web Translation
 9. Ameli
     - Robot status
@@ -139,4 +139,3 @@ git checkout --patch <oldCommitHash> <path/to/file/from/project/root>
 
 a more advanced feature(not really just read instructions) allows you to merge current file changes with older version
 of any file
-

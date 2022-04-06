@@ -28,34 +28,8 @@
 			</li>
 			<li class="line"> &VerticalLine;</li>
 			<?php
-				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
-					$sql = "SELECT DoB FROM users WHERE userID = ?";
-					if ($stmt = mysqli_prepare($conn, $sql)) {
-						$userID = $_SESSION['userID'];
-						$stmt->bind_param('i', $userID);
-						if (mysqli_stmt_execute($stmt)) {
-							mysqli_stmt_bind_result($stmt, $dateOfBirth);
-							mysqli_stmt_fetch($stmt);
-							if ($dateOfBirth == 1) {
-								echo '<li><a href="betting18p.php" class="bets">Bets</a></li>';
-							} else {
-								echo '<li><a href="betting18m.php" class="bets">Bets</a></li>';
-							}
-							mysqli_stmt_close($stmt);
-						} else {
-							echo "Error: " . mysqli_error($conn);
-							die();
-						}
-					} else {
-						echo "Error: " . mysqli_error($conn);
-						die();
-					}
-				} else {
-					echo ' <li><a href="loginpage.php" class="bets">Bets</a></li>';
-				}
-				echo "<li class='line'> &VerticalLine;</li>";
 				if (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
-					echo '<li><div class="dropdown"><button class="dropbtn">' . $_SESSION['robotName'] . '</button><div class="dropdown-content"><a href="logout.php">Logout</a></div></div></li>';
+					echo '<li><div class="dropdown"><a href="robotControl.php"><button class="dropbtn">' . $_SESSION['robotName'] . '</button></a><div class="dropdown-content"><a href="logout.php">Logout</a></div></div></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}

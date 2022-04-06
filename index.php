@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -11,7 +12,6 @@
   <title>Project Battle Bots</title>
   <!--Highlight the page the user has open. Home in this case-->
   <?php
-    include "connect.php";
     echo "
       <style>
         .header-style .nav .menu .home{
@@ -27,7 +27,13 @@
 </head>
 <body>
 <?php
-  include_once "header.php";
+  if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
+        include('header.php');
+  } elseif (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
+            include('headerRobot.php');
+  } else {
+      include('header.php');
+  }
 ?>
 <div class="space-pass"></div>
 <div id="indexContainer">

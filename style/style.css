@@ -149,6 +149,7 @@ body {
   box-shadow: 0 8px 15px rgba(255, 0, 0, 0.5);
   z-index: 1;
   transition: 0.5s;
+  margin-top: 20px;
   border-radius: 0 20px 20px 20px;
 }
 
@@ -186,6 +187,8 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: -10px;
 }
 
 .event-h {
@@ -797,30 +800,49 @@ body {
 
 /*---------------------------Leaderboard End---------------------------*/
 /*------------------------------Control Robot Start------------------------------*/
+.streamContainer h1 {
+  margin-top: 60px;
+  margin-left: 30px;
+  font-weight: 700;
+  font-family: "Orbitron", sans-serif;
+}
+
 .controlBox {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  grid-row: 2 / 3;
+  margin-left: 30px;
+  margin-top: -130px;
   width: 42em;
 }
 
 .controlBox h3 {
   grid-column: 1 / 5;
+  font-weight: 700;
+  font-family: "Orbitron", sans-serif;
 }
 
 .robotControl {
   width: 10em;
   height: 2em;
-  background-color: #ff8800;
+  background-color: #B560FF;
   border-radius: 10px;
   border: 1px solid black;
   text-align: center;
   line-height: 2em;
-  margin: 0.5em 0 0.5em 0;
+  margin: 0.5em 10em 0.5em 0;
   cursor: pointer;
 }
 
-.robotControl:active {
-  background-color: #b2a7a7;
+.robotControl:hover {
+  background: rgb(64 90 167);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(64 90 167),
+  0 0 25px rgb(64 90 167),
+  0 0 50px rgb(64 90 167),
+  0 0 100px rgb(64 90 167);
+  cursor: pointer;
 }
 
 /*---------------------------Control Robot End---------------------------*/
@@ -1133,6 +1155,7 @@ a.animated-button.victoria-two:after {
   display: grid;
   grid-template-rows: 40vh 3vh 6vh 20vh 6vh 21vh;
   grid-template-columns: 39vw 20vw 39vw;
+  font-family: "Orbitron", sans-serif;
 }
 
 .grid {
@@ -1154,7 +1177,6 @@ a.animated-button.victoria-two:after {
   font-size: 60px;
   text-align: center;
   font-weight: semi-bold;
-  font-family: monospace;
 }
 
 .score-container {
@@ -1162,7 +1184,6 @@ a.animated-button.victoria-two:after {
   margin-top: 170px;
   font-size: x-large;
   font-weight: bold;
-  font-family: monospace;
   padding: 17px;
 }
 
@@ -1173,7 +1194,6 @@ a.animated-button.victoria-two:after {
 }
 
 .explanation p {
-  font-family: monospace;
   font-size: large;
   margin-top: 40px;
 }
@@ -1182,7 +1202,6 @@ a.animated-button.victoria-two:after {
   position: relative;
   display: inline-block;
   margin-left: 66px;
-  font-family: monospace;
   font-weight: bold;
   font-size: 20px;
 }
@@ -1262,7 +1281,6 @@ a.animated-button.victoria-two:after {
   background-color: darkslateblue;
   color: white;
   border: none;
-  font-family: monospace;
 }
 
 #result {
