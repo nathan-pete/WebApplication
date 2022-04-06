@@ -23,6 +23,7 @@
 <body>
 <h1>Hello <?= $_SESSION["robotName"] ?></h1>
 
+<div class="robotIPAddress" style="display: none"><?= $_SESSION["robotIP"] ?></div>
 <div class="controlBox">
 	<h3>Basic functions</h3>
 	<div class="robotControl">Forward</div>
