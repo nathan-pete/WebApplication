@@ -30,7 +30,7 @@
   if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
         include('header.php');
   } elseif (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
-            include('headerRobot.php');
+        include('headerRobot.php');
   } else {
       include('header.php');
   }

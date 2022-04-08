@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "SideBar.php";
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +11,13 @@ require_once "SideBar.php";
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <title>Home Page</title>
 </head>
-<body>    
+<body>
+
+ 
 <div class="streamContainer">
         <h1 class="TitleforAdminPage">Hello Admin!</h1>
    </div>
-   
+
 </body>
 </html>
 <?php
