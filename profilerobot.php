@@ -17,7 +17,7 @@
         } else {
           echo "error" . mysqli_error($conn);
         }
-        
+
       }
     }
 ?>
@@ -106,7 +106,7 @@
 						if ($_GET['robotName']) {
 							if ($infoR) {
 								foreach ($infoR as $robot) {
-	                              echo "<img src='./uploads/robots/" . $robot['robotPicture'] . "' alt='Picture of the robot' class='robotimg'>";
+	                              echo "<img src='uploads/robots/robot0.png' alt='Picture of the robot' class='robotimg'>";
 								}
 							}
 						}

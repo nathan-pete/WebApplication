@@ -73,7 +73,7 @@
                     <div class="indexScrollItem">
                       <a href="profilerobot.php?robotName=' . $robotName . '">
                         <h4>' . $robotName . '</h4>';
-              echo '<a href="profilerobot.php?robotName=' . $robotName . '">' . '<img src="./uploads/robots/' . $robotPicture . '" alt="Picture of the robot" class="index-img"></a>';
+              echo '<a href="profilerobot.php?robotName=' . $robotName . '">' . '<img src="./uploads/robots/robot0.png" alt="Picture of the robot" class="index-img"></a>';
               echo '</a>
                     </div>';
             }
