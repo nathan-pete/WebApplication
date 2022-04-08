@@ -461,8 +461,6 @@ body {
 /*------------------------------Footer Start------------------------------*/
 .footer-container {
   min-height: 10vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .footer-top {

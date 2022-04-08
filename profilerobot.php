@@ -55,10 +55,13 @@
 	?>
 </head>
 <body>
-<div class="body">
-	<?php
+
+  <?php
 		include_once "header.php";
 	?>
+
+<div class="body">
+
 	<div id="profileCenterTitle">
 		<h1>Robot <br> Profile</h1>
 	</div>
