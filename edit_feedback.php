@@ -70,7 +70,7 @@
             $stmt = mysqli_prepare($conn, $sql) OR DIE ("Error inserting into database" . mysqli_error($conn));
             //echo mysqli_error($conn);
             mysqli_stmt_bind_param($stmt, 'ssssi', $post_event_feeling, $post_future_ev, $post_role, $post_email, $ID);
-            mysqli_stmt_execute($stmt) OR DIE ("Errro while putting the product");
+            mysqli_stmt_execute($stmt) OR DIE ("Errror while putting the product");
             echo "<div style='width: 100%; text-align:center; color: #266bf9; font-size: 22px; padding-top: 10px'>Succes!</div>";
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
