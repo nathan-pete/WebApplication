@@ -8,7 +8,7 @@
         <title>Prediction</title>
         <?php
           if($_SESSION['user_type'] != 'user') {
-            header("location:./loginpage.php");
+            header("location:./votegame.php");
           }
         ?>
     </head>
