@@ -25,9 +25,9 @@ include "connect.php";
 
 	<div class="chatenter">
 			<form action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" method="post">
-					<label for="message">Enter your message!</label>
+					<label for="message">Enter your comment!</label>
 					<input type="text" name="message" id="message">
-					<span class="submit_txt_db" >Submit</span>
+					<span class="submit_txt_db">Submit</span>
 			</form>
 	</div>
 	<div class="chatbox">

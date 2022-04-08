@@ -924,6 +924,21 @@ body {
 /*--------------------------- Profile End ---------------------------------*/
 /*--------------------------- Live Stream ---------------------------------*/
 
+.submit_txt_db {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  margin-left: 270px;
+  margin-top: 15px;
+  background-color: lightsteelblue;
+  border-radius: 10px;
+  padding: 5px;
+  transition: 0.5s;
+}
+
+.submit_txt_db:hover {
+  color: #0386FF;
+}
+
 .streamContainer {
   width: 98vw;
   margin: 0 auto;
@@ -958,7 +973,7 @@ body {
 
 
 .box {
-  margin-top: -40vw;
+  margin-top: -41vw;
   margin-bottom: 30vw;
   margin-left: 70vw;
   margin-right: 10vw;
@@ -973,16 +988,35 @@ body {
   height: 400px;
   border: 3px #3d67c2 solid;
   overflow: auto;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: white;
+  font-family: monospace;
+  font-size: 15px;
 }
 
 .chatenter {
   border: 3px #3d67c2 solid;
+  background-color: #3d67c2;
+  border-radius: 15px;
   width: 360px;
-  height: auto;
+  height: 150px;
   border-radius: 5px;
 }
+
+.chatenter label {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+}
+
+#message {
+    width: 90%;
+    padding: 18px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: lightgray;
 
 /* -------------------------------Vote for a game page ----------------------------------------------------------------*/
 a.animated-button.victoria-two {
@@ -1135,10 +1169,6 @@ a.animated-button.victoria-two:after {
 
 /*-------------------------- Vote for a game page END--------------------------*/
 
-
-/*-----------------------------Minigames home start-------------------------------*/
-
-/*-----------------------------Minigames home end-------------------------------*/
 
 /*-----------------------------2048 Game-------------------------------*/
 
