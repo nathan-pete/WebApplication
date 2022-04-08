@@ -14,19 +14,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-
-                <?php
-                if (isset($_SESSION['status'])) {
-                ?>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                <?php
-                    unset($_SESSION['status']);
-                }
-                ?>
-
                 <div class="card mt-5">
                     <div class="card-header">
                         <h4>Data of Customers</h4>
@@ -111,7 +98,7 @@ if (isset($_POST['updatedata'])) {
         mysqli_stmt_bind_param($statement, 'ssiisssii',$username , $email, $point, $Dob, $pwd,$pic ,$stats,$votes, $id);
         mysqli_stmt_execute($statement);
 
-        $_SESSION['updatedata'] = "Data Updated Successfully";
+        $_SESSION['updatedata'] = "Data Updated Successfully"; 
         header("Location: admin.php");
     }
 }
