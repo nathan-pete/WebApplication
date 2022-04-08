@@ -13,10 +13,9 @@ require_once "SideBar.php";
 </head>
 <body>
 
- 
-<div class="streamContainer">
-        <h1 class="TitleforAdminPage">Hello Admin!</h1>
-   </div>
+
+<h1 class="TitleforAdminPage">Hello Admin!</h1>
+
 
 </body>
 </html>
