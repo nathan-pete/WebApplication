@@ -16,7 +16,7 @@
     <div class="body">
     
     <div class="main-feed">
-        <h1 class="main-content-heading">Feedback</h1>
+        <h1 class="main-content-heading-feedback">Feedback</h1>
         <div class="feedback_inputs">
             <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" >
                 <!--1-->
@@ -37,23 +37,23 @@
                 </div>
                 <!--Event photo-->
                 <div class="event_image">
-                        <label for="image" class="event-image-text"><b>Do you want to share photos with us?</b></label>
+                        <label for="image" class="event-image-text">Do you want to share photos with us?</label>
                         <br>
                         <input type="file" name="event_photo">
                 </div>
                 <div class="additional_message">
-                <label for="additional_message" class="event-image-text"><b>Additional message</b></label>
+                <label for="additional_message" class="event-image-text">Additional message</label>
                 <input type="text" name="additional_message">
                 </div>
                 
                 <!--Email-->
                 <div class="email">
-                <label for="email"><b>Your email for future events:</b></label>
+                <label for="email">Your email for future events:</label>
                 <input type="text" placeholder="Email" name="email" id="email" >
                 </div>
 
                 <!--Submit-->
-                <input type="submit" name="submit_feedback_button" value="Submit">
+                <input type="submit" name="submit_feedback_button" value="Submit" class="submit_feedback_button">
             </form>
 
 
