@@ -7,23 +7,21 @@ $result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
     <title>Comments</title>
 </head>
 
-<body class="backgroundforadmin">
+<div class="streamContainer">
+        <div class="body">
     <h1 class="Titlepanel">Comment Panel</h1>
     <div class="containerusers">
-        <div class="row">
-            <div class="col m-auto">
-                <div class="card mt-5">
-                    <table class="tablecomment table-bordered">
+                    <table class="table">
                         <tr class="userpanelspace">
                             <td class="td"> User ID </td>
                             <td class="td"> Author</td>
@@ -36,7 +34,6 @@ $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
                             $UserID = $row['UserID'];
-                            $UserName = $row['author'];
                             $message = $row['message'];
                         ?>
                             <tr class="userpanelspace">
@@ -48,20 +45,22 @@ $result = mysqli_query($conn, $query);
                         <?php
                         }
                         ?>
-                    </table>
-                </div>
-            </div>
+             </table>
         </div>
     </div>
     <?php   //selects comment from message and deletes it
-    include 'dbh.php';
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "DELETE FROM `comments` WHERE id = '$id'";
-        $run = mysqli_query($conn, $query);
-        if ($run) {
-            header('location: commentpanel.php');
-        } else {
+    include 'connect.php';
+    if ($id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT)) {
+        $query = "DELETE FROM `comments` WHERE id = ?";
+        
+         $stmt = mysqli_prepare($conn, $query);
+         mysqli_stmt_bind_param($stmt, 'i', $id);
+          if (mysqli_stmt_execute($stmt)) {
+
+            echo "Record deleted successfully";
+            header("location: commentpanel.php");
+          }
+        else {
             echo "Error: " . mysqli_error($conn);
         }
     }
