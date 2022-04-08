@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="style/style.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="./js/robotControl.js"></script>
-	<script src="./js/liveChat.js"></script>
 
 	<title><?= $_SESSION["robotName"] ?></title>
 </head>
@@ -55,7 +54,6 @@
 
 		<div style="height: 40px"></div>
 
-		<div class="main"></div>
 		<div class="robotHTTPSuccess"></div>
 		<!-- The class robotIPAddress is used by Ajax to get the ip address of the robot, therefore it should not be seen by the user -->
 		<div class="robotIPAddress" style="display: none"><?= $_SESSION["robotIP"]; ?></div>
