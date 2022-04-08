@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +20,6 @@
     <div class="body">
         <?php
             include "header.php";
-            require_once "connect.php";
-   
         ?>
         <div class="main-contact-box">
             <h1 class="main-contact-heading">Contact with our Admin for support</h1>
