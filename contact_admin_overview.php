@@ -1,6 +1,7 @@
 <?php
-    session_start();
     include "SideBar.php";
+    require_once "connect.php"; 
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +13,6 @@
     <title>Contact Overview</title>
 </head>
 <body>
-    <div class="body">
-        <?php
-            require_once "connect.php";
-        
-        ?>
         <?php
             
             
@@ -27,18 +23,18 @@
             //think about changing it
             //$result = $stmt->get_result();
             $result = mysqli_stmt_get_result($stmt);
-            
         ?>
-        <h1 class="contact-overview-heading">Contact Overview</h1>
-        
-        <table id="table">
-            <tr>
-                <th>Id</th>
-                <th>Role</th>
-                <th>Message</th>
-                <th>Image</th>
-                <th>Email</th>
-                <th>Delete</th>
+        <h1 class="Titlepanel">Contact Overview</h1>
+        <div class="streamContainer">
+        <div class="body">
+        <table class="table">
+            <tr class="userpanelspace">
+                <th class="td" >Id</th>
+                <th class="td">Role</th>
+                <th class="td">Message</th>
+                <th class="td">Image</th>
+                <th class="td">Email</th>
+                <th class="td">Delete</th>
             </tr>
             <?php
                 while ($row = mysqli_fetch_assoc($result)) 
@@ -48,7 +44,7 @@
                     $message = $row['Message'];
                     $image_problem = $row['image_problem'];
                     $email = $row['email'];
-                    //include "delete_contact.php";
+                    include "delete_contact.php";
 
                 
             ?>
@@ -63,11 +59,10 @@
 
         <?php
              }
-        ?>
-
-
-                
+        ?>                
         </table>
-    </div>
+        </div>
+        </div>
+    
 </body>
 </html>
