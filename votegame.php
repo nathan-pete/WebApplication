@@ -128,7 +128,7 @@
             while (mysqli_stmt_fetch($stmt)) {
                 echo '<div class="event-items">
                 <div class="event-img">
-                  <img class="voteimg" src=assets/' . $picture. '>
+                  <img class="voteimg" src=./uploads/games/' . $picture. ' alt="Picture of the game">
                   <div class="event-text">
                     <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
                     <p class=" event-p"></p>

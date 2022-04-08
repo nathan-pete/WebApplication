@@ -4,15 +4,24 @@
 ?>
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-		if (isset($_GET['robotName'])) {
-			$robotName = $_GET['robotName'];
-			$info = "SELECT * FROM robots WHERE robotName = ?";
-      		if ($stmt = mysqli_prepare($conn, $info)) {
-                  mysqli_stmt_bind_param($stmt, 's', $robotName);
-       			 if (mysqli_stmt_execute($stmt)) {
-                    $infoR = mysqli_stmt_get_result($stmt);
-                    mysqli_fetch_array($infoR);
-  
+      if (isset($_GET['robotName'])) {
+        $robotName = $_GET['robotName'];
+        $info = "SELECT * FROM robots WHERE robotName = ?";
+        if ($stmt = mysqli_prepare($conn, $info)) {
+          mysqli_stmt_bind_param($stmt, 's', $robotName);
+          if (mysqli_stmt_execute($stmt)) {
+            $infoR = mysqli_stmt_get_result($stmt);
+            mysqli_fetch_array($infoR);
+            mysqli_stmt_close($stmt);
+          } else {
+            echo "error" . mysqli_error($conn);
+          }
+        } else {
+          echo "error" . mysqli_error($conn);
+        }
+        
+      }
+    }
                    
                  
 			/*$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
@@ -116,20 +125,10 @@
 					if ($_GET['robotName']) {
 						if ($infoR) {
 							foreach ($infoR as $robot) {
-								echo '<img src="uploads/robots/robot0.png"  class="robotimg" alt="robotImg">';
+                              echo "<img src='./uploads/robots/" . $robot['robotPicture'] . "' alt='Picture of the robot' class='robotimg'>";
 							}
 						}
 					}
-                  }
-                    mysqli_stmt_close($stmt);
-                  } else {
-                  echo "error" . mysqli_error($conn);
-                }
-                  } else {
-                  echo "error" . mysqli_error($conn);
-                }
-                  
-                  }
 				?>
 			</div>
 		</div>
