@@ -178,6 +178,14 @@
                 </form>
               </div>
           </div>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
         </div>
         <?php
           include_once "footer.html";
