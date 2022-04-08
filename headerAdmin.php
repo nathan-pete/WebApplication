@@ -1,4 +1,5 @@
 <?php
+
 	include_once "connect.php"
 ?>
 
@@ -27,8 +28,8 @@
 			</li>
 			<li class="line"> &VerticalLine;</li>
 			<?php
-				if (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
-					echo '<li><div class="dropdown"><a href="robotControl.php"><button class="dropbtn">' . $_SESSION['robotName'] . '</button></a><div class="dropdown-content"><a href="logout.php">Logout</a></div></div></li>';
+				if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1 && $_SESSION['user_type'] == "administrator") {
+					echo '<li><div class="dropdown"><a href="Admin..php"><button class="dropbtn">' . $_SESSION['firstName'] . '</button></a><div class="dropdown-content"><a href="logout.php">Logout</a></div></div></li>';
 				} else {
 					echo '<li><a href="loginpage.php" class="login">Login</a></li>';
 				}
