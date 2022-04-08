@@ -66,34 +66,43 @@
   </div>
   <?php
 
-    $query = $conn->prepare("SELECT `name`, `picture`, `votes` FROM games");
+      $query = "SELECT `name`, `picture`, `votes` FROM games";
+      if ($stmt = mysqli_prepare($conn, $query)) {
 
-    $query->execute();
-    $query->bind_result($name, $picture, $votes);
-    while ($query->fetch()) {
+        if (mysqli_stmt_execute($stmt)) {
 
-      echo '<div class="event-items">
-      <div class="event-img">
-        <img class="voteimg" src=assets/' . $picture. '>
-        <div class="event-text">
-          <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
-          <p class=" event-p"></p>
-        </div>
-      </div>
-      <div class="row">
-      <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame.php?name=' . $name . '" class="btn btn-sm animated-button victoria-two">Vote</a></div>
-      </div>
-      <div class="votetext">
-      <h3>Votes: ' . $votes . '</h3> 
-        </div>
-    </div>';
-    }
-    
+          mysqli_stmt_bind_result($stmt, $name, $picture, $votes);
 
-    //if (mysqli_stmt_num_rows() > 0) {
-    //while(mysqli_stmt_fetch()){
+          mysqli_stmt_store_result($stmt);
 
-    mysqli_stmt_close($query);
+          if (mysqli_stmt_num_rows($stmt) === 0) {
+            mysqli_stmt_close($stmt);
+          } else {
+            while (mysqli_stmt_fetch($stmt)) {
+                echo '<div class="event-items">
+                <div class="event-img">
+                  <img class="voteimg" src=assets/' . $picture. '>
+                  <div class="event-text">
+                    <h3 class="event-h" style="padding-bottom:0.5%;">' . $name . '</h3>
+                    <p class=" event-p"></p>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-6"> <a href="votegame.php?name=' . $name . '" class="btn btn-sm animated-button victoria-two">Vote</a></div>
+                </div>
+                <div class="votetext">
+                <h3>Votes: ' . $votes . '</h3> 
+                  </div>
+              </div>';
+            }
+            mysqli_stmt_close($stmt);
+          }
+        } else {
+          echo "Error: " . mysqli_error($conn);
+        }
+      } else {
+        echo "Error preparing: " . mysqli_error($conn);
+      }
 ?>
   <!-- /container -->
   <!-- Bootstrap core JavaScript
