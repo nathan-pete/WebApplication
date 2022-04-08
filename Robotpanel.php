@@ -13,17 +13,16 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
     <title>View All Data</title>
 </head>
 
-<body class="backgroundforadmin">
+<div class="streamContainer">
+        <div class="body">
     <h1 class="Titlepanel">Robot Panel</h1>
-    <div class="containerusers">
-        <div class="row">
-            <div class="col m-auto">
-                <div class="card mt-5">
-                    <table class="table table-bordered">
+    <div class="containerusersrobot"> 
+        
+                    <table class="table">
                         <tr class="userpanelspace">
                             <td class="td"> Robot Name </td>
                             <td class="td"> Serial Number </td>
@@ -33,7 +32,6 @@ $result = mysqli_query($conn, $query);
                             <td class="td"> Password</td>
                             <td class="td"> Mac Address</td>
                             <td class="td"> Ip Address</td>
-                            <td class="td"> Edit Data </td>
                             <td class="td"> Delete </td>
                         </tr>
 
@@ -41,7 +39,7 @@ $result = mysqli_query($conn, $query);
 
                         while ($row = mysqli_fetch_assoc($result)) {
                             $robotname = $row['robotName'];
-                            $serielnum = $row['serielNum'];
+                            $serielnum = $row['serialNum'];
                             $robotpic = $row['robotPicture'];
                             $teamname = $row['teamName'];
                             $points = $row['points'];
@@ -58,28 +56,30 @@ $result = mysqli_query($conn, $query);
                                 <td class="td"><?php echo $pwd ?></td>
                                 <td class="td"><?php echo $mac ?></td>
                                 <td class="td"><?php echo $ip ?></td>
-                                <td class="td"><a href="#" class="td">Edit</a></td>
-                                <td class="td"><a href="Userpanel.php?id=<?php echo $row['#']; ?>" class="td">Delete</a></td>
+                                <td class="td"><a href="Robotpanel.php?mac=<?php echo $row['mac']; ?>" class="td">Delete</a></td>
                             </tr>
                         <?php
                         }
                         ?>
-                    </table>
-                </div>
-            </div>
-        </div>
+           
+      </table>
     </div>
-    <?php   //selects Id from userId and deletes it
-    include 'dbh.php';
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "DELETE FROM `user` WHERE userId = '$id'";
-        $run = mysqli_query($conn, $query);
-        if ($run) {
-            header('location:Userpanel.php');
-        } else {
-            echo "Error: " . mysqli_error($conn);
+    </div>
+    <?php   //selects mac from robots and deletes it
+    
+        include 'connect.php';
+        if ($id = filter_input(INPUT_GET, "mac", FILTER_VALIDATE_INT)) {
+            $query = "DELETE FROM `robots` WHERE mac = ?";
+            
+             $stmt = mysqli_prepare($conn, $query);
+             mysqli_stmt_bind_param($stmt, 'i', $id);
+              if (mysqli_stmt_execute($stmt)) {
+    
+                echo "Record deleted successfully";
+                header("location: Robotpanel.php");
+              }
+            else {
+                echo "Error: " . mysqli_error($conn);
+            }
         }
-    }
     ?>
->>>>>>> c9b8c9a433916873af303092d9af82b4b5b4dadf
