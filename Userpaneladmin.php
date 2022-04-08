@@ -1,6 +1,6 @@
 <?php
 include "Sidebar.php";
-require_once("connect.php);
+require_once("connect.php");
 $query = "SELECT * FROM `users`";
 $result = mysqli_query($conn, $query);
 
@@ -13,18 +13,16 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
     <title>View All Data</title>
 </head>
-
+    
 <body class="backgroundforadmin">
     <h1 class="Titlepanel">User Panel</h1>
+    <div class="streamContainer">
     <div class="containerusers">
-        <div class="row">
-            <div class="col m-auto">
-                <div class="card mt-5">
-                    <table class="table table-bordered">
-                        <tr>
+                    <table id="table">
+                        <tr class="userpanelspace">
                             <td class="td"> User ID </td>
                             <td class="td"> User Name </td>
                             <td class="td"> User FirstName </td>
@@ -37,6 +35,7 @@ $result = mysqli_query($conn, $query);
                             <td class="td"> User Date of Birth</td>
                             <td class="td"> Votes</td>
                             <td class="td"> Edit Data </td>
+                            <td class="td"> Edit Password </td>
                             <td class="td"> Delete </td>
                         </tr>
 
@@ -54,10 +53,8 @@ $result = mysqli_query($conn, $query);
                             $status = $row['status'];
                             $UserDate = $row['DoB'];
                             $votes = $row['vote'];
-                            
-
                         ?>
-                            <tr>
+                            <tr class="userpanelspace">
                                 <td class="td"><?php echo $UserID ?></td>
                                 <td class="td"><?php echo $UserName ?></td>
                                 <td class="td"><?php echo $FirstName ?></td>
@@ -70,25 +67,28 @@ $result = mysqli_query($conn, $query);
                                 <td class="td"><?php echo $UserDate ?></td>
                                 <td class="td"><?php echo $votes ?></td>
                                 <td class="td"><a href="updateUser.php" class="td">Edit</a></td>
+                                <td class="td"><a href="updateuserpassword.php" class="td">Edit Password</a></td>
                                 <td class="td"><a href="Userpaneladmin.php?id=<?php echo $row['userID']; ?>" class="td">Delete</a></td>
                             </tr>
                         <?php
                         }
                         ?>
-                    </table>
-                </div>
-            </div>
+            </table> 
         </div>
     </div>
     <?php   //selects Id from userId and deletes it
-    require 'dbh.php';
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "DELETE FROM `users` WHERE userID = '$id'";
-        $run = mysqli_query($conn, $query);
-        if ($run) {
-            header('location:Userpaneladmin.php');
-        } else {
+    include 'connect.php';
+    if ($id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT)) {
+        $query = "DELETE FROM `users` WHERE userID = ?";
+        
+         $stmt = mysqli_prepare($conn, $query);
+         mysqli_stmt_bind_param($stmt, 'i', $id);
+          if (mysqli_stmt_execute($stmt)) {
+
+            echo "Record deleted successfully";
+            header("location: Userpaneladmin.php");
+          }
+        else {
             echo "Error: " . mysqli_error($conn);
         }
     }
@@ -96,4 +96,3 @@ $result = mysqli_query($conn, $query);
 
 </body>
 </html>
->>>>>>> c9b8c9a433916873af303092d9af82b4b5b4dadf:Userpaneladmin.php
