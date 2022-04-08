@@ -9,27 +9,42 @@
 
 			$robotName = $_GET['robotName'];
 
-			$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
+			$info = "SELECT * FROM robots WHERE robotName = ?";
 
+      		if ($stmt = mysqli_prepare($conn, $info)) {
+
+       			 if (mysqli_stmt_execute($stmt)) {
+
+         		 	mysqli_stmt_bind_result($stmt, $robotName);
+
+         			mysqli_stmt_store_result($stmt);
+
+					 if (mysqli_stmt_execute($info))
+					 {
+					   mysqli_stmt_close($info);
+					 } else {
+					   echo "error" . mysqli_error($conn);
+					 }
+				   } else {
+					 echo "error" . mysqli_error($conn);
+				   }
+				}
+		}
+	}
+			/*$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
 			if (!$info) {
 				echo 'Prepare failed' . mysqli_error($conn);
 			}
-
 			$info->bind_param("s", $robotName);
-
 			if (!$info) {
 				echo 'Binding failed' . mysqli_error($conn);
 			}
-
 			$info->execute();
-
 			$result = $info->get_result();
-
 			$infoR = $result->fetch_all(MYSQLI_ASSOC);
-
 			$info->close();
 		}
-	}
+	}*/
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!DOCTYPE html>
