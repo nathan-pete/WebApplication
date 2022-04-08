@@ -53,7 +53,9 @@
                 </div>
 
                 <!--Submit-->
-                <input type="submit" name="submit_feedback_button" value="Submit" class="submit_feedback_button">
+                <!--<input type="submit" name="submit_feedback_button" value="Submit" class="submit_feedback_button">-->
+                <button type="submit" class="submit_feedback_button" name="submit_feedback_button">Submit</button>
+
             </form>
 
 
