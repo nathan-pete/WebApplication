@@ -7,7 +7,29 @@
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       $name = $_GET['name'];
 
-      $query = $conn->prepare("SELECT `votes` FROM games WHERE name = ?");
+      $query = "SELECT `votes` FROM games WHERE name = ?";
+      if ($stmt = mysqli_prepare($conn, $query)) {
+
+        if (mysqli_stmt_execute($stmt)) {
+
+          mysqli_stmt_bind_result($stmt, $name, $picture, $votes);
+
+          mysqli_stmt_store_result($stmt);
+
+          if (mysqli_stmt_num_rows($stmt) === 0) {
+            mysqli_stmt_close($stmt);
+          } else {
+            while (mysqli_stmt_fetch($stmt)) {
+            }
+            mysqli_stmt_close($stmt);
+          }
+        } else {
+          echo "Error: " . mysqli_error($conn);
+        }
+      } else {
+        echo "Error preparing: " . mysqli_error($conn);
+      }
+      /*$query = $conn->prepare("SELECT `votes` FROM games WHERE name = ?");
       mysqli_stmt_bind_param($query, 's', $name);
       $query->execute();
 
@@ -15,15 +37,40 @@
       $query->fetch();
 
       $calc_vote = $amountOfVotes + 1;
-      mysqli_stmt_close($query);
+      mysqli_stmt_close($query);*/
 
-      $update_query = mysqli_prepare($conn, "UPDATE games SET votes = ? WHERE `name`=?");
+      
+      /*$update_query = mysqli_prepare($conn, "UPDATE games SET votes = ? WHERE `name`=?");
       mysqli_stmt_bind_param($update_query, 'is', $calc_vote, $name);
 
       mysqli_stmt_execute($update_query);
-      $update_query->execute();
-    }
-  }
+      $update_query->execute();*/
+
+
+  $query = "UPDATE games SET votes = ? WHERE `name` = ?";
+
+        if($statement = mysqli_prepare($conn, $query))
+        {
+            mysqli_stmt_bind_param( $statement, 'is', $votes, $name);
+            mysqli_stmt_store_result($statement);
+            
+            if(mysqli_stmt_execute($statement)) {
+                echo "Query executed";
+            }
+            else 
+            {
+                echo "Error executing query";
+                die(mysqli_error($conn));
+            }
+                echo"<br>";
+            }
+            else{
+                echo "Prepare error";
+                die(mysqli_error($conn));
+            }
+          }
+        }
+
   /*try{
    //do something
   }catch{
