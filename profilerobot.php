@@ -125,7 +125,7 @@
 					if ($_GET['robotName']) {
 						if ($infoR) {
 							foreach ($infoR as $robot) {
-								echo '<img src="uploads/robots/robot0.png"  class="robotimg" alt="robotImg">';
+                              echo "<img src='./uploads/robots/" . $robot['robotPicture'] . "' alt='Picture of the robot' class='robotimg'>";
 							}
 						}
 					}
