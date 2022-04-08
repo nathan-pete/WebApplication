@@ -17,8 +17,8 @@
     </style>
 </head>
 <body>
-    <div class="body">
-
+    <div class="streamContainer">
+        <div class="body">
     <?php
             
             
@@ -30,7 +30,7 @@
             $result = $stmt->get_result();
         ?>
         <h1 class="Titlepanel">Feedback Overview</h1>
-        
+        <div class="contrainerusersrobot">
         <table class="table">
             <tr>
                 <th class="td">Id</th>
@@ -60,6 +60,8 @@
                                 <td class="td"><?php echo $img ?></td>
                                 <td class="td"><a href="feedback.php?IDFeedback=<?php echo $row['IDFeedback']; ?>" class="td">Delete</a></td>
         </table>
+        </div>
+        </div>
              <?php   
             } 
             ?>
@@ -76,7 +78,8 @@
                    echo "Error: " . mysqli_error($conn);
                }
            }
-           ?>  
+           ?> 
+    </div>
 </div>
 </body>
 </html>
