@@ -60,7 +60,7 @@ body {
 }
 
 .nav input:checked ~ .menu {
-  width: 750px;
+  width: 660px;
 }
 
 .h-sign {
