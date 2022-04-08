@@ -55,7 +55,7 @@
                 <input type="text" name="post_email" value="<?php echo $get_email; ?>">                
                 
                 <!--Submit-->
-                <input type="submit" class="registerbtn" name="placed" value="Place">
+                <input type="submit" class="registerbtn" name="placed" value="Update">
             </form>
         </div>
 
