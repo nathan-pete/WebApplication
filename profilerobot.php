@@ -5,32 +5,16 @@
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		if (isset($_GET['robotName'])) {
-
-
 			$robotName = $_GET['robotName'];
-
 			$info = "SELECT * FROM robots WHERE robotName = ?";
-
       		if ($stmt = mysqli_prepare($conn, $info)) {
-
+                  mysqli_stmt_bind_param($stmt, 's', $robotName);
        			 if (mysqli_stmt_execute($stmt)) {
-
-         		 	mysqli_stmt_bind_result($stmt, $robotName);
-
-         			mysqli_stmt_store_result($stmt);
-
-					 if (mysqli_stmt_execute($info))
-					 {
-					   mysqli_stmt_close($info);
-					 } else {
-					   echo "error" . mysqli_error($conn);
-					 }
-				   } else {
-					 echo "error" . mysqli_error($conn);
-				   }
-				}
-		}
-	}
+                    $infoR = mysqli_stmt_get_result($stmt);
+                    mysqli_fetch_array($infoR);
+  
+                   
+                 
 			/*$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
 			if (!$info) {
 				echo 'Prepare failed' . mysqli_error($conn);
@@ -136,6 +120,16 @@
 							}
 						}
 					}
+                  }
+                    mysqli_stmt_close($stmt);
+                  } else {
+                  echo "error" . mysqli_error($conn);
+                }
+                  } else {
+                  echo "error" . mysqli_error($conn);
+                }
+                  
+                  }
 				?>
 			</div>
 		</div>

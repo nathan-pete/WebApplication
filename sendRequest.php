@@ -23,7 +23,7 @@
 		}
 
 		foreach ($messages as $userName => $txt) {
-			echo "<p>" . substr($userName, 0, -4) . ": " . $txt . "</p>";
+			echo "<b><p>" . substr($userName, 0, -4) . ":</b> " . $txt . "</p>";
 		}
 
 
