@@ -18,33 +18,37 @@
     <div class="main-feed">
         <h1 class="main-content-heading-feedback">Feedback</h1>
         <div class="feedback_inputs">
-            <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" >
+            <form action="<?= htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data" id="feedback_form">
                 <!--1-->
-                <p>The event was interesting and entertaining:</p>
-                <input type="radio" id="agree" name="event_fel" value="agree" checked="checked">
-                <label for="agree">Agree</label>
-                <input type="radio" id="disagree" name="event_fel" value="disagree">
-                <label for="disagree">Disagree</label>
-
-
+                <div class="event">
+                    <p>The event was interesting and entertaining:</p>
+                    <input type="radio" id="agree" name="event_fel" value="agree" checked="checked">
+                    <label for="agree">Agree</label>
+                    <input type="radio" id="disagree" name="event_fel" value="disagree">
+                    <label for="disagree">Disagree</label>
+                </div>
+                <br>
                 <!--2-->
                 <div class="future_events">
-                <p>Would you like more events like this in the future?</p>
-                <input type="radio" id="yes" name="future_eve" value="yes" checked="checked">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="future_eve" value="no">
-                <label for="no">No</label>
+                    <p>Would you like more events like this in the future?</p>
+                    <input type="radio" id="yes" name="future_eve" value="yes" checked="checked">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="future_eve" value="no">
+                    <label for="no">No</label>
                 </div>
+                <br>
                 <!--Event photo-->
                 <div class="event_image">
                         <label for="image" class="event-image-text">Do you want to share photos with us?</label>
                         <br>
                         <input type="file" name="event_photo">
                 </div>
+                <br>
                 <div class="additional_message">
                 <label for="additional_message" class="event-image-text">Additional message</label>
                 <input type="text" name="additional_message">
                 </div>
+                <br>
                 
                 <!--Email-->
                 <div class="email">
