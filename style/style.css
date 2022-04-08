@@ -1818,7 +1818,7 @@ input[type=text], input[type=password] {
 
 
 /*-------------------------- Login END--------------------------*/
-/*--------------------------Feedback Start--------------------------*/
+/*--------------------------Feedback Overview Start--------------------------*/
 
 table {
   border-collapse: collapse;
@@ -1841,9 +1841,86 @@ p .del-sub {
   color: red;
 }
 
-.submit_feedback_button {
-  border-radius: 20px;
+/*--------------------------Feedback Overview End--------------------------*/
+/*--------------------------Feedback Start--------------------------*/
+.main-feed{
+  /*padding-bottom: 400px;*/
 }
+.main-content-heading-feedback{
+  padding-top: 40px;
+  font-family: "Obitron", sans-serif;
+  font-size: 50px;
+  padding-bottom: 50px;
+}
+.feedback_inputs{
+  font-family: "Obitron", sans-serif;
+  font-size: 25px;
+}
+
+/*Button Glow */
+
+.submit_feedback_button {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.submit_feedback_button:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.submit_feedback_button:active {
+  color: #000
+}
+
+.submit_feedback_button:active:after {
+  background: transparent;
+}
+
+.submit_feedback_button:hover:before {
+  opacity: 1;
+}
+
+.submit_feedback_button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+/*--------------------------Feedback End--------------------------*/
 
 
 /* Logout page start*/
@@ -2009,3 +2086,5 @@ body {
   radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
   radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent);
 }
+
+

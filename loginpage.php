@@ -34,15 +34,13 @@
 	require "connect.php";
 	
 	// Checking if user is logged in
-	//	if (isset($_SESSION['loggedIn'])) {
-	//		header("location: index.php");
-	//		exit;
-	//	} else {
-	//		$_SESSION['loggedIn'] = 0;
-	//	}
+	if (isset($_SESSION['loggedIn'])) {
+		header("location: index.php");
+		exit;
+	} else {
+		$_SESSION['loggedIn'] = 0;
+	}
 	
-	include_once "header.php";
-	require_once "connect.php";
 ?>
 <div class="main-content">
 	<div class="login-title">
