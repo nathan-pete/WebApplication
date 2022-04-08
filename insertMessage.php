@@ -8,10 +8,16 @@
 			try {
 				$userID = $_SESSION['userID'];
 				global $conn;
-				$sql = $conn->prepare("INSERT INTO `comments` (`message`, `userID`) VALUES (?,?)");
-				$sql->bind_param("si", $message, $userID);
-				$sql->execute();
-				$sql->close();
+				$stmt = mysqli_prepare($conn, "INSERT INTO `comments` (`message`, `userID`) VALUES (?,?)");
+				mysqli_stmt_bind_param($stmt, "si", $message, $userID);
+				if(mysqli_stmt_execute($stmt)){
+				    echo "Data inserted successfully.";
+				}
+				// else data not inserted
+				else{
+				    echo "Something going wrong!";
+				}
+				mysqli_close($conn);
 
 
 

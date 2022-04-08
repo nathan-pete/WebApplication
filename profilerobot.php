@@ -5,31 +5,30 @@
 <?php
 	if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		if (isset($_GET['robotName'])) {
-
-
 			$robotName = $_GET['robotName'];
-
-			$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
-
+			$info = "SELECT * FROM robots WHERE robotName = ?";
+      		if ($stmt = mysqli_prepare($conn, $info)) {
+                  mysqli_stmt_bind_param($stmt, 's', $robotName);
+       			 if (mysqli_stmt_execute($stmt)) {
+                    $infoR = mysqli_stmt_get_result($stmt);
+                    mysqli_fetch_array($infoR);
+  
+                   
+                 
+			/*$info = $conn->prepare("SELECT * FROM robots WHERE robotName = ?");
 			if (!$info) {
 				echo 'Prepare failed' . mysqli_error($conn);
 			}
-
 			$info->bind_param("s", $robotName);
-
 			if (!$info) {
 				echo 'Binding failed' . mysqli_error($conn);
 			}
-
 			$info->execute();
-
 			$result = $info->get_result();
-
 			$infoR = $result->fetch_all(MYSQLI_ASSOC);
-
 			$info->close();
 		}
-	}
+	}*/
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!DOCTYPE html>
@@ -121,6 +120,16 @@
 							}
 						}
 					}
+                  }
+                    mysqli_stmt_close($stmt);
+                  } else {
+                  echo "error" . mysqli_error($conn);
+                }
+                  } else {
+                  echo "error" . mysqli_error($conn);
+                }
+                  
+                  }
 				?>
 			</div>
 		</div>
