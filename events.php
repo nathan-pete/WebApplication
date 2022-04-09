@@ -33,21 +33,20 @@
     include('header.php');
   }
 ?>
-<div class="streamContainer">
-  <div class="body2">
-    <div class="events-title">
-      <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
-    </div>
-    <div class="events-content">
-      <?php
-        require_once "./connect.php";
-        $query = "SELECT `name`, `picture`,`descrption`FROM games";
-        if ($stmt = mysqli_prepare($conn, $query)) {
-          if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_bind_result($stmt, $name, $picture, $description);
-            mysqli_stmt_store_result($stmt);
-            if (mysqli_stmt_num_rows($stmt) === 0) {
-              echo '
+<div class="body">
+  <div class="events-title">
+    <h1 style="font-weight: 700; pointer-events: none;">Events</h1>
+  </div>
+  <div class="events-content">
+    <?php
+      require_once "./connect.php";
+      $query = "SELECT `name`, `picture`,`descrption`FROM games";
+      if ($stmt = mysqli_prepare($conn, $query)) {
+        if (mysqli_stmt_execute($stmt)) {
+          mysqli_stmt_bind_result($stmt, $name, $picture, $description);
+          mysqli_stmt_store_result($stmt);
+          if (mysqli_stmt_num_rows($stmt) === 0) {
+            echo '
               <div class="event-items">
                 <a href="liveEvent.php">
                   <div class="event-img">
@@ -57,10 +56,10 @@
                   </div>
               </div>
             ';
-              mysqli_stmt_close($stmt);
-            } else {
-              while (mysqli_stmt_fetch($stmt)) {
-                echo '
+            mysqli_stmt_close($stmt);
+          } else {
+            while (mysqli_stmt_fetch($stmt)) {
+              echo '
                 <div class="event-items">
                   <a href="liveEvent.php">
                     <div class="event-img">
@@ -73,20 +72,19 @@
                 </div>
                 <div class="space-event"></div>
               ';
-              }
-              mysqli_stmt_close($stmt);
             }
-          } else {
-            echo "Error: " . mysqli_error($conn);
+            mysqli_stmt_close($stmt);
           }
         } else {
-          echo "Error preparing: " . mysqli_error($conn);
+          echo "Error: " . mysqli_error($conn);
         }
-      ?>
-    </div>
+      } else {
+        echo "Error preparing: " . mysqli_error($conn);
+      }
+    ?>
   </div>
-  <div class="space-event"></div>
 </div>
+<div class="space-event"></div>
 <?php
   include_once "footer.html";
 ?>
