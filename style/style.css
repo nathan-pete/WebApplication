@@ -26,6 +26,12 @@ body {
   margin: 0 auto;
 }
 
+.body2 {
+
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
 /*------------------------------General End------------------------------*/
 /*------------------------------Header Start-----------------------------*/
 .header-style, .nav, .menu {
@@ -54,7 +60,7 @@ body {
 }
 
 .nav input:checked ~ .menu {
-  width: 750px;
+  width: 660px;
 }
 
 .h-sign {
@@ -1017,6 +1023,7 @@ body {
     margin-left: 20px;
     margin-bottom: 20px;
     background-color: lightgray;
+}
 
 /* -------------------------------Vote for a game page ----------------------------------------------------------------*/
 a.animated-button.victoria-two {
@@ -1169,6 +1176,10 @@ a.animated-button.victoria-two:after {
 
 /*-------------------------- Vote for a game page END--------------------------*/
 
+
+/*-----------------------------Minigames home start-------------------------------*/
+
+/*-----------------------------Minigames home end-------------------------------*/
 
 /*-----------------------------2048 Game-------------------------------*/
 
@@ -1843,16 +1854,18 @@ p .del-sub {
 
 /*--------------------------Feedback Overview End--------------------------*/
 /*--------------------------Feedback Start--------------------------*/
-.main-feed{
+.main-feed {
   /*padding-bottom: 400px;*/
 }
-.main-content-heading-feedback{
+
+.main-content-heading-feedback {
   padding-top: 40px;
   font-family: "Obitron", sans-serif;
   font-size: 50px;
   padding-bottom: 50px;
 }
-.feedback_inputs{
+
+.feedback_inputs {
   font-family: "Obitron", sans-serif;
   font-size: 25px;
 }
@@ -1877,7 +1890,7 @@ p .del-sub {
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -1914,9 +1927,15 @@ p .del-sub {
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 
@@ -2077,14 +2096,3 @@ p .del-sub {
   border: 3px black solid;
   margin-left: 300px;
 }
-
-body {
-  /*background-color: black;*/
-  height: auto;
-  background: radial-gradient(circle farthest-corner at 35% 90%, #1a626f, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 20% -50%, #529bcf, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 100% 0, #3d67c2, transparent 50%),
-  radial-gradient(ellipse farthest-corner at 100% 100%, #3161d9, transparent);
-}
-
-

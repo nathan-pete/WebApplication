@@ -13,26 +13,26 @@
   <!--Highlight the page the user has open. Home in this case-->
   <?php
     echo "
-      <style>
-        .header-style .nav .menu .home{
-          color: #83c0ff;
-        }
-        .header-style .nav .menu .home:hover{
-          color: #0386FF;
-          text-decoration: none;
-        }
-      </style>
-    ";
+          <style>
+            .header-style .nav .menu .home{
+              color: #83c0ff;
+            }
+            .header-style .nav .menu .home:hover{
+              color: #0386FF;
+              text-decoration: none;
+            }
+          </style>
+        ";
   ?>
 </head>
 <body>
 <?php
-  if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1){
-        include('header.php');
+  if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == 1) {
+    include('header.php');
   } elseif (isset($_SESSION['robotLoggedIn']) && $_SESSION['robotLoggedIn'] == TRUE) {
-        include('headerRobot.php');
+    include('headerRobot.php');
   } else {
-      include('header.php');
+    include('header.php');
   }
 ?>
 <div class="space-pass"></div>
@@ -45,6 +45,8 @@
       <img src="./assets/PBBblack.png" alt="Battle bot" width="55%">
     </div>
   </div>
+  <div class="space-pass"></div>
+  <br>
   <!--Scroll group title-->
   <div id="indexScrollTitle">
     <h2>Welcome to Project Battle Bots!</h2>
@@ -61,19 +63,19 @@
           while (mysqli_stmt_fetch($stmt)) {
             if ($robotPicture == NULL) {
               echo '
-                <div class="indexScrollItem">
-                  <a href="profilerobot.php?robotName=' . $robotName . '">
-                    <h4>' . $robotName . '</h4>
-                  </a>
-                </div>';
+                    <div class="indexScrollItem">
+                      <a href="profilerobot.php?robotName=' . $robotName . '">
+                        <h4>' . $robotName . '</h4>
+                      </a>
+                    </div>';
             } else {
               echo '
-                <div class="indexScrollItem">
-                  <a href="profilerobot.php?robotName=' . $robotName . '">
-                    <h4>' . $robotName . '</h4>
-                    <img src="./uploads/robots/robot0.png"  alt="Picture of the robot" class="index-img">
-                  </a>
-                </div>';
+                    <div class="indexScrollItem">
+                      <a href="profilerobot.php?robotName=' . $robotName . '">
+                        <h4>' . $robotName . '</h4>';
+              echo '<a href="profilerobot.php?robotName=' . $robotName . '">' . '<img src="./uploads/robots/robot0.png" alt="Picture of the robot" class="index-img"></a>';
+              echo '</a>
+                    </div>';
             }
           }
         } else {
@@ -87,13 +89,9 @@
       mysqli_stmt_close($stmt);
     ?>
   </div>
-  <div class="space-indx"></div>
+  <div class="space-pass"></div>
+  <br>
 </div>
-<div id="indexMoreButton">
-  <p><a class="indexa" href="loginpage.php"><b>Login</b></a></p>
-</div>
-
-
 <?php
   include_once "footer.html";
 ?>

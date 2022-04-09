@@ -114,31 +114,29 @@
                       echo "<p><input type='submit' name='bet' value='Place Bet' class='input-bttn'></p>";
                       if (isset($_POST['bet'])) {
                         if (!empty($_POST['name']) && !empty($_POST['game']) && !empty($_POST['place']) && !empty($_POST['amount'])) {
-                          $id = $_SESSION['user_Id'];
                           $robotName = $_POST['name'];
                           $gameName = $_POST['game'];
                           $place = $_POST['place'];
                           $betAmount = $_POST['amount'];
                           $sql = "SELECT points FROM users WHERE userID=?"; //the query for selecting from the database
                           if ($stmt = mysqli_prepare($conn, $sql)) { //database parses, compiles, and performs query optimization and stores w/o executing
-                            mysqli_stmt_bind_param($stmt, "i", $id); //bind values to parameters
+                            mysqli_stmt_bind_param($stmt, "i", $userID); //bind values to parameters
                             if (mysqli_stmt_execute($stmt)) { //execute stmt
                               $result = mysqli_stmt_get_result($stmt); //get result
                               while ($row = mysqli_fetch_assoc($result)) { //fetch results
                                 if ($row['points'] > $betAmount) {
                                   $sql = "INSERT INTO bets (userID, robotName, gameName, betAmount, position) VALUES (?,?,?,?,?)";
                                   if ($stmt = mysqli_prepare($conn, $sql)) {
-                                    mysqli_stmt_bind_param($stmt, "issii", $id, $robotName, $gameName, $betAmount, $place);
+                                    mysqli_stmt_bind_param($stmt, "issii", $userID, $robotName, $gameName, $betAmount, $place);
                                     if (mysqli_stmt_execute($stmt)) {
                                       mysqli_stmt_close($stmt); //close statement
                                       $sql = "UPDATE users SET points = ? WHERE userID = ?";
                                       $newPoints = $row['points'] - $betAmount;
                                       if ($stmt = mysqli_prepare($conn, $sql)) {
-                                        mysqli_stmt_bind_param($stmt, "ii", $newPoints, $id);
+                                        mysqli_stmt_bind_param($stmt, "ii", $newPoints, $userID);
                                         if (mysqli_stmt_execute($stmt)) {
                                           mysqli_stmt_close($stmt); //close statement
                                           mysqli_close($conn); // close connection
-                                          mysqli_close($conn);
                                           echo "Your bet is placed!";
                                         } else {
                                           echo "Error preparing: " . mysqli_error($conn);
@@ -161,7 +159,6 @@
                                   mysqli_close($conn);
                                 }
                               }
-                              mysqli_stmt_close($stmt);
                             } else {
                               echo "Error: " . mysqli_error($conn);
                               mysqli_close($conn);
@@ -178,6 +175,14 @@
                 </form>
               </div>
           </div>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
+            <p></p>
+            <br>
         </div>
         <?php
           include_once "footer.html";
