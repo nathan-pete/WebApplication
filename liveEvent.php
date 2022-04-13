@@ -22,7 +22,7 @@
 <div class="streamContainer">
   <div id="stream_video">
     <iframe style="-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 25%);"
-            src="http://root:passw0rd098!@camera1.serverict.nl/mjpg/1/video.mjpg?Axis-Orig-Sw=true" width="1080" height="1920"></iframe>
+            src="https://www.youtube.com/watch?v=zwOxXY4wnTc" width="1080" height="1920"></iframe>
   </div>
 </div>
 
